@@ -15,12 +15,43 @@
   # release notes.
   home.stateVersion = "24.11"; # Please read the comment before changing.
 
+  programs.neovim = {
+    enable = true;
+    defaultEditor = true;
+    viAlias = true;
+    vimAlias = true;
+    vimdiffAlias = true;
+  };
+
+programs.git = {
+  enable = true;
+  userName = "Othi";
+  userEmail = "mnpq.raven@gmail.com";
+  aliases = {
+    st = "status";
+  };
+  extraConfig = {
+    # Sign all commits using ssh key
+    commit.gpgsign = true;
+    gpg.format = "ssh";
+    gpg.ssh.allowedSignersFile = "~/.ssh/allowed_signers";
+    user.signingkey = "~/.ssh/id_ed25519.pub";
+    push = { autoSetupRemote = true; };
+  };
+};
+
   # The home.packages option allows you to install Nix packages into your
   # environment.
-  home.packages = [
+  home.packages = with pkgs; [
     # # Adds the 'hello' command to your environment. It prints a friendly
     # # "Hello, world!" when run.
     # pkgs.hello
+alacritty
+bat
+cargo
+flameshot
+gcc
+librewolf
 
     # # It is sometimes useful to fine-tune packages, for example, by applying
     # # overrides. You can do that directly here, just don't forget the
@@ -49,6 +80,8 @@
     #   org.gradle.console=verbose
     #   org.gradle.daemon.idletimeout=3600000
     # '';
+# TODO: dynamic user name
+    ".ssh/allowed_signers".text = "* ${builtins.readFile /home/othi/.ssh/id_ed25519.pub}";
   };
 
   # Home Manager can also manage your environment variables through
