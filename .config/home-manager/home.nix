@@ -22,23 +22,37 @@
     vimAlias = true;
     vimdiffAlias = true;
   };
+  programs.zsh = {
+    enable = true;
+    autocd = true;
+    enableCompletion = true;
+    autosuggestion.enable = true;
+    syntaxHighlighting.enable = true;
+    initExtra = ''
+      eval "$(zoxide init zsh)"\n
+      eval "$(starship init zsh)"'';
+    shellAliases = {
+      rebuild = "sudo nixos-rebuild switch";
+      zm = "zellij";
+      v = "nvim";
+    };
+    history.size = 10000;
+  };
 
-programs.git = {
-  enable = true;
-  userName = "Othi";
-  userEmail = "mnpq.raven@gmail.com";
-  aliases = {
-    st = "status";
+  programs.git = {
+    enable = true;
+    userName = "Othi";
+    userEmail = "mnpq.raven@gmail.com";
+    aliases = { st = "status"; };
+    extraConfig = {
+      # Sign all commits using ssh key
+      commit.gpgsign = true;
+      gpg.format = "ssh";
+      gpg.ssh.allowedSignersFile = "~/.ssh/allowed_signers";
+      user.signingkey = "~/.ssh/id_ed25519.pub";
+      push = { autoSetupRemote = true; };
+    };
   };
-  extraConfig = {
-    # Sign all commits using ssh key
-    commit.gpgsign = true;
-    gpg.format = "ssh";
-    gpg.ssh.allowedSignersFile = "~/.ssh/allowed_signers";
-    user.signingkey = "~/.ssh/id_ed25519.pub";
-    push = { autoSetupRemote = true; };
-  };
-};
 
   # The home.packages option allows you to install Nix packages into your
   # environment.
@@ -46,12 +60,17 @@ programs.git = {
     # # Adds the 'hello' command to your environment. It prints a friendly
     # # "Hello, world!" when run.
     # pkgs.hello
-alacritty
-bat
-cargo
-flameshot
-gcc
-librewolf
+    alacritty
+    bat
+    cargo
+    flameshot
+    gcc
+    librewolf
+    nerdfonts
+    protobuf
+    starship
+    zellij
+    zoxide
 
     # # It is sometimes useful to fine-tune packages, for example, by applying
     # # overrides. You can do that directly here, just don't forget the
@@ -80,8 +99,18 @@ librewolf
     #   org.gradle.console=verbose
     #   org.gradle.daemon.idletimeout=3600000
     # '';
-# TODO: dynamic user name
-    ".ssh/allowed_signers".text = "* ${builtins.readFile /home/othi/.ssh/id_ed25519.pub}";
+    # TODO: dynamic user name
+    ".ssh/allowed_signers".text =
+      "* ${builtins.readFile /home/othi/.ssh/id_ed25519.pub}";
+    ".config/zellij/config.kdl".source =
+      "/home/othi/dotfiles_nix/.config/zellij/config.kdl";
+
+    ".config/starship.toml".source =
+      "/home/othi/dotfiles_nix/.config/starship.toml";
+    ".config/nvim" = {
+      source = "/home/othi/dotfiles_nix/.config/nvim";
+      recursive = true;
+    };
   };
 
   # Home Manager can also manage your environment variables through

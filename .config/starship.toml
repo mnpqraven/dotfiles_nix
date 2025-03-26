@@ -1,0 +1,145 @@
+### Prompt
+
+# The format layout for the prompt is as follows:
+
+# left side
+# fill
+# right prompt info
+# right prompt tools and versions
+# prompt character
+
+# Commands may be slower in restricted environments, e.g. containers
+command_timeout = 1000
+
+format = """
+ $username$hostname$directory$git_branch$git_commit$git_state$git_status\
+$fill\
+$jobs$status$cmd_duration\
+$kubernetes$python$aws$nodejs$docker_context$golang${custom.disk}$memory_usage$time$battery
+$character
+"""
+
+# TODO: transient prompt released in v1.10.1
+
+[fill]
+symbol = " "
+
+[character]
+success_symbol = "[❯](green)"
+
+### Left prompt
+
+[sudo]
+disabled = false
+symbol = "🧙"
+format = "[$symbol]($style)"
+
+[username]
+# Don't display for normal logged in user
+disabled = true
+style_user = "#d3b987"
+format = "[$user]($style)"
+
+[hostname]
+disabled = false
+ssh_only = false
+style = "#d3b987"
+format = "[@$hostname]($style)[ ](#767676)"
+
+[directory]
+read_only = " "
+truncation_length = 2
+truncate_to_repo = false
+repo_root_style = "#0087af"
+fish_style_pwd_dir_length = 2
+style = "#00afff"
+# Repo format
+repo_root_format = "[ $before_root_path]($style)[$repo_root]($repo_root_style)[$path]($style)[$read_only]($read_only_style) "
+# Non repo format
+format = "[ $path]($style)[$read_only]($read_only_style) "
+
+[git_branch]
+symbol = " "
+style = "green"
+format = "[ ](#767676)[$symbol$branch]($style)"
+
+[git_status]
+stashed = "[*${count}](blue) "
+modified = "[!${count}](yellow) "
+staged = "[+${count}](green) "
+untracked = "[?${count}](blue) "
+deleted = "[-${count}](red) "
+format = " ([$stashed$modified$staged$untracked $ahead_behind]($style))"
+#format = " ([$all_status $ahead_behind]($style))"
+
+### Right prompt info
+
+[jobs]
+disabled = false
+format = "[$number]($style)"
+
+[status]
+disabled = false
+map_symbol = false
+format = "[$symbol$status]($style) "
+
+[cmd_duration]
+style = "#a8a8a8"
+format = "([ ](#767676)[$duration ]($style) )"
+
+### Right prompt tools and versions
+
+[golang]
+symbol = " "
+format = "([ ](#767676)[$symbol($version)]($style) )"
+
+[nodejs]
+symbol = " "
+format = "([ ](#767676)[$symbol($version)]($style) )"
+
+[python]
+symbol = " "
+format = '([ ](#767676)[${symbol}${pyenv_prefix}(${version} )([\($virtualenv\)](#306998))]($style) )'
+
+[aws]
+disabled = false
+symbol = " "
+format = '([ ](#767676)[$symbol$profile(\[$duration\])]($style) )'
+
+[conda]
+symbol = " "
+
+[docker_context]
+symbol = " "
+format = "([ ](#767676)[$symbol$context]($style) )"
+
+[nix_shell]
+symbol = " "
+
+[memory_usage]
+disabled = true
+threshold = -1
+symbol = ""
+style = "#5f8787"
+format = "([ ](#767676)[$ram_pct $symbol]($style) )"
+
+[time]
+disabled = true
+format = "([ ](#767676)[$time]($style) )"
+
+[shlvl]
+disabled = true
+
+[[battery.display]]
+threshold = 25
+
+### Custom plugins
+
+[custom.disk]
+disabled = true
+description = "Show % of disk used"
+#command = "df -k | grep /dev/sda1 |  awk '{ print $5 }' | head -n 1 | sed 's/%//'"
+command = 'df -h --output=avail "$PWD" | tail -n 1'
+style = "#00af5f"
+format = "[ ](#767676)[$output ]($style) "
+when = "true"
