@@ -1,74 +1,129 @@
 { config, pkgs, ... }:
 
-{
+let
+  username = "othi";
+  HOME = "/home/${username}";
+  DHOME = "${HOME}/dotfiles_nix";
+  sshKind = "id_ed25519";
+in {
   # Home Manager needs a bit of information about you and the paths it should
   # manage.
-  home.username = "othi";
-  home.homeDirectory = "/home/othi";
-
-  # This value determines the Home Manager release that your configuration is
-  # compatible with. This helps avoid breakage when a new Home Manager release
-  # introduces backwards incompatible changes.
-  #
-  # You should not change this value, even if you update Home Manager. If you do
-  # want to update the value, then make sure to first check the Home Manager
-  # release notes.
+  home.username = username;
+  home.homeDirectory = HOME;
+  home.sessionVariables = { DHOME = DHOME; };
   home.stateVersion = "24.11"; # Please read the comment before changing.
 
-  programs.neovim = {
-    enable = true;
-    defaultEditor = true;
-    viAlias = true;
-    vimAlias = true;
-    vimdiffAlias = true;
-  };
-  programs.zsh = {
-    enable = true;
-    autocd = true;
-    enableCompletion = true;
-    autosuggestion.enable = true;
-    syntaxHighlighting.enable = true;
-    initExtra = ''
-      eval "$(zoxide init zsh)"\n
-      eval "$(starship init zsh)"'';
-    shellAliases = {
-      rebuild = "sudo nixos-rebuild switch";
-      zm = "zellij";
-      v = "nvim";
-    };
-    history.size = 10000;
-  };
+  programs = {
+    home-manager.enable = true;
 
-  programs.git = {
-    enable = true;
-    userName = "Othi";
-    userEmail = "mnpq.raven@gmail.com";
-    aliases = { st = "status"; };
-    extraConfig = {
-      # Sign all commits using ssh key
-      commit.gpgsign = true;
-      gpg.format = "ssh";
-      gpg.ssh.allowedSignersFile = "~/.ssh/allowed_signers";
-      user.signingkey = "~/.ssh/id_ed25519.pub";
-      push = { autoSetupRemote = true; };
+    neovim = {
+      enable = true;
+      defaultEditor = true;
+      viAlias = true;
+      vimAlias = true;
+      vimdiffAlias = true;
+    };
+
+    zoxide.enable = true;
+    zoxide.enableZshIntegration = true;
+    starship.enable = true;
+    starship.enableZshIntegration = true;
+
+    zsh = {
+      enable = true;
+      autocd = true;
+      enableCompletion = true;
+      autosuggestion.enable = true;
+      syntaxHighlighting.enable = true;
+      oh-my-zsh = {
+        enable = true;
+        plugins = [ "git" "common-aliases" "vi-mode" ];
+      };
+      initExtra = ''
+        bindkey '^o' autosuggest-execute
+        bindkey '^b' backward-word
+        bindkey '^q' backward-delete-word
+        bindkey '^[[3~' delete-char
+        bindkey '^w' forward-word
+        bindkey -M vicmd '^[[3~' forward-char
+
+        eval $(keychain --eval --quiet --nogui ${sshKind})
+      '';
+      shellAliases = {
+        cl = "clear";
+        rf = "clear && macchina";
+        update = ''
+          cargo install $(cargo install --list | grep -E '^[a-z0-9_-]+
+          v[0-9.]+:$' | cut -f1 -d' ')'';
+        btw = "macchina";
+        homerc = "nvim ${DHOME}/.config/home-manager/home.nix";
+        rebuild = "sudo nixos-rebuild switch";
+        zm = "zellij";
+        v = "nvim";
+        cr = "cargo run --";
+        gt = "git tree";
+        gac = "git allcommit";
+        grst = "git reset --soft";
+        gRST = "git reset --hard && git clean -fd";
+        gmnc = "git merge --no-commit";
+        gcom = "git checkout main";
+        qmkf =
+          "git checkout master && git fetch upstream && git pull upstream master && git push origin master";
+
+        vrc = "$EDITOR ${DHOME}/.config/nvim";
+        zrc = "$EDITOR ${DHOME}/.zshrc";
+        zenv = "$EDITOR ${DHOME}/.zshenv";
+        tmrc = "$EDITOR ${DHOME}/.tmux.conf";
+      };
+      history.size = 10000;
+    };
+    git = {
+      enable = true;
+      userName = "Othi";
+      userEmail = "mnpq.raven@gmail.com";
+      aliases = {
+        allcommit = "!git add . && git commit -m";
+        st = "status";
+        tags = "show-ref --abbrev=6 --tags";
+        tree = ''
+          log --graph --abbrev-commit --decorate --date=format:'%d-%m-%Y
+            %H:%M:%S' --format=format:'%C(reverse bold red)%h%C(reset) -
+            %C(white)%ad%C(reset) %C(dim white)(%ar)%C(reset)%C(auto)%d%C(reset)%n'''
+            %C(bold cyan)%s%C(reset) <%C(dim white)%an - %ae%C(reset)>' --all'';
+      };
+      extraConfig = {
+        # Sign all commits using ssh key
+        commit.gpgsign = true;
+        gpg.format = "ssh";
+        gpg.ssh.allowedSignersFile = "${HOME}/.ssh/allowed_signers";
+        user.signingkey = "${HOME}/.ssh/${sshKind}.pub";
+        push = { autoSetupRemote = true; };
+      };
     };
   };
+  # i18n.inputMethod = {
+  #   enabled = "fcitx5";
+  #   fcitx5.addons = with pkgs; [ ];
+  # };
 
-  # The home.packages option allows you to install Nix packages into your
-  # environment.
   home.packages = with pkgs; [
-    # # Adds the 'hello' command to your environment. It prints a friendly
-    # # "Hello, world!" when run.
-    # pkgs.hello
     alacritty
     bat
+    brave
     cargo
+    fd
     flameshot
+    fzf
     gcc
+    keychain
     librewolf
+    nodejs_20
     nerdfonts
     protobuf
+    ripgrep
     starship
+    teams-for-linux
+    wl-clipboard
     zellij
     zoxide
 
@@ -89,50 +144,15 @@
   # Home Manager is pretty good at managing dotfiles. The primary way to manage
   # plain files is through 'home.file'.
   home.file = {
-    # # Building this configuration will create a copy of 'dotfiles/screenrc' in
-    # # the Nix store. Activating the configuration will then make '~/.screenrc' a
-    # # symlink to the Nix store copy.
-    # ".screenrc".source = dotfiles/screenrc;
-
-    # # You can also set the file content immediately.
-    # ".gradle/gradle.properties".text = ''
-    #   org.gradle.console=verbose
-    #   org.gradle.daemon.idletimeout=3600000
-    # '';
-    # TODO: dynamic user name
+    # https://home-manager-options.extranix.com/?query=file&release=release-24.11
     ".ssh/allowed_signers".text =
-      "* ${builtins.readFile /home/othi/.ssh/id_ed25519.pub}";
-    ".config/zellij/config.kdl".source =
-      "/home/othi/dotfiles_nix/.config/zellij/config.kdl";
+      "* ${builtins.readFile "${HOME}/.ssh/${sshKind}.pub"}";
+    ".config/zellij/config.kdl".source = "${DHOME}/.config/zellij/config.kdl";
 
-    ".config/starship.toml".source =
-      "/home/othi/dotfiles_nix/.config/starship.toml";
+    ".config/starship.toml".source = "${DHOME}/.config/starship.toml";
     ".config/nvim" = {
-      source = "/home/othi/dotfiles_nix/.config/nvim";
+      source = "${DHOME}/.config/nvim";
       recursive = true;
     };
   };
-
-  # Home Manager can also manage your environment variables through
-  # 'home.sessionVariables'. These will be explicitly sourced when using a
-  # shell provided by Home Manager. If you don't want to manage your shell
-  # through Home Manager then you have to manually source 'hm-session-vars.sh'
-  # located at either
-  #
-  #  ~/.nix-profile/etc/profile.d/hm-session-vars.sh
-  #
-  # or
-  #
-  #  ~/.local/state/nix/profiles/profile/etc/profile.d/hm-session-vars.sh
-  #
-  # or
-  #
-  #  /etc/profiles/per-user/othi/etc/profile.d/hm-session-vars.sh
-  #
-  home.sessionVariables = {
-    # EDITOR = "emacs";
-  };
-
-  # Let Home Manager install and manage itself.
-  programs.home-manager.enable = true;
 }
