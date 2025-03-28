@@ -93,7 +93,8 @@ in {
           log --graph --abbrev-commit --decorate --date=format:'%d-%m-%Y
             %H:%M:%S' --format=format:'%C(reverse bold red)%h%C(reset) -
             %C(white)%ad%C(reset) %C(dim white)(%ar)%C(reset)%C(auto)%d%C(reset)%n'''
-            %C(bold cyan)%s%C(reset) <%C(dim white)%an - %ae%C(reset)>' --all'';
+            %C(bold cyan)%s%C(reset) <%C(dim white)%an - %ae%C(reset)>' --all
+        '';
       };
       extraConfig = {
         # Sign all commits using ssh key
@@ -119,6 +120,7 @@ in {
     deluge
     eza
     fd
+    feh
     flameshot
     fzf
     gcc
@@ -133,7 +135,6 @@ in {
     ripgrep
     rustup
     starship
-    syncthing
     teams-for-linux
     wl-clipboard
     zellij
