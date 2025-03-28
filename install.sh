@@ -6,7 +6,7 @@ cd dotfiles_nix
 git remote set-url origin git@github.com:mnpqraven/dotfiles_nix.git
 
 # system conf
-sudo cp configuration.nix /etc/nixos
+sudo cp system_confs/configuration.nix /etc/nixos
 
 # creates ssh key
 ssh-keygen
