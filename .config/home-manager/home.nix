@@ -6,12 +6,10 @@ let
   DHOME = "${HOME}/dotfiles_nix";
   sshKind = "id_ed25519";
 in {
-  # Home Manager needs a bit of information about you and the paths it should
-  # manage.
   home.username = username;
   home.homeDirectory = HOME;
   home.sessionVariables = { DHOME = DHOME; };
-  home.stateVersion = "24.11"; # Please read the comment before changing.
+  home.stateVersion = "24.11";
 
   programs = {
     home-manager.enable = true;
@@ -48,8 +46,13 @@ in {
         bindkey -M vicmd '^[[3~' forward-char
 
         eval $(keychain --eval --quiet --nogui ${sshKind})
+        macchina
       '';
       shellAliases = {
+        # built-in overrides
+        ls = "eza";
+        cat = "bat";
+
         cl = "clear";
         rf = "clear && macchina";
         update = ''
@@ -70,6 +73,7 @@ in {
         qmkf =
           "git checkout master && git fetch upstream && git pull upstream master && git push origin master";
 
+        # .rc
         vrc = "$EDITOR ${DHOME}/.config/nvim";
         zrc = "$EDITOR ${DHOME}/.zshrc";
         zenv = "$EDITOR ${DHOME}/.zshenv";
@@ -109,19 +113,23 @@ in {
   home.packages = with pkgs; [
     alacritty
     bat
+    bacon
     brave
-    cargo
+    eza
     fd
     flameshot
     fzf
     gcc
     keychain
     librewolf
+    macchina
     nodejs_20
     nerdfonts
     protobuf
     ripgrep
+    rustup
     starship
+    syncthing
     teams-for-linux
     wl-clipboard
     zellij
@@ -150,6 +158,10 @@ in {
     ".config/zellij/config.kdl".source = "${DHOME}/.config/zellij/config.kdl";
 
     ".config/starship.toml".source = "${DHOME}/.config/starship.toml";
+    ".config/macchina" = {
+      source = "${DHOME}/.config/macchina";
+      recursive = true;
+    };
     ".config/nvim" = {
       source = "${DHOME}/.config/nvim";
       recursive = true;
