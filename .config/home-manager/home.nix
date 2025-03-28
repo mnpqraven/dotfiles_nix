@@ -112,19 +112,23 @@ in {
 
   home.packages = with pkgs; [
     alacritty
-    bat
     bacon
+    bat
     brave
+    btop
+    deluge
     eza
     fd
     flameshot
     fzf
     gcc
+    kalker
     keychain
     librewolf
     macchina
     nodejs_20
     nerdfonts
+    pnpm
     protobuf
     ripgrep
     rustup
