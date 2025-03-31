@@ -1,0 +1,31 @@
+(defvar user "othi")
+
+(defwidget workspaces []
+  (box :class "workspaces" :orientation "v" :valign "start" :spacing 10
+       (wsbutton :index 1)
+       (wsbutton :index 2)
+       (wsbutton :index 3)
+       (wsbutton :index 4)
+       (wsbutton :index 5)
+       (wsbutton :index 6)
+       (wsbutton :index 7)
+       (wsbutton :index 8)
+       (wsbutton :index 9)
+       (wsbutton :index 10)))
+
+(defwidget wsbutton [index]
+  (button :class "wsbutton" :onclick "hyprctl dispatch workspace ${index}" index))
+
+(defwidget bar []
+  (box :orientation "v" :halign "center"
+       (workspaces)))
+
+(defwindow bar
+  :monitor '["<primary>", 0]'
+  :geometry (geometry :x "16px" :y 0 :width "30px" :height "98%" :anchor "center left")
+  :stacking "fg"
+  :windowtype "dock"
+  :reserve (struts :distance "30px" :side "left")
+  :wm-ignore false
+  :exclusive true
+  (bar))

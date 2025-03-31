@@ -1,0 +1,22 @@
+* {
+  all: unset; // Unsets everything so you can style everything from scratch
+}
+
+// Global Styles
+.bar {
+  background-color: #3a3a3a;
+  color: #b0b4bc;
+  padding: 8px;
+  border-radius: 16px;
+}
+
+.workspaces {
+  .wsbutton {
+    border: 1px solid #80a0c0;
+    border-radius: 8px;
+  }
+
+  .wsbutton:hover {
+    background-color: #3e3e3e;
+  }
+}
