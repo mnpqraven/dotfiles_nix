@@ -138,8 +138,9 @@ in {
     rustup
     starship
     teams-for-linux
-    wofi
     wl-clipboard
+    wofi
+    wpaperd
     zellij
     zoxide
 
