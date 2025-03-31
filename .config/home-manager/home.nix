@@ -124,6 +124,7 @@ in {
     flameshot
     fzf
     gcc
+    go
     kalker
     keychain
     librewolf
@@ -136,6 +137,7 @@ in {
     rustup
     starship
     teams-for-linux
+    wofi
     wl-clipboard
     zellij
     zoxide

@@ -13,3 +13,5 @@ ssh-keygen
 
 # symlink
 ln -s ~/dotfiles_nix/.config/home-manager ~/.config/home-manager
+mkdir -p ~/.config/hypr
+ln -sf ~/dotfiles_nix/.config/hypr/hyprland.conf ~/.config/hypr
