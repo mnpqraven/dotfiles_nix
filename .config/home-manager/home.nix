@@ -118,6 +118,7 @@ in {
     brave
     btop
     deluge
+    eww
     eza
     fd
     feh
