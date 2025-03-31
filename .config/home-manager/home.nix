@@ -27,6 +27,10 @@ in {
     starship.enable = true;
     starship.enableZshIntegration = true;
 
+    alacritty = {
+      enable = true;
+      settings.window.opacity = 0.9;
+    };
     zsh = {
       enable = true;
       autocd = true;
@@ -112,7 +116,6 @@ in {
   # };
 
   home.packages = with pkgs; [
-    alacritty
     bacon
     bat
     brave
