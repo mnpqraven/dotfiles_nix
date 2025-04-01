@@ -96,7 +96,8 @@ in {
         tree = ''
           log --graph --abbrev-commit --decorate --date=format:'%d-%m-%Y
             %H:%M:%S' --format=format:'%C(reverse bold red)%h%C(reset) -
-            %C(white)%ad%C(reset) %C(dim white)(%ar)%C(reset)%C(auto)%d%C(reset)%n'''
+            %C(white)%ad%C(reset) %C(dim
+            white)(%ar)%C(reset)%C(auto)%d%C(reset)%n\'\'
             %C(bold cyan)%s%C(reset) <%C(dim white)%an - %ae%C(reset)>' --all
         '';
       };
