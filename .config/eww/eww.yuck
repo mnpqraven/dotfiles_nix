@@ -1,63 +1,43 @@
+(include "./time.yuck")
+(include "./workspaces.yuck")
+(include "./wifi.yuck")
+
 (defvar user "othi")
 (defvar confDir "$HOME/dotfiles_nix/.config/eww")
 (defvar eww "$HOME/.nix-profile/bin/eww -c $HOME/.config/eww")
+(defvar script "sh $HOME/dotfiles_nix/.config/eww/scripts")
 
 ;; states
 (defvar dateOpen false)
 
-(defwidget workspaces []
-  (box :class "workspaces" :orientation "v" :valign "start" :spacing 10
-       (wsbutton :index 1)
-       (wsbutton :index 2)
-       (wsbutton :index 3)
-       (wsbutton :index 4)
-       (wsbutton :index 5)
-       (wsbutton :index 6)
-       (wsbutton :index 7)
-       (wsbutton :index 8)
-       (wsbutton :index 9)
-       (wsbutton :index 10)))
 
-(defpoll hour :interval "1s" "date '+%H'" )
-(defpoll min  :interval "1s" "date '+%M'" )
-(defpoll sec  :interval "1s" "date '+%S'" )
-(defpoll day :interval "1m" "date '+%d'" )
-(defpoll month :interval "1m" "date '+%b'" )
-(defpoll calendar_day :interval "18h" "date '+%d'" )
-(defpoll calendar_year :interval "18h" "date '+%Y'" )
+(defwidget middle []
+  (box :vexpand true))
 
 (defwidget bottom []
-  (eventbox :onhover "${eww} update dateOpen=true"
-            :onhoverlost "${eww} update dateOpen=false"
-            (box
-              :orientation "v"
-              :valign "end"
-              :space-evenly "false"
-              (button hour)
-              (button min)
-              (button sec)
-              (revealer :reveal dateOpen
-                        :transition "slideup"
-                        :duration "200ms"
-                        (button
-                          :onclick "sh ${confDir}/scripts/pop calendar"
-                          (box :orientation "v" month day))))))
+  (box
+    :orientation "v"
+    :space-evenly "false"
+    (wifi)
+    (time)))
 
-(defwidget wsbutton [index]
-  (button
-    :class "wsbutton"
-    :onclick "hyprctl dispatch workspace ${index}" index))
 
 (defwidget bar []
   (box
     :orientation "v"
-    :halign "center"
-       (workspaces)
-       (bottom)))
+    :space-evenly "false"
+    (workspaces)
+    (middle)
+    (bottom)))
 
 (defwindow bar
   :monitor '["<primary>", 0]'
-  :geometry (geometry :x "16px" :y 0 :width "30px" :height "98%" :anchor "center left")
+  :geometry (geometry
+              :x "16px"
+              :y 0
+              :width "30px"
+              :height "98%"
+              :anchor "center left")
   :stacking "fg"
   :windowtype "dock"
   :reserve (struts :distance "30px" :side "left")
@@ -65,16 +45,3 @@
   :exclusive true
   (bar))
 
-(defwidget cal []
-  (calendar
-    :day calendar_day
-    :year calendar_year))
-
-(defwindow calendar
-  :monitor '["<primary>", 0]'
-  :geometry (geometry :x "40px"
-                      :y "7%"
-                      :anchor "bottom left"
-                      :width "270px"
-                      :height "60px")
-  (cal))

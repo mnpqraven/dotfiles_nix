@@ -1,8 +1,9 @@
-#! /usr/bin/env nix-shell
-#! nix-shell -i bash -p bash
+#! /usr/bin/env bash
+
 calendar() {
   LOCK_FILE="$HOME/.cache/eww-calendar.lock"
   EWW_BIN="$HOME/.nix-profile/bin/eww"
+
   run() {
     ${EWW_BIN} -c $HOME/.config/eww open calendar
   }

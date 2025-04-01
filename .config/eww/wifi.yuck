@@ -1,0 +1,6 @@
+(defwidget wifi []
+  (box :orientation "v"
+       :tooltip wifi-name
+       (button :class "wifi-icon" wifi-icon)))
+(defpoll wifi-icon :interval "1s" "sh $HOME/dotfiles_nix/.config/eww/scripts/wifi icon")
+(defpoll wifi-name :interval "1s" "sh $HOME/dotfiles_nix/.config/eww/scripts/wifi name")
