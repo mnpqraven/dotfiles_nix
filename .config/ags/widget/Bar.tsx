@@ -1,5 +1,6 @@
 import { App, Astal, Gtk, Gdk } from "astal/gtk4";
-import { Variable } from "astal";
+import { bind, Variable } from "astal";
+import AstalHyprland from "gi://AstalHyprland";
 
 const time = Variable("").poll(1000, "date");
 
@@ -16,9 +17,8 @@ export default function Bar(gdkmonitor: Gdk.Monitor) {
       application={App}
     >
       <centerbox cssName="centerbox">
-        <button onClicked="echo hello" hexpand halign={Gtk.Align.CENTER}>
-          Welcome to AGS!
-        </button>
+        <Workspaces />
+
         <box />
         <menubutton hexpand halign={Gtk.Align.CENTER}>
           <label label={time()} />

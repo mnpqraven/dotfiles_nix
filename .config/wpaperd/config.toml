@@ -1,6 +1,4 @@
 [default]
 duration = "1m"
 mode = "center"
-
-[any]
 path = "/home/othi/wallpaper/horizontal"
