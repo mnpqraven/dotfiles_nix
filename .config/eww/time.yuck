@@ -13,18 +13,20 @@
     (box
       :orientation "v"
       :space-evenly "false"
-      (button hour)
-      (button min)
-      (button sec)
-      (revealer :reveal dateOpen
-                :transition "slideup"
-                :duration "200ms"
-                (button
-                  :onclick "${script}/pop calendar"
-                  (box :orientation "v" month day))))))
+      hour
+      min
+      sec
+      (revealer
+        :reveal dateOpen
+        :transition "slideup"
+        :duration "200ms"
+        (button
+          :onclick "$EWW_CONF/scripts/pop calendar"
+          (box :orientation "v" month day))))))
 
 (defwidget cal []
   (calendar
+    :show-day-names true
     :day calendar_day
     :year calendar_year))
 

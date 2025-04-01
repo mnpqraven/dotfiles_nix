@@ -8,7 +8,11 @@ let
 in {
   home.username = username;
   home.homeDirectory = HOME;
-  home.sessionVariables = { DHOME = DHOME; };
+  home.sessionVariables = {
+    DHOME = DHOME;
+    EWW_BIN = "${HOME}/.nix-profile/bin/eww";
+    EWW_CONF = "${DHOME}/.config/eww";
+  };
   home.stateVersion = "24.11";
 
   programs = {

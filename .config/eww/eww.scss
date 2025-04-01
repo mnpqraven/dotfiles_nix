@@ -10,6 +10,34 @@
   border-radius: 12px;
 }
 
+.popover-container {
+  border-radius: 12px;
+  background-color: #3a3a3a;
+}
+
+tooltip {
+  border-radius: 12px;
+  background-color: #3a3a3a;
+}
+
+calendar {
+  padding: 4px;
+  border-radius: 12px;
+  background-color: #3a3a3a;
+
+  .calendar {
+  }
+
+  .highlight {
+    border-radius: 4px;
+    background: #353535;
+  }
+
+  :selected {
+    background: #777777;
+  }
+}
+
 .workspaces {
   .wsbutton {
     // border: 1px solid #80a0c0;
