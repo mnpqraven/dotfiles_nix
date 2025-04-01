@@ -136,6 +136,16 @@
     nixfmt-rfc-style
   ];
 
+  system.activationScripts = {
+    sync-system-conf-github = {
+      deps = [ "etc" ];
+      # TODO: dynamic
+      text = ''
+        cp -f /etc/nixos/configuration.nix /home/othi/dotfiles_nix/system_confs/configuration.nix
+      '';
+    };
+  };
+
   # Some programs need SUID wrappers, can be configured further or are
   # started in user sessions.
   # programs.mtr.enable = true;
