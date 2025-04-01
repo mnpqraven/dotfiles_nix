@@ -1,4 +1,9 @@
 (defvar user "othi")
+(defvar confDir "$HOME/dotfiles_nix/.config/eww")
+(defvar eww "$HOME/.nix-profile/bin/eww -c $HOME/.config/eww")
+
+;; states
+(defvar dateOpen false)
 
 (defwidget workspaces []
   (box :class "workspaces" :orientation "v" :valign "start" :spacing 10
@@ -13,12 +18,42 @@
        (wsbutton :index 9)
        (wsbutton :index 10)))
 
+(defpoll hour :interval "1s" "date '+%H'" )
+(defpoll min  :interval "1s" "date '+%M'" )
+(defpoll sec  :interval "1s" "date '+%S'" )
+(defpoll day :interval "1m" "date '+%d'" )
+(defpoll month :interval "1m" "date '+%b'" )
+(defpoll calendar_day :interval "18h" "date '+%d'" )
+(defpoll calendar_year :interval "18h" "date '+%Y'" )
+
+(defwidget bottom []
+  (eventbox :onhover "${eww} update dateOpen=true"
+            :onhoverlost "${eww} update dateOpen=false"
+            (box
+              :orientation "v"
+              :valign "end"
+              :space-evenly "false"
+              (button hour)
+              (button min)
+              (button sec)
+              (revealer :reveal dateOpen
+                        :transition "slideup"
+                        :duration "200ms"
+                        (button
+                          :onclick "sh ${confDir}/scripts/pop calendar"
+                          (box :orientation "v" month day))))))
+
 (defwidget wsbutton [index]
-  (button :class "wsbutton" :onclick "hyprctl dispatch workspace ${index}" index))
+  (button
+    :class "wsbutton"
+    :onclick "hyprctl dispatch workspace ${index}" index))
 
 (defwidget bar []
-  (box :orientation "v" :halign "center"
-       (workspaces)))
+  (box
+    :orientation "v"
+    :halign "center"
+       (workspaces)
+       (bottom)))
 
 (defwindow bar
   :monitor '["<primary>", 0]'
@@ -29,3 +64,17 @@
   :wm-ignore false
   :exclusive true
   (bar))
+
+(defwidget cal []
+  (calendar
+    :day calendar_day
+    :year calendar_year))
+
+(defwindow calendar
+  :monitor '["<primary>", 0]'
+  :geometry (geometry :x "40px"
+                      :y "7%"
+                      :anchor "bottom left"
+                      :width "270px"
+                      :height "60px")
+  (cal))

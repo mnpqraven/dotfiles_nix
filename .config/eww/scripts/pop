@@ -1,0 +1,25 @@
+#! /usr/bin/env nix-shell
+#! nix-shell -i bash -p bash
+calendar() {
+  LOCK_FILE="$HOME/.cache/eww-calendar.lock"
+  EWW_BIN="$HOME/.nix-profile/bin/eww"
+  run() {
+    ${EWW_BIN} -c $HOME/.config/eww open calendar
+  }
+
+  if [[ ! -f "$LOCK_FILE" ]]; then
+    # ${EWW_BIN} -c $HOME/.config/eww close others
+    touch "$LOCK_FILE"
+    run && echo "ok good!"
+  else
+    ${EWW_BIN} -c $HOME/.config/eww close calendar
+    rm "$LOCK_FILE" && echo "closed"
+  fi
+}
+
+echo $S1
+calendar
+
+if [ "$S1" = "calendar" ]; then
+  calendar
+fi
