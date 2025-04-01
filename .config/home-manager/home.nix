@@ -93,13 +93,8 @@ in {
         allcommit = "!git add . && git commit -m";
         st = "status";
         tags = "show-ref --abbrev=6 --tags";
-        tree = ''
-          log --graph --abbrev-commit --decorate --date=format:'%d-%m-%Y
-            %H:%M:%S' --format=format:'%C(reverse bold red)%h%C(reset) -
-            %C(white)%ad%C(reset) %C(dim
-            white)(%ar)%C(reset)%C(auto)%d%C(reset)%n\'\'
-            %C(bold cyan)%s%C(reset) <%C(dim white)%an - %ae%C(reset)>' --all
-        '';
+        tree =
+          "log --graph --abbrev-commit --decorate --date=format:'%d-%m-%Y %H:%M:%S' --format=format:'%C(reverse bold red)%h%C(reset) - %C(white)%ad%C(reset) %C(dim white)(%ar)%C(reset)%C(auto)%d%C(reset)%n'' %C(bold cyan)%s%C(reset) <%C(dim white)%an - %ae%C(reset)>' --all";
       };
       extraConfig = {
         # Sign all commits using ssh key

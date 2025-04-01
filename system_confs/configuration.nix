@@ -128,6 +128,7 @@
   # $ nix search wget
   environment.systemPackages = with pkgs; [
     dunst
+    hyprpolkitagent
     libnotify
     librewolf
     neovim
