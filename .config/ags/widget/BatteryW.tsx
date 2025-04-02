@@ -1,5 +1,6 @@
 import { bind, GLib } from "astal";
 import AstalBattery from "gi://AstalBattery";
+import { percentage } from "../lib/utils";
 
 export function BatteryW() {
   const batt = AstalBattery.get_default();
@@ -11,7 +12,7 @@ export function BatteryW() {
   return (
     <box>
       <image iconName={GLib.get_os_info("LOGO") || "missing-symbolic"} />{" "}
-      {bind(batt, "percentage").as((p) => `${p * 100} %`)}
+      {bind(batt, "percentage").as(percentage)}
     </box>
   );
 }

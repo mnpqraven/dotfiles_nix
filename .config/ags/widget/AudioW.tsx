@@ -13,6 +13,7 @@ export function AudioW() {
 
   return (
     <menubutton>
+      vol
       <popover>
         <slider
           hexpand

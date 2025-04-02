@@ -6,6 +6,7 @@ import { AudioW } from "./AudioW";
 import { CurrentWindowName } from "./CurrentWindowName";
 import { BatteryW } from "./BatteryW";
 import { StatW } from "./StatW";
+import { InputMethodW } from "./InputMethodW";
 
 export default function Bar(gdkmonitor: Gdk.Monitor) {
   const { TOP, LEFT, RIGHT } = Astal.WindowAnchor;
@@ -35,6 +36,7 @@ export default function Bar(gdkmonitor: Gdk.Monitor) {
           <TimeW />
           <WifiW />
           <AudioW />
+          <InputMethodW />
           <StatW />
           <BatteryW />
         </box>
