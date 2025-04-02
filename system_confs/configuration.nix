@@ -53,6 +53,8 @@
 
   # Enable Hyprland
   programs.hyprland.enable = true;
+  programs.hyprlock.enable = true;
+  security.pam.services.hyprlock = { };
 
   # Configure keymap in X11
   services.xserver.xkb = { layout = "us"; };

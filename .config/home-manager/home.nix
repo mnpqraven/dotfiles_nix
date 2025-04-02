@@ -14,6 +14,7 @@ in {
     EWW_CONF = "${DHOME}/.config/eww";
   };
   home.stateVersion = "24.11";
+  nixpkgs.config.allowUnfree = true;
 
   programs = {
     home-manager.enable = true;
@@ -121,6 +122,7 @@ in {
     brave
     btop
     deluge
+    discord
     eww
     eza
     fd
@@ -143,6 +145,7 @@ in {
     teams-for-linux
     wl-clipboard
     wofi
+    tofi
     wpaperd
     zellij
     zoxide
