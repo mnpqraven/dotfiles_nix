@@ -35,8 +35,8 @@ symbol = "🧙"
 format = "[$symbol]($style)"
 
 [username]
-# Don't display for normal logged in user
-disabled = true
+show_always = true
+disabled = false
 style_user = "#d3b987"
 format = "[$user]($style)"
 

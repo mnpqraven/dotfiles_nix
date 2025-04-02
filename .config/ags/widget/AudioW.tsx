@@ -4,6 +4,7 @@ import Wp from "gi://AstalWp";
 export function AudioW() {
   const speaker = Wp.get_default()?.audio.defaultSpeaker;
   // TODO:
+  // change popover to display on hover
   // drag event
   // mute/unmute button
   // IO source selector

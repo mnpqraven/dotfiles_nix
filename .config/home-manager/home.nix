@@ -127,10 +127,10 @@ in {
     eza
     fd
     feh
-    flameshot
     fzf
     gcc
     go
+    hyprshot
     kalker
     keychain
     librewolf
