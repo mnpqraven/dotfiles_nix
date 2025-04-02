@@ -1,0 +1,47 @@
+[Groups/0]
+# Group Name
+Name=US
+# Layout
+Default Layout=us
+# Default Input Method
+DefaultIM=keyboard-us
+
+[Groups/0/Items/0]
+# Name
+Name=keyboard-us
+# Layout
+Layout=
+
+[Groups/1]
+# Group Name
+Name=JP
+# Layout
+Default Layout=us
+# Default Input Method
+DefaultIM=mozc
+
+[Groups/1/Items/0]
+# Name
+Name=mozc
+# Layout
+Layout=
+
+[Groups/2]
+# Group Name
+Name=VN
+# Layout
+Default Layout=us
+# Default Input Method
+DefaultIM=unikey
+
+[Groups/2/Items/0]
+# Name
+Name=unikey
+# Layout
+Layout=
+
+[GroupOrder]
+0=US
+1=VN
+2=JP
+
