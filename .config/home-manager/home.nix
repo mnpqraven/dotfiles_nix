@@ -178,6 +178,10 @@ in {
       source = "${DHOME}/.config/macchina";
       recursive = true;
     };
+    ".config/fcitx5" = {
+      source = "${DHOME}/.config/fcitx5";
+      recursive = true;
+    };
     ".config/nvim" = {
       source = "${DHOME}/.config/nvim";
       recursive = true;
