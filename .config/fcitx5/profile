@@ -1,28 +1,28 @@
 [Groups/0]
 # Group Name
-Name=VN
-# Layout
-Default Layout=us
-# Default Input Method
-DefaultIM=unikey
-
-[Groups/0/Items/0]
-# Name
-Name=unikey
-# Layout
-Layout=
-
-[Groups/1]
-# Group Name
-Name=JP
+Name=jp
 # Layout
 Default Layout=us
 # Default Input Method
 DefaultIM=mozc
 
-[Groups/1/Items/0]
+[Groups/0/Items/0]
 # Name
 Name=mozc
+# Layout
+Layout=
+
+[Groups/1]
+# Group Name
+Name=vn
+# Layout
+Default Layout=us
+# Default Input Method
+DefaultIM=unikey
+
+[Groups/1/Items/0]
+# Name
+Name=unikey
 # Layout
 Layout=
 
@@ -42,6 +42,6 @@ Layout=
 
 [GroupOrder]
 0=us
-1=JP
-2=VN
+1=vn
+2=jp
 
