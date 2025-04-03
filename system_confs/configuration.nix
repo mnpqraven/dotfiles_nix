@@ -45,7 +45,14 @@
 
   # Enable the X11 windowing system.
   # You can disable this if you're only using the Wayland session.
-  services.xserver.enable = false;
+  services.xserver = {
+    enable = true;
+    xkb = {
+      layout = "us,";
+      variant = "colemak,";
+      options = "grp:win_space_toggle";
+    };
+  };
 
   # Enable the KDE Plasma Desktop Environment.
   services.displayManager.sddm.enable = true;
@@ -57,7 +64,7 @@
   security.pam.services.hyprlock = { };
 
   # Configure keymap in X11
-  services.xserver.xkb = { layout = "us"; };
+  # services.xserver.xkb = { layout = "us"; };
 
   # Enable CUPS to print documents.
   services.printing.enable = true;

@@ -1,14 +1,14 @@
 [Groups/0]
 # Group Name
-Name=US
+Name=VN
 # Layout
 Default Layout=us
 # Default Input Method
-DefaultIM=keyboard-us
+DefaultIM=unikey
 
 [Groups/0/Items/0]
 # Name
-Name=keyboard-us
+Name=unikey
 # Layout
 Layout=
 
@@ -28,20 +28,20 @@ Layout=
 
 [Groups/2]
 # Group Name
-Name=VN
+Name=us
 # Layout
 Default Layout=us
 # Default Input Method
-DefaultIM=unikey
+DefaultIM=keyboard-us
 
 [Groups/2/Items/0]
 # Name
-Name=unikey
+Name=keyboard-us
 # Layout
 Layout=
 
 [GroupOrder]
-0=US
-1=VN
-2=JP
+0=us
+1=JP
+2=VN
 

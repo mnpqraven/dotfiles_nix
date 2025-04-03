@@ -14,8 +14,9 @@ ssh-keygen
 # symlink
 ln -s ~/dotfiles_nix/.config/home-manager ~/.config/home-manager
 mkdir -p ~/.config/hypr
-# TODO: iterator
-# TODO: ags
+# TODO: transform to iterator
+# TODO: add following links:
+# ags mozc
 ln -sf ~/dotfiles_nix/.config/hypr/hyprland.conf ~/.config/hypr
 ln -sf ~/dotfiles_nix/.config/wpaperd  ~/.config/wpaperd
-ln -sf ~/dotfiles_nix/.config/eww  ~/.config/eww
+ln -sf ~/dotfiles_nix/.config/mozc  ~/.config

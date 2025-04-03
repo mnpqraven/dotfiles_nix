@@ -1,17 +1,14 @@
 [Hotkey]
+# Trigger Input Method
+TriggerKeys=
 # Enumerate when press trigger key repeatedly
 EnumerateWithTriggerKeys=True
 # Temporally switch between first and current Input Method
 AltTriggerKeys=
 # Skip first input method while enumerating
 EnumerateSkipFirst=False
-# Activate Input Method
-ActivateKeys=
 # Toggle embedded preedit
 TogglePreedit=
-
-[Hotkey/TriggerKeys]
-0=Super+space
 
 [Hotkey/EnumerateForwardKeys]
 0=Super+End
@@ -21,9 +18,14 @@ TogglePreedit=
 
 [Hotkey/EnumerateGroupForwardKeys]
 0=Super+Next
+1=Super+O
 
 [Hotkey/EnumerateGroupBackwardKeys]
 0=Super+Page_Up
+1=Super+I
+
+[Hotkey/ActivateKeys]
+0=Super+slash
 
 [Hotkey/DeactivateKeys]
 0=Hangul_Romaja

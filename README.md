@@ -18,3 +18,15 @@ curl https://raw.githubusercontent.com/mnpqraven/dotfiles_nix/main/install.sh | 
 sudo nixos-rebuild switch
 home-manager switch
 ```
+
+# post-install leftover setup
+
+mozc keymap can only be configured inside gui per following:
+
+```
+fcitx5-configtool
+
+```
+
+click on mozc settings > configuration tool > configure > keymap style >
+customize > import from file > choose `~/dotfiles_nix/.config/mozc/keymap.tsv`
