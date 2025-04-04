@@ -1,14 +1,31 @@
-{ config, pkgs, ... }:
+{ config, pkgs, lib, ... }:
 
 let
   username = "othi";
   HOME = "/home/${username}";
   DHOME = "${HOME}/dotfiles_nix";
   sshKind = "id_ed25519";
+
+  # wrap a package for ime compability
+  electronWrap = { name }:
+    pkgs.symlinkJoin {
+      name = name;
+      paths = [ pkgs.${name} ];
+      buildInputs = [ pkgs.makeWrapper ];
+      postBuild = lib.strings.concatStrings [
+        "wrapProgram $out/bin/"
+        name
+        " --add-flags \"--enable-wayland-ime\""
+      ];
+    };
+  teams-for-linux = electronWrap { name = "teams-for-linux"; };
+  discord = electronWrap { name = "discord"; };
+
 in {
   home.username = username;
   home.homeDirectory = HOME;
   home.sessionVariables = {
+    NIXOS_OZONE_WL = 1;
     DHOME = DHOME;
     EWW_BIN = "${HOME}/.nix-profile/bin/eww";
     EWW_CONF = "${DHOME}/.config/eww";
@@ -25,6 +42,28 @@ in {
       viAlias = true;
       vimAlias = true;
       vimdiffAlias = true;
+    };
+    helix = {
+      enable = true;
+      settings = {
+        theme = "autumn_night_transparent";
+        editor.cursor-shape = {
+          normal = "block";
+          insert = "bar";
+          select = "underline";
+        };
+      };
+      languages.language = [{
+        name = "nix";
+        auto-format = true;
+        formatter.command = "${pkgs.nixfmt}/bin/nixfmt";
+      }];
+      themes = {
+        autumn_night_transparent = {
+          "inherits" = "autumn_night";
+          "ui.background" = { };
+        };
+      };
     };
 
     zoxide.enable = true;
@@ -103,9 +142,8 @@ in {
       };
       extraConfig = {
         credential = {
-          helper = "manager";
+          helper = "store";
           "https://github.com".username = "mnpqraven";
-          credentialStore = "cache";
         };
 
         # Sign all commits using ssh key
