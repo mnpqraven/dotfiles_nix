@@ -26,7 +26,7 @@ in {
   home.homeDirectory = HOME;
   home.sessionVariables = {
     NIXOS_OZONE_WL = 1;
-    DHOME = DHOME;
+    inherit DHOME;
     EWW_BIN = "${HOME}/.nix-profile/bin/eww";
     EWW_CONF = "${DHOME}/.config/eww";
   };

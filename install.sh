@@ -7,6 +7,8 @@ git remote set-url origin git@github.com:mnpqraven/dotfiles_nix.git
 
 # system conf
 sudo cp system_confs/configuration.nix /etc/nixos
+sudo cp system_confs/othi.nix /etc/nixos
+sudo cp system_confs/flake.nix /etc/nixos
 
 # creates ssh key
 ssh-keygen

@@ -4,6 +4,10 @@
 
 ```nix
 nix-shell -p git
+ssh-keygen
+# run this after ssh-keygen
+echo "* $(cat ~/..ssh/id_ed25519.pub)" > ~/.ssh/allowed_signers
+
 ```
 
 - run the install script
