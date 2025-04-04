@@ -131,7 +131,6 @@
     nixd
     git
     nixfmt-rfc-style
-    inputs.helix.packages."${pkgs.system}".helix
   ];
 
   system.activationScripts = { };

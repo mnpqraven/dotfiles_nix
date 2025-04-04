@@ -38,6 +38,8 @@ in {
       btw = "macchina";
       homerc = "nvim ${DHOME}/.config/home-manager/home.nix";
       rebuild = "sudo nixos-rebuild switch --flake .#laptop --show-trace -L -v";
+      trybuild = "sudo nixos-rebuild test --flake .#laptop --show-trace -L -v";
+      nix-gc = "nix-collect-garbage -d";
       zm = "zellij";
       v = "nvim";
       cr = "cargo run --";
