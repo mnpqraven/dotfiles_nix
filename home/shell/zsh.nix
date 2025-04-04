@@ -1,7 +1,7 @@
 { config, inputs, pkgs, ... }:
 let
   DHOME = inputs.rootPath;
-  sshKind = "id_ed25519";
+  inherit (inputs) sshKind username;
 in {
 
   programs.zsh = {
@@ -32,11 +32,9 @@ in {
 
       cl = "clear";
       rf = "clear && macchina";
-      update = ''
-        cargo install $(cargo install --list | grep -E '^[a-z0-9_-]+
-        v[0-9.]+:$' | cut -f1 -d' ')'';
       btw = "macchina";
-      homerc = "nvim ${DHOME}/.config/home-manager/home.nix";
+      # TODO: dyn
+      rc = "nvim /home/${username}/dotfiles_nix/flake.nix";
       rebuild = "sudo nixos-rebuild switch --flake .#laptop --show-trace -L -v";
       trybuild = "sudo nixos-rebuild test --flake .#laptop --show-trace -L -v";
       nix-gc = "nix-collect-garbage -d";
