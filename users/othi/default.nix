@@ -3,7 +3,13 @@ let
   inherit (inputs) username;
   DHOME = inputs.rootPath;
 in {
-  imports = [ ../../home/editor ../../home/shell ../../home/programs ];
+  imports = [
+    ../../home/editor
+    ../../home/shell
+    ../../home/programs
+
+    inputs.extraPkgs.nvf
+  ];
 
   home.username = username;
   home.homeDirectory = "/home/${username}";

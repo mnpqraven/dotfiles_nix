@@ -19,7 +19,7 @@
     };
   };
 
-  outputs = { self, nixpkgs, home-manager, ... }@inputs: {
+  outputs = { self, nixpkgs, home-manager, nvf, ... }@inputs: {
     nixosConfigurations = {
       # NOTE: each key is a hostname, propagate this with different machines
       laptop = let
@@ -43,6 +43,7 @@
               extraSpecialArgs.inputs = {
                 inherit sshKind rootPath;
                 username = "othi";
+                extraPkgs = { nvf = nvf.homeManagerModules.default; };
               };
 
               users.othi = import ./users/othi;
