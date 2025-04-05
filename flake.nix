@@ -43,7 +43,7 @@
               extraSpecialArgs.inputs = {
                 inherit sshKind rootPath;
                 username = "othi";
-                extraPkgs = { nvf = nvf.homeManagerModules.default; };
+                extraModules = { nvf = nvf.homeManagerModules.default; };
               };
 
               users.othi = import ./users/othi;

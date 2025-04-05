@@ -1,1 +1,1 @@
-{ config, inputs, pkgs, ... }: { imports = [ ./helix.nix ./nvim.nix ]; }
+{ config, inputs, pkgs, ... }: { imports = [ ./helix.nix ./nvim ]; }

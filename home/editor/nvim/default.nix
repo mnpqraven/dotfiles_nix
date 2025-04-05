@@ -1,13 +1,14 @@
 { inputs, ... }: {
+  imports = [ ./colemak.nix ];
+
   programs.nvf = {
     enable = true;
     settings = {
       vim = {
-        vialias = false;
-        vimalias = true;
+        viAlias = false;
+        vimAlias = true;
 
         lsp.enable = true;
-
       };
     };
   };

@@ -8,7 +8,7 @@ in {
     ../../home/shell
     ../../home/programs
 
-    inputs.extraPkgs.nvf
+    inputs.extraModules.nvf
   ];
 
   home.username = username;
@@ -25,13 +25,13 @@ in {
   programs = {
     home-manager.enable = true;
 
-    neovim = {
-      enable = true;
-      defaultEditor = true;
-      viAlias = true;
-      vimAlias = true;
-      vimdiffAlias = true;
-    };
+    # neovim = {
+    #   enable = true;
+    #   defaultEditor = true;
+    #   viAlias = true;
+    #   vimAlias = true;
+    #   vimdiffAlias = true;
+    # };
   };
 
   i18n.inputMethod = {
