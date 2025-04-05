@@ -10,6 +10,7 @@
     ./opt.nix
     ./telescope.nix
     ./tree.nix
+    ./ui.nix
   ];
 
   programs.nvf.enable = true;
