@@ -39,27 +39,17 @@ in
       git.enable = true;
       view.width = 35;
       renderer = {
-        icons = {
-          show.git = true;
-        };
-        # TODO: config icons later
-        # icons.glyphs.git = {
-        #   unstaged = "";
-        #   untracked = "";
-        # };
+        highlight_git = true;
+        icons.show.git = true;
 
-        indent_markers = {
-          enable = true;
+        icons.glyphs.git = {
+          unstaged = "";
+          untracked = "";
+          ignored = "◌";
         };
-        special_files = [
-          "Cargo.toml"
-          "Makefile"
-          "README.md"
-          "readme.md"
-        ];
+        indent_markers.enable = true;
         symlink_destination = true;
       };
     };
   };
-
 }

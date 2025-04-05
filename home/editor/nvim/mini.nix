@@ -1,6 +1,10 @@
 _:
-let on = { enable = true; };
-in {
+let
+  on = {
+    enable = true;
+  };
+in
+{
   programs.nvf.settings.vim.mini = {
     trailspace = on;
     bracketed = on;

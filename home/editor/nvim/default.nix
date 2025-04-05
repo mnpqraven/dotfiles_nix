@@ -1,10 +1,11 @@
 { inputs, config, ... }:
 {
   imports = [
+    ./autocomplete.nix
+    ./git.nix
     ./hop.nix
     ./lsp.nix
     ./keys_colemak.nix
-    ./keys_lsp.nix
     ./mini.nix
     ./opt.nix
     ./telescope.nix
@@ -17,14 +18,10 @@
     viAlias = false;
     vimAlias = true;
 
-    git.enable = true;
-
     globals = {
       mapleader = " ";
     };
-    binds = {
-      whichKey.enable = true;
-    };
+    binds.whichKey.enable = true;
 
     autocmds = [
       {
@@ -42,9 +39,9 @@
       enable = true;
       theme = "tokyonight";
       refresh = {
-        statusline = 300;
-        tabline = 300;
-        winbar = 300;
+        statusline = 200;
+        tabline = 200;
+        winbar = 200;
       };
     };
 
