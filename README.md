@@ -10,10 +10,14 @@ echo "* $(cat ~/..ssh/id_ed25519.pub)" > ~/.ssh/allowed_signers
 
 ```
 
-- run the install script
+- clone the repo and build the system with flake.
+
+NOTE: replaces `YOURPLATFORM` with specified hosts (`laptop`)
 
 ```nix
-curl https://raw.githubusercontent.com/mnpqraven/dotfiles_nix/main/install.sh | sh -
+git clone --recurse-submodules https://github.com/mnpqraven/dotfiles_nix.git
+cd dotfiles_nix
+sudo nixos-rebuild switch --flake .#YOURPLATFORM
 ```
 
 - finally rebuild the system and `home-manager`
