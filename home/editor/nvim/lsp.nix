@@ -33,5 +33,13 @@ in
         type = "nixfmt";
       };
     };
+    rust = {
+      enable = true;
+      crates = on;
+      dap = on;
+      format = on;
+      lsp = on;
+      treesitter = on;
+    };
   };
 }

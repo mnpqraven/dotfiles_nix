@@ -1,19 +1,40 @@
-_: {
+{ lib, ... }:
+{
   programs.nvf.settings.vim.autocomplete = {
     blink-cmp = {
       enable = true;
       friendly-snippets.enable = true;
 
       mappings = {
+        # WARN: kinda buggy
+        close = null;
+        confirm = "<C-e>";
+
+        next = "<C-n>";
+        previous = "<C-p>";
         scrollDocsDown = "<C-d>";
         scrollDocsUp = "<C-u>";
       };
       setupOpts = {
-        keymap.preset = "default";
+        fuzzy.implementation = "prefer_rust_with_warning";
 
-        # NOTE: not in nvf doc
-        appearance.nerd_font_variant = "mono";
-        signature.enabled = true;
+        keymap = {
+          "<C-h>" = [ "cancel" ];
+        };
+
+        # nvim-cmp-like menu drawing
+        completion.menu.draw.columns = [
+          {
+            "@1" = "label";
+            "@2" = "label_description";
+            gap = 4;
+          }
+
+          [
+            "kind_icon"
+            "kind"
+          ]
+        ];
       };
     };
   };
