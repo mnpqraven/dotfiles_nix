@@ -142,7 +142,17 @@
     nixfmt-rfc-style
   ];
 
-  system.activationScripts = { };
+  system.autoUpgrade = {
+    enable = true;
+    flake = inputs.self.outPath;
+    flags = [
+      "--show-trace"
+      "-L"
+      "-v"
+    ];
+    dates = "weekly";
+    randomizedDelaySec = "45min";
+  };
 
   # Some programs need SUID wrappers, can be configured further or are
   # started in user sessions.

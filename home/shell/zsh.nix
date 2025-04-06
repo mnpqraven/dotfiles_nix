@@ -1,8 +1,14 @@
-{ config, inputs, pkgs, ... }:
+{
+  config,
+  inputs,
+  pkgs,
+  ...
+}:
 let
   DHOME = inputs.rootPath;
   inherit (inputs) sshKind username;
-in {
+in
+{
 
   programs.zsh = {
     enable = true;
@@ -12,7 +18,11 @@ in {
     syntaxHighlighting.enable = true;
     oh-my-zsh = {
       enable = true;
-      plugins = [ "git" "common-aliases" "vi-mode" ];
+      plugins = [
+        "git"
+        "common-aliases"
+        "vi-mode"
+      ];
     };
     initExtra = ''
       bindkey '^o' autosuggest-execute
@@ -37,6 +47,7 @@ in {
       rc = "nvim /home/${username}/dotfiles_nix/flake.nix";
       rebuild = "sudo nixos-rebuild switch --flake .#laptop --show-trace -L -v";
       trybuild = "sudo nixos-rebuild test --flake .#laptop --show-trace -L -v";
+      upgrade = "sudo nixos-rebuild switch --flake .#laptop --show-trace -L -v --recreate-lock-file";
       nix-gc = "nix-collect-garbage -d";
       zm = "zellij";
       v = "nvim";
@@ -47,8 +58,7 @@ in {
       gRST = "git reset --hard && git clean -fd";
       gmnc = "git merge --no-commit";
       gcom = "git checkout main";
-      qmkf =
-        "git checkout master && git fetch upstream && git pull upstream master && git push origin master";
+      qmkf = "git checkout master && git fetch upstream && git pull upstream master && git push origin master";
 
       # .rc
       vrc = "$EDITOR ${DHOME}/.config/nvim";
