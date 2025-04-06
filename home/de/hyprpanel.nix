@@ -8,37 +8,28 @@
     systemd.enable = true;
     hyprland.enable = true;
     overwrite.enable = true;
-    theme = "gruvbox_split";
     override = {
       theme.bar.menus.text = "#123ABC";
     };
 
-    # Configure bar layouts for monitors.
-    # See 'https://hyprpanel.com/configuration/panel.html'.
-    # Default: null
-    layout = {
-      "bar.layouts" = {
-        "0" = {
-          left = [
-            "dashboard"
-            "workspaces"
-          ];
-          middle = [ "media" ];
-          right = [
-            "volume"
-            "systray"
-            "notifications"
-          ];
+    settings = {
+      layout = {
+        "bar.layouts" = {
+          "0" = {
+            left = [
+              "dashboard"
+              "workspaces"
+            ];
+            middle = [ "media" ];
+            right = [
+              "volume"
+              "systray"
+              "notifications"
+            ];
+          };
         };
       };
-    };
 
-    # Configure and theme almost all options from the GUI.
-    # Options that require '{}' or '[]' are not yet implemented,
-    # except for the layout above.
-    # See 'https://hyprpanel.com/configuration/settings.html'.
-    # Default: <same as gui>
-    settings = {
       bar.launcher.autoDetectIcon = true;
       bar.workspaces.show_icons = true;
 
@@ -53,6 +44,7 @@
       menus.dashboard.directories.enabled = false;
       menus.dashboard.stats.enable_gpu = true;
 
+      theme.name = "gruvbox_split";
       theme.bar.transparent = true;
 
       theme.font = {
