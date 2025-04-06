@@ -1,7 +1,13 @@
-{ lib, pkgs, inputs, ... }:
+{
+  lib,
+  pkgs,
+  inputs,
+  ...
+}:
 let
   # wrap a package for ime compability
-  imeWrap = { name }:
+  imeWrap =
+    { name }:
     pkgs.symlinkJoin {
       inherit name;
       paths = [ pkgs.${name} ];
@@ -15,7 +21,8 @@ let
 
   teams-for-linux = imeWrap { name = "teams-for-linux"; };
   discord = imeWrap { name = "discord"; };
-in {
+in
+{
   home.packages = with pkgs; [
     bacon
     bat
@@ -31,6 +38,7 @@ in {
     gcc
     go
     hyprshot
+    imagemagick
     kalker
     keychain
     librewolf

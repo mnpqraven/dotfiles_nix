@@ -12,14 +12,18 @@
     packages = with pkgs; [ kdePackages.kate ];
   };
   # user profile for lockscreens
-  system.activationScripts.export-face-icon = {
-    deps = [ "etc" ];
+  system.activationScripts.export-face-icon =
+    let
+      h = "/home/othi";
+    in
+    {
+      deps = [ "etc" ];
 
-    # TODO: dyn
-    text = ''
-      cp /home/othi/dotfiles_nix/home/de/hyprpanel_assets/avatar.jpg /home/othi
-      mv /home/othi/avatar.jpg /home/othi/.face.icon
-    '';
-  };
+      # TODO: dyn
+      text = ''
+        cp ${h}/dotfiles_nix/home/de/hyprpanel_assets/avatar.png ${h}
+        mv ${h}/avatar.png ${h}/.face.icon
+      '';
+    };
   programs.dconf.enable = true;
 }
