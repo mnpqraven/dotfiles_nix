@@ -14,7 +14,7 @@ in
     ../../home/editor
     ../../home/shell
     ../../home/programs
-    ../../home/de/hyprland.nix
+    ../../home/de
 
     inputs.extraModules.nvf
   ];

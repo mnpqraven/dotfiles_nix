@@ -3,7 +3,10 @@ let
   remap = key: to: {
     inherit key;
     action = to;
-    mode = [ "n" "v" ];
+    mode = [
+      "n"
+      "v"
+    ];
     noremap = false;
   };
   nremap = key: to: {
@@ -27,7 +30,8 @@ let
     action = to;
     mode = [ "v" ];
   };
-in {
+in
+{
   programs.nvf.settings.vim.keymaps = [
     # HJKL rebinds
     (remap "N" "K")
@@ -56,7 +60,7 @@ in {
     (nremap "<leader>7" "7gt")
     (nremap "<leader>8" "8gt")
     (nremap "<leader>9" "9gt")
-    (nremap "<C-w>" ":bd")
+    (nremap "<C-w>" ":bd<CR>")
     (nremap "<C-s>" ":w<CR>")
 
     # split resizing

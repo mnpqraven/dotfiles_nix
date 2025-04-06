@@ -13,6 +13,10 @@
       inputs.nixpkgs.follows = "nixpkgs";
     };
 
+    hyprpanel = {
+      url = "github:jas-singhfsu/hyprpanel";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
     nvf = {
       url = "github:notashelf/nvf";
       inputs.nixpkgs.follows = "nixpkgs";
@@ -25,6 +29,7 @@
       nixpkgs,
       home-manager,
       nvf,
+      hyprpanel,
       ...
     }@inputs:
     {
@@ -52,7 +57,7 @@
                   useUserPackages = true;
                   backupFileExtension = "bak";
                   extraSpecialArgs.inputs = {
-                    inherit sshKind rootPath;
+                    inherit sshKind rootPath hyprpanel;
                     username = "othi";
                     extraModules = {
                       nvf = nvf.homeManagerModules.default;
