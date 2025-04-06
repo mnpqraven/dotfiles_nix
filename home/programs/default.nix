@@ -1,1 +1,7 @@
-{ lib, pkgs, inputs, ... }: { imports = [ ./common.nix ./git.nix ]; }
+_: {
+  imports = [
+    ./audio
+    ./common.nix
+    ./git.nix
+  ];
+}

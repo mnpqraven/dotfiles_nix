@@ -16,10 +16,15 @@
         scrollDocsUp = "<C-u>";
       };
       setupOpts = {
+        cmdline.sources = null;
         fuzzy.implementation = "prefer_rust_with_warning";
 
         keymap = {
           "<C-h>" = [ "cancel" ];
+          "<CR>" = [
+            "accept"
+            "fallback"
+          ];
         };
 
         # nvim-cmp-like menu drawing
