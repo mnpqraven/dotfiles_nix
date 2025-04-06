@@ -32,14 +32,6 @@ in
 
   programs = {
     home-manager.enable = true;
-
-    # neovim = {
-    #   enable = true;
-    #   defaultEditor = true;
-    #   viAlias = true;
-    #   vimAlias = true;
-    #   vimdiffAlias = true;
-    # };
   };
 
   i18n.inputMethod = {

@@ -1,16 +1,16 @@
-{ inputs, ... }:
+{ inputs, config, ... }:
 {
-  imports = [ inputs.hyprpanel.homeManagerModules.hyprpanel ];
+  imports = [
+    inputs.hyprpanel.homeManagerModules.hyprpanel
+    ./bar.nix
+    ./dashboard.nix
+  ];
 
   programs.hyprpanel = {
     enable = true;
     overlay.enable = true;
-    systemd.enable = true;
     hyprland.enable = true;
     overwrite.enable = true;
-    override = {
-      theme.bar.menus.text = "#123ABC";
-    };
 
     settings = {
       layout = {
@@ -30,9 +30,6 @@
         };
       };
 
-      bar.launcher.autoDetectIcon = true;
-      bar.workspaces.show_icons = true;
-
       menus.clock = {
         time = {
           military = true;
@@ -41,11 +38,7 @@
         weather.unit = "metric";
       };
 
-      menus.dashboard.directories.enabled = false;
-      menus.dashboard.stats.enable_gpu = true;
-
-      theme.name = "gruvbox_split";
-      theme.bar.transparent = true;
+      theme.name = "tokyo_night_moon_split";
 
       theme.font = {
         name = "CaskaydiaCove NF";
