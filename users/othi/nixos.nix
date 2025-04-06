@@ -11,8 +11,5 @@
     ];
     packages = with pkgs; [ kdePackages.kate ];
   };
-  services.syncthing = {
-    enable = true;
-  };
   programs.dconf.enable = true;
 }

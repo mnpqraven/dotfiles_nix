@@ -1,8 +1,15 @@
-{ config, pkgs, lib, inputs, ... }:
+{
+  config,
+  pkgs,
+  lib,
+  inputs,
+  ...
+}:
 let
   inherit (inputs) username;
   DHOME = inputs.rootPath;
-in {
+in
+{
   imports = [
     ../../home/editor
     ../../home/shell
@@ -36,7 +43,11 @@ in {
 
   i18n.inputMethod = {
     enabled = "fcitx5";
-    fcitx5.addons = with pkgs; [ fcitx5-mozc fcitx5-gtk fcitx5-unikey ];
+    fcitx5.addons = with pkgs; [
+      fcitx5-mozc
+      fcitx5-gtk
+      fcitx5-unikey
+    ];
   };
 
   # Home Manager is pretty good at managing dotfiles. The primary way to manage

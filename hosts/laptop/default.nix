@@ -2,10 +2,16 @@
 # your system.  Help is available in the configuration.nix(5) man page
 # and in the NixOS manual (accessible by running ‘nixos-help’).
 
-{ config, pkgs, inputs, ... }:
+{
+  config,
+  pkgs,
+  inputs,
+  ...
+}:
 
 {
-  imports = [ # Include the results of the hardware scan.
+  imports = [
+    # Include the results of the hardware scan.
     ./hardware-configuration.nix
   ];
 
@@ -41,7 +47,10 @@
     LC_TIME = "en_US.UTF-8";
   };
 
-  nix.settings.experimental-features = [ "nix-command" "flakes" ];
+  nix.settings.experimental-features = [
+    "nix-command"
+    "flakes"
+  ];
 
   # Enable the X11 windowing system.
   # You can disable this if you're only using the Wayland session.
@@ -94,12 +103,10 @@
       ports = [ 22 ];
       settings = {
         PasswordAuthentication = true;
-        AllowUsers =
-          null; # Allows all users by default. Can be [ "user1" "user2" ]
+        AllowUsers = null; # Allows all users by default. Can be [ "user1" "user2" ]
         UseDns = true;
         X11Forwarding = false;
-        PermitRootLogin =
-          "prohibit-password"; # "yes", "without-password", "prohibit-password", "forced-commands-only", "no"
+        PermitRootLogin = "prohibit-password"; # "yes", "without-password", "prohibit-password", "forced-commands-only", "no"
       };
     };
 
@@ -118,7 +125,9 @@
   # Allow unfree packages
   nixpkgs.config.allowUnfree = true;
 
-  environment.sessionVariables = { NIXOS_OZONE_WL = 1; };
+  environment.sessionVariables = {
+    NIXOS_OZONE_WL = 1;
+  };
 
   # List packages installed in system profile. To search, run:
   # $ nix search wget
