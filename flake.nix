@@ -6,13 +6,8 @@
 
     home-manager = {
       url = "github:nix-community/home-manager";
-      # The `follows` keyword in inputs is used for inheritance.
-      # Here, `inputs.nixpkgs` of home-manager is kept consistent with
-      # the `inputs.nixpkgs` of the current flake,
-      # to avoid problems caused by different versions of nixpkgs.
       inputs.nixpkgs.follows = "nixpkgs";
     };
-
     hyprpanel = {
       url = "github:jas-singhfsu/hyprpanel";
       inputs.nixpkgs.follows = "nixpkgs";
@@ -57,11 +52,11 @@
                   useUserPackages = true;
                   backupFileExtension = "bak";
                   extraSpecialArgs.inputs = {
-                    inherit sshKind rootPath hyprpanel;
+                    # props
+                    inherit sshKind rootPath;
+                    # pkgs
+                    inherit hyprpanel nvf;
                     username = "othi";
-                    extraModules = {
-                      nvf = nvf.homeManagerModules.default;
-                    };
                   };
 
                   users.othi = import ./users/othi;

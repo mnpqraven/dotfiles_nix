@@ -6,7 +6,7 @@
   ...
 }:
 let
-  inherit (inputs) username;
+  inherit (inputs) username nvf;
   DHOME = inputs.rootPath;
 in
 {
@@ -16,7 +16,7 @@ in
     ../../home/programs
     ../../home/de
 
-    inputs.extraModules.nvf
+    nvf.homeManagerModules.default
   ];
 
   home.username = username;
