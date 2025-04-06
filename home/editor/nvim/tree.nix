@@ -24,6 +24,7 @@ in
     enable = true;
     mappings = {
       toggle = "<C-\\>";
+      findFile = "<leader>tt";
     };
     setupOpts = {
       # INFO: https://github.com/nvim-tree/nvim-tree.lua?tab=readme-ov-file#custom-mappings

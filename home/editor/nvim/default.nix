@@ -13,6 +13,7 @@
     ./ui.nix
   ];
 
+  programs.neovim.enable = true;
   programs.nvf.enable = true;
 
   programs.nvf.settings.vim = {
