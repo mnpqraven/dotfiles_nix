@@ -15,6 +15,9 @@
         scrollDocsUp = "<C-u>";
       };
       setupOpts = {
+        cmdline.sources = null;
+        cmdline.keymap.preset = "default";
+        cmdline.completion.menu.auto_show = true;
         signature.enabled = true;
         fuzzy.implementation = "prefer_rust_with_warning";
 
@@ -34,10 +37,16 @@
             gap = 4;
           }
 
-          [
-            "kind_icon"
-            "kind"
-          ]
+          {
+            "@1" = "kind_icon";
+            "@2" = "kind";
+            gap = 2;
+          }
+          # or this syntax if gap is not needed
+          # [
+          #   "kind_icon"
+          #   "kind"
+          # ]
         ];
       };
     };
