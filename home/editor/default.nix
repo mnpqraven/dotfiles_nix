@@ -1,10 +1,4 @@
-{
-  config,
-  inputs,
-  pkgs,
-  ...
-}:
-{
+_: {
   imports = [
     ./helix.nix
     ./nvim

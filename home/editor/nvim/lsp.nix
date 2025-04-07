@@ -1,10 +1,4 @@
-_:
-let
-  on = {
-    enable = true;
-  };
-in
-{
+_: {
   programs.nvf.settings.vim.languages = {
     enableLSP = true;
     enableDAP = true;

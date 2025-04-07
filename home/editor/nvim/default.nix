@@ -1,5 +1,4 @@
-{ inputs, config, ... }:
-{
+_: {
   imports = [
     ./autocomplete
     ./git.nix
@@ -13,8 +12,10 @@
     ./ui.nix
   ];
 
-  programs.neovim.enable = true;
-  programs.nvf.enable = true;
+  programs = {
+    neovim.enable = true;
+    nvf.enable = true;
+  };
 
   programs.nvf.settings.vim = {
     viAlias = false;
@@ -33,24 +34,5 @@
         event = [ "BufWritePre" ];
       }
     ];
-
-    visuals.nvim-web-devicons.enable = true;
-    visuals.indent-blankline.enable = true;
-
-    statusline.lualine = {
-      enable = true;
-      theme = "tokyonight";
-      refresh = {
-        statusline = 200;
-        tabline = 200;
-        winbar = 200;
-      };
-    };
-
-    theme = {
-      enable = true;
-      name = "tokyonight";
-      style = "night";
-    };
   };
 }
