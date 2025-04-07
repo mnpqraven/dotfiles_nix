@@ -1,5 +1,4 @@
-{ inputs, lib, ... }:
-let
+{lib, ...}: let
   on_attach = lib.generators.mkLuaInline ''
     function(bufnr)
         local api = require "nvim-tree.api"
@@ -18,10 +17,10 @@ let
         vim.keymap.set("n", "<2-LeftMouse>", api.node.open.edit, opts("Edit"))
       end
   '';
-in
-{
+in {
   programs.nvf.settings.vim.filetree.nvimTree = {
     enable = true;
+    openOnSetup = false;
     mappings = {
       toggle = "<C-\\>";
       findFile = "<leader>tt";
