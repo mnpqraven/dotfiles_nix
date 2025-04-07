@@ -5,6 +5,18 @@ let
   };
 in
 {
+  programs.nvf.settings.vim.languages = {
+    enableLSP = true;
+    enableDAP = true;
+    enableExtraDiagnostics = true;
+    enableFormat = true;
+    enableTreesitter = true;
+
+    nix.enable = true;
+    rust.enable = true;
+    ts.enable = true;
+  };
+
   programs.nvf.settings.vim.lsp = {
     enable = true;
     formatOnSave = true;
@@ -19,27 +31,6 @@ in
       renameSymbol = "<leader>rn";
       codeAction = "<leader>qf";
       openDiagnosticFloat = "<leader><leader>";
-    };
-  };
-  programs.nvf.settings.vim.languages = {
-    nix = {
-      enable = true;
-      lsp.enable = true;
-      lsp.server = "nixd";
-      treesitter = on;
-      extraDiagnostics = on;
-      format = {
-        enable = true;
-        type = "nixfmt";
-      };
-    };
-    rust = {
-      enable = true;
-      crates = on;
-      dap = on;
-      format = on;
-      lsp = on;
-      treesitter = on;
     };
   };
 }

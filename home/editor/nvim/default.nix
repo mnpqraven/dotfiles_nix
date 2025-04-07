@@ -1,7 +1,7 @@
 { inputs, config, ... }:
 {
   imports = [
-    ./autocomplete.nix
+    ./autocomplete
     ./git.nix
     ./hop.nix
     ./lsp.nix
