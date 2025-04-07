@@ -28,6 +28,7 @@ in {
     setupOpts = {
       # INFO: https://github.com/nvim-tree/nvim-tree.lua?tab=readme-ov-file#custom-mappings
       inherit on_attach;
+      view.float.enable = true;
       actions.open_file.window_picker = {
         enable = true;
         chars = "ARSDHEIQWFPGJLUYOZXCVBKMTN1234567890";

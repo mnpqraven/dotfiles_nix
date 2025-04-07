@@ -3,6 +3,14 @@ _: {
   # one that should be configured later is fidget (bottom right notifs)
   programs.nvf.settings.vim = {
     ui = {
+      noice = {
+        enable = true;
+        setupOpts = {
+          lsp.progress.enabled = false;
+          notify.enabled = false;
+        };
+      };
+
       borders.enable = true;
       illuminate.enable = true;
     };

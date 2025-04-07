@@ -8,7 +8,10 @@ _: {
 
     nix.enable = true;
     rust.enable = true;
-    ts.enable = true;
+    ts = {
+      enable = true;
+      extensions.ts-error-translator.enable = true;
+    };
   };
 
   programs.nvf.settings.vim.lsp = {

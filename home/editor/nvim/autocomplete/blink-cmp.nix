@@ -1,5 +1,4 @@
-{ lib, ... }:
-{
+{lib, ...}: {
   programs.nvf.settings.vim.autocomplete = {
     blink-cmp = {
       enable = true;
@@ -16,11 +15,11 @@
         scrollDocsUp = "<C-u>";
       };
       setupOpts = {
-        cmdline.sources = null;
+        signature.enabled = true;
         fuzzy.implementation = "prefer_rust_with_warning";
 
         keymap = {
-          "<C-h>" = [ "cancel" ];
+          "<C-h>" = ["cancel"];
           "<CR>" = [
             "accept"
             "fallback"
