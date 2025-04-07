@@ -1,5 +1,8 @@
-{ inputs, config, ... }:
 {
+  inputs,
+  config,
+  ...
+}: {
   imports = [
     inputs.hyprpanel.homeManagerModules.hyprpanel
     ./bar.nix
@@ -20,11 +23,12 @@
               "dashboard"
               "workspaces"
             ];
-            middle = [ "media" ];
+            middle = ["media"];
             right = [
               "volume"
               "systray"
               "notifications"
+              "clock"
             ];
           };
         };
@@ -38,7 +42,7 @@
         weather.unit = "metric";
       };
 
-      theme.name = "tokyo_night_moon_split";
+      theme.name = "one_dark";
 
       theme.font = {
         name = "CaskaydiaCove NF";
