@@ -8,6 +8,7 @@ _: {
 
     nix.enable = true;
     rust.enable = true;
+    lua.enable = true;
     ts = {
       enable = true;
       extensions.ts-error-translator.enable = true;
