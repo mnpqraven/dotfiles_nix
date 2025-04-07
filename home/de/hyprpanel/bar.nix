@@ -1,7 +1,10 @@
 _: {
   programs.hyprpanel.settings = {
-    bar.launcher.autoDetectIcon = true;
-    bar.workspaces.show_icons = true;
     theme.bar.transparent = false;
+    bar = {
+      launcher.autoDetectIcon = true;
+      workspaces.show_icons = true;
+      systray.ignore = ["Fcitx"];
+    };
   };
 }

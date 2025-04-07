@@ -3,13 +3,10 @@
   inputs,
   pkgs,
   ...
-}:
-let
+}: let
   DHOME = inputs.rootPath;
   inherit (inputs) sshKind username;
-in
-{
-
+in {
   programs.zsh = {
     enable = true;
     autocd = true;
