@@ -1,5 +1,8 @@
-{config, ...}: let
-  cfgPath = "${config.home.homeDirectory}/dotfiles_nix/.config/fcitx5";
-in {
-  xdg.configFile."fcitx5".source = config.lib.file.mkOutOfStoreSymlink cfgPath;
+{inputs, ...}: {
+  home.file = {
+    ".config/fcitx5" = {
+      source = "${inputs.rootPath}/.config/fcitx5";
+      recursive = true;
+    };
+  };
 }
