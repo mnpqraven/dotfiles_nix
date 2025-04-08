@@ -1,4 +1,9 @@
-{ config, pkgs, lib, ... }:
+{
+  config,
+  pkgs,
+  lib,
+  ...
+}:
 
 let
   username = "othi";
@@ -7,7 +12,8 @@ let
   sshKind = "id_ed25519";
 
   # wrap a package for ime compability
-  electronWrap = { name }:
+  electronWrap =
+    { name }:
     pkgs.symlinkJoin {
       name = name;
       paths = [ pkgs.${name} ];
@@ -21,12 +27,13 @@ let
   teams-for-linux = electronWrap { name = "teams-for-linux"; };
   discord = electronWrap { name = "discord"; };
 
-in {
+in
+{
   home.username = username;
   home.homeDirectory = HOME;
   home.sessionVariables = {
     NIXOS_OZONE_WL = 1;
-    DHOME = DHOME;
+    inherit DHOME;
     EWW_BIN = "${HOME}/.nix-profile/bin/eww";
     EWW_CONF = "${DHOME}/.config/eww";
   };
@@ -53,11 +60,13 @@ in {
           select = "underline";
         };
       };
-      languages.language = [{
-        name = "nix";
-        auto-format = true;
-        formatter.command = "${pkgs.nixfmt}/bin/nixfmt";
-      }];
+      languages.language = [
+        {
+          name = "nix";
+          auto-format = true;
+          formatter.command = "${pkgs.nixfmt}/bin/nixfmt";
+        }
+      ];
       themes = {
         autumn_night_transparent = {
           "inherits" = "autumn_night";
@@ -83,7 +92,11 @@ in {
       syntaxHighlighting.enable = true;
       oh-my-zsh = {
         enable = true;
-        plugins = [ "git" "common-aliases" "vi-mode" ];
+        plugins = [
+          "git"
+          "common-aliases"
+          "vi-mode"
+        ];
       };
       initExtra = ''
         bindkey '^o' autosuggest-execute
@@ -118,8 +131,7 @@ in {
         gRST = "git reset --hard && git clean -fd";
         gmnc = "git merge --no-commit";
         gcom = "git checkout main";
-        qmkf =
-          "git checkout master && git fetch upstream && git pull upstream master && git push origin master";
+        qmkf = "git checkout master && git fetch upstream && git pull upstream master && git push origin master";
 
         # .rc
         vrc = "$EDITOR ${DHOME}/.config/nvim";
@@ -137,8 +149,7 @@ in {
         allcommit = "!git add . && git commit -m";
         st = "status";
         tags = "show-ref --abbrev=6 --tags";
-        tree =
-          "log --graph --abbrev-commit --decorate --date=format:'%d-%m-%Y %H:%M:%S' --format=format:'%C(reverse bold red)%h%C(reset) - %C(white)%ad%C(reset) %C(dim white)(%ar)%C(reset)%C(auto)%d%C(reset)%n'' %C(bold cyan)%s%C(reset) <%C(dim white)%an - %ae%C(reset)>' --all";
+        tree = "log --graph --abbrev-commit --decorate --date=format:'%d-%m-%Y %H:%M:%S' --format=format:'%C(reverse bold red)%h%C(reset) - %C(white)%ad%C(reset) %C(dim white)(%ar)%C(reset)%C(auto)%d%C(reset)%n'' %C(bold cyan)%s%C(reset) <%C(dim white)%an - %ae%C(reset)>' --all";
       };
       extraConfig = {
         credential = {
@@ -151,14 +162,20 @@ in {
         gpg.format = "ssh";
         gpg.ssh.allowedSignersFile = "${HOME}/.ssh/allowed_signers";
         user.signingkey = "${HOME}/.ssh/${sshKind}.pub";
-        push = { autoSetupRemote = true; };
+        push = {
+          autoSetupRemote = true;
+        };
       };
     };
   };
 
   i18n.inputMethod = {
     enabled = "fcitx5";
-    fcitx5.addons = with pkgs; [ fcitx5-mozc fcitx5-gtk fcitx5-unikey ];
+    fcitx5.addons = with pkgs; [
+      fcitx5-mozc
+      fcitx5-gtk
+      fcitx5-unikey
+    ];
   };
 
   home.packages = with pkgs; [
@@ -215,8 +232,7 @@ in {
   # plain files is through 'home.file'.
   home.file = {
     # https://home-manager-options.extranix.com/?query=file&release=release-24.11
-    ".ssh/allowed_signers".text =
-      "* ${builtins.readFile "${HOME}/.ssh/${sshKind}.pub"}";
+    ".ssh/allowed_signers".text = "* ${builtins.readFile "${HOME}/.ssh/${sshKind}.pub"}";
     ".config/zellij/config.kdl".source = "${DHOME}/.config/zellij/config.kdl";
 
     ".config/starship.toml".source = "${DHOME}/.config/starship.toml";

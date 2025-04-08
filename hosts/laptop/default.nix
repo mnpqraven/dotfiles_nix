@@ -2,10 +2,16 @@
 # your system.  Help is available in the configuration.nix(5) man page
 # and in the NixOS manual (accessible by running ‘nixos-help’).
 
-{ config, pkgs, ... }:
+{
+  config,
+  pkgs,
+  inputs,
+  ...
+}:
 
 {
-  imports = [ # Include the results of the hardware scan.
+  imports = [
+    # Include the results of the hardware scan.
     ./hardware-configuration.nix
   ];
 
@@ -13,7 +19,7 @@
   boot.loader.systemd-boot.enable = true;
   boot.loader.efi.canTouchEfiVariables = true;
 
-  networking.hostName = "nixos"; # Define your hostname.
+  networking.hostName = "laptop"; # Define your hostname.
   # networking.wireless.enable = true;  # Enables wireless support via wpa_supplicant.
 
   # Configure network proxy if necessary
@@ -41,7 +47,10 @@
     LC_TIME = "en_US.UTF-8";
   };
 
-  nix.settings.experimental-features = [ "nix-command" "flakes" ];
+  nix.settings.experimental-features = [
+    "nix-command"
+    "flakes"
+  ];
 
   # Enable the X11 windowing system.
   # You can disable this if you're only using the Wayland session.
@@ -94,36 +103,19 @@
       ports = [ 22 ];
       settings = {
         PasswordAuthentication = true;
-        AllowUsers =
-          null; # Allows all users by default. Can be [ "user1" "user2" ]
+        AllowUsers = null; # Allows all users by default. Can be [ "user1" "user2" ]
         UseDns = true;
         X11Forwarding = false;
-        PermitRootLogin =
-          "prohibit-password"; # "yes", "without-password", "prohibit-password", "forced-commands-only", "no"
+        PermitRootLogin = "prohibit-password"; # "yes", "without-password", "prohibit-password", "forced-commands-only", "no"
       };
     };
 
-    syncthing = {
-      enable = true;
-      user = "othi";
-      group = "wheel";
-      dataDir = "/home/othi";
-      configDir = "/home/othi/.config/syncthing";
-    };
   };
 
   networking.firewall.allowedTCPPorts = [ 22 ];
 
   # Enable touchpad support (enabled default in most desktopManager).
   # services.xserver.libinput.enable = true;
-
-  # Define a user account. Don't forget to set a password with ‘passwd’.
-  users.users.othi = {
-    isNormalUser = true;
-    description = "othi";
-    extraGroups = [ "networkmanager" "wheel" "docker" ];
-    packages = with pkgs; [ kdePackages.kate ];
-  };
 
   programs.zsh.enable = true;
   users.defaultUserShell = pkgs.zsh;
@@ -133,7 +125,9 @@
   # Allow unfree packages
   nixpkgs.config.allowUnfree = true;
 
-  environment.sessionVariables = { NIXOS_OZONE_WL = 1; };
+  environment.sessionVariables = {
+    NIXOS_OZONE_WL = 1;
+  };
 
   # List packages installed in system profile. To search, run:
   # $ nix search wget
@@ -148,14 +142,16 @@
     nixfmt-rfc-style
   ];
 
-  system.activationScripts = {
-    sync-system-conf-github = {
-      deps = [ "etc" ];
-      # TODO: dynamic
-      text = ''
-        cp -f /etc/nixos/configuration.nix /home/othi/dotfiles_nix/system_confs/configuration.nix
-      '';
-    };
+  system.autoUpgrade = {
+    enable = true;
+    flake = inputs.self.outPath;
+    flags = [
+      "--show-trace"
+      "-L"
+      "-v"
+    ];
+    dates = "weekly";
+    randomizedDelaySec = "45min";
   };
 
   # Some programs need SUID wrappers, can be configured further or are

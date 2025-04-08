@@ -1,29 +1,30 @@
 # Installation
 
-- create a new shell with `git`
 
-```nix
+- Create a new shell with `git`
+
+```bash
 nix-shell -p git
+ssh-keygen
+# run this after ssh-keygen
+echo "* $(cat ~/..ssh/id_ed25519.pub)" > ~/.ssh/allowed_signers
 ```
 
-- run the install script
+- clone the repo and build the system with flake.
 
-```nix
-curl https://raw.githubusercontent.com/mnpqraven/dotfiles_nix/main/install.sh | sh -
-```
+NOTE: replaces `YOURPLATFORM` with specified hosts (`laptop`)
 
-- finally rebuild the system and `home-manager`
-
-```nix
-sudo nixos-rebuild switch
-home-manager switch
+```bash
+git clone --recurse-submodules https://github.com/mnpqraven/dotfiles_nix.git
+cd dotfiles_nix
+sudo nixos-rebuild switch --flake .#YOURPLATFORM
 ```
 
 # post-install leftover setup
 
 mozc keymap can only be configured inside gui per following:
 
-```
+```bash
 fcitx5-configtool
 
 ```
