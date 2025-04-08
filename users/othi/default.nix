@@ -4,12 +4,10 @@
   lib,
   inputs,
   ...
-}:
-let
+}: let
   inherit (inputs) username nvf;
   DHOME = inputs.rootPath;
-in
-{
+in {
   imports = [
     ../../home/editor
     ../../home/shell
@@ -34,6 +32,7 @@ in
     home-manager.enable = true;
   };
 
+  # FIXME: home folder ?
   i18n.inputMethod = {
     enabled = "fcitx5";
     fcitx5.addons = with pkgs; [
