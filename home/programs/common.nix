@@ -3,15 +3,13 @@
   pkgs,
   inputs,
   ...
-}:
-let
+}: let
   # wrap a package for ime compability
-  imeWrap =
-    { name }:
+  imeWrap = {name}:
     pkgs.symlinkJoin {
       inherit name;
-      paths = [ pkgs.${name} ];
-      buildInputs = [ pkgs.makeWrapper ];
+      paths = [pkgs.${name}];
+      buildInputs = [pkgs.makeWrapper];
       postBuild = lib.strings.concatStrings [
         "wrapProgram $out/bin/"
         name
@@ -19,10 +17,9 @@ let
       ];
     };
 
-  teams-for-linux = imeWrap { name = "teams-for-linux"; };
-  discord = imeWrap { name = "discord"; };
-in
-{
+  teams-for-linux = imeWrap {name = "teams-for-linux";};
+  discord = imeWrap {name = "discord";};
+in {
   home.packages = with pkgs; [
     bacon
     bat
@@ -55,18 +52,5 @@ in
     tofi
     wpaperd
     zellij
-
-    # # It is sometimes useful to fine-tune packages, for example, by applying
-    # # overrides. You can do that directly here, just don't forget the
-    # # parentheses. Maybe you want to install Nerd Fonts with a limited number of
-    # # fonts?
-    # (pkgs.nerdfonts.override { fonts = [ "FantasqueSansMono" ]; })
-
-    # # You can also create simple shell scripts directly inside your
-    # # configuration. For example, this adds a command 'my-hello' to your
-    # # environment:
-    # (pkgs.writeShellScriptBin "my-hello" ''
-    #   echo "Hello, ${config.home.username}!"
-    # '')
   ];
 }

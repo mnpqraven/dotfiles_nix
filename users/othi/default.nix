@@ -9,10 +9,7 @@
   DHOME = inputs.rootPath;
 in {
   imports = [
-    ../../home/editor
-    ../../home/shell
-    ../../home/programs
-    ../../home/de
+    ../../home
 
     nvf.homeManagerModules.default
   ];
