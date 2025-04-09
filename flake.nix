@@ -26,7 +26,6 @@
     hyprpanel,
     ...
   } @ inputs: {
-    overlays = import ./overlays {inherit inputs;};
     nixosConfigurations = {
       # NOTE: each key is a hostname, propagate this with different machines
       laptop = let

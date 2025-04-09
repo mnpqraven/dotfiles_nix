@@ -23,17 +23,5 @@ in {
 
   programs.helix = {
     enable = true;
-    # languages.language = [
-    #   {
-    #     name = "rust";
-    #     auto-format = true;
-    #     formatter.command = "rustfmt";
-    #   }
-    #   {
-    #     name = "nix";
-    #     auto-format = true;
-    #     formatter.command = "${pkgs.nixfmt-rfc-style}/bin/nixfmt";
-    #   }
-    # ];
   };
 }
