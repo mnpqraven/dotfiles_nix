@@ -12,3 +12,16 @@ select = "underline"
 [editor.file-picker]
 hidden = false
 
+# INFO: KEYMAPS ---------------------------------------------------------
+[keys.normal]
+n = "move_visual_line_down"
+e = "move_char_right"
+l = "move_visual_line_up"
+j = "move_next_word_end"
+J = "move_next_long_word_end"
+
+[keys.normal.g]
+G = "goto_last_line"
+
+[keys.normal."space".q]
+f = "code_action"
