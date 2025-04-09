@@ -1,3 +1,3 @@
-{ config, inputs, pkgs, ... }: {
-  imports = [ ./zoxide.nix ./starship ./alacritty.nix ./zsh.nix ];
+_: {
+  imports = [./zoxide.nix ./starship.nix ./alacritty.nix ./zsh.nix];
 }

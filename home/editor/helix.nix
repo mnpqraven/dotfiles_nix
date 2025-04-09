@@ -1,10 +1,4 @@
-{ config, pkgs, ... }:
-let
-  cfgPath =
-    "${config.home.homeDirectory}/dotfiles_nix/.config/helix";
-in {
-  xdg.configFile."helix".source = config.lib.file.mkOutOfStoreSymlink cfgPath;
-
+_: {
   programs.helix = {
     enable = true;
     # settings = {
@@ -28,4 +22,3 @@ in {
     # };
   };
 }
-
