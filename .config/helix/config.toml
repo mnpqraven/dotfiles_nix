@@ -6,6 +6,29 @@ mouse = false
 end-of-line-diagnostics = "hint"
 popup-border = "all"
 rulers = [80]
+jump-label-alphabet = "arsdheiqwfpgjluyozxcvbkmtn"
+
+[editor.statusline]
+left = [
+  "mode",
+  "separator",
+  "spinner",
+  "file-name",
+  "read-only-indicator",
+  "file-modification-indicator",
+]
+right = [
+  "diagnostics",
+  "separator",
+  "selections",
+  "register",
+  "separator",
+  "position",
+  "separator",
+  "file-encoding",
+]
+separator = "││"
+
 
 [editor.indent-guides]
 render = true
@@ -33,7 +56,10 @@ l = "move_visual_line_up"
 j = "move_next_word_end"
 J = "move_next_long_word_end"
 X = "select_line_above"
+k = "search_next"
+"A-k" = "search_prev"
 K = "hover"
+"C-j" = "join_selections"
 "C-k" = "keep_selections"
 U = "no_op"
 "C-r" = "redo"
@@ -41,6 +67,8 @@ U = "no_op"
 "C-n" = "jump_view_down"
 "C-e" = "jump_view_right"
 "C-l" = "jump_view_up"
+"A-[" = "copy_selection_on_prev_line"
+"A-]" = "copy_selection_on_next_line"
 
 [keys.select]
 H = "goto_line_start"
@@ -56,19 +84,6 @@ X = "select_line_above"
 G = "goto_last_line"
 c = "toggle_comments"
 C = "toggle_block_comments"
-"A-c" = "toggle_line_comments"
-
-[keys.normal."space".f]
-f = "file_picker"
-F = "file_picker_in_current_directory"
-p = "diagnostics_picker"
-P = "workspace_diagnostics_picker"
-b = "buffer_picker"
-t = "symbol_picker"
-T = "workspace_symbol_picker"
-
-[keys.normal."space".q]
-f = "code_action"
 
 [keys.normal."space"]
 o = ":format"
@@ -79,3 +94,33 @@ b = "no_op"
 F = "no_op"
 d = "no_op"
 D = "no_op"
+s = "no_op"
+S = "no_op"
+
+[keys.normal."space".f]
+f = "file_picker"
+F = "file_picker_in_current_directory"
+p = "diagnostics_picker"
+P = "workspace_diagnostics_picker"
+b = "buffer_picker"
+t = "symbol_picker"
+T = "workspace_symbol_picker"
+
+[keys.normal."space".w]
+N = "swap_view_down"
+E = "swap_view_right"
+L = "swap_view_up"
+n = "jump_view_down"
+e = "jump_view_right"
+l = "jump_view_up"
+j = "no_op"
+k = "no_op"
+J = "no_op"
+K = "no_op"
+"C-j" = "no_op"
+"C-h" = "no_op"
+"C-l" = "no_op"
+"C-k" = "no_op"
+
+[keys.normal."space".q]
+f = "code_action"
