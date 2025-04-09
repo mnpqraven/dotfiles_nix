@@ -1,0 +1,155 @@
+# # Front-end
+# [[language]]
+# name = "typescript"
+# scope = "source.ts"
+# injection-regex = "(ts|typescript)"
+# language-servers = [
+#   { except-features = [
+#     "format",
+#   ], name = "typescript-language-server" },
+#   "eslint",
+# ]
+# roots = ["tailwind.config.js", "tailwind.config.cjs", ".prettierrc.json", ""]
+# file-types = ["ts", "mts", "cts"]
+# formatter = { command = 'prettierd', args = ["--stdin-filepath", "file.ts"] }
+# auto-format = true
+#
+# [[language]]
+# language-servers = [
+#   { except-features = [
+#     "format",
+#   ], name = "typescript-language-server" },
+#   "eslint",
+# ]
+# roots = ["tailwind.config.js", "tailwind.config.cjs", ".prettierrc.json"]
+# name = "javascript"
+# scope = "source.js"
+# injection-regex = "(js|javascript)"
+# file-types = ["js", "mjs", "cjs"]
+# formatter = { command = 'prettierd', args = ["--stdin-filepath", "file.js"] }
+# auto-format = true
+#
+# [[language]]
+# language-servers = [
+#   { except-features = [
+#     "format",
+#   ], name = "typescript-language-server" },
+#   "eslint",
+# ]
+# roots = ["tailwind.config.js", "tailwind.config.cjs", ".prettierrc.json"]
+# name = "jsx"
+# scope = "source.jsx"
+# injection-regex = "jsx"
+# file-types = ["jsx"]
+# formatter = { command = 'prettierd', args = ["--stdin-filepath", "file.jsx"] }
+# indent = { tab-width = 4, unit = "\t" }
+# auto-format = true
+#
+# [[language]]
+# language-servers = [
+#   { except-features = [
+#     "format",
+#   ], name = "typescript-language-server" },
+#   "eslint",
+# ]
+# roots = ["tailwind.config.js", "tailwind.config.cjs", ".prettierrc.json"]
+# name = "tsx"
+# scope = "source.tsx"
+# injection-regex = "(tsx)" # |typescript
+# file-types = ["tsx"]
+# formatter = { command = 'prettierd', args = ["--stdin-filepath", "file.tsx"] }
+# auto-format = true
+#
+# [[language]]
+# name = "html"
+# scope = "text.html.basic"
+# injection-regex = "html"
+# file-types = ["html"]
+# language-servers = ["vscode-html-language-server"]
+# roots = ["tailwind.config.js", "tailwind.config.cjs", ".prettierrc.json"]
+# auto-format = true
+#
+# [[language]]
+# name = "css"
+# scope = "source.css"
+# injection-regex = "css"
+# file-types = ["css"]
+# language-servers = ["vscode-css-language-server"]
+# roots = ["tailwind.config.js", "tailwind.config.cjs", ".prettierrc.json"]
+# auto-format = true
+#
+# [language-server.eslint]
+# args = ["--stdio"]
+# command = "vscode-eslint-language-server"
+#
+# [language-server.eslint.config]
+# nodePath = ""
+# # onIgnoredFiles = "off"
+# # packageManager = "yarn"
+# quiet = false
+# rulesCustomizations = []
+# run = "onType"
+# # useESLintClass = false
+# validate = "on"
+# codeAction = { disableRuleComment = { enable = true, location = "separateLine" }, showDocumentation = { enable = true } }
+# # codeActionsOnSave = { mode = "all" }
+# experimental = {}
+# problems = { shortenToSingleLine = false }
+# # workingDirectory = { mode = "auto" }
+#
+# [language-server.eslint.config.codeActionOnSave]
+# enable = true
+# mode = "fixAll"
+#
+# [language-server.eslint.config.workingDirectory]
+# mode = "location"
+#
+# [language-server.typescript-language-server]
+# args = ["--stdio"]
+# command = "typescript-language-server"
+#
+# [language-server.typescript-language-server.config]
+# documentFormatting = false
+
+[language-server]
+biome = { command = "biome", args = ["lsp-proxy"] }
+
+[[language]]
+name = "javascript"
+language-servers = [ { name = "typescript-language-server", except-features = [ "format" ] }, "biome" ]
+auto-format = true
+
+[[language]]
+name = "typescript"
+language-servers = [ { name = "typescript-language-server", except-features = [ "format" ] }, "biome" ]
+auto-format = true
+
+[[language]]
+name = "tsx"
+auto-format = true
+language-servers = [ { name = "typescript-language-server", except-features = [ "format" ] }, "biome" ]
+
+[[language]]
+name = "jsx"
+auto-format = true
+language-servers = [ { name = "typescript-language-server", except-features = [ "format" ] }, "biome" ]
+
+[[language]]
+name = "json"
+language-servers = [ { name = "vscode-json-language-server", except-features = [ "format" ] }, "biome" ]
+
+[[language]]
+name = "nix"
+auto-format = true
+
+[[language]]
+name = "rust"
+auto-format = true
+
+[language-server.rust-analyzer.config]
+check.command = "clippy"
+
+[[language]]
+name = "toml"
+formatter = { command = "taplo format" }
+auto-format = true

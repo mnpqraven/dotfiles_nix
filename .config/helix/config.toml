@@ -3,6 +3,10 @@ theme = "tokyonight"
 [editor]
 line-number = "relative"
 mouse = false
+end-of-line-diagnostics = "hint"
+
+[editor.inline-diagnostics]
+cursor-line = "warning"
 
 [editor.cursor-shape]
 insert = "bar"

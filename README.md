@@ -33,6 +33,12 @@ fcitx5-configtool
 click on mozc settings > configuration tool > configure > keymap style >
 customize > import from file > choose `~/dotfiles_nix/.config/mozc/keymap.tsv`
 
+# Languages
+TODO: declarative cmd later
+```
+rustup component add rust-analyzer
+```
+
 # Networking
 If the device uses Wifi, then connect to a wifi by using `nmcli` or `nmtui`
 ```bash
