@@ -125,7 +125,7 @@
 	height = 420
 
 	# Window background color
-	background-color = #16161e
+	background-color = #16161eb3
 
 	# Width of the border outlines in pixels.
 	outline-width = 0
