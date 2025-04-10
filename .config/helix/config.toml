@@ -105,6 +105,7 @@ P = "workspace_diagnostics_picker"
 b = "buffer_picker"
 t = "symbol_picker"
 T = "workspace_symbol_picker"
+g = "global_search"
 
 [keys.normal."space".w]
 N = "swap_view_down"

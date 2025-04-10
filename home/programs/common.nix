@@ -25,6 +25,7 @@ in {
     bat
     brave
     btop
+    clifm
     deluge
     discord
     eww

@@ -9,5 +9,6 @@ in {
     "starship.toml".source = symlink "${cfg}/starship.toml";
     tofi.source = symlink "${cfg}/tofi";
     zellij.source = symlink "${cfg}/zellij";
+    clifm.source = symlink "${cfg}/clifm";
   };
 }

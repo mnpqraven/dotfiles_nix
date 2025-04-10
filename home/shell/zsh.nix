@@ -40,6 +40,7 @@ in {
       cl = "clear";
       rf = "clear && macchina";
       btw = "macchina";
+      fm = "clifm";
       # TODO: dyn
       rc = "nvim /home/${username}/dotfiles_nix/flake.nix";
       rebuild = "sudo nixos-rebuild switch --flake .#laptop --show-trace -L -v";
