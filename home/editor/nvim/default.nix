@@ -8,7 +8,7 @@ _: {
     ./mini.nix
     ./opt.nix
     ./telescope.nix
-    # ./tree.nix
+    ./tree.nix
     ./oil.nix
     ./ui.nix
   ];
