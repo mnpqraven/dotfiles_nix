@@ -1,6 +1,5 @@
 _: {
-  programs.hyprpanel.settings.notifications = {
+  programs.hyprpanel.settings.notification = {
     showActionsOnHover = false;
-    enableShadow = true;
   };
 }

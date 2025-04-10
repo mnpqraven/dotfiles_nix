@@ -6,6 +6,7 @@
   imports = [
     inputs.hyprpanel.homeManagerModules.hyprpanel
     ./bar.nix
+    ./theme.nix
     ./dashboard.nix
     ./notification.nix
   ];
