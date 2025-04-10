@@ -9,6 +9,7 @@ _: {
     ./opt.nix
     ./telescope.nix
     ./tree.nix
+    ./oil.nix
     ./ui.nix
   ];
 
