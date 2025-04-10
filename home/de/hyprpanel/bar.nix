@@ -5,6 +5,8 @@ _: {
       launcher.autoDetectIcon = true;
       workspaces.show_icons = true;
       systray.ignore = ["Fcitx"];
+      customModules.netstat.dynamicIcon = true;
+      network.truncation = false;
     };
   };
 }

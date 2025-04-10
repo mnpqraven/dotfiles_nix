@@ -39,6 +39,11 @@ TODO: declarative cmd later
 rustup component add rust-analyzer
 ```
 
+# Hyprpanel
+Follow the
+[instruction](https://hyprpanel.com/help/faq.html#my-weather-is-not-displaying-any-information-or-is-showing-the-wrong-information-what-is-going-on)
+to get weather widget working
+
 # Networking
 If the device uses Wifi, then connect to a wifi by using `nmcli` or `nmtui`
 ```bash

@@ -7,6 +7,7 @@
     inputs.hyprpanel.homeManagerModules.hyprpanel
     ./bar.nix
     ./dashboard.nix
+    ./notification.nix
   ];
 
   programs.hyprpanel = {
@@ -19,16 +20,15 @@
       layout = {
         "bar.layouts" = {
           "0" = {
-            left = [
-              "dashboard"
-              "workspaces"
-            ];
+            left = ["dashboard" "workspaces" "windowtitle"];
             middle = ["media"];
             right = [
               "volume"
               "systray"
+              "network"
               "notifications"
               "clock"
+              "battery"
             ];
           };
         };
@@ -37,12 +37,16 @@
       menus.clock = {
         time = {
           military = true;
-          hideSeconds = true;
+          hideSeconds = false;
         };
-        weather.unit = "metric";
+        weather = {
+          enabled = true;
+          unit = "metric";
+          location = "Ha Noi";
+        };
       };
 
-      theme.name = "one_dark";
+      theme.name = "tokyo_night";
 
       theme.font = {
         name = "CaskaydiaCove NF";
