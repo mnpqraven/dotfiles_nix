@@ -40,54 +40,6 @@ _: {
         tabline = 200;
         winbar = 200;
       };
-      activeSection.b = [
-        ''
-          {
-            "branch",
-            icon = ' •',
-            separator = {left = ''}
-          }
-        ''
-        ''
-          {
-            "filetype",
-            colored = true,
-            icon_only = true,
-            icon = { align = 'left' }
-          }
-        ''
-        ''
-          {
-            "filename",
-            symbols = {modified = ' ', readonly = ' '},
-            separator = {right = ''}
-          }
-        ''
-        ''
-          {
-            "",
-            draw_empty = true,
-            separator = { left = '', right = '' }
-          }
-        ''
-      ];
-      activeSection.y = [
-        ''
-          {
-            "",
-            draw_empty = true,
-            separator = { left = '', right = '' }
-          }
-        ''
-        ''
-          {
-            'searchcount',
-            maxcount = 999,
-            timeout = 120,
-            separator = {left = ''}
-          }
-        ''
-      ];
     };
 
     theme = {
