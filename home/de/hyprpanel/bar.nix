@@ -1,12 +1,12 @@
 _: {
-  programs.hyprpanel.settings = {
-    theme.bar.transparent = false;
-    bar = {
-      launcher.autoDetectIcon = true;
-      workspaces.show_icons = true;
-      systray.ignore = ["Fcitx"];
-      customModules.netstat.dynamicIcon = true;
-      network.truncation = false;
-    };
+  programs.hyprpanel.settings.bar = {
+    launcher.autoDetectIcon = true;
+    workspaces.show_icons = false;
+    workspaces.show_numbered = true;
+    systray.ignore = ["Fcitx"];
+    customModules.netstat.dynamicIcon = true;
+    network.truncation = false;
+    autoHide = "fullscreen";
+    battery.hideLabelWhenFull = true;
   };
 }
