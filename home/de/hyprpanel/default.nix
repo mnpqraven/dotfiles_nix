@@ -1,5 +1,4 @@
 {
-  self,
   inputs,
   config,
   ...
@@ -45,7 +44,6 @@
           enabled = true;
           unit = "metric";
           location = "Ha Noi";
-          key = builtins.readFile ../../.weatherapi;
         };
       };
 

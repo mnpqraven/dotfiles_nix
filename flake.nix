@@ -30,10 +30,11 @@
       # NOTE: each key is a hostname, propagate this with different machines
       laptop = let
         sshKind = "id_ed25519";
+        system = "x86_64-linux";
         rootPath = ./.;
       in
         nixpkgs.lib.nixosSystem {
-          system = "x86_64-linux";
+          inherit system;
           specialArgs = {inherit inputs;};
           modules = [
             # Import the previous configuration.nix we used,
