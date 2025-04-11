@@ -27,7 +27,7 @@ right = [
   "separator",
   "file-encoding",
 ]
-separator = "││"
+separator = ""
 
 
 [editor.indent-guides]
