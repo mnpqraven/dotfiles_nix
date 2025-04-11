@@ -19,7 +19,6 @@
   };
 
   outputs = {
-    self,
     nixpkgs,
     home-manager,
     nvf,
@@ -35,7 +34,9 @@
       in
         nixpkgs.lib.nixosSystem {
           inherit system;
-          specialArgs = {inherit inputs;};
+          specialArgs = {
+            inherit inputs;
+          };
           modules = [
             # Import the previous configuration.nix we used,
             # so the old configuration file still takes effect
