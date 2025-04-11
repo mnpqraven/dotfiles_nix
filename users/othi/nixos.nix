@@ -23,11 +23,4 @@
     '';
   };
   programs.dconf.enable = true;
-
-  # DEV: #59
-  programs.nix-ld.enable = true;
-  # NOTE: doesn't even need this to link project flake, read more
-  # programs.nix-ld.libraries = with pkgs; [
-  #   pnpm
-  # ];
 }

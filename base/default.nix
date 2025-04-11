@@ -1,7 +1,7 @@
 # INFO: base module that has shared settings between all users and devices
 # this is basically the core level of configuration.nix
 _: {
-  imports = [./audio.nix ./languages.nix ./network.nix];
+  imports = [./audio.nix ./development.nix ./languages.nix ./network.nix];
 
   i18n.defaultLocale = "en_US.UTF-8";
   i18n.extraLocaleSettings = {
