@@ -4,7 +4,6 @@
   pkgs,
   ...
 }: let
-  DHOME = inputs.rootPath;
   inherit (inputs) sshKind username;
 in {
   programs.zsh = {
@@ -57,12 +56,6 @@ in {
       gmnc = "git merge --no-commit";
       gcom = "git checkout main";
       qmkf = "git checkout master && git fetch upstream && git pull upstream master && git push origin master";
-
-      # .rc
-      vrc = "$EDITOR ${DHOME}/.config/nvim";
-      zrc = "$EDITOR ${DHOME}/.zshrc";
-      zenv = "$EDITOR ${DHOME}/.zshenv";
-      tmrc = "$EDITOR ${DHOME}/.tmux.conf";
     };
     history.size = 10000;
   };

@@ -1,12 +1,10 @@
 {
-  config,
   pkgs,
-  lib,
   inputs,
   ...
 }: let
-  inherit (inputs) username nvf;
-  DHOME = inputs.rootPath;
+  inherit (inputs) nvf;
+  username = "othi";
 in {
   imports = [
     ../../home
@@ -17,14 +15,10 @@ in {
   home.username = username;
   home.homeDirectory = "/home/${username}";
   home.sessionVariables = {
-    NIXOS_OZONE_WL = 1;
-    inherit DHOME;
     EWW_BIN = "/home/${username}/.nix-profile/bin/eww";
-    EWW_CONF = "${DHOME}/.config/eww";
+    # FIXME: dyn
+    EWW_CONF = "/home/${username}/.config/eww";
   };
-  home.stateVersion = "24.11";
-  nixpkgs.config.allowUnfree = true;
-
   programs = {
     home-manager.enable = true;
   };
@@ -38,4 +32,7 @@ in {
       fcitx5-unikey
     ];
   };
+
+  home.stateVersion = "24.11";
+  nixpkgs.config.allowUnfree = true;
 }

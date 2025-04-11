@@ -38,8 +38,7 @@
             inherit inputs;
           };
           modules = [
-            # Import the previous configuration.nix we used,
-            # so the old configuration file still takes effect
+            ./base
             ./hosts/laptop
             ./users/othi/nixos.nix
             ./users/othi/services.nix
@@ -55,10 +54,11 @@
                   inherit sshKind rootPath;
                   # pkgs
                   inherit hyprpanel nvf;
+                  # TODO: move this props to pass from ./users/othi
                   username = "othi";
                 };
 
-                users.othi = import ./users/othi;
+                users.othi = import ./users/othi/home.nix;
               };
             }
           ];

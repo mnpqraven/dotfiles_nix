@@ -1,5 +1,12 @@
 # Installation
 
+- Generate hardware configuration
+
+```bash
+sudo nixos-generate-config
+cp /etc/nixos/hardware-configuration.nix ~/dotfiles_nix/hosts/YOUR_DEVICE
+```
+
 
 - Create a new shell with `git`
 
