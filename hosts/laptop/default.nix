@@ -17,15 +17,13 @@
   boot.loader.efi.canTouchEfiVariables = true;
 
   # Networking
-  networking.hostName = "laptop"; # Define your hostname.
+  networking.hostName = "laptop";
   networking.networkmanager.enable = true;
 
   # Set your time zone.
   time.timeZone = "Asia/Ho_Chi_Minh";
 
-  # Select internationalisation properties.
   i18n.defaultLocale = "en_US.UTF-8";
-
   i18n.extraLocaleSettings = {
     LC_ADDRESS = "en_US.UTF-8";
     LC_IDENTIFICATION = "en_US.UTF-8";
@@ -42,42 +40,30 @@
     "nix-command"
     "flakes"
   ];
-
-  # Enable the X11 windowing system.
-  # You can disable this if you're only using the Wayland session.
-  services.xserver = {
-    enable = true;
-    xkb = {
-      layout = "us,";
-      variant = "colemak,";
-      options = "grp:win_space_toggle";
-    };
-  };
-
-  # Enable the KDE Plasma Desktop Environment.
-  services.displayManager.sddm.enable = true;
-  services.desktopManager.plasma6.enable = true;
-
-  # Enable Hyprland
-  programs.hyprland.enable = true;
-  programs.hyprlock.enable = true;
-
-  services.hypridle.enable = false;
-  security.pam.services.hyprlock = {};
-
-  # Configure keymap in X11
-  # services.xserver.xkb = { layout = "us"; };
-
-  # Enable CUPS to print documents.
-  services.printing.enable = true;
-
-  hardware.pulseaudio.enable = false;
-  security.rtkit.enable = true;
-
-  virtualisation.docker.enable = true;
-
-  # Enable sound with pipewire.
   services = {
+    # Enable the X11 windowing system.
+    # You can disable this if you're only using the Wayland session.
+    xserver = {
+      enable = true;
+      xkb = {
+        layout = "us,";
+        variant = "colemak,";
+        options = "grp:win_space_toggle";
+      };
+    };
+
+    # Enable the KDE Plasma Desktop Environment.
+    displayManager.sddm.enable = true;
+    desktopManager.plasma6.enable = true;
+
+    # Configure keymap in X11
+    # services.xserver.xkb = { layout = "us"; };
+
+    # Enable CUPS to print documents.
+    printing.enable = true;
+
+    # Enable sound with pipewire.
+
     pipewire = {
       enable = true;
       alsa.enable = true;
@@ -100,19 +86,27 @@
     };
   };
 
-  networking.firewall.allowedTCPPorts = [22];
+  services.hypridle.enable = true;
+  programs = {
+    hyprland.enable = true;
+    hyprlock.enable = true;
+    zsh.enable = true;
+  };
+  security.pam.services.hyprlock = {};
 
-  programs.zsh.enable = true;
+  security.rtkit.enable = true;
+
+  hardware.pulseaudio.enable = false;
+
+  virtualisation.docker.enable = true;
+
+  networking.firewall.allowedTCPPorts = [22];
   users.defaultUserShell = pkgs.zsh;
-  # Install firefox.
-  programs.firefox.enable = true;
 
   # Allow unfree packages
   nixpkgs.config.allowUnfree = true;
 
-  environment.sessionVariables = {
-    NIXOS_OZONE_WL = 1;
-  };
+  environment.sessionVariables.NIXOS_OZONE_WL = 1;
 
   environment.systemPackages = with pkgs; [
     dunst
