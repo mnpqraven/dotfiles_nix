@@ -1,16 +1,17 @@
 separator = "|"
 separator_color = "red"
 key_color = "red"
+hide_ascii = true
 prefer_small_ascii = true
 
 [palette]
 type = "Dark"
 visible = true
-glyph = " ⬤ "
+glyph = "  "
 
 [box]
 title = " othi "
-border = "double"
+border = "plain"
 visible = true
 
 [bar]
@@ -27,17 +28,15 @@ color = "red"
 path = "~/.config/macchina/themes/ascii-arch.txt"
 
 [keys]
-host = " host"
-kernel = " kernel"
-distro = " distro"
-de = " desktop"
-wm = " WM"
-packages = " packages"
+host = "󰍹 host"
+kernel = " kernel"
+distro = "󱄅 distro"
+de = " desktop"
+packages = " packages"
 terminal = " terminal"
-shell = " shell"
-cpu = " cpu"
+shell = " shell"
+cpu = " cpu"
 cpu_load = " cpu"
 memory = " memory"
-battery = " battery"
-uptime = " uptime"
-resolution = " resolution"
+uptime = " uptime"
+resolution = "󰆾 resolution"
