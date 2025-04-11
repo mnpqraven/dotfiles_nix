@@ -5,6 +5,10 @@
 biome = { command = "biome", args = ["lsp-proxy"] }
 
 [[language]]
+name = "css"
+language-servers = [ "biome" ]
+
+[[language]]
 name = "javascript"
 language-servers = [
   { name = "typescript-language-server", except-features = [

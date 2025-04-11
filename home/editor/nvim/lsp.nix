@@ -12,6 +12,8 @@ _: {
     ts = {
       enable = true;
       extensions.ts-error-translator.enable = true;
+      # FIXME: doesn't work yet
+      format.type = "biome";
     };
   };
 
