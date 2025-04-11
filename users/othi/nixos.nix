@@ -23,4 +23,10 @@
     '';
   };
   programs.dconf.enable = true;
+
+  # DEV: #59
+  programs.nix-ld.enable = true;
+  programs.nix-ld.libraries = with pkgs; [
+    pnpm
+  ];
 }
