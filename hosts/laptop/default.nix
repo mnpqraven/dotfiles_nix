@@ -16,14 +16,8 @@
   boot.loader.systemd-boot.enable = true;
   boot.loader.efi.canTouchEfiVariables = true;
 
+  # Networking
   networking.hostName = "laptop"; # Define your hostname.
-  # networking.wireless.enable = true;  # Enables wireless support via wpa_supplicant.
-
-  # Configure network proxy if necessary
-  # networking.proxy.default = "http://user:password@proxy:port/";
-  # networking.proxy.noProxy = "127.0.0.1,localhost,internal.domain";
-
-  # Enable networking
   networking.networkmanager.enable = true;
 
   # Set your time zone.
@@ -67,6 +61,8 @@
   # Enable Hyprland
   programs.hyprland.enable = true;
   programs.hyprlock.enable = true;
+
+  services.hypridle.enable = false;
   security.pam.services.hyprlock = {};
 
   # Configure keymap in X11
@@ -89,10 +85,6 @@
       pulse.enable = true;
       # If you want to use JACK applications, uncomment this
       #jack.enable = true;
-
-      # use the example session manager (no others are packaged yet so this is enabled by default,
-      # no need to redefine it in your config for now)
-      #media-session.enable = true;
     };
 
     openssh = {
@@ -100,7 +92,7 @@
       ports = [22];
       settings = {
         PasswordAuthentication = true;
-        AllowUsers = null; # Allows all users by default. Can be [ "user1" "user2" ]
+        AllowUsers = null;
         UseDns = true;
         X11Forwarding = false;
         PermitRootLogin = "prohibit-password"; # "yes", "without-password", "prohibit-password", "forced-commands-only", "no"
@@ -109,9 +101,6 @@
   };
 
   networking.firewall.allowedTCPPorts = [22];
-
-  # Enable touchpad support (enabled default in most desktopManager).
-  # services.xserver.libinput.enable = true;
 
   programs.zsh.enable = true;
   users.defaultUserShell = pkgs.zsh;
@@ -125,8 +114,6 @@
     NIXOS_OZONE_WL = 1;
   };
 
-  # List packages installed in system profile. To search, run:
-  # $ nix search wget
   environment.systemPackages = with pkgs; [
     dunst
     hyprpolkitagent
