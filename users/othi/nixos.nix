@@ -26,7 +26,8 @@
 
   # DEV: #59
   programs.nix-ld.enable = true;
-  programs.nix-ld.libraries = with pkgs; [
-    pnpm
-  ];
+  # NOTE: doesn't even need this to link project flake, read more
+  # programs.nix-ld.libraries = with pkgs; [
+  #   pnpm
+  # ];
 }
