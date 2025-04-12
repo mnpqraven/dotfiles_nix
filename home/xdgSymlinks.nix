@@ -6,7 +6,6 @@
   cfg = "${config.home.homeDirectory}/dotfiles_nix/.config";
   symlink = config.lib.file.mkOutOfStoreSymlink;
 in {
-  # TODO: different sources based on device platform
   xdg.configFile = {
     helix.source = symlink "${cfg}/helix";
     hypr.source = symlink "${cfg}/hypr";
@@ -16,10 +15,10 @@ in {
     zellij.source = symlink "${cfg}/zellij";
     clifm.source = symlink "${cfg}/clifm";
     # TODO: sees if "wpaperd/config.toml" works
-    wpaperd.source =
-      if inputs.device == "pc"
-      then symlink "${cfg}/wpaperd_pc"
-      else symlink "${cfg}/wpaperd";
+    # wpaperd.source =
+    #   if inputs.device == "pc"
+    #   then symlink "${cfg}/wpaperd_pc"
+    #   else symlink "${cfg}/wpaperd";
   };
   # dynamically creates hyprland config
   home.file.".config/hypr/hyprland.conf" = {

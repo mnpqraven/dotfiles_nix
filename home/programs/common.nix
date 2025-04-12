@@ -52,7 +52,7 @@ in {
     wl-clipboard
     wofi
     tofi
-    wpaperd
+    # wpaperd
     zellij
   ];
 }
