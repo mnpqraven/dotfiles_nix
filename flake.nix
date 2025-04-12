@@ -63,6 +63,42 @@
             }
           ];
         };
+      pc = let
+        sshKind = "id_ed25519";
+        system = "x86_64-linux";
+        rootPath = ./.;
+      in
+        nixpkgs.lib.nixosSystem {
+          inherit system;
+          specialArgs = {
+            inherit inputs;
+          };
+          modules = [
+            ./base
+            ./hosts/pc
+            ./users/othi/nixos.nix
+            ./users/othi/services.nix
+
+            home-manager.nixosModules.home-manager
+            {
+              home-manager = {
+                useGlobalPkgs = false;
+                useUserPackages = true;
+                backupFileExtension = "bak";
+                extraSpecialArgs.inputs = {
+                  # props
+                  inherit sshKind rootPath;
+                  # pkgs
+                  inherit hyprpanel nvf;
+                  # TODO: move this props to pass from ./users/othi
+                  username = "othi";
+                };
+
+                users.othi = import ./users/othi/home.nix;
+              };
+            }
+          ];
+        };
     };
   };
 }
