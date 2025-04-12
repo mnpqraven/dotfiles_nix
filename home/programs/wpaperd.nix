@@ -17,13 +17,14 @@
     } =
       set;
   };
+  inherit (inputs) username;
 
   settings =
     {
       default = {
         duration = "1m";
         mode = "center";
-        path = "/home/othi/wallpaper/horizontal";
+        path = "/home/${username}/wallpaper/horizontal";
       };
     }
     // when {
@@ -32,7 +33,7 @@
       set = {
         duration = "1m";
         mode = "center";
-        path = "/home/othi/wallpaper/vertical";
+        path = "/home/${username}/wallpaper/vertical";
       };
     };
 in {
