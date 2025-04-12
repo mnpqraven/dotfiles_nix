@@ -14,11 +14,6 @@ in {
     tofi.source = symlink "${cfg}/tofi";
     zellij.source = symlink "${cfg}/zellij";
     clifm.source = symlink "${cfg}/clifm";
-    # TODO: sees if "wpaperd/config.toml" works
-    # wpaperd.source =
-    #   if inputs.device == "pc"
-    #   then symlink "${cfg}/wpaperd_pc"
-    #   else symlink "${cfg}/wpaperd";
   };
   # dynamically creates hyprland config
   home.file.".config/hypr/hyprland.conf" = {

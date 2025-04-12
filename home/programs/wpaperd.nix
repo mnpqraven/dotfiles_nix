@@ -4,30 +4,44 @@
   ...
 }: let
   wpaperd = inputs.wpaperd.packages."${pkgs.system}".wpaperd;
+  # creates an empty set if the condition isn't met, return the set otherwise
+  when = {
+    cond,
+    monitor,
+    set,
+  }: {
+    ${
+      if cond
+      then monitor
+      else null
+    } =
+      set;
+  };
+
   settings =
-    if inputs.device == "pc"
-    then {
+    {
       default = {
         duration = "1m";
         mode = "center";
         path = "/home/othi/wallpaper/horizontal";
       };
-      "DP-2" = {
+    }
+    // when {
+      cond = inputs.device == "pc";
+      monitor = "DP-2";
+      set = {
         duration = "1m";
         mode = "center";
         path = "/home/othi/wallpaper/vertical";
       };
-    }
-    else {
-      default = {
-        duration = "1m";
-        mode = "center";
-        path = "/home/othi/wallpaper/horizontal";
-      };
     };
 in {
-  home.packages = with pkgs; [
+  home.packages = [
     wpaperd
   ];
-  programs.wpaperd.settings = settings;
+  programs.wpaperd = {
+    enable = true;
+    package = wpaperd;
+    inherit settings;
+  };
 }
