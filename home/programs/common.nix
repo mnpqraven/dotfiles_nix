@@ -19,6 +19,7 @@
 
   teams-for-linux = imeWrap {name = "teams-for-linux";};
   discord = imeWrap {name = "discord";};
+  wpaperd = inputs.wpaperd.packages."${pkgs.system}".wpaperd;
 in {
   home.packages = with pkgs; [
     bacon
