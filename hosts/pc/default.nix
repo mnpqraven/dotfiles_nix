@@ -1,6 +1,7 @@
 {
   pkgs,
   inputs,
+  config,
   ...
 }: {
   imports = [
@@ -15,7 +16,6 @@
   # WIP: NVIDIA CONFIGURATION
   hardware.nvidia.package = config.boot.kernelPackages.nvidiaPackages.stable;
   hardware.nvidia.open = true;
-  services.xserver.enable = true;
   services.xserver.videoDrivers = [ "nvidia" ];
 
   networking.hostName = "laptop";
