@@ -67,7 +67,7 @@
       pc = let
         sshKind = "id_ed25519";
         system = "x86_64-linux";
-        device = "homepc";
+        device = "pc";
         rootPath = ./.;
       in
         nixpkgs.lib.nixosSystem {
