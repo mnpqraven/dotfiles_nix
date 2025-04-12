@@ -30,6 +30,7 @@
       laptop = let
         sshKind = "id_ed25519";
         system = "x86_64-linux";
+        device = "laptop";
         rootPath = ./.;
       in
         nixpkgs.lib.nixosSystem {
@@ -51,7 +52,7 @@
                 backupFileExtension = "bak";
                 extraSpecialArgs.inputs = {
                   # props
-                  inherit sshKind rootPath;
+                  inherit sshKind rootPath device;
                   # pkgs
                   inherit hyprpanel nvf;
                   # TODO: move this props to pass from ./users/othi
@@ -66,6 +67,7 @@
       pc = let
         sshKind = "id_ed25519";
         system = "x86_64-linux";
+        device = "homepc";
         rootPath = ./.;
       in
         nixpkgs.lib.nixosSystem {
@@ -87,7 +89,7 @@
                 backupFileExtension = "bak";
                 extraSpecialArgs.inputs = {
                   # props
-                  inherit sshKind rootPath;
+                  inherit sshKind rootPath device;
                   # pkgs
                   inherit hyprpanel nvf;
                   # TODO: move this props to pass from ./users/othi

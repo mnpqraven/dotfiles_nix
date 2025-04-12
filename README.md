@@ -25,6 +25,9 @@ NOTE: replaces `YOURPLATFORM` with specified hosts (`laptop`)
 git clone --recurse-submodules https://github.com/mnpqraven/dotfiles_nix.git
 cd dotfiles_nix
 sudo nixos-rebuild switch --flake .#YOURPLATFORM
+
+# run this after you've added the SSH key of the device to github
+git remote set-url origin git@github.com:mnpqraven/dotfiles_nix.git
 ```
 
 # post-install leftover setup

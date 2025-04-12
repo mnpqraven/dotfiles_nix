@@ -16,9 +16,9 @@
   # WIP: NVIDIA CONFIGURATION
   hardware.nvidia.package = config.boot.kernelPackages.nvidiaPackages.stable;
   hardware.nvidia.open = true;
-  services.xserver.videoDrivers = [ "nvidia" ];
+  services.xserver.videoDrivers = ["nvidia"];
 
-  networking.hostName = "laptop";
+  networking.hostName = "pc";
 
   # Set your time zone.
   time.timeZone = "Asia/Ho_Chi_Minh";
@@ -26,14 +26,7 @@
   services = {
     # Enable the X11 windowing system.
     # You can disable this if you're only using the Wayland session.
-    xserver = {
-      enable = true;
-      xkb = {
-        layout = "us,";
-        variant = "colemak,";
-        options = "grp:win_space_toggle";
-      };
-    };
+    xserver.enable = true;
 
     # Enable the KDE Plasma Desktop Environment.
     displayManager.sddm.enable = true;
