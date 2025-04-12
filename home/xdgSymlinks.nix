@@ -21,4 +21,18 @@ in {
       then symlink "${cfg}/wpaperd_pc"
       else symlink "${cfg}/wpaperd";
   };
+  # dynamically creates hyprland config
+  home.file.".config/hypr/hyprland.conf" = {
+    force = true;
+    text = ''
+      source = ./hyprland/set.conf
+
+      source = ./hyprland/monitors_${inputs.device}.conf
+      source = ./hyprland/startup.conf
+      source = ./hyprland/animations.conf
+      source = ./hyprland/rules.conf
+      source = ./hyprland/bindings.conf
+      source = ./hyprland/looks.conf
+    '';
+  };
 }
