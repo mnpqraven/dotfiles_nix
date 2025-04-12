@@ -7,16 +7,13 @@
   imports = [
     # Include the results of the hardware scan.
     ./hardware-configuration.nix
+    # PC needs NVIDIA configs as well
+    ./nvidia.nix
   ];
 
   # Bootloader.
   boot.loader.systemd-boot.enable = true;
   boot.loader.efi.canTouchEfiVariables = true;
-
-  # WIP: NVIDIA CONFIGURATION
-  hardware.nvidia.package = config.boot.kernelPackages.nvidiaPackages.stable;
-  hardware.nvidia.open = true;
-  services.xserver.videoDrivers = ["nvidia"];
 
   networking.hostName = "pc";
 
