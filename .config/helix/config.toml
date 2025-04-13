@@ -126,3 +126,7 @@ K = "no_op"
 
 [keys.normal."space".q]
 f = "code_action"
+
+[keys.insert]
+"C-n" = "completion"
+"C-space" = "completion"
