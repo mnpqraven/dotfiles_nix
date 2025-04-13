@@ -6,17 +6,6 @@
   cfg = "${config.home.homeDirectory}/dotfiles_nix/.config";
   symlink = config.lib.file.mkOutOfStoreSymlink;
 in {
-  xdg.configFile = {
-    helix.source = symlink "${cfg}/helix";
-    hypr.source = symlink "${cfg}/hypr";
-    macchina.source = symlink "${cfg}/macchina";
-    "starship.toml".source = symlink "${cfg}/starship.toml";
-    tofi.source = symlink "${cfg}/tofi";
-    zellij.source = symlink "${cfg}/zellij";
-    clifm.source = symlink "${cfg}/clifm";
-    wezterm.source = symlink "${cfg}/wezterm";
-    yazi.source = symlink "${cfg}/yazi";
-  };
   # dynamically creates hyprland config
   home.file.".config/hypr/hyprland.conf" = {
     force = true;
@@ -30,5 +19,16 @@ in {
       source = ./hyprland/bindings.conf
       source = ./hyprland/looks.conf
     '';
+  };
+  xdg.configFile = {
+    helix.source = symlink "${cfg}/helix";
+    hypr.source = symlink "${cfg}/hypr";
+    macchina.source = symlink "${cfg}/macchina";
+    "starship.toml".source = symlink "${cfg}/starship.toml";
+    tofi.source = symlink "${cfg}/tofi";
+    zellij.source = symlink "${cfg}/zellij";
+    clifm.source = symlink "${cfg}/clifm";
+    wezterm.source = symlink "${cfg}/wezterm";
+    yazi.source = symlink "${cfg}/yazi";
   };
 }
