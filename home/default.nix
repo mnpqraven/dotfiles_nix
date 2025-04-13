@@ -5,5 +5,6 @@ _: {
     ./programs
     ./de
     ./xdgSymlinks.nix
+    ./xdgMime.nix
   ];
 }
