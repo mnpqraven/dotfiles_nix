@@ -43,7 +43,6 @@ in {
     librewolf
     macchina
     nodejs_20
-    nerdfonts
     pnpm
     protobuf
     ripgrep
