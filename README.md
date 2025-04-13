@@ -72,3 +72,9 @@ nmcli device list connect "name" password "password"
 "Available to all users" options checked. If the wifi doesn't automatically
 connect after boot then delete the network and re-connect, if it still doesn't
 work then use `nmcli`
+
+### Possible issues
+
+#### nerdfonts not loading
+
+Try `fc-cache -rf` [(see)](https://github.com/NixOS/nixpkgs/issues/366979)
