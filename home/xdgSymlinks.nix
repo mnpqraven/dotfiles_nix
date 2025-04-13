@@ -14,6 +14,8 @@ in {
     tofi.source = symlink "${cfg}/tofi";
     zellij.source = symlink "${cfg}/zellij";
     clifm.source = symlink "${cfg}/clifm";
+    wezterm.source = symlink "${cfg}/wezterm";
+    yazi.source = symlink "${cfg}/yazi";
   };
   # dynamically creates hyprland config
   home.file.".config/hypr/hyprland.conf" = {
