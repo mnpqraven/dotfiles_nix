@@ -14,7 +14,7 @@ cp /etc/nixos/hardware-configuration.nix ~/dotfiles_nix/hosts/YOUR_DEVICE
 nix-shell -p git
 ssh-keygen
 # run this after ssh-keygen
-echo "* $(cat ~/..ssh/id_ed25519.pub)" > ~/.ssh/allowed_signers
+echo "* $(cat ~/.ssh/id_ed25519.pub)" > ~/.ssh/allowed_signers
 ```
 
 - clone the repo and build the system with flake.
@@ -68,13 +68,19 @@ nmcli device wifi list
 nmcli device list connect "name" password "password"
 ```
 
-#### NOTE: if you use `nmtui` then remember to have "Automatically connect" and
-"Available to all users" options checked. If the wifi doesn't automatically
-connect after boot then delete the network and re-connect, if it still doesn't
-work then use `nmcli`
 
 ### Possible issues
 
-#### nerdfonts not loading
+#### `nerdfonts` not loading
 
 Try `fc-cache -rf` [(see)](https://github.com/NixOS/nixpkgs/issues/366979)
+
+#### Wifi not autoconnecting
+if you use `nmtui` and wifi is not automatically connecting after login then
+do the following
+- have "Automatically connect" and "Available to all users" options
+checked.
+- If the wifi doesn't automatically connect after boot then delete the
+network and re-connect.
+- if it still doesn't work then use `nmcli`.
+
