@@ -1,10 +1,8 @@
-_:
-let
+_: let
   # TODO: might be better with relative path to home
   # but this is a system service so ??
   homeDir = "/home/othi";
-in
-{
+in {
   # Syncthing ports: 8384 for remote access to GUI
   # 22000 TCP and/or UDP for sync traffic
   # 21027/UDP for discovery
@@ -29,6 +27,12 @@ in
       };
       "home-windows" = {
         id = "4JUS3IL-GWYHS2K-6MT6VGA-NXPR5MS-7ZGDX4E-UWMAMHY-PVTUJ7R-PM7BFQN";
+      };
+      "home-nixos" = {
+        id = "3CHVA4S-4RGRIP6-ANRKFBX-5TRMW45-FUABOR5-34FQ377-J7YVZPI-QLNHTQS";
+      };
+      "laptop" = {
+        id = "CJ3B3XZ-2KBXIQU-YLPK6VZ-ERTFNAO-QWRG5XI-FFDK6IO-F6I3Z6Z-B7HBKQ4";
       };
       "phone" = {
         id = "6TOUADK-ULRBSQH-ZUVOQD4-5LLMZF3-6NUMMU6-HZFEWDE-OTPLWR7-FJMRVAH";

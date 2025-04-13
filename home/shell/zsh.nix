@@ -42,9 +42,9 @@ in {
       fm = "clifm";
       # TODO: dyn
       rc = "nvim /home/${username}/dotfiles_nix/flake.nix";
-      rebuild = "sudo nixos-rebuild switch --flake .#laptop --show-trace -L -v";
-      trybuild = "sudo nixos-rebuild test --flake .#laptop --show-trace -L -v";
-      upgrade = "sudo nixos-rebuild switch --flake .#laptop --show-trace -L -v --recreate-lock-file";
+      rebuild = "sudo nixos-rebuild switch --flake .#${inputs.device} --show-trace -L -v";
+      trybuild = "sudo nixos-rebuild test --flake .#${inputs.device} --show-trace -L -v";
+      upgrade = "sudo nixos-rebuild switch --flake .#${inputs.device} --show-trace -L -v --recreate-lock-file";
       nix-gc = "nix-collect-garbage -d";
       zm = "zellij";
       v = "nvim";

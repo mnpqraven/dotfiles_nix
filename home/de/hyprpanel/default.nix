@@ -1,8 +1,28 @@
-{
-  inputs,
-  config,
-  ...
-}: {
+{inputs, ...}: let
+  horizontalLayout = {
+    left = ["dashboard" "workspaces" "windowtitle"];
+    middle = ["media"];
+    right =
+      [
+        "volume"
+        "systray"
+        "network"
+        "notifications"
+        "clock"
+      ]
+      ++ laptopWidgets;
+  };
+  verticalLayout = {
+    left = ["workspaces"];
+    middle = ["media"];
+    right = [];
+  };
+
+  laptopWidgets =
+    if inputs.device == "laptop"
+    then ["battery"]
+    else [];
+in {
   imports = [
     inputs.hyprpanel.homeManagerModules.hyprpanel
     ./bar.nix
@@ -20,18 +40,9 @@
     settings = {
       layout = {
         "bar.layouts" = {
-          "0" = {
-            left = ["dashboard" "workspaces" "windowtitle"];
-            middle = ["media"];
-            right = [
-              "volume"
-              "systray"
-              "network"
-              "notifications"
-              "clock"
-              "battery"
-            ];
-          };
+          "0" = horizontalLayout;
+          "1" = verticalLayout;
+          "2" = horizontalLayout;
         };
       };
 
