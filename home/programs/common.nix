@@ -1,7 +1,6 @@
 {
   lib,
   pkgs,
-  inputs,
   ...
 }: let
   # wrap a package for ime compability
@@ -19,7 +18,6 @@
 
   teams-for-linux = imeWrap {name = "teams-for-linux";};
   discord = imeWrap {name = "discord";};
-  wpaperd = inputs.wpaperd.packages."${pkgs.system}".wpaperd;
 in {
   home.packages = with pkgs; [
     bacon
@@ -51,7 +49,6 @@ in {
     wl-clipboard
     wofi
     tofi
-    # wpaperd
     zellij
   ];
 }

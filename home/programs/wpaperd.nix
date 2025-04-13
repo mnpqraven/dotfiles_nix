@@ -3,7 +3,6 @@
   pkgs,
   ...
 }: let
-  wpaperd = inputs.wpaperd.packages."${pkgs.system}".wpaperd;
   # creates an empty set if the condition isn't met, return the set otherwise
   when = {
     cond,
@@ -37,12 +36,8 @@
       };
     };
 in {
-  home.packages = [
-    wpaperd
-  ];
-  programs.wpaperd = {
+  services.wpaperd = {
     enable = true;
-    package = wpaperd;
     inherit settings;
   };
 }

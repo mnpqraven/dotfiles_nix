@@ -16,8 +16,6 @@
       url = "github:notashelf/nvf";
       inputs.nixpkgs.follows = "nixpkgs";
     };
-    # FIXME: deprecate when upstream @1.1.0
-    wpaperd.url = "github:danyspin97/wpaperd";
   };
 
   outputs = {
@@ -25,7 +23,6 @@
     home-manager,
     nvf,
     hyprpanel,
-    wpaperd,
     ...
   } @ inputs: {
     nixosConfigurations = {
@@ -57,7 +54,7 @@
                   # props
                   inherit sshKind rootPath device;
                   # pkgs
-                  inherit hyprpanel nvf wpaperd;
+                  inherit hyprpanel nvf;
                   # TODO: move this props to pass from ./users/othi
                   username = "othi";
                 };
@@ -94,7 +91,7 @@
                   # props
                   inherit sshKind rootPath device;
                   # pkgs
-                  inherit hyprpanel nvf wpaperd;
+                  inherit hyprpanel nvf;
                   # TODO: move this props to pass from ./users/othi
                   username = "othi";
                 };
