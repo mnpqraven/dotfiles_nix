@@ -16,6 +16,7 @@
       url = "github:notashelf/nvf";
       inputs.nixpkgs.follows = "nixpkgs";
     };
+    swww.url = "github:LGFae/swww";
   };
 
   outputs = {
@@ -23,6 +24,7 @@
     home-manager,
     nvf,
     hyprpanel,
+    swww,
     ...
   } @ inputs: {
     nixosConfigurations = {
@@ -54,7 +56,7 @@
                   # props
                   inherit sshKind rootPath device;
                   # pkgs
-                  inherit hyprpanel nvf;
+                  inherit hyprpanel nvf swww;
                   # TODO: move this props to pass from ./users/othi
                   username = "othi";
                 };
@@ -91,7 +93,7 @@
                   # props
                   inherit sshKind rootPath device;
                   # pkgs
-                  inherit hyprpanel nvf;
+                  inherit hyprpanel nvf swww;
                   # TODO: move this props to pass from ./users/othi
                   username = "othi";
                 };

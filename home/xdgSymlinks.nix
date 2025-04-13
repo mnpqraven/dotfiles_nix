@@ -14,6 +14,7 @@ in {
 
       source = ./hyprland/monitors_${inputs.device}.conf
       source = ./hyprland/startup.conf
+      source = ./hyprland/wallpaper_${inputs.device}.conf
       source = ./hyprland/animations.conf
       source = ./hyprland/rules.conf
       source = ./hyprland/bindings.conf

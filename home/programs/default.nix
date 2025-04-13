@@ -5,6 +5,7 @@ _: {
     ./filemanager
     ./git.nix
     ./im.nix
-    ./wpaperd.nix
+    # ./wpaperd.nix
+    ./swww.nix
   ];
 }
