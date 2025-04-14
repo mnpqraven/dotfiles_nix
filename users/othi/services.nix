@@ -53,12 +53,8 @@ in {
         id = "default";
         devices = allDevices;
       };
-      "${homeDir}/wallpaper/horizontal" = {
-        id = "6gvcf-t5xvr";
-        devices = allDevices;
-      };
-      "${homeDir}/wallpaper/vertical" = {
-        id = "xba9c-zdahz";
+      "${homeDir}/wallpaper" = {
+        id = "rdvnk-hham6";
         devices = allDevices;
       };
     };
