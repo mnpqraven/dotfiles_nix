@@ -2,6 +2,13 @@ _: let
   # TODO: might be better with relative path to home
   # but this is a system service so ??
   homeDir = "/home/othi";
+  allDevices = [
+    "nas"
+    "home-windows"
+    "phone"
+    "laptop"
+    "work-pc"
+  ];
 in {
   # Syncthing ports: 8384 for remote access to GUI
   # 22000 TCP and/or UDP for sync traffic
@@ -38,36 +45,21 @@ in {
         id = "6TOUADK-ULRBSQH-ZUVOQD4-5LLMZF3-6NUMMU6-HZFEWDE-OTPLWR7-FJMRVAH";
       };
       "work-pc" = {
-        id = "N52ZUJZ-X5WHA3R-QEQ7B4C-6PXI2TS-453CFVG-FOIQOWK-VWSUORC-X564DQV";
+        id = "QH4MEVC-F7ZD5I3-6DBMGUX-KJDO3JM-XD33LV6-2A44EGF-OENTMAP-2ZTYHQQ";
       };
     };
     settings.folders = {
       "${homeDir}/Sync" = {
         id = "default";
-        devices = [
-          "nas"
-          "home-windows"
-          "phone"
-          "work-pc"
-        ];
+        devices = allDevices;
       };
       "${homeDir}/wallpaper/horizontal" = {
         id = "6gvcf-t5xvr";
-        devices = [
-          "nas"
-          "home-windows"
-          "phone"
-          "work-pc"
-        ];
+        devices = allDevices;
       };
       "${homeDir}/wallpaper/vertical" = {
         id = "xba9c-zdahz";
-        devices = [
-          "nas"
-          "home-windows"
-          "phone"
-          "work-pc"
-        ];
+        devices = allDevices;
       };
     };
   };
