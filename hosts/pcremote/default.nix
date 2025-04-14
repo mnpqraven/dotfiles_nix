@@ -52,9 +52,7 @@
     libnotify
     librewolf
     neovim
-    nixd
     git
-    nixfmt-rfc-style
   ];
 
   system.autoUpgrade = {
