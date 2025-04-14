@@ -1,4 +1,4 @@
-theme = "tokyonight"
+theme = "tokyonight_moon"
 
 [editor]
 line-number = "relative"
@@ -7,16 +7,22 @@ end-of-line-diagnostics = "hint"
 popup-border = "all"
 rulers = [80]
 jump-label-alphabet = "arsdheiqwfpgjluyozxcvbkmtn"
+completion-replace = true
+
+[editor.soft-wrap]
+enable = true
 
 [editor.statusline]
 left = [
   "mode",
   "separator",
   "spinner",
-  "file-name",
+  "version-control",
   "read-only-indicator",
   "file-modification-indicator",
+  "separator",
 ]
+center = ["file-name"]
 right = [
   "diagnostics",
   "separator",
@@ -24,10 +30,11 @@ right = [
   "register",
   "separator",
   "position",
-  "separator",
-  "file-encoding",
 ]
-separator = ""
+# separator = ""
+mode.normal = "NORMAL"
+mode.insert = "INSERT"
+mode.select = "VISUAL"
 
 
 [editor.indent-guides]
@@ -40,7 +47,6 @@ cursor-line = "error"
 
 [editor.cursor-shape]
 insert = "bar"
-normal = "block"
 select = "underline"
 
 [editor.file-picker]
