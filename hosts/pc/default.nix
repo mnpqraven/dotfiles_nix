@@ -10,7 +10,7 @@
     ./hardware-configuration.nix
     # PC needs NVIDIA configs as well
     ./nvidia.nix
-    ./nas.nix
+    ./mounts.nix
   ];
 
   # Bootloader.
