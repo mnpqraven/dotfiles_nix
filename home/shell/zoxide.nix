@@ -1,4 +1,10 @@
-{ config, inputs, pkgs, ... }: {
+{
+  config,
+  inputs,
+  pkgs,
+  ...
+}:
+{
   home.packages = with pkgs; [ zoxide ];
   programs = {
     zoxide.enable = true;

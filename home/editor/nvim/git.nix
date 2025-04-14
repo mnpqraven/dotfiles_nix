@@ -8,7 +8,7 @@ _: {
       desc = "Git panel";
       key = "<leader>gg";
       action = ":G<CR>";
-      mode = ["n"];
+      mode = [ "n" ];
     }
   ];
 }

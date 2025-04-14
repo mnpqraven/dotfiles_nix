@@ -1,6 +1,8 @@
-_: let
+_:
+let
   indent = 2;
-in {
+in
+{
   programs.nvf.settings.vim.options = {
     # TODO: clean old/unneeded keys
     guicursor = "a:block";

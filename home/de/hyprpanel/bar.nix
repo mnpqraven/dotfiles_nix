@@ -3,7 +3,7 @@ _: {
     launcher.autoDetectIcon = true;
     workspaces.show_icons = false;
     workspaces.show_numbered = true;
-    systray.ignore = ["Fcitx"];
+    systray.ignore = [ "Fcitx" ];
     customModules.netstat.dynamicIcon = true;
     network.truncation = false;
     autoHide = "fullscreen";

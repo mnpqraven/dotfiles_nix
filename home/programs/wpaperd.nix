@@ -2,20 +2,18 @@
   inputs,
   pkgs,
   ...
-}: let
+}:
+let
   # creates an empty set if the condition isn't met, return the set otherwise
-  when = {
-    cond,
-    monitor,
-    set,
-  }: {
-    ${
-      if cond
-      then monitor
-      else null
-    } =
-      set;
-  };
+  when =
+    {
+      cond,
+      monitor,
+      set,
+    }:
+    {
+      ${if cond then monitor else null} = set;
+    };
   inherit (inputs) username;
 
   settings =
@@ -35,7 +33,8 @@
         path = "/home/${username}/wallpaper/vertical";
       };
     };
-in {
+in
+{
   services.wpaperd = {
     enable = true;
     inherit settings;

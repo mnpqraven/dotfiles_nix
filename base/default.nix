@@ -1,7 +1,13 @@
 # INFO: base module that has shared settings between all users and devices
 # this is basically the core level of configuration.nix
 _: {
-  imports = [./audio.nix ./development.nix ./font.nix ./languages.nix ./network.nix];
+  imports = [
+    ./audio.nix
+    ./development.nix
+    ./font.nix
+    ./languages.nix
+    ./network.nix
+  ];
 
   i18n.defaultLocale = "en_US.UTF-8";
   i18n.extraLocaleSettings = {
@@ -18,7 +24,10 @@ _: {
   # wayland wrapper flag for electron and chromium apps
   environment.sessionVariables.NIXOS_OZONE_WL = 1;
 
-  nix.settings.experimental-features = ["nix-command" "flakes"];
+  nix.settings.experimental-features = [
+    "nix-command"
+    "flakes"
+  ];
   nixpkgs.config.allowUnfree = true;
 
   # This value determines the NixOS release from which the default

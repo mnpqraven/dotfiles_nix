@@ -9,12 +9,12 @@ _: {
     };
     setupOpts = {
       defaults.file_ignore_patterns = [
-       "node_modules"
+        "node_modules"
         "%.git/"
         "dist/"
         "build/"
         "target/"
-        "result/" 
+        "result/"
         ".next"
       ];
     };

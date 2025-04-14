@@ -3,9 +3,11 @@
   inputs,
   pkgs,
   ...
-}: let
+}:
+let
   inherit (inputs) sshKind username;
-in {
+in
+{
   programs.zsh = {
     enable = true;
     autocd = true;

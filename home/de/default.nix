@@ -1,3 +1,3 @@
 _: {
-  imports = [./hyprpanel];
+  imports = [ ./hyprpanel ];
 }

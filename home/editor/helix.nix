@@ -2,9 +2,11 @@
   config,
   pkgs,
   ...
-}: let
+}:
+let
   cfgPath = "${config.home.homeDirectory}/dotfiles_nix/.config/helix";
-in {
+in
+{
   xdg.configFile."helix".source = config.lib.file.mkOutOfStoreSymlink cfgPath;
 
   home.packages = with pkgs; [

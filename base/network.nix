@@ -2,7 +2,7 @@ _: {
   networking.networkmanager.enable = true;
   services.openssh = {
     enable = true;
-    ports = [22];
+    ports = [ 22 ];
     settings = {
       PasswordAuthentication = true;
       AllowUsers = null;
@@ -11,5 +11,5 @@ _: {
       PermitRootLogin = "prohibit-password"; # "yes", "without-password", "prohibit-password", "forced-commands-only", "no"
     };
   };
-  networking.firewall.allowedTCPPorts = [22];
+  networking.firewall.allowedTCPPorts = [ 22 ];
 }

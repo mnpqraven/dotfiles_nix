@@ -4,7 +4,7 @@ _: {
       desc = "Oil panel";
       key = "<leader>tf";
       action = ":Oil --float<CR>";
-      mode = ["n"];
+      mode = [ "n" ];
     }
   ];
   programs.nvf.settings.vim.utility.oil-nvim = {

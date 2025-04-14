@@ -2,13 +2,15 @@
   lib,
   pkgs,
   ...
-}: let
+}:
+let
   # wrap a package for ime compability
-  imeWrap = {name}:
+  imeWrap =
+    { name }:
     pkgs.symlinkJoin {
       inherit name;
-      paths = [pkgs.${name}];
-      buildInputs = [pkgs.makeWrapper];
+      paths = [ pkgs.${name} ];
+      buildInputs = [ pkgs.makeWrapper ];
       postBuild = lib.strings.concatStrings [
         "wrapProgram $out/bin/"
         name
@@ -16,9 +18,10 @@
       ];
     };
 
-  teams-for-linux = imeWrap {name = "teams-for-linux";};
-  discord = imeWrap {name = "discord";};
-in {
+  teams-for-linux = imeWrap { name = "teams-for-linux"; };
+  discord = imeWrap { name = "discord"; };
+in
+{
   home.packages = with pkgs; [
     bacon
     bat

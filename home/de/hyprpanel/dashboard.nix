@@ -1,8 +1,10 @@
-_: let
+_:
+let
   icon = icon: tooltip: command: {
     inherit command icon tooltip;
   };
-in {
+in
+{
   programs.hyprpanel.settings = {
     menus.dashboard = {
       powermenu.avatar.image = "~/.face.icon";

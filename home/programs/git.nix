@@ -2,10 +2,12 @@
   inputs,
   pkgs,
   ...
-}: let
+}:
+let
   inherit (inputs) username sshKind;
-in {
-  home.packages = with pkgs; [git-credential-manager];
+in
+{
+  home.packages = with pkgs; [ git-credential-manager ];
   programs.git = {
     enable = true;
     userName = "Othi";
@@ -27,7 +29,9 @@ in {
       gpg.format = "ssh";
       gpg.ssh.allowedSignersFile = "/home/${username}/.ssh/allowed_signers";
       user.signingkey = "/home/${username}/.ssh/${sshKind}.pub";
-      push = {autoSetupRemote = true;};
+      push = {
+        autoSetupRemote = true;
+      };
     };
   };
 }

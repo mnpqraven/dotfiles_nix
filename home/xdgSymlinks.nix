@@ -2,10 +2,12 @@
   config,
   inputs,
   ...
-}: let
+}:
+let
   cfg = "${config.home.homeDirectory}/dotfiles_nix/.config";
   symlink = config.lib.file.mkOutOfStoreSymlink;
-in {
+in
+{
   xdg.configFile = {
     helix.source = symlink "${cfg}/helix";
     hypr.source = symlink "${cfg}/hypr";

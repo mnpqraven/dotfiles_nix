@@ -1,8 +1,10 @@
-_: let
+_:
+let
   on = {
     enable = true;
   };
-in {
+in
+{
   programs.nvf.settings.vim.mini = {
     ai = on;
     trailspace = on;

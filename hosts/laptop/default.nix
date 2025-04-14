@@ -2,7 +2,8 @@
   pkgs,
   inputs,
   ...
-}: {
+}:
+{
   imports = [
     # Include the results of the hardware scan.
     ./hardware-configuration.nix
@@ -43,7 +44,7 @@
     hyprlock.enable = true;
     zsh.enable = true;
   };
-  security.pam.services.hyprlock = {};
+  security.pam.services.hyprlock = { };
 
   security.rtkit.enable = true;
 

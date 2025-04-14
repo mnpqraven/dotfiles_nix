@@ -32,7 +32,7 @@ _: {
         enable = true;
         desc = "Trim whitespace";
         command = "%s/\\s\\+$//e";
-        event = ["BufWritePre"];
+        event = [ "BufWritePre" ];
       }
     ];
   };

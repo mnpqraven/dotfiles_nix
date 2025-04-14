@@ -1,6 +1,8 @@
 _: {
   programs.nvf.settings.vim = {
-    utility.motion.hop = { enable = true; };
+    utility.motion.hop = {
+      enable = true;
+    };
 
     extraPlugins."hop-nvim" = {
       package = "hop-nvim";
@@ -11,11 +13,13 @@ _: {
       '';
     };
 
-    keymaps = [{
-      key = "<leader>h";
-      action = "<cmd>HopWord<CR>";
-      mode = [ "n" ];
-      desc = "Hop";
-    }];
+    keymaps = [
+      {
+        key = "<leader>h";
+        action = "<cmd>HopWord<CR>";
+        mode = [ "n" ];
+        desc = "Hop";
+      }
+    ];
   };
 }

@@ -2,10 +2,12 @@
   pkgs,
   inputs,
   ...
-}: let
+}:
+let
   inherit (inputs) nvf;
   username = "othi";
-in {
+in
+{
   imports = [
     ../../home
 

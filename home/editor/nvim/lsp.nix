@@ -6,7 +6,10 @@ _: {
     enableFormat = true;
     enableTreesitter = true;
 
-    nix.enable = true;
+    nix = {
+      enable = true;
+      format.type = "nixfmt";
+    };
     rust.enable = true;
     lua.enable = true;
     ts = {

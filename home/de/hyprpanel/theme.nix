@@ -1,6 +1,8 @@
 _:
-let barBackground = false;
-in {
+let
+  barBackground = false;
+in
+{
   programs.hyprpanel.settings.theme = {
     notification.enableShadow = true;
     osd.enableShadow = true;

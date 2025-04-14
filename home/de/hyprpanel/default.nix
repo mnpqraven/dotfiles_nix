@@ -1,28 +1,29 @@
-{inputs, ...}: let
+{ inputs, ... }:
+let
   horizontalLayout = {
-    left = ["dashboard" "workspaces" "windowtitle"];
-    middle = ["media"];
-    right =
-      [
-        "volume"
-        "systray"
-        "network"
-        "notifications"
-        "clock"
-      ]
-      ++ laptopWidgets;
+    left = [
+      "dashboard"
+      "workspaces"
+      "windowtitle"
+    ];
+    middle = [ "media" ];
+    right = [
+      "volume"
+      "systray"
+      "network"
+      "notifications"
+      "clock"
+    ] ++ laptopWidgets;
   };
   verticalLayout = {
-    left = ["workspaces"];
-    middle = ["media"];
-    right = [];
+    left = [ "workspaces" ];
+    middle = [ "media" ];
+    right = [ ];
   };
 
-  laptopWidgets =
-    if inputs.device == "laptop"
-    then ["battery"]
-    else [];
-in {
+  laptopWidgets = if inputs.device == "laptop" then [ "battery" ] else [ ];
+in
+{
   imports = [
     inputs.hyprpanel.homeManagerModules.hyprpanel
     ./bar.nix
