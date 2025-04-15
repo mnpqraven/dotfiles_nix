@@ -17,6 +17,7 @@ in
     zellij.source = symlink "${cfg}/zellij";
     clifm.source = symlink "${cfg}/clifm";
     wezterm.source = symlink "${cfg}/wezterm";
+    rmpc.source = symlink "${cfg}/rmpc";
     yazi.source = symlink "${cfg}/yazi";
   };
   # dynamically creates hyprland config
