@@ -42,6 +42,7 @@ in
       rf = "clear && macchina";
       btw = "macchina";
       fm = "clifm";
+      mz = "rmpc";
       # TODO: dyn
       rc = "nvim /home/${username}/dotfiles_nix/flake.nix";
       rebuild = "sudo nixos-rebuild switch --flake .#${inputs.device} --show-trace -L -v";
