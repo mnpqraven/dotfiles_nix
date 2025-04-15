@@ -19,7 +19,7 @@ let
     };
 
   teams-for-linux = imeWrap { name = "teams-for-linux"; };
-  discord = imeWrap { name = "discord"; };
+  discord = imeWrap { name = "webcord"; };
 in
 {
   home.packages = with pkgs; [
