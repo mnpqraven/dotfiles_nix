@@ -43,6 +43,7 @@ in
     librewolf
     macchina
     nodejs_20
+    obs-studio
     pnpm
     protobuf
     ripgrep
