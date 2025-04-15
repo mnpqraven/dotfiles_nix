@@ -18,4 +18,11 @@
     network.listenAddress = "any"; # if you want to allow non-localhost connections
     network.startWhenNeeded = true; # systemd feature: only start MPD service upon connection to its socket
   };
+
+  # TODO: mpris impl for playerctl (hyprpanel)
+  # @see https://github.com/natsukagami/mpd-mpris?tab=readme-ov-file
+  services.mpd-mpris = {
+    enable = true;
+    mpd.host = "127.0.0.1";
+  };
 }
