@@ -7,7 +7,6 @@ end-of-line-diagnostics = "hint"
 popup-border = "all"
 rulers = [80]
 jump-label-alphabet = "arsdheiqwfpgjluyozxcvbkmtn"
-completion-replace = true
 
 [editor.soft-wrap]
 enable = true
