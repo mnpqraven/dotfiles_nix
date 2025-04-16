@@ -20,7 +20,8 @@
         "Source Han Code JP"
       ];
       monospace = [
-        "Lilex Nerd Font Mono"
+        "GeistMono NFM"
+        "JetBrainsMono NFM"
         "Source Han Code JP"
         "Noto Color Emoji"
       ];

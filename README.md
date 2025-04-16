@@ -5,7 +5,11 @@
     <picture>
       <img alt="Wallpaper" src="./docs/images/main1440.png">
     </picture>
-    *[wallpaper](https://x.com/void_ling/status/1855164935141200230) from the amazing [@void_ling](https://x.com/void_ling)*
+    <span><i>
+        <a href="https://x.com/void_ling/status/1855164935141200230">wallpaper</a>
+        from the amazing
+        <a href="https://x.com/void_ling">@void_ling</a>
+    </i></span>
 </div>
 
 # Installation
