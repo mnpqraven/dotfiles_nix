@@ -11,6 +11,7 @@
     # PC needs NVIDIA configs as well
     ./nvidia.nix
     ./mounts.nix
+    ./logiops.nix
   ];
 
   # Bootloader.
