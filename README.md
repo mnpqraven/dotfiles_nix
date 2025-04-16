@@ -1,7 +1,12 @@
-# Othi's dotfiles (NixOS edition)
-
-![Main monitor](./docs/images/main1440.png)
-*[wallpaper](https://x.com/void_ling/status/1855164935141200230) from the amazing [@void_ling](https://x.com/void_ling)*
+<div align="center">
+    <h1>
+      Othi's dotfiles (NixOS edition)
+    </h1>
+    <picture>
+      <img alt="Wallpaper" src="./docs/images/main1440.png">
+    </picture>
+    *[wallpaper](https://x.com/void_ling/status/1855164935141200230) from the amazing [@void_ling](https://x.com/void_ling)*
+</div>
 
 # Installation
 
