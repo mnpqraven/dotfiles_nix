@@ -1,4 +1,5 @@
-_: {
+{ pkgs, ... }:
+{
   networking.networkmanager.enable = true;
   services.openssh = {
     enable = true;
@@ -12,4 +13,8 @@ _: {
     };
   };
   networking.firewall.allowedTCPPorts = [ 22 ];
+  environment.systemPackages = with pkgs; [
+    rsync
+    openssl
+  ];
 }
