@@ -10,7 +10,6 @@ let
     "credentials=/etc/.credentials"
     "uid=1000"
     "gid=100"
-    # "rw"
   ];
 in
 {

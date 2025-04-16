@@ -47,7 +47,7 @@ style = "#d3b987"
 format = "[@$hostname]($style)[ ](#767676)"
 
 [directory]
-read_only = " "
+read_only = " 󰌾"
 truncation_length = 2
 truncate_to_repo = false
 repo_root_style = "#0087af"
