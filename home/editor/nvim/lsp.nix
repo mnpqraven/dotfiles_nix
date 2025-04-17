@@ -15,7 +15,7 @@ _: {
     ts = {
       enable = true;
       extensions.ts-error-translator.enable = true;
-      # FIXME: doesn't work yet
+      # FIXME: doesn't work yet (see NotAShelf/nvf#790)
       format.type = "biome";
     };
   };
