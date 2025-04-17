@@ -1,3 +1,6 @@
 _: {
-  imports = [ ./hyprpanel ];
+  imports = [
+    ./hyprpanel
+    ./hyprland.nix
+  ];
 }
