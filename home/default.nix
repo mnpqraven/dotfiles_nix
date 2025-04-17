@@ -4,7 +4,6 @@ _: {
     ./shell
     ./programs
     ./de
-    ./xdgSymlinks.nix
     ./xdgMime.nix
   ];
 }

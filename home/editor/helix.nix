@@ -7,6 +7,7 @@ let
   cfgPath = "${config.home.homeDirectory}/dotfiles_nix/.config/helix";
 in
 {
+  programs.helix.enable = true;
   xdg.configFile."helix".source = config.lib.file.mkOutOfStoreSymlink cfgPath;
 
   home.packages = with pkgs; [
@@ -22,8 +23,4 @@ in
     prettierd
     nixfmt-rfc-style
   ];
-
-  programs.helix = {
-    enable = true;
-  };
 }
