@@ -1,18 +1,19 @@
 {
-  config,
   inputs,
-  pkgs,
   ...
 }:
 let
-  inherit (inputs) sshKind username;
+  inherit (inputs) sshKind username device;
 in
 {
   programs.zsh = {
     enable = true;
     autocd = true;
     enableCompletion = true;
-    autosuggestion.enable = true;
+    autosuggestion = {
+      enable = true;
+      highlight = "fg=#c099ff,underline";
+    };
     syntaxHighlighting.enable = true;
     oh-my-zsh = {
       enable = true;
@@ -45,9 +46,9 @@ in
       mz = "rmpc";
       # TODO: dyn
       rc = "nvim /home/${username}/dotfiles_nix/flake.nix";
-      rebuild = "sudo nixos-rebuild switch --flake .#${inputs.device} --show-trace -L -v";
-      trybuild = "sudo nixos-rebuild test --flake .#${inputs.device} --show-trace -L -v";
-      upgrade = "sudo nixos-rebuild switch --flake .#${inputs.device} --show-trace -L -v --recreate-lock-file";
+      rebuild = "sudo nixos-rebuild switch --flake .#${device} --show-trace -L -v";
+      trybuild = "sudo nixos-rebuild test --flake .#${device} --show-trace -L -v";
+      upgrade = "sudo nixos-rebuild switch --flake .#${device} --show-trace -L -v --recreate-lock-file";
       nix-gc = "nix-collect-garbage -d";
       zm = "zellij";
       v = "nvim";

@@ -11,6 +11,7 @@ _: {
         };
       };
 
+      colorizer.enable = true;
       borders.enable = true;
       illuminate.enable = true;
     };
