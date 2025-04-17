@@ -128,6 +128,13 @@ Y = [
   ':redraw',
 ]
 
+[keys.normal."space".g]
+g = "changed_file_picker"
+G = ':sh wezterm start --class weztermfloat --cwd %sh{pwd} -- nvim -c "G" -c only'
+f = ":sh git pull"
+p = ":sh git push"
+t = ":sh git tree"
+
 [keys.normal."space".w]
 N = "swap_view_down"
 E = "swap_view_right"
