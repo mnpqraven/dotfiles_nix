@@ -1,6 +1,7 @@
 {
   config,
   pkgs,
+  inputs,
   ...
 }:
 let
@@ -8,7 +9,8 @@ let
 in
 {
   programs.helix.enable = true;
-  xdg.configFile."helix".source = config.lib.file.mkOutOfStoreSymlink cfgPath;
+  programs.helix.package = inputs.helix.packages."${pkgs.system}".helix;
+  xdg.configFile.helix.source = config.lib.file.mkOutOfStoreSymlink cfgPath;
 
   home.packages = with pkgs; [
     # LSPs

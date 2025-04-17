@@ -17,6 +17,7 @@
       inputs.nixpkgs.follows = "nixpkgs";
     };
     swww.url = "github:LGFae/swww";
+    helix.url = "github:helix-editor/helix/master";
   };
 
   outputs =
@@ -26,6 +27,7 @@
       nvf,
       hyprpanel,
       swww,
+      helix,
       ...
     }@inputs:
     {
@@ -59,7 +61,12 @@
                     # props
                     inherit sshKind rootPath device;
                     # pkgs
-                    inherit hyprpanel nvf swww;
+                    inherit
+                      hyprpanel
+                      nvf
+                      swww
+                      helix
+                      ;
                     # TODO: move this props to pass from ./users/othi
                     username = "othi";
                   };
@@ -97,7 +104,12 @@
                     # props
                     inherit sshKind rootPath device;
                     # pkgs
-                    inherit hyprpanel nvf swww;
+                    inherit
+                      hyprpanel
+                      nvf
+                      swww
+                      helix
+                      ;
                     # TODO: move this props to pass from ./users/othi
                     username = "othi";
                   };
@@ -135,7 +147,12 @@
                     # props
                     inherit sshKind rootPath device;
                     # pkgs
-                    inherit hyprpanel nvf swww;
+                    inherit
+                      hyprpanel
+                      nvf
+                      swww
+                      helix
+                      ;
                     # TODO: move this props to pass from ./users/othi
                     username = "othi";
                   };

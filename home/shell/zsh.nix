@@ -52,6 +52,7 @@ in
       nix-gc = "nix-collect-garbage -d";
       zm = "zellij";
       v = "nvim";
+      hx = "hx; clear";
       cr = "cargo run --";
       gt = "git tree";
       gac = "git allcommit";
