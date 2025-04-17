@@ -1,4 +1,4 @@
-theme = "tokyonight_moon"
+theme = "tokyonight_moon_mod"
 
 [editor]
 line-number = "relative"
@@ -7,6 +7,8 @@ end-of-line-diagnostics = "hint"
 popup-border = "all"
 rulers = [80]
 jump-label-alphabet = "arsdheiqwfpgjluyozxcvbkmtn"
+cursorline = true
+cursorcolumn = true
 
 [editor.soft-wrap]
 enable = true
