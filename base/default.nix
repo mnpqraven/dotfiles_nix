@@ -4,6 +4,7 @@ _: {
   imports = [
     ./audio.nix
     ./development.nix
+    ./devices
     ./font.nix
     ./languages
     ./network.nix
