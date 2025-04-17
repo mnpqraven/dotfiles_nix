@@ -5,7 +5,7 @@ _: {
     ./audio.nix
     ./development.nix
     ./font.nix
-    ./languages.nix
+    ./languages
     ./network.nix
   ];
 

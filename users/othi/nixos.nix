@@ -1,5 +1,4 @@
-{ pkgs, ... }:
-{
+_: {
   # Define a user account. Don't forget to set a password with ‘passwd’.
   users.users.othi = {
     isNormalUser = true;
@@ -9,7 +8,6 @@
       "wheel"
       "docker"
     ];
-    packages = with pkgs; [ kdePackages.kate ];
   };
   # user profile for lockscreens
   system.activationScripts.export-face-icon =

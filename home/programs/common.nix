@@ -26,7 +26,6 @@ let
 in
 {
   home.packages = with pkgs; [
-    bacon
     bat
     brave
     btop
@@ -37,23 +36,16 @@ in
     fd
     feh
     fzf
-    gcc
-    go
     hyprshot
     imagemagick
     kalker
     keychain
     librewolf
     macchina
-    nodejs_20
     obs-studio
-    pnpm
-    protobuf
     ripgrep
-    rustup
     teams-for-linux
     wl-clipboard
-    wofi
     tofi
     zellij
   ];
