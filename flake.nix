@@ -90,6 +90,7 @@
             };
             modules = [
               ./base
+              ./devices/dogshitasslogitechmouse.nix
               ./hosts/pc
               ./users/othi/nixos.nix
               ./users/othi/services.nix
