@@ -1,27 +1,17 @@
 # INFO: base module that has shared settings between all users and devices
 # this is basically the core level of configuration.nix
-_: {
+{ pkgs, ... }:
+{
   imports = [
     ./audio.nix
+    ./boot.nix
     ./development.nix
-    ./devices
     ./font.nix
     ./languages
+    ./locale.nix
     ./network.nix
   ];
 
-  i18n.defaultLocale = "en_US.UTF-8";
-  i18n.extraLocaleSettings = {
-    LC_ADDRESS = "en_US.UTF-8";
-    LC_IDENTIFICATION = "en_US.UTF-8";
-    LC_MEASUREMENT = "en_US.UTF-8";
-    LC_MONETARY = "en_US.UTF-8";
-    LC_NAME = "en_US.UTF-8";
-    LC_NUMERIC = "en_US.UTF-8";
-    LC_PAPER = "en_US.UTF-8";
-    LC_TELEPHONE = "en_US.UTF-8";
-    LC_TIME = "en_US.UTF-8";
-  };
   # wayland wrapper flag for electron and chromium apps
   environment.sessionVariables.NIXOS_OZONE_WL = 1;
 
@@ -30,6 +20,9 @@ _: {
     "flakes"
   ];
   nixpkgs.config.allowUnfree = true;
+
+  programs.zsh.enable = true;
+  users.defaultUserShell = pkgs.zsh;
 
   # This value determines the NixOS release from which the default
   # settings for stateful data, like file locations and database versions

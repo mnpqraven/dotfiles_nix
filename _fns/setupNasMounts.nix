@@ -1,4 +1,5 @@
-{ ... }:
+# TODO: impl
+{ addr }:
 let
   fsType = "cifs";
   options = [
@@ -14,12 +15,12 @@ let
 in
 {
   fileSystems."/run/mount/nas/music" = {
-    device = "//nas.othi.dev/music";
+    device = "//${addr}/music";
     inherit fsType options;
   };
 
   fileSystems."/run/mount/nas/db1" = {
-    device = "//nas.othi.dev/db1";
+    device = "//${addr}/db1";
     inherit fsType options;
   };
 }
