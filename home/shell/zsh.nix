@@ -3,7 +3,8 @@
   ...
 }:
 let
-  inherit (inputs) sshKind username device;
+  inherit (inputs) username device;
+  sshKind = "id_ed25519";
 in
 {
   programs.zsh = {
