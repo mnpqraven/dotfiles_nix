@@ -4,7 +4,8 @@
   ...
 }:
 let
-  inherit (inputs) username sshKind;
+  inherit (inputs) username;
+  sshKind = "id_ed25519";
 in
 {
   home.packages = with pkgs; [ git-credential-manager ];
