@@ -46,8 +46,8 @@
         smartshift:
         {
             on: true;
-            threshold: 5;
-            torque: 8;
+            threshold: 8;
+            torque: 10;
         };
         hiresscroll:
         {

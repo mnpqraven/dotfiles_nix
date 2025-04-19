@@ -49,6 +49,9 @@ in
       "work-pc" = {
         id = "QH4MEVC-F7ZD5I3-6DBMGUX-KJDO3JM-XD33LV6-2A44EGF-OENTMAP-2ZTYHQQ";
       };
+      "walkman" = {
+        id = "XIUXJTF-GOLZLTP-DLUCQHZ-D44NDVV-LSNZYAE-ZR4G6V7-EXSLEZE-YRVVBQW";
+      };
     };
     settings.folders = {
       "${homeDir}/Sync" = {
@@ -58,6 +61,13 @@ in
       "${homeDir}/wallpaper" = {
         id = "rdvnk-hham6";
         devices = allDevices;
+      };
+      "${homeDir}/WalkmanMusic" = {
+        id = "urrvx-iogrd";
+        devices = [
+          "walkman"
+          "phone"
+        ];
       };
     };
   };
