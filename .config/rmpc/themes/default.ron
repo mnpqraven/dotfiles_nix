@@ -27,12 +27,31 @@
         thumb_style: (fg: "blue", bg: "#1e2030"),
     ),
     scrollbar: (
-        symbols: ["│", "█", "▲", "▼"],
+        symbols: [" ", "█", "▲", "▼"],
         track_style: (),
         ends_style: (),
         thumb_style: (fg: "blue"),
     ),
     song_table_format: [
+        (
+            label: "Album Artist",
+            prop: (kind: Property(Other("albumartist")),
+                default: (kind: Text("Unknown"))
+            ),
+            width: "20%",
+        ),
+        (
+            prop: (kind: Property(Album), style: (fg: "white"),
+                default: (kind: Text("Unknown Album"), style: (fg: "white"))
+            ),
+            width: "20%",
+        ),
+        (
+            prop: (kind: Property(Track),
+                default: (kind: Text("--"))
+            ),
+            width: "5",
+        ),
         (
             prop: (kind: Property(Artist),
                 default: (kind: Text("Unknown"))
@@ -43,19 +62,13 @@
             prop: (kind: Property(Title),
                 default: (kind: Text("Unknown"))
             ),
-            width: "35%",
-        ),
-        (
-            prop: (kind: Property(Album), style: (fg: "white"),
-                default: (kind: Text("Unknown Album"), style: (fg: "white"))
-            ),
-            width: "30%",
+            width: "40%",
         ),
         (
             prop: (kind: Property(Duration),
                 default: (kind: Text("-"))
             ),
-            width: "15%",
+            width: "10",
             alignment: Right,
         ),
     ],
@@ -73,7 +86,9 @@
                     )
                 ],
                 right: [
-                    (kind: Property(Widget(Volume)), style: (fg: "blue"))
+                    // PR
+                    // (kind: Property(Widget(ScanStatus)), style: (fg: "blue")),
+                    (kind: Property(Widget(Volume)), style: (fg: "blue")),
                 ]
             ),
             (
