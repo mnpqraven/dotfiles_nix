@@ -3,10 +3,16 @@
   inputs,
   ...
 }:
+let
+  nasMount = import ../../_fns/setupNasMounts.nix {
+    addr = "192.168.1.14";
+  };
+in
 {
   imports = [
     # Include the results of the hardware scan.
     ./hardware-configuration.nix
+    nasMount
   ];
 
   networking.hostName = "laptop";

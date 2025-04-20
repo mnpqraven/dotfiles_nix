@@ -14,13 +14,14 @@ let
   ];
 in
 {
-  fileSystems."/run/mount/nas/music" = {
-    device = "//${addr}/music";
-    inherit fsType options;
-  };
-
-  fileSystems."/run/mount/nas/db1" = {
-    device = "//${addr}/db1";
-    inherit fsType options;
+  fileSystems = {
+    "/run/mount/nas/music" = {
+      device = "//${addr}/music";
+      inherit fsType options;
+    };
+    "/run/mount/nas/db1" = {
+      device = "//${addr}/db1";
+      inherit fsType options;
+    };
   };
 }

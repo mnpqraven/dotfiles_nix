@@ -1,16 +1,20 @@
 {
   pkgs,
   inputs,
-  config,
   ...
 }:
+let
+  nasMount = import ../../_fns/setupNasMounts.nix {
+    addr = "192.168.1.14";
+  };
+in
 {
   imports = [
     # Include the results of the hardware scan.
     ./hardware-configuration.nix
     # PC needs NVIDIA configs as well
     ./nvidia.nix
-    ./mounts.nix
+    nasMount
   ];
 
   networking.hostName = "pc";
