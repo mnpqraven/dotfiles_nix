@@ -1,4 +1,5 @@
 inherits = "tokyonight_moon"
 
+"ui.background" = {}
 "ui.cursorcolumn.primary" = { bg = "bg-menu" }
 "ui.cursorline.primary" = { bg = "bg-menu" }

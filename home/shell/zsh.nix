@@ -40,6 +40,7 @@ in
       ls = "eza";
       cat = "bat";
 
+      tree = "erd";
       cl = "clear";
       rf = "clear && macchina";
       btw = "macchina";
