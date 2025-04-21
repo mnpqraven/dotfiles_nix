@@ -42,11 +42,11 @@
   environment.etc."logid.cfg".text = ''
     devices: ({
         name: "MX Master 3S";
-        dpi: 1000;
+        dpi: 800;
         smartshift:
         {
             on: true;
-            threshold: 8;
+            threshold: 15;
             torque: 10;
         };
         hiresscroll:

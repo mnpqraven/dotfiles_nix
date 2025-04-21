@@ -1,4 +1,4 @@
-separator = "|"
+separator = "▏"
 separator_color = "red"
 key_color = "red"
 hide_ascii = true

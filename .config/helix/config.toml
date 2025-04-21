@@ -97,14 +97,18 @@ C = "toggle_block_comments"
 [keys.normal."space"]
 o = ":format"
 h = "goto_word"
-t = "no_op"
-T = "no_op"
 b = "no_op"
 F = "no_op"
 d = "no_op"
 D = "no_op"
 s = "no_op"
 S = "no_op"
+
+[keys.normal."space".t]
+f = ":sh erd -I --sort name --dir-order first --suppress-size -y iflat"
+F = ":sh erd -I --sort name --dir-order first -. --no-git -y iflat"
+t = ":sh erd -I --sort name --dir-order first --suppress-size -y inverted"
+T = ":sh erd -I --sort name --dir-order first -. --no-git -y inverted"
 
 [keys.normal."space".f]
 f = "file_picker"

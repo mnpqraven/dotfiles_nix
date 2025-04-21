@@ -31,6 +31,7 @@ in
     btop
     deluge
     discord
+    erdtree
     eww
     eza
     fd

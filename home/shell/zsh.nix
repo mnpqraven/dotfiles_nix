@@ -3,7 +3,9 @@
   ...
 }:
 let
-  inherit (inputs) sshKind username device;
+  inherit (inputs) device;
+  username = "othi";
+  sshKind = "id_ed25519";
 in
 {
   programs.zsh = {
@@ -39,6 +41,7 @@ in
       ls = "eza";
       cat = "bat";
 
+      tree = "erd";
       cl = "clear";
       rf = "clear && macchina";
       btw = "macchina";
