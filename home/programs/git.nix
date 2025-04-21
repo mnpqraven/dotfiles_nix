@@ -4,7 +4,7 @@
   ...
 }:
 let
-  inherit (inputs) username;
+  username = "othi";
   sshKind = "id_ed25519";
 in
 {

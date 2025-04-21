@@ -30,7 +30,7 @@
       nixosConfigurations = {
         laptop = nixpkgs.lib.nixosSystem {
           system = "x86_64-linux";
-          specialArgs.inputs = inputs;
+          specialArgs = { inherit inputs; };
           modules = [
             ./base
             ./hosts/laptop
@@ -45,10 +45,8 @@
                 users.othi = import ./users/othi/home.nix;
                 extraSpecialArgs.inputs = inputs // {
                   device = "laptop";
-                  # TODO: any better way to do this?
+                  # FIXME: any better way to do this?
                   rootPath = ./.;
-                  # TODO: move this props to pass from ./users/othi
-                  username = "othi";
                 };
               };
             }
@@ -56,7 +54,7 @@
         };
         pc = nixpkgs.lib.nixosSystem {
           system = "x86_64-linux";
-          specialArgs.inputs = inputs;
+          specialArgs = { inherit inputs; };
           modules = [
             ./base
             ./devices/dogshitasslogitechmouse.nix
@@ -73,8 +71,6 @@
                 extraSpecialArgs.inputs = inputs // {
                   device = "pc";
                   rootPath = ./.;
-                  # TODO: move this props to pass from ./users/othi
-                  username = "othi";
                 };
               };
             }
@@ -82,7 +78,7 @@
         };
         pcremote = nixpkgs.lib.nixosSystem {
           system = "x86_64-linux";
-          specialArgs.inputs = inputs;
+          specialArgs = { inherit inputs; };
           modules = [
             ./base
             ./hosts/pcremote
@@ -98,8 +94,6 @@
                 extraSpecialArgs.inputs = inputs // {
                   device = "pcremote";
                   rootPath = ./.;
-                  # TODO: move this props to pass from ./users/othi
-                  username = "othi";
                 };
               };
             }

@@ -3,7 +3,8 @@
   ...
 }:
 let
-  inherit (inputs) username device;
+  inherit (inputs) device;
+  username = "othi";
   sshKind = "id_ed25519";
 in
 {
