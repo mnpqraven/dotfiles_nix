@@ -1,5 +1,6 @@
-{ inputs, ... }:
+{ inputs, config, ... }:
 let
+  laptopWidgets = if inputs.device == "laptop" then [ "battery" ] else [ ];
   horizontalLayout = {
     left = [
       "dashboard"
@@ -20,10 +21,6 @@ let
     middle = [ "media" ];
     right = [ ];
   };
-
-  laptopWidgets = if inputs.device == "laptop" then [ "battery" ] else [ ];
-  # FIXME: dyn
-  username = "othi";
 in
 {
   imports = [
@@ -58,7 +55,7 @@ in
           enabled = true;
           unit = "metric";
           location = "Ha Noi";
-          key = "/home/${username}/.config/hyprpanel/weather.json";
+          key = "${config.home.homeDirectory}/.config/hyprpanel/weather.json";
         };
       };
 

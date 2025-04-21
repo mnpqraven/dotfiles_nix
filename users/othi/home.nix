@@ -1,6 +1,7 @@
 {
   pkgs,
   inputs,
+  config,
   ...
 }:
 let
@@ -14,12 +15,14 @@ in
     nvf.homeManagerModules.default
   ];
 
-  home.username = username;
-  home.homeDirectory = "/home/${username}";
-  home.sessionVariables = {
-    EWW_BIN = "/home/${username}/.nix-profile/bin/eww";
-    # FIXME: dyn
-    EWW_CONF = "/home/${username}/.config/eww";
+  home = {
+    inherit username;
+    homeDirectory = "/home/${username}";
+    sessionVariables = {
+      EWW_BIN = "${config.home.homeDirectory}/.nix-profile/bin/eww";
+      EWW_CONF = "${config.home.homeDirectory}/.config/eww";
+    };
+    stateVersion = "24.11";
   };
   programs = {
     home-manager.enable = true;
@@ -34,7 +37,5 @@ in
       fcitx5-unikey
     ];
   };
-
-  home.stateVersion = "24.11";
   nixpkgs.config.allowUnfree = true;
 }
