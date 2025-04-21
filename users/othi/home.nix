@@ -1,4 +1,5 @@
 {
+  lib,
   pkgs,
   inputs,
   config,
@@ -11,9 +12,10 @@ in
 {
   imports = [
     ../../home
-
     nvf.homeManagerModules.default
   ];
+
+  programs.home-manager.enable = true;
 
   home = {
     inherit username;
@@ -24,8 +26,13 @@ in
     };
     stateVersion = "24.11";
   };
-  programs = {
-    home-manager.enable = true;
+
+  # user profile for lockscreens
+  home.activation = {
+    exportFaceIcon = lib.hm.dag.entryAfter [ "writeBoundary" ] ''
+      cp ${config.home.homeDirectory}/dotfiles_nix/home/de/hyprpanel_assets/avatar.png ${config.home.homeDirectory}
+      mv ${config.home.homeDirectory}/avatar.png ${config.home.homeDirectory}/.face.icon
+    '';
   };
 
   # FIXME: home folder ?
