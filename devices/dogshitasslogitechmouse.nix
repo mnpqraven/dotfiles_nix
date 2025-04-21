@@ -60,7 +60,8 @@
             divert: true;
             left: {
                 mode: "OnInterval";
-                interval: 4;
+                threshold: 1;
+                interval: 6;
                 direction: "Left";
                 action =
                 {
@@ -70,7 +71,8 @@
             },
             right: {
                 mode: "OnInterval";
-                interval: 4;
+                threshold: 1;
+                interval: 6;
                 direction: "Right";
                 action =
                 {
