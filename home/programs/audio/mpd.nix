@@ -4,7 +4,7 @@
     enable = true;
     # NOTE: might need dyn path (`~/Music` or something similar and symlink
     # nas mounts to it)
-    musicDirectory = "/run/mount/nas/Music";
+    musicDirectory = "/run/mount/nas/music";
     extraConfig = ''
       audio_output {
         type "pipewire"
