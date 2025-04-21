@@ -47,7 +47,7 @@
         {
             on: true;
             threshold: 15;
-            torque: 10;
+            torque: 5;
         };
         hiresscroll:
         {
@@ -60,7 +60,7 @@
             divert: true;
             left: {
                 mode: "OnInterval";
-                interval: 3;
+                interval: 4;
                 direction: "Left";
                 action =
                 {
@@ -70,7 +70,7 @@
             },
             right: {
                 mode: "OnInterval";
-                interval: 3;
+                interval: 4;
                 direction: "Right";
                 action =
                 {

@@ -22,6 +22,8 @@ let
   };
 
   laptopWidgets = if inputs.device == "laptop" then [ "battery" ] else [ ];
+  # FIXME: dyn
+  username = "othi";
 in
 {
   imports = [
@@ -56,6 +58,7 @@ in
           enabled = true;
           unit = "metric";
           location = "Ha Noi";
+          key = "/home/${username}/.config/hyprpanel/weather.json";
         };
       };
 
