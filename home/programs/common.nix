@@ -1,7 +1,8 @@
 {
-  lib,
-  pkgs,
   config,
+  lib,
+  inputs,
+  pkgs,
   ...
 }:
 let
@@ -23,6 +24,7 @@ let
 
   teams-for-linux = imeWrap { name = "teams-for-linux"; };
   discord = imeWrap { name = "webcord"; };
+  kalker = inputs.kalker.packages."${pkgs.system}".kalker;
 in
 {
   home.packages = with pkgs; [
@@ -39,7 +41,7 @@ in
     fzf
     hyprshot
     imagemagick
-    kalker
+    # kalker
     keychain
     librewolf
     macchina

@@ -18,6 +18,7 @@
     };
     swww.url = "github:LGFae/swww";
     helix.url = "github:helix-editor/helix/master";
+    kalker.url = "github:PaddiM8/kalker";
   };
 
   outputs =
