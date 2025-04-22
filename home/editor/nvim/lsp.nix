@@ -18,6 +18,13 @@ _: {
       # FIXME: doesn't work yet (see NotAShelf/nvf#790)
       format.type = "biome";
     };
+    markdown = {
+      enable = true;
+      extensions."render-markdown-nvim" = {
+        enable = true;
+      };
+      extraDiagnostics.enable = true;
+    };
   };
 
   programs.nvf.settings.vim.lsp = {
