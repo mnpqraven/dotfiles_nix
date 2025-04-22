@@ -16,6 +16,12 @@
         scrollDocsUp = "<C-u>";
       };
       setupOpts = {
+        # DEV:
+        # snippets.preset = "luasnip";
+        sources.providers.snippets.opts.search_paths = [
+          "/home/othi/dotfiles_nix/.config/nvim/snippets"
+        ];
+
         cmdline.sources = null;
         cmdline.keymap.preset = "default";
         cmdline.completion.menu.auto_show = true;
