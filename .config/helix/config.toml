@@ -125,6 +125,8 @@ y = [
   ':insert-output echo "\x1b[?1049h\x1b[?2004h" > /dev/tty',
   ':open %sh{cat /tmp/unique-file}',
   ':redraw',
+  ':set mouse false',
+  ':set mouse true',
 ]
 Y = [
   ':sh rm -f /tmp/unique-file',
@@ -132,6 +134,8 @@ Y = [
   ':insert-output echo "\x1b[?1049h\x1b[?2004h" > /dev/tty',
   ':open %sh{cat /tmp/unique-file}',
   ':redraw',
+  ':set mouse false',
+  ':set mouse true',
 ]
 
 [keys.normal."space".g]
