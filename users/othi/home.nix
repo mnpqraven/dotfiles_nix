@@ -28,11 +28,7 @@ in
   };
 
   # user profile for lockscreens
-  # home.activation = {
-  #   exportFaceIcon = lib.hm.dag.entryAfter [ "writeBoundary" ] ''
-  #     cp ${../../home/de/hyprpanel_assets/avatar.png} ${config.home.homeDirectory}.face.icon
-  #   '';
-  # };
+  home.file.".face.icon".source = ../../assets/avatar.png;
 
   # FIXME: home folder ?
   i18n.inputMethod = {
