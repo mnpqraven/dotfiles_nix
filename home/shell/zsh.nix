@@ -1,8 +1,4 @@
-{
-  inputs,
-  config,
-  ...
-}:
+{ inputs, ... }:
 let
   inherit (inputs) device;
   sshKind = "id_ed25519";
@@ -47,8 +43,7 @@ in
       btw = "macchina";
       fm = "yazi";
       mz = "rmpc";
-      # TODO: dyn
-      rc = "$EDITOR ${config.home.homeDirectory}/dotfiles_nix/flake.nix";
+      rc = "$EDITOR ${../../flake.nix}";
       rebuild = "sudo nixos-rebuild switch --flake .#${device} --show-trace -L -v";
       trybuild = "sudo nixos-rebuild test --flake .#${device} --show-trace -L -v";
       upgrade = "sudo nixos-rebuild switch --flake .#${device} --show-trace -L -v --recreate-lock-file";

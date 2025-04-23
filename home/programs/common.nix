@@ -19,7 +19,7 @@ let
         " --add-flags \"--enable-wayland-ime\""
       ];
     };
-  cfg = "${config.home.homeDirectory}/dotfiles_nix/.config";
+  cfg = ../../.config;
   symlink = config.lib.file.mkOutOfStoreSymlink;
 
   teams-for-linux = imeWrap { name = "teams-for-linux"; };

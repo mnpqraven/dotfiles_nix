@@ -20,6 +20,7 @@
   };
   home.packages = with pkgs; [
     playerctl
+    mpc
   ];
   services.mpd-mpris = {
     enable = true;

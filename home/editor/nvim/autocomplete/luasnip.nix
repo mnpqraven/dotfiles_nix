@@ -17,6 +17,7 @@
       #   ls.filetype_extend("javascriptreact", { "javascript" })
       #   require("luasnip.loaders.from_lua").load({ paths = "~/dotfiles_nix/.config/nvim/snippets/" })
       # '';
+      # FIXME: dyn
       loaders = ''
         require("luasnip.loaders.from_vscode").lazy_load({ paths = "~/dotfiles_nix/.config/nvim/snippets" })
       '';
