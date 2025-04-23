@@ -27,14 +27,6 @@ in
     stateVersion = "24.11";
   };
 
-  # user profile for lockscreens
-  home.activation = {
-    exportFaceIcon = lib.hm.dag.entryAfter [ "writeBoundary" ] ''
-      cp ${config.home.homeDirectory}/dotfiles_nix/home/de/hyprpanel_assets/avatar.png ${config.home.homeDirectory}
-      mv ${config.home.homeDirectory}/avatar.png ${config.home.homeDirectory}/.face.icon
-    '';
-  };
-
   # FIXME: home folder ?
   i18n.inputMethod = {
     enabled = "fcitx5";
