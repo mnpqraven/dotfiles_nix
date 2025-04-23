@@ -1,10 +1,13 @@
-{ pkgs, ... }:
+{
+  config,
+  pkgs,
+  lib,
+  ...
+}:
 {
   services.mpd = {
     enable = true;
-    # NOTE: might need dyn path (`~/Music` or something similar and symlink
-    # nas mounts to it)
-    musicDirectory = "/run/mount/nas/Music";
+    musicDirectory = "$HOME/Music";
     extraConfig = ''
       audio_output {
         type "pipewire"
@@ -26,4 +29,8 @@
     enable = true;
     mpd.host = "127.0.0.1";
   };
+
+  home.activation.nasMusicSymlink = lib.hm.dag.entryAfter [ "writeBoundary" ] ''
+    ln -sfn /run/mount/nas/music ${config.home.homeDirectory}/Music/nas
+  '';
 }
