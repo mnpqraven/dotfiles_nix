@@ -4,16 +4,12 @@
   inputs,
   ...
 }:
-let
-  cfg = "${config.home.homeDirectory}/dotfiles_nix/.config";
-  symlink = config.lib.file.mkOutOfStoreSymlink;
-in
 {
   home.packages = with pkgs; [
     gojq
   ];
 
-  xdg.configFile.hypr.source = symlink "${cfg}/hypr";
+  xdg.configFile.hypr.source = config.lib.file.mkOutOfStoreSymlink ../../.config/hypr;
 
   # dynamically creates hyprland config
   # FIXME: new installation needs to run 2 different builds, each build with

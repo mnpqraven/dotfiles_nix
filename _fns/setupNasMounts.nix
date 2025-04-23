@@ -1,4 +1,3 @@
-# TODO: impl
 { addr }:
 let
   fsType = "cifs";

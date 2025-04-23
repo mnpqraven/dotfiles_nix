@@ -4,13 +4,10 @@
   inputs,
   ...
 }:
-let
-  cfgPath = "${config.home.homeDirectory}/dotfiles_nix/.config/helix";
-in
 {
   programs.helix.enable = true;
   programs.helix.package = inputs.helix.packages."${pkgs.system}".helix;
-  xdg.configFile.helix.source = config.lib.file.mkOutOfStoreSymlink cfgPath;
+  xdg.configFile.helix.source = config.lib.file.mkOutOfStoreSymlink ../../.config/helix;
 
   home.packages = with pkgs; [
     # LSPs

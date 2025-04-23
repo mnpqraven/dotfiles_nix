@@ -47,8 +47,6 @@
                 users.othi = import ./users/othi/home.nix;
                 extraSpecialArgs.inputs = inputs // {
                   device = "laptop";
-                  # FIXME: any better way to do this?
-                  rootPath = ./.;
                 };
               };
             }
@@ -72,7 +70,6 @@
                 users.othi = import ./users/othi/home.nix;
                 extraSpecialArgs.inputs = inputs // {
                   device = "pc";
-                  rootPath = ./.;
                 };
               };
             }
@@ -95,7 +92,6 @@
                 users.othi = import ./users/othi/home.nix;
                 extraSpecialArgs.inputs = inputs // {
                   device = "pcremote";
-                  rootPath = ./.;
                 };
               };
             }

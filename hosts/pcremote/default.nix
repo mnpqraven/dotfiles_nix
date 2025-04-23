@@ -25,9 +25,6 @@ in
     # Enable the KDE Plasma Desktop Environment.
     displayManager.sddm.enable = true;
     desktopManager.plasma6.enable = true;
-
-    # Enable CUPS to print documents.
-    printing.enable = true;
   };
 
   programs.hyprland.enable = true;

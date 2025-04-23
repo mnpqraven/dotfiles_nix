@@ -18,6 +18,7 @@
       setupOpts = {
         # DEV:
         # snippets.preset = "luasnip";
+        # FIXME: dyn
         sources.providers.snippets.opts.search_paths = [
           "/home/othi/dotfiles_nix/.config/nvim/snippets"
         ];

@@ -12,6 +12,9 @@
     ./network.nix
   ];
 
+  # Enable CUPS to print documents.
+  services.printing.enable = true;
+
   # wayland wrapper flag for electron and chromium apps
   environment.sessionVariables.NIXOS_OZONE_WL = 1;
 

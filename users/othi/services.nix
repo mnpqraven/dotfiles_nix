@@ -1,7 +1,5 @@
 _:
 let
-  # TODO: might be better with relative path to home
-  # but this is a system service so ??
   homeDir = "/home/othi";
   allDevices = [
     "nas"

@@ -78,10 +78,11 @@ in
     (imap ";o" ";<esc>o")
     {
       key = "<F8>";
-      # TODO: lua code
       action = ":set hlsearch! hlsearch?<CR>";
-      # TODO: +in command mode "c"
-      mode = [ "n" ];
+      mode = [
+        "n"
+        "c"
+      ];
     }
 
     # clipboard
