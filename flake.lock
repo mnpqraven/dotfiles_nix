@@ -372,15 +372,16 @@
         "systems": "systems_3"
       },
       "locked": {
-        "lastModified": 1745219503,
-        "narHash": "sha256-oE7nEQBfLTwXqs0U5/fpsMVsfccD6NL1TlBE1z9S+Nc=",
-        "owner": "notashelf",
+        "lastModified": 1744929270,
+        "narHash": "sha256-sRAk1KSHF+/t0dqbrcQy24GM8UuMRhDmC6lVDcl/Saw=",
+        "owner": "horriblename",
         "repo": "nvf",
-        "rev": "4045c458dc3e3eaabbb94518a857651cff341542",
+        "rev": "b6b79034f1001790f0f49810bbfacfa16c87c9b7",
         "type": "github"
       },
       "original": {
-        "owner": "notashelf",
+        "owner": "horriblename",
+        "ref": "blink-cmdline",
         "repo": "nvf",
         "type": "github"
       }
