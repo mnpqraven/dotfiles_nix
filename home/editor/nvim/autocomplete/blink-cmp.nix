@@ -1,5 +1,4 @@
-{ lib, ... }:
-{
+_: {
   programs.nvf.settings.vim.autocomplete = {
     blink-cmp = {
       enable = true;
@@ -24,17 +23,6 @@
         #   "/home/othi/dotfiles_nix/.config/nvim/snippets"
         # ];
 
-        cmdline.completion.menu.auto_show = true;
-
-        # keymap = {
-        #   "<C-h>" = [ "cancel" ];
-        #   "<CR>" = [
-        #     "accept"
-        #     "fallback"
-        #   ];
-        # };
-
-        # nvim-cmp-like menu drawing
         completion.menu.draw.columns = [
           {
             "@1" = "label";
