@@ -1,6 +1,4 @@
 _: {
-  # NOTE: also includes some other ui elements
-  # one that should be configured later is fidget (bottom right notifs)
   programs.nvf.settings.vim = {
     ui = {
       noice = {
@@ -13,7 +11,6 @@ _: {
 
       colorizer.enable = true;
       borders.enable = true;
-      illuminate.enable = true;
     };
     notes.todo-comments = {
       enable = true;
@@ -24,14 +21,18 @@ _: {
       enable = true;
       # https://github.com/folke/snacks.nvim/?tab=readme-ov-file#%EF%B8%8F-configuration
       setupOpts = {
-        bigfile.enabled = true;
+        picker = {
+          enabled = true;
+          ui_select = true;
+        };
         input.enabled = true;
-        picker.enabled = true;
+        indent.enabled = true;
+        bigfile.enabled = true;
+        words.enabled = true;
       };
     };
 
     visuals.nvim-web-devicons.enable = true;
-    visuals.indent-blankline.enable = true;
 
     statusline.lualine = {
       enable = true;
