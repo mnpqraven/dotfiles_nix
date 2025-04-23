@@ -15,6 +15,12 @@
     mangohud
     protonup
     lutris
+
+    wineWowPackages.staging
+    # winetricks (all versions)
+    winetricks
+    # native wayland support (unstable)
+    wineWowPackages.waylandFull
   ];
 
   programs.gamemode.enable = true;
@@ -22,5 +28,4 @@
   environment.sessionVariables = {
     STEAM_EXTRA_COMPAT_TOOLS_PATHS = "\${HOME}/.steam/root/compatibilitytools.d";
   };
-
 }
