@@ -3,7 +3,7 @@
       Othi's dotfiles (NixOS edition)
     </h1>
     <picture>
-      <img alt="Wallpaper" src="./docs/images/main1440.png">
+      <img alt="Wallpaper" src="./assets/main1440.png">
     </picture>
     <span>
       <i>

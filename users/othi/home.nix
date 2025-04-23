@@ -27,6 +27,9 @@ in
     stateVersion = "24.11";
   };
 
+  # user profile for lockscreens
+  home.file.".face.icon".source = ../../assets/avatar.png;
+
   # FIXME: home folder ?
   i18n.inputMethod = {
     enabled = "fcitx5";
