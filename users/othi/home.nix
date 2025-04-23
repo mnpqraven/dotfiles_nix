@@ -1,6 +1,8 @@
 {
+  lib,
   pkgs,
   inputs,
+  config,
   ...
 }:
 let
@@ -10,19 +12,27 @@ in
 {
   imports = [
     ../../home
-
     nvf.homeManagerModules.default
   ];
 
-  home.username = username;
-  home.homeDirectory = "/home/${username}";
-  home.sessionVariables = {
-    EWW_BIN = "/home/${username}/.nix-profile/bin/eww";
-    # FIXME: dyn
-    EWW_CONF = "/home/${username}/.config/eww";
+  programs.home-manager.enable = true;
+
+  home = {
+    inherit username;
+    homeDirectory = "/home/${username}";
+    sessionVariables = {
+      EWW_BIN = "${config.home.homeDirectory}/.nix-profile/bin/eww";
+      EWW_CONF = "${config.home.homeDirectory}/.config/eww";
+    };
+    stateVersion = "24.11";
   };
-  programs = {
-    home-manager.enable = true;
+
+  # user profile for lockscreens
+  home.activation = {
+    exportFaceIcon = lib.hm.dag.entryAfter [ "writeBoundary" ] ''
+      cp ${config.home.homeDirectory}/dotfiles_nix/home/de/hyprpanel_assets/avatar.png ${config.home.homeDirectory}
+      mv ${config.home.homeDirectory}/avatar.png ${config.home.homeDirectory}/.face.icon
+    '';
   };
 
   # FIXME: home folder ?
@@ -34,7 +44,5 @@ in
       fcitx5-unikey
     ];
   };
-
-  home.stateVersion = "24.11";
   nixpkgs.config.allowUnfree = true;
 }

@@ -1,10 +1,10 @@
 {
   inputs,
+  config,
   ...
 }:
 let
   inherit (inputs) device;
-  username = "othi";
   sshKind = "id_ed25519";
 in
 {
@@ -45,10 +45,10 @@ in
       cl = "clear";
       rf = "clear && macchina";
       btw = "macchina";
-      fm = "clifm";
+      fm = "yazi";
       mz = "rmpc";
       # TODO: dyn
-      rc = "nvim /home/${username}/dotfiles_nix/flake.nix";
+      rc = "$EDITOR ${config.home.homeDirectory}/dotfiles_nix/flake.nix";
       rebuild = "sudo nixos-rebuild switch --flake .#${device} --show-trace -L -v";
       trybuild = "sudo nixos-rebuild test --flake .#${device} --show-trace -L -v";
       upgrade = "sudo nixos-rebuild switch --flake .#${device} --show-trace -L -v --recreate-lock-file";
