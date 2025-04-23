@@ -12,10 +12,7 @@
       url = "github:jas-singhfsu/hyprpanel";
       inputs.nixpkgs.follows = "nixpkgs";
     };
-    nvf = {
-      url = "github:notashelf/nvf";
-      inputs.nixpkgs.follows = "nixpkgs";
-    };
+    nvf.url = "github:horriblename/nvf/blink-cmdline";
     swww.url = "github:LGFae/swww";
     helix.url = "github:helix-editor/helix/master";
     kalker.url = "github:PaddiM8/kalker";

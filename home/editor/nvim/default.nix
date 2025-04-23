@@ -27,13 +27,13 @@ _: {
     };
     binds.whichKey.enable = true;
 
-    autocmds = [
-      {
-        enable = true;
-        desc = "Trim whitespace";
-        command = "%s/\\s\\+$//e";
-        event = [ "BufWritePre" ];
-      }
-    ];
+    # autocmds = [
+    #   {
+    #     enable = true;
+    #     desc = "Trim whitespace";
+    #     command = "%s/\\s\\+$//e";
+    #     event = [ "BufWritePre" ];
+    #   }
+    # ];
   };
 }
