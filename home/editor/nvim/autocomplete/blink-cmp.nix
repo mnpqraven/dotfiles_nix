@@ -5,59 +5,59 @@
       enable = true;
       friendly-snippets.enable = true;
 
-      mappings = {
-        # WARN: kinda buggy
-        close = null;
-        confirm = "<C-e>";
+      # mappings = {
+      #   # WARN: kinda buggy
+      #   close = null;
+      #   confirm = "<C-e>";
 
-        next = "<C-n>";
-        previous = "<C-p>";
-        scrollDocsDown = "<C-d>";
-        scrollDocsUp = "<C-u>";
-      };
-      setupOpts = {
-        # DEV:
-        # snippets.preset = "luasnip";
-        # FIXME: dyn
-        # TODO:
-        # sources.providers.snippets.opts.search_paths = [
-        #   "/home/othi/dotfiles_nix/.config/nvim/snippets"
-        # ];
+      next = "<C-n>";
+      previous = "<C-p>";
+      scrollDocsDown = "<C-d>";
+      scrollDocsUp = "<C-u>";
+    };
+    setupOpts = {
+      # DEV:
+      # snippets.preset = "luasnip";
+      # FIXME: dyn
+      # TODO:
+      # sources.providers.snippets.opts.search_paths = [
+      #   "/home/othi/dotfiles_nix/.config/nvim/snippets"
+      # ];
 
-        cmdline.sources = null;
-        cmdline.keymap.preset = "default";
-        cmdline.completion.menu.auto_show = true;
-        signature.enabled = true;
-        fuzzy.implementation = "prefer_rust_with_warning";
+      #   cmdline.sources = null;
+      #   cmdline.keymap.preset = "default";
+      #   cmdline.completion.menu.auto_show = true;
+      #   signature.enabled = true;
+      #   fuzzy.implementation = "prefer_rust_with_warning";
 
-        keymap = {
-          "<C-h>" = [ "cancel" ];
-          "<CR>" = [
-            "accept"
-            "fallback"
-          ];
-        };
+      #   keymap = {
+      #     "<C-h>" = [ "cancel" ];
+      #     "<CR>" = [
+      #       "accept"
+      #       "fallback"
+      #     ];
+      #   };
 
-        # nvim-cmp-like menu drawing
-        completion.menu.draw.columns = [
-          {
-            "@1" = "label";
-            "@2" = "label_description";
-            gap = 4;
-          }
+      #   # nvim-cmp-like menu drawing
+      #   completion.menu.draw.columns = [
+      #     {
+      #       "@1" = "label";
+      #       "@2" = "label_description";
+      #       gap = 4;
+      #     }
 
-          {
-            "@1" = "kind_icon";
-            "@2" = "kind";
-            gap = 2;
-          }
-          # or this syntax if gap is not needed
-          # [
-          #   "kind_icon"
-          #   "kind"
-          # ]
-        ];
-      };
+      #     {
+      #       "@1" = "kind_icon";
+      #       "@2" = "kind";
+      #       gap = 2;
+      #     }
+      #     # or this syntax if gap is not needed
+      #     # [
+      #     #   "kind_icon"
+      #     #   "kind"
+      #     # ]
+      #   ];
+      # };
     };
   };
 }

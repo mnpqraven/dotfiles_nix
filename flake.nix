@@ -4,12 +4,16 @@
   inputs = {
     nixpkgs.url = "github:NixOS/nixpkgs/nixos-unstable";
 
-    home-manager.url = "github:nix-community/home-manager";
-    home-manager.inputs.nixpkgs.follows = "nixpkgs";
-
+    home-manager = {
+      url = "github:nix-community/home-manager";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
+    hyprpanel = {
+      url = "github:jas-singhfsu/hyprpanel";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
     helix.url = "github:helix-editor/helix/master";
     hyprland.url = "github:hyprwm/Hyprland";
-    hyprpanel.url = "github:jas-singhfsu/hyprpanel";
     nvf.url = "github:notashelf/nvf";
     swww.url = "github:LGFae/swww";
     yazi.url = "github:sxyazi/yazi";
