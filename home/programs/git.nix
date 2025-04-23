@@ -1,10 +1,9 @@
 {
-  inputs,
+  config,
   pkgs,
   ...
 }:
 let
-  username = "othi";
   sshKind = "id_ed25519";
 in
 {
@@ -29,8 +28,8 @@ in
       # Sign all commits using ssh key
       commit.gpgsign = true;
       gpg.format = "ssh";
-      gpg.ssh.allowedSignersFile = "/home/${username}/.ssh/allowed_signers";
-      user.signingkey = "/home/${username}/.ssh/${sshKind}.pub";
+      gpg.ssh.allowedSignersFile = "${config.home.homeDirectory}/.ssh/allowed_signers";
+      user.signingkey = "${config.home.homeDirectory}/.ssh/${sshKind}.pub";
       push = {
         autoSetupRemote = true;
       };
