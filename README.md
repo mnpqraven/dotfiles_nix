@@ -5,11 +5,13 @@
     <picture>
       <img alt="Wallpaper" src="./docs/images/main1440.png">
     </picture>
-    <span><i>
+    <span>
+      <i>
         <a href="https://x.com/void_ling/status/1855164935141200230">wallpaper</a>
         from the amazing
         <a href="https://x.com/void_ling">@void_ling</a>
-    </i></span>
+      </i>
+    </span>
 </div>
 
 # Installation
@@ -80,10 +82,10 @@ sudo sh ./scripts/nas-credentials.sh
 
 Follow the
 [instruction](https://hyprpanel.com/help/faq.html#my-weather-is-not-displaying-any-information-or-is-showing-the-wrong-information-what-is-going-on)
-to get weather API, then put it in the dotfile directory as `.weatherapi`
+to get weather API, then run the script
 
 ```
-echo YOUR_WEATHER_API_KEY > .weatherapi
+sh ./scripts/weather-credentials.sh
 ```
 
 ## Networking
