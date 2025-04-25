@@ -42,6 +42,10 @@ in
         "node_modules"
         "out"
       ];
+      filters = {
+        dotfiles = true;
+        git_ignored = true;
+      };
       git.enable = true;
       view.width = 35;
       renderer = {
