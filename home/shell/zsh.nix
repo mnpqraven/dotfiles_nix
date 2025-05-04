@@ -21,7 +21,7 @@ in
         "vi-mode"
       ];
     };
-    initExtra = ''
+    initContent = ''
       bindkey '^o' autosuggest-execute
       bindkey '^b' backward-word
       bindkey '^q' backward-delete-word

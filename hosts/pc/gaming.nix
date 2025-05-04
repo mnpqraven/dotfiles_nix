@@ -1,12 +1,10 @@
 { pkgs, ... }:
 {
-
-  hardware.opengl = {
-    enable = true;
-    driSupport32Bit = true;
+  hardware = {
+    graphics.enable = true;
+    graphics.enable32Bit = true;
+    nvidia.modesetting.enable = true;
   };
-
-  hardware.nvidia.modesetting.enable = true;
 
   programs.steam.enable = true;
   programs.steam.gamescopeSession.enable = true;

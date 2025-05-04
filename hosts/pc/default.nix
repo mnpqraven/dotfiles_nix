@@ -30,7 +30,10 @@ in
     desktopManager.plasma6.enable = true;
   };
 
-  programs.hyprland.enable = true;
+  programs.hyprland = {
+    enable = true;
+    package = inputs.hyprland.packages."${pkgs.system}".hyprland;
+  };
 
   services.hypridle.enable = true;
 

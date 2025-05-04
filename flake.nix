@@ -20,6 +20,7 @@
     helix.url = "github:helix-editor/helix/master";
     kalker.url = "github:PaddiM8/kalker";
     yazi.url = "github:sxyazi/yazi";
+    hyprland.url = "github:hyprwm/Hyprland";
   };
 
   outputs =
