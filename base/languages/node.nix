@@ -4,5 +4,6 @@
     nodejs_20
     pnpm
     tailwindcss-language-server
+    emmet-language-server
   ];
 }

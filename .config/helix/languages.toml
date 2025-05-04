@@ -9,6 +9,10 @@ args = ["lsp-proxy"]
 command = "tailwindcss-language-server"
 args = ["--stdio"]
 
+[language-server.emmet-lsp]
+command = "emmet-language-server"
+args = ["--stdio"]
+
 [[language]]
 name = "css"
 language-servers = ["biome"]
@@ -21,6 +25,7 @@ language-servers = [
   ] },
   "biome",
   "tailwindcss",
+  "emmet-lsp",
 ]
 auto-format = true
 
@@ -32,6 +37,7 @@ language-servers = [
   ] },
   "biome",
   "tailwindcss",
+  "emmet-lsp",
 ]
 auto-format = true
 
@@ -44,6 +50,7 @@ language-servers = [
   ] },
   "biome",
   "tailwindcss",
+  "emmet-lsp",
 ]
 
 [[language]]
@@ -55,6 +62,7 @@ language-servers = [
   ] },
   "biome",
   "tailwindcss",
+  "emmet-lsp",
 ]
 
 [[language]]
