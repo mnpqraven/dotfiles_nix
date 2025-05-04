@@ -1,6 +1,34 @@
 { inputs, config, ... }:
 let
-  laptopWidgets = if inputs.device == "laptop" then [ "battery" ] else [ ];
+  # maps per device (inputs.device)
+  deviceMap = {
+    laptop = {
+      battery = [ "battery" ];
+      layout = {
+        "bar.layouts" = {
+          "0" = horizontalLayout;
+        };
+      };
+    };
+    pc = {
+      layout = {
+        "bar.layouts" = {
+          "0" = horizontalLayout;
+          "1" = verticalLayout;
+          "2" = horizontalLayout;
+        };
+      };
+      battery = [ ];
+    };
+    pcremote = {
+      layout = {
+        "bar.layouts" = {
+          "0" = horizontalLayout;
+        };
+      };
+      battery = [ ];
+    };
+  };
   horizontalLayout = {
     left = [
       "dashboard"
@@ -14,7 +42,7 @@ let
       "network"
       "notifications"
       "clock"
-    ] ++ laptopWidgets;
+    ] ++ deviceMap.${inputs.device}.battery;
   };
   verticalLayout = {
     left = [ "workspaces" ];
@@ -38,13 +66,7 @@ in
     overwrite.enable = true;
 
     settings = {
-      layout = {
-        "bar.layouts" = {
-          "0" = horizontalLayout;
-          "1" = verticalLayout;
-          "2" = horizontalLayout;
-        };
-      };
+      layout = deviceMap.${inputs.device}.layout;
 
       menus.clock = {
         time = {
