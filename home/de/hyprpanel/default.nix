@@ -24,6 +24,7 @@ let
       layout = {
         "bar.layouts" = {
           "0" = horizontalLayout;
+          "1" = horizontalLayout;
         };
       };
       battery = [ ];

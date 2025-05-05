@@ -16,22 +16,14 @@ enable = true
 [editor.statusline]
 left = [
   "mode",
-  "separator",
   "spinner",
   "version-control",
   "read-only-indicator",
   "file-modification-indicator",
   "separator",
+  "file-name",
 ]
-center = ["file-name"]
-right = [
-  "diagnostics",
-  "separator",
-  "selections",
-  "register",
-  "separator",
-  "position",
-]
+right = ["diagnostics", "selections", "register", "position"]
 mode.normal = "NORMAL"
 mode.insert = "INSERT"
 mode.select = "VISUAL"
