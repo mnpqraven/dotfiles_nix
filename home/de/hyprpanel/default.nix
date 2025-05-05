@@ -29,6 +29,7 @@ let
       battery = [ ];
     };
   };
+
   horizontalLayout = {
     left = [
       "dashboard"
@@ -47,7 +48,7 @@ let
   verticalLayout = {
     left = [ "workspaces" ];
     middle = [ "media" ];
-    right = [ ];
+    right = [ "clock" ];
   };
 in
 {

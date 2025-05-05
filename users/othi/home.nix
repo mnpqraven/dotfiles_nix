@@ -16,7 +16,9 @@ in
   };
 
   # user profile for lockscreens
-  home.file.".face.icon".source = ../../assets/avatar.png;
+  home.file.".face.icon" = {
+    source = ../../assets/avatar.png;
+  };
 
   # FIXME: home folder ?
   i18n.inputMethod = {

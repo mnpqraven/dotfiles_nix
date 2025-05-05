@@ -1,5 +1,5 @@
 {
-  description = "A simple NixOS flake";
+  description = "Othi's system";
 
   inputs = {
     nixpkgs.url = "github:NixOS/nixpkgs/nixos-unstable";
@@ -7,13 +7,13 @@
     home-manager.url = "github:nix-community/home-manager";
     home-manager.inputs.nixpkgs.follows = "nixpkgs";
 
+    helix.url = "github:helix-editor/helix/master";
+    hyprland.url = "github:hyprwm/Hyprland";
     hyprpanel.url = "github:jas-singhfsu/hyprpanel";
+    kalker.url = "github:PaddiM8/kalker";
     nvf.url = "github:notashelf/nvf";
     swww.url = "github:LGFae/swww";
-    helix.url = "github:helix-editor/helix/master";
-    kalker.url = "github:PaddiM8/kalker";
     yazi.url = "github:sxyazi/yazi";
-    hyprland.url = "github:hyprwm/Hyprland";
   };
 
   outputs =
