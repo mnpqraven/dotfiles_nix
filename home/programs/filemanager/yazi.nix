@@ -13,5 +13,6 @@ in
     enable = true;
     package = yazi;
   };
-  xdg.configFile.yazi.source = symlink ../../../.config/yazi;
+  # FIXME: dyn
+  xdg.configFile.yazi.source = symlink "${config.home.homeDirectory}/dotfiles_nix/.config/yazi";
 }

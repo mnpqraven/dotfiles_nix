@@ -10,7 +10,6 @@
     helix.url = "github:helix-editor/helix/master";
     hyprland.url = "github:hyprwm/Hyprland";
     hyprpanel.url = "github:jas-singhfsu/hyprpanel";
-    kalker.url = "github:PaddiM8/kalker";
     nvf.url = "github:notashelf/nvf";
     swww.url = "github:LGFae/swww";
     yazi.url = "github:sxyazi/yazi";

@@ -28,5 +28,7 @@ in
   home.packages = [
     rmpc
   ];
-  xdg.configFile."rmpc".source = config.lib.file.mkOutOfStoreSymlink ../../../.config/rmpc;
+  # FIXME: dyn
+  xdg.configFile."rmpc".source =
+    config.lib.file.mkOutOfStoreSymlink "${config.home.homeDirectory}/dotfiles_nix/.config/rmpc";
 }

@@ -7,7 +7,8 @@
 {
   programs.helix.enable = true;
   programs.helix.package = inputs.helix.packages."${pkgs.system}".helix;
-  xdg.configFile.helix.source = config.lib.file.mkOutOfStoreSymlink ../../.config/helix;
+  # FIXME: dyn
+  xdg.configFile.helix.source = config.lib.file.mkOutOfStoreSymlink "${config.home.homeDirectory}/dotfiles_nix/.config/helix";
 
   home.packages = with pkgs; [
     # LSPs

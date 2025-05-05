@@ -1,7 +1,6 @@
 {
   config,
   lib,
-  inputs,
   pkgs,
   ...
 }:
@@ -19,12 +18,13 @@ let
         " --add-flags \"--enable-wayland-ime\""
       ];
     };
-  cfg = ../../.config;
+
+  # FIXME: dyn
+  cfg = "${config.home.homeDirectory}/dotfiles_nix/.config";
   symlink = config.lib.file.mkOutOfStoreSymlink;
 
   teams-for-linux = imeWrap { name = "teams-for-linux"; };
   discord = imeWrap { name = "webcord"; };
-  kalker = inputs.kalker.packages."${pkgs.system}".kalker;
 in
 {
   home.packages = with pkgs; [
@@ -40,7 +40,7 @@ in
     fzf
     hyprshot
     imagemagick
-    # kalker
+    kalker
     keychain
     librewolf
     macchina

@@ -9,7 +9,8 @@
     gojq
   ];
 
-  xdg.configFile.hypr.source = config.lib.file.mkOutOfStoreSymlink ../../.config/hypr;
+  # FIXME: dyn
+  xdg.configFile.hypr.source = config.lib.file.mkOutOfStoreSymlink "${config.home.homeDirectory}/dotfiles_nix/.config/hypr";
 
   # dynamically creates hyprland config
   # FIXME: new installation needs to run 2 different builds, each build with
