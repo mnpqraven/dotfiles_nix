@@ -32,7 +32,6 @@ right = [
   "separator",
   "position",
 ]
-# separator = ""
 mode.normal = "NORMAL"
 mode.insert = "INSERT"
 mode.select = "VISUAL"
@@ -121,16 +120,14 @@ T = "workspace_symbol_picker"
 g = "global_search"
 y = [
   ':sh rm -f /tmp/unique-file',
-  ':insert-output yazi %{buffer_name} --chooser-file=/tmp/unique-file',
+  ':insert-output yazi "%{buffer_name}" --chooser-file=/tmp/unique-file',
   ':insert-output echo "\x1b[?1049h\x1b[?2004h" > /dev/tty',
   ':open %sh{cat /tmp/unique-file}',
   ':redraw',
-  ':set mouse false',
-  ':set mouse true',
 ]
 Y = [
   ':sh rm -f /tmp/unique-file',
-  ':insert-output GO_ROOT=1 yazi %{buffer_name} --chooser-file=/tmp/unique-file',
+  ':insert-output GO_ROOT=1 yazi "%{buffer_name}" --chooser-file=/tmp/unique-file',
   ':insert-output echo "\x1b[?1049h\x1b[?2004h" > /dev/tty',
   ':open %sh{cat /tmp/unique-file}',
   ':redraw',
