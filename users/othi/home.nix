@@ -1,18 +1,10 @@
-{
-  lib,
-  pkgs,
-  inputs,
-  config,
-  ...
-}:
+{ pkgs, ... }:
 let
-  inherit (inputs) nvf;
   username = "othi";
 in
 {
   imports = [
     ../../home
-    nvf.homeManagerModules.default
   ];
 
   programs.home-manager.enable = true;
@@ -20,10 +12,6 @@ in
   home = {
     inherit username;
     homeDirectory = "/home/${username}";
-    sessionVariables = {
-      EWW_BIN = "${config.home.homeDirectory}/.nix-profile/bin/eww";
-      EWW_CONF = "${config.home.homeDirectory}/.config/eww";
-    };
     stateVersion = "24.11";
   };
 

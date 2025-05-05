@@ -1,5 +1,10 @@
-_: {
+{ inputs, ... }:
+let
+  inherit (inputs) nvf;
+in
+{
   imports = [
+    nvf.homeManagerModules.default
     ./autocomplete
     ./git.nix
     ./hop.nix

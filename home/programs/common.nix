@@ -34,7 +34,6 @@ in
     deluge
     discord
     erdtree
-    eww
     eza
     fd
     feh
