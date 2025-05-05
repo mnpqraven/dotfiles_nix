@@ -9,7 +9,7 @@ _: {
       show_total = true;
     };
     hyprpanel.settings.notifications = {
-      active_monitor = false;
+      active_monitor = true;
       position = "top";
       showActionsOnHover = true;
     };
