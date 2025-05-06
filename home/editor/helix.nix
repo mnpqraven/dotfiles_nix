@@ -16,6 +16,7 @@
     typescript-language-server
     vscode-langservers-extracted
     lua-language-server
+    yaml-language-server
 
     # formatters
     taplo

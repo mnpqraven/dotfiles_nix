@@ -133,6 +133,14 @@ G = ':sh wezterm start --class weztermfloat --cwd %sh{pwd} -- nvim -c "G" -c onl
 f = ":sh git pull"
 p = ":sh git push"
 t = ":sh git tree"
+l = [
+  ":write-all",
+  ":new",
+  ":insert-output lazygit",
+  ":buffer-close!",
+  ":redraw",
+  ":reload-all",
+]
 
 [keys.normal."space".w]
 N = "swap_view_down"
