@@ -3,11 +3,10 @@
 	"runtime.version": "Lua 5.3",
 	"hint.enable": true,
 	"workspace.library": ["./lib/wezterm-types/types", "./.config/wezterm"],
-	"format.defaultConfig": {
-		"indent_style": "space",
-		"indent_size": "3",
-		"insert_final_newline": "true",
-		"space_around_table_field_list": "true",
-		"align_continuous_assign_statement": "false"
+	"format": {
+		"enable": true,
+		"defaultConfig": {
+			"indent_style": "space"
+		}
 	}
 }

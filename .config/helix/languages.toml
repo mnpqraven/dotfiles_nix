@@ -74,10 +74,10 @@ language-servers = [
   "biome",
 ]
 
-[[language]]
-name = "lua"
-formatter = { command = "stylua", args = ["-"] }
-auto-format = true
+# [[language]]
+# name = "lua"
+# formatter = { command = "stylua", args = ["-"] }
+# auto-format = true
 
 [[language]]
 name = "nix"
