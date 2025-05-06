@@ -1,5 +1,23 @@
 # yaml-language-server: $schema=https://raw.githubusercontent.com/jesseduffield/lazygit/master/schema/config.json
 
+gui:
+  skipNoStagedFilesWarning: true
+  nerdFontsVersion: '3'
+  showFileTree: false
+  spinner:
+    frames:
+      - "⣻"
+      - "⣽"
+      - "⣾"
+      - "⣷"
+      - "⣯"
+      - "⣟"
+      - "⡿"
+      - "⢿"
+git:
+  branchLogCmd: git log --abbrev-commit --decorate --color=always --oneline --graph --
+  log:
+    showWholeGraph: true
 keybinding:
   universal:
     scrollLeft: H

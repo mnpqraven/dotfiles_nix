@@ -1,4 +1,4 @@
-{ inputs, ... }:
+{ inputs, config, ... }:
 let
   inherit (inputs) device;
   sshKind = "id_ed25519";
@@ -43,7 +43,8 @@ in
       btw = "macchina";
       fm = "yazi";
       mz = "rmpc";
-      rc = "$EDITOR ${../../flake.nix}";
+      # FIXME: dyn
+      rc = "$EDITOR ${config.home.homeDirectory}/dotfiles_nix/flake.nix";
       rebuild = "sudo nixos-rebuild switch --flake .#${device} --show-trace -L -v";
       trybuild = "sudo nixos-rebuild test --flake .#${device} --show-trace -L -v";
       upgrade = "sudo nixos-rebuild switch --flake .#${device} --show-trace -L -v --recreate-lock-file";
@@ -52,6 +53,7 @@ in
       v = "nvim";
       cr = "cargo run --";
       gt = "git tree";
+      gg = "lazygit";
       gac = "git allcommit";
       grst = "git reset --soft";
       gRST = "git reset --hard && git clean -fd";
