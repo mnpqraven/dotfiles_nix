@@ -1,0 +1,13 @@
+{
+	"$schema": "https://raw.githubusercontent.com/LuaLS/vscode-lua/master/setting/schema.json",
+	"workspace.library": ["./wezterm", "../../lib/wezterm-types/types"],
+	"runtime.version": "Lua 5.3",
+	"hint.enable": true,
+	"format.defaultConfig": {
+		"indent_style": "space",
+		"indent_size": "3",
+		"insert_final_newline": "true",
+		"space_around_table_field_list": "true",
+		"align_continuous_assign_statement": "false"
+	}
+}
