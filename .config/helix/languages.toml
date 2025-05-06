@@ -75,6 +75,11 @@ language-servers = [
 ]
 
 [[language]]
+name = "lua"
+formatter = { command = "stylua", args = ["-"] }
+auto-format = true
+
+[[language]]
 name = "nix"
 formatter = { command = "nixfmt" }
 auto-format = true
