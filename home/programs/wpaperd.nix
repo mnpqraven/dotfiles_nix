@@ -1,6 +1,6 @@
 {
   inputs,
-  pkgs,
+  osConfig,
   ...
 }:
 let
@@ -25,7 +25,7 @@ let
       };
     }
     // when {
-      cond = inputs.device == "pc";
+      cond = osConfig.networking.hostName == "pc";
       monitor = "DP-2";
       set = {
         duration = "1m";

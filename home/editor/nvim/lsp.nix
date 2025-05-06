@@ -1,6 +1,5 @@
 _: {
   programs.nvf.settings.vim.languages = {
-    enableLSP = true;
     enableDAP = true;
     enableExtraDiagnostics = true;
     enableFormat = true;

@@ -1,6 +1,10 @@
-{ inputs, config, ... }:
+{
+  config,
+  osConfig,
+  ...
+}:
 let
-  inherit (inputs) device;
+  device = osConfig.networking.hostName;
   sshKind = "id_ed25519";
 in
 {
