@@ -11,16 +11,23 @@
   xdg.configFile.helix.source = config.lib.file.mkOutOfStoreSymlink "${config.home.homeDirectory}/dotfiles_nix/.config/helix";
 
   home.packages = with pkgs; [
-    # LSPs
+    # nix
     nil
+    nixfmt-rfc-style
+
+    # javascript ecosystem
     typescript-language-server
     vscode-langservers-extracted
-    lua-language-server
-
-    # formatters
-    taplo
     biome
     prettierd
-    nixfmt-rfc-style
+
+    # lua
+    lua-language-server
+
+    # yaml
+    yaml-language-server
+
+    # toml
+    taplo
   ];
 }

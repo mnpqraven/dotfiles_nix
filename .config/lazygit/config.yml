@@ -1,0 +1,34 @@
+# yaml-language-server: $schema=https://raw.githubusercontent.com/jesseduffield/lazygit/master/schema/config.json
+
+gui:
+  skipNoStagedFilesWarning: true
+  nerdFontsVersion: '3'
+  showFileTree: false
+  spinner:
+    frames:
+      - "⣻"
+      - "⣽"
+      - "⣾"
+      - "⣷"
+      - "⣯"
+      - "⣟"
+      - "⡿"
+      - "⢿"
+git:
+  branchLogCmd: git log --abbrev-commit --decorate --color=always --oneline --graph --
+  log:
+    showWholeGraph: true
+keybinding:
+  universal:
+    scrollLeft: H
+    scrollRight: E
+    prevItem-alt: l
+    nextItem-alt: n
+    prevBlock-alt: h
+    nextBlock-alt: e
+    nextMatch: k
+    prevMatch: K
+    scrollUpMain-alt1: L
+    scrollDownMain-alt1: N
+    edit: o
+    openFile: O
