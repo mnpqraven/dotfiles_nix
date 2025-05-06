@@ -129,11 +129,11 @@ Y = [
 
 [keys.normal."space".g]
 g = "changed_file_picker"
-G = ':sh wezterm start --class weztermfloat --cwd %sh{pwd} -- nvim -c "G" -c only'
+l = ':sh wezterm start --class weztermfloat --cwd %sh{pwd} -- nvim -c "G" -c only'
 f = ":sh git pull"
 p = ":sh git push"
 t = ":sh git tree"
-l = [
+G = [
   ":write-all",
   ":new",
   ":insert-output lazygit",
