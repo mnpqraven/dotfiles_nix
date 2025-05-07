@@ -57,6 +57,13 @@ in
     git
   ];
 
+  home-manager = {
+    useGlobalPkgs = false;
+    useUserPackages = true;
+    users.othi = import ../../users/othi/home.nix;
+    extraSpecialArgs = { inherit inputs; };
+  };
+
   system.autoUpgrade = {
     enable = true;
     flake = inputs.self.outPath;

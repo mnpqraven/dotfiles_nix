@@ -22,13 +22,6 @@
       ...
     }@inputs:
     let
-      hmParams.home-manager = {
-        useGlobalPkgs = false;
-        useUserPackages = true;
-        users.othi = import ./users/othi/home.nix;
-        extraSpecialArgs = { inherit inputs; };
-      };
-
       mkSystem =
         {
           platform ? "x86_64-linux",
@@ -46,7 +39,6 @@
               ./users/othi/nixos.nix
               ./users/othi/services.nix
               home-manager.nixosModules.home-manager
-              hmParams
             ] ++ extraModules;
           };
         };

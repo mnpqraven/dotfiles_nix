@@ -42,13 +42,19 @@ in
   virtualisation.docker.enable = true;
 
   environment.systemPackages = with pkgs; [
-    dunst
     hyprpolkitagent
     libnotify
     librewolf
     neovim
     git
   ];
+
+  home-manager = {
+    useGlobalPkgs = false;
+    useUserPackages = true;
+    users.othi = import ../../users/othi/home.nix;
+    extraSpecialArgs = { inherit inputs; };
+  };
 
   system.autoUpgrade = {
     enable = true;
