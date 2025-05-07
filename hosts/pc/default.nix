@@ -11,7 +11,8 @@
   networking.hostName = "pc";
 
   features = {
-    kde.enable = true;
+    x11.enable = true;
+    kde.enable = false;
     hyprland.enable = true;
     nas.enable = true;
     nas.address = "192.168.1.14";
