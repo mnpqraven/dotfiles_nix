@@ -1,4 +1,5 @@
 {
+  lib,
   pkgs,
   config,
   osConfig,
@@ -7,7 +8,7 @@
 let
   device = osConfig.networking.hostName;
 in
-{
+lib.mkIf osConfig.features.hyprland.enable {
   home.packages = with pkgs; [
     gojq
   ];

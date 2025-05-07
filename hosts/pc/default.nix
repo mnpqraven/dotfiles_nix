@@ -1,14 +1,4 @@
-{
-  pkgs,
-  inputs,
-  ...
-}:
-let
-  # TODO: flake lib
-  nasMount = import ../../_fns/setupNasMounts.nix {
-    addr = "192.168.1.14";
-  };
-in
+{ pkgs, ... }:
 {
   imports = [
     # Include the results of the hardware scan.
@@ -16,24 +6,19 @@ in
     ./gaming.nix
     # PC needs NVIDIA configs as well
     ./nvidia.nix
-    nasMount
   ];
 
   networking.hostName = "pc";
 
+  features = {
+    kde.enable = true;
+    hyprland.enable = true;
+    nas.enable = true;
+    nas.address = "192.168.1.14";
+    autoUpgrade.enable = true;
+  };
+
   environment.systemPackages = with pkgs; [
     librewolf
   ];
-
-  system.autoUpgrade = {
-    enable = true;
-    flake = inputs.self.outPath;
-    flags = [
-      "--show-trace"
-      "-L"
-      "-v"
-    ];
-    dates = "weekly";
-    randomizedDelaySec = "45min";
-  };
 }
