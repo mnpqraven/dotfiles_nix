@@ -27,7 +27,6 @@
           platform ? "x86_64-linux",
           extraModules ? [ ],
           hostName,
-          entrypoint,
         }:
         {
           ${hostName} = nixpkgs.lib.nixosSystem {
@@ -35,7 +34,7 @@
             specialArgs = { inherit inputs; };
             modules = [
               ./base
-              entrypoint
+              ./hosts/${hostName}
               ./users/othi/nixos.nix
               ./users/othi/services.nix
               home-manager.nixosModules.home-manager
@@ -51,15 +50,8 @@
           extraModules = [
             ./devices/dogshitasslogitechmouse.nix
           ];
-          entrypoint = ./hosts/pc;
         }
-        // mkSystem {
-          hostName = "pcremote";
-          entrypoint = ./hosts/pcremote;
-        }
-        // mkSystem {
-          hostName = "laptop";
-          entrypoint = ./hosts/laptop;
-        };
+        // mkSystem { hostName = "pcremote"; }
+        // mkSystem { hostName = "laptop"; };
     };
 }
