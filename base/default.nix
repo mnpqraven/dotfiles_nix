@@ -5,11 +5,15 @@
   imports = [
     ./audio.nix
     ./boot.nix
+    ./cicd.nix
+    ./desktop
     ./development.nix
     ./font.nix
+    ./home-manager.nix
     ./languages
     ./locale.nix
     ./network.nix
+    ./security.nix
   ];
 
   # Enable CUPS to print documents.
@@ -22,6 +26,13 @@
     "nix-command"
     "flakes"
   ];
+
+  environment.systemPackages = with pkgs; [
+    libnotify
+    neovim
+    git
+  ];
+
   nixpkgs.config.allowUnfree = true;
 
   programs.zsh.enable = true;

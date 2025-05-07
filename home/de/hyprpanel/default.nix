@@ -1,6 +1,11 @@
-{ inputs, config, ... }:
+{
+  inputs,
+  config,
+  osConfig,
+  ...
+}:
 let
-  # maps per device (inputs.device)
+  # maps per device
   deviceMap = {
     laptop = {
       battery = [ "battery" ];
@@ -44,7 +49,7 @@ let
       "network"
       "notifications"
       "clock"
-    ] ++ deviceMap.${inputs.device}.battery;
+    ] ++ deviceMap.${osConfig.networking.hostName}.battery;
   };
   verticalLayout = {
     left = [ "workspaces" ];
@@ -68,7 +73,7 @@ in
     overwrite.enable = true;
 
     settings = {
-      layout = deviceMap.${inputs.device}.layout;
+      layout = deviceMap.${osConfig.networking.hostName}.layout;
 
       menus.clock = {
         time = {

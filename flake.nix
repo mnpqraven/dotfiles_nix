@@ -21,75 +21,37 @@
       home-manager,
       ...
     }@inputs:
+    let
+      mkSystem =
+        {
+          platform ? "x86_64-linux",
+          extraModules ? [ ],
+          hostName,
+        }:
+        {
+          ${hostName} = nixpkgs.lib.nixosSystem {
+            system = platform;
+            specialArgs = { inherit inputs; };
+            modules = [
+              ./base
+              ./hosts/${hostName}
+              ./users/othi/nixos.nix
+              ./users/othi/services.nix
+              home-manager.nixosModules.home-manager
+            ] ++ extraModules;
+          };
+        };
+    in
     {
-      nixosConfigurations = {
-        laptop = nixpkgs.lib.nixosSystem {
-          system = "x86_64-linux";
-          specialArgs = { inherit inputs; };
-          modules = [
-            ./base
-            ./hosts/laptop
-            ./users/othi/nixos.nix
-            ./users/othi/services.nix
-
-            home-manager.nixosModules.home-manager
-            {
-              home-manager = {
-                useGlobalPkgs = false;
-                useUserPackages = true;
-                users.othi = import ./users/othi/home.nix;
-                extraSpecialArgs.inputs = inputs // {
-                  device = "laptop";
-                };
-              };
-            }
-          ];
-        };
-        pc = nixpkgs.lib.nixosSystem {
-          system = "x86_64-linux";
-          specialArgs = { inherit inputs; };
-          modules = [
-            ./base
+      nixosConfigurations =
+        { }
+        // mkSystem {
+          hostName = "pc";
+          extraModules = [
             ./devices/dogshitasslogitechmouse.nix
-            ./hosts/pc
-            ./users/othi/nixos.nix
-            ./users/othi/services.nix
-
-            home-manager.nixosModules.home-manager
-            {
-              home-manager = {
-                useGlobalPkgs = false;
-                useUserPackages = true;
-                users.othi = import ./users/othi/home.nix;
-                extraSpecialArgs.inputs = inputs // {
-                  device = "pc";
-                };
-              };
-            }
           ];
-        };
-        pcremote = nixpkgs.lib.nixosSystem {
-          system = "x86_64-linux";
-          specialArgs = { inherit inputs; };
-          modules = [
-            ./base
-            ./hosts/pcremote
-            ./users/othi/nixos.nix
-            ./users/othi/services.nix
-
-            home-manager.nixosModules.home-manager
-            {
-              home-manager = {
-                useGlobalPkgs = false;
-                useUserPackages = true;
-                users.othi = import ./users/othi/home.nix;
-                extraSpecialArgs.inputs = inputs // {
-                  device = "pcremote";
-                };
-              };
-            }
-          ];
-        };
-      };
+        }
+        // mkSystem { hostName = "pcremote"; }
+        // mkSystem { hostName = "laptop"; };
     };
 }
