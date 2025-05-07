@@ -12,8 +12,10 @@
     ./home-manager.nix
     ./languages
     ./locale.nix
+    ./nas.nix
     ./network.nix
     ./security.nix
+    ./upgrade.nix
   ];
 
   # Enable CUPS to print documents.

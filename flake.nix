@@ -34,6 +34,7 @@
             specialArgs = { inherit inputs; };
             modules = [
               ./base
+              ./features.nix
               ./hosts/${hostName}
               ./users/othi/nixos.nix
               ./users/othi/services.nix

@@ -1,8 +1,8 @@
 { pkgs, ... }:
 {
   # TODO: feature gate
-  # SDDM requires either services.xserver.enable or services.displayManager.sddm.wayland.enable to be true
   services.displayManager.sddm.enable = true;
+  services.displayManager.sddm.wayland.enable = true;
 
   services.hypridle.enable = true;
   # hyprlock
