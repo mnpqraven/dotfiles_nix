@@ -2,6 +2,8 @@
 with lib;
 {
   options.features = {
+    # should we have wayland option ?
+    x11.enable = mkEnableOption "X11 server";
     kde.enable = mkEnableOption "KDE Plasma";
     hyprland.enable = mkEnableOption "Hyprland";
     autoUpgrade.enable = mkEnableOption "system auto upgrade";
