@@ -5,8 +5,11 @@
   imports = [
     ./audio.nix
     ./boot.nix
+    ./cicd.nix
+    ./desktop
     ./development.nix
     ./font.nix
+    ./home-manager.nix
     ./languages
     ./locale.nix
     ./network.nix
