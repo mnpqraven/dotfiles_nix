@@ -21,13 +21,8 @@ in
 
   networking.hostName = "pc";
 
-  security.rtkit.enable = true;
-
   environment.systemPackages = with pkgs; [
-    libnotify
     librewolf
-    neovim
-    git
   ];
 
   system.autoUpgrade = {

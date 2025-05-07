@@ -17,13 +17,8 @@ in
 
   networking.hostName = "pcremote";
 
-  security.rtkit.enable = true;
-
   environment.systemPackages = with pkgs; [
-    libnotify
     librewolf
-    neovim
-    git
   ];
 
   system.autoUpgrade = {

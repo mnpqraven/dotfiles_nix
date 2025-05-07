@@ -23,13 +23,8 @@ in
     options = "grp:win_space_toggle";
   };
 
-  security.rtkit.enable = true;
-
   environment.systemPackages = with pkgs; [
-    libnotify
     librewolf
-    neovim
-    git
   ];
 
   system.autoUpgrade = {
