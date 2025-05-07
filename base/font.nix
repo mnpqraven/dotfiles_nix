@@ -4,9 +4,14 @@
   ...
 }:
 {
+  fonts.enableDefaultPackages = true;
   fonts.packages =
     with pkgs;
-    [ source-han-code-jp ]
+    [
+      # japanese support
+      source-han-code-jp
+      notonoto
+    ]
     ++ builtins.filter lib.attrsets.isDerivation (builtins.attrValues pkgs.nerd-fonts);
 
   fonts.fontconfig = {
@@ -14,15 +19,19 @@
       serif = [
         "Noto Serif Display"
         "Source Han Code JP"
+        "NOTONOTO"
       ];
       sansSerif = [
-        "Mononoki Nerd Font"
+        "Liberation Sans"
+        "NotoSans Nerd Font"
         "Source Han Code JP"
+        "NOTONOTO"
       ];
       monospace = [
         "GeistMono NFM"
         "JetBrainsMono NFM"
         "Source Han Code JP"
+        "NOTONOTO"
         "Noto Color Emoji"
       ];
     };
