@@ -38,7 +38,7 @@ in
     fd
     feh
     fzf
-    hyprshot
+    grimblast
     imagemagick
     kalker
     keychain

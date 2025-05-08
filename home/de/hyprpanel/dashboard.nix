@@ -1,4 +1,4 @@
-_:
+{ config, ... }:
 let
   icon = icon: tooltip: command: {
     inherit command icon tooltip;
@@ -15,6 +15,9 @@ in
         shortcut2 = icon "󰊻" "Microsoft Teams" "teams-for-linux";
         shortcut3 = icon "" "Discord" "webcord";
         shortcut4 = icon "" "Syncthing" "librewolf --new-window 127.0.0.1:8384";
+      };
+      shortcuts.right = {
+        shortcut3.command = "sleep .5 && grimblast --notify --freeze copy area";
       };
     };
   };
