@@ -13,7 +13,7 @@
     ./languages
     ./locale.nix
     ./nas.nix
-    ./network.nix
+    ./network
     ./security.nix
     ./upgrade.nix
   ];

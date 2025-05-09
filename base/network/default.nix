@@ -1,5 +1,8 @@
 { pkgs, ... }:
 {
+  imports = [
+    ./cloudflare.nix
+  ];
   networking.networkmanager.enable = true;
   services.openssh = {
     enable = true;

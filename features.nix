@@ -7,6 +7,13 @@ with lib;
     kde.enable = mkEnableOption "KDE Plasma";
     hyprland.enable = mkEnableOption "Hyprland";
     autoUpgrade.enable = mkEnableOption "system auto upgrade";
+    network = {
+      cloudflare.enable = mkOption {
+        type = types.bool;
+        default = true;
+        description = "Cloudflare Warp DNS";
+      };
+    };
     nas = {
       enable = mkEnableOption "NAS mounting";
       address = mkOption {
