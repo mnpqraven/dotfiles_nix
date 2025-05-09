@@ -29,7 +29,6 @@ in
 {
   home.packages = with pkgs; [
     bat
-    brave
     btop
     deluge
     discord

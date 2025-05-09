@@ -6,5 +6,6 @@ _: {
     ./programs
     ./de
     ./xdgMime.nix
+    ./webBrowser
   ];
 }

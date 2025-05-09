@@ -13,6 +13,7 @@
     nvf.url = "github:notashelf/nvf";
     swww.url = "github:LGFae/swww";
     yazi.url = "github:sxyazi/yazi";
+    zen-browser.url = "github:MarceColl/zen-browser-flake";
   };
 
   outputs =
