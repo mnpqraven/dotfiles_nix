@@ -14,8 +14,14 @@
     x11.enable = true;
     kde.enable = false;
     hyprland.enable = true;
-    nas.enable = true;
-    nas.address = "192.168.1.14";
+    syncthing = {
+      enable = true;
+      user = "othi";
+    };
+    nas = {
+      enable = true;
+      address = "192.168.1.14";
+    };
     autoUpgrade.enable = true;
   };
 

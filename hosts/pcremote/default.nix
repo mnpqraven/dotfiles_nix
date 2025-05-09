@@ -10,9 +10,15 @@
   features = {
     x11.enable = true;
     kde.enable = true;
+    syncthing = {
+      enable = true;
+      user = "othi";
+    };
     hyprland.enable = true;
-    nas.enable = true;
-    nas.address = "nas.othi.dev";
+    nas = {
+      enable = true;
+      address = "nas.othi.dev";
+    };
   };
 
   environment.systemPackages = with pkgs; [

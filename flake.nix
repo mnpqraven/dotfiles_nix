@@ -34,10 +34,10 @@
             specialArgs = { inherit inputs; };
             modules = [
               ./base
+              ./services
               ./features.nix
               ./hosts/${hostName}
               ./users/othi/nixos.nix
-              ./users/othi/services.nix
               home-manager.nixosModules.home-manager
             ] ++ extraModules;
           };

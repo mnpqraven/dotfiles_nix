@@ -11,8 +11,14 @@
     x11.enable = true;
     kde.enable = true;
     hyprland.enable = true;
-    nas.enable = true;
-    nas.address = "nas.othi.dev";
+    syncthing = {
+      enable = true;
+      user = "othi";
+    };
+    nas = {
+      enable = true;
+      address = "nas.othi.dev";
+    };
   };
 
   services.xserver.xkb = {

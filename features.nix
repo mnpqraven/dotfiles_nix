@@ -14,6 +14,12 @@ with lib;
         description = "Cloudflare Warp DNS";
       };
     };
+    syncthing.enable = mkEnableOption "Syncthing service";
+    syncthing.user = mkOption {
+      type = types.nonEmptyStr;
+      example = "othi";
+      description = "username of syncthing's target dir";
+    };
     nas = {
       enable = mkEnableOption "NAS mounting";
       address = mkOption {
