@@ -14,6 +14,12 @@
     x11.enable = true;
     kde.enable = false;
     hyprland.enable = true;
+    gaming.enable = true;
+    webBrowser.browsers = [
+      "brave"
+      "librewolf"
+      "zen"
+    ];
     syncthing = {
       enable = true;
       user = "othi";

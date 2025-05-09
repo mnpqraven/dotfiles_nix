@@ -5,6 +5,25 @@ with lib;
     # should we have wayland option ?
     x11.enable = mkEnableOption "X11 server";
     kde.enable = mkEnableOption "KDE Plasma";
+    gaming.enable = mkEnableOption "Gaming related configurations";
+    webBrowser = {
+      enable = mkOption {
+        type = types.bool;
+        default = true;
+      };
+      browsers =
+        let
+          supported = [
+            "brave"
+            "librewolf"
+            "zen"
+          ];
+        in
+        mkOption {
+          type = lib.types.listOf (lib.types.enum supported);
+          default = [ "librewolf" ];
+        };
+    };
     hyprland.enable = mkEnableOption "Hyprland";
     autoUpgrade.enable = mkEnableOption "system auto upgrade";
     network = {

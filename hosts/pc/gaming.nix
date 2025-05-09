@@ -1,18 +1,31 @@
-{ pkgs, ... }:
 {
+  lib,
+  config,
+  pkgs,
+  ...
+}:
+lib.mkIf config.features.gaming.enable {
   hardware = {
     graphics.enable = true;
     graphics.enable32Bit = true;
     nvidia.modesetting.enable = true;
   };
+  programs = {
+    steam.enable = true;
+    steam.gamescopeSession.enable = true;
 
-  programs.steam.enable = true;
-  programs.steam.gamescopeSession.enable = true;
+    gamemode.enable = true;
+    gamescope.enable = true;
+  };
 
   environment.systemPackages = with pkgs; [
+    (heroic.override {
+      extraPkgs = pkgs: [
+        pkgs.gamescope
+      ];
+    })
     mangohud
     protonup
-    lutris
 
     wineWowPackages.staging
     # winetricks (all versions)
@@ -20,8 +33,6 @@
     # native wayland support (unstable)
     wineWowPackages.waylandFull
   ];
-
-  programs.gamemode.enable = true;
 
   environment.sessionVariables = {
     STEAM_EXTRA_COMPAT_TOOLS_PATHS = "\${HOME}/.steam/root/compatibilitytools.d";
