@@ -17,7 +17,8 @@ in
 
   # user profile for lockscreens
   home.file.".face.icon" = {
-    source = ../../assets/avatar.png;
+    source = ../../docs/imgs/avatar.png;
+    force = true;
   };
 
   # FIXME: home folder ?
