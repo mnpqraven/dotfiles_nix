@@ -4,9 +4,6 @@
 	"hint.enable": true,
 	"workspace.library": ["./lib/wezterm-types/types", "./.config/wezterm"],
 	"format": {
-		"enable": true,
-		"defaultConfig": {
-			"indent_style": "space"
-		}
+		"enable": true
 	}
 }

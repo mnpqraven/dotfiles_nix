@@ -22,7 +22,6 @@
     prettierd
 
     # lua
-    stylua
     lua-language-server
 
     # yaml

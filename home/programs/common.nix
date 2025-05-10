@@ -54,5 +54,6 @@ in
     macchina.source = symlink "${cfg}/macchina";
     tofi.source = symlink "${cfg}/tofi";
     zellij.source = symlink "${cfg}/zellij";
+    btop.source = symlink "${cfg}/btop";
   };
 }
