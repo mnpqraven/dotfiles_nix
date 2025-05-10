@@ -21,6 +21,20 @@ There are 2 installation methods:
 [Standard installation including KDE Plasma using Calamares installer](./docs/install_non_kde.md)
 [Minimal installation](./docs/install_non_kde.md)
 
+# Packages
+
+- DE: kde plasma and `hyprland`
+- Audio: pipewire with equalizers configured via `easyeffects`
+- Browser: Librewolf, Zen and Brave
+- Editors: `helix` and `neovim`
+- Terminal: `alacritty` and `wezterm`
+- Prompt: `zsh`
+
+Enabling/disabling suites of packages can be found at [`features.nix`](./features.nix)
+
+# Gaming
+see [gaming.md](./docs/gaming.md)
+
 # Possible issues
 
 ## `nerdfonts` not loading
