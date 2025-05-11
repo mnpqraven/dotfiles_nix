@@ -52,7 +52,10 @@ let
     ] ++ deviceMap.${osConfig.networking.hostName}.battery;
   };
   verticalLayout = {
-    left = [ "workspaces" ];
+    left = [
+      "dashboard"
+      "workspaces"
+    ];
     middle = [ "media" ];
     right = [ "clock" ];
   };
