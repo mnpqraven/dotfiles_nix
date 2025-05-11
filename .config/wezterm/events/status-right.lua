@@ -62,21 +62,37 @@ end
 ---@return FormatItem[]
 local function render_user_segment()
   local hostname = wezterm.hostname()
-  return create_segment(hostname, ec().purple_i)
+  return create_segment(hostname, ec.purple_i)
+end
+
+---@param window Window
+local function render_workspace_segment(window)
+  local title = window:active_workspace()
+  if title == nil then
+    return {}
+  elseif title == 'default' then
+    return {}
+  else
+    return create_segment(title, ec.purple_i)
+  end
 end
 
 function module.setup()
   wezterm.on('update-status', function(window, pane)
-    local key_table      = window:active_key_table()
-    local right_status   = {}
+    local key_table         = window:active_key_table()
+    local right_status      = {}
 
-    local status_segment = render_status_segment(key_table)
-    local user_segment   = render_user_segment()
+    local status_segment    = render_status_segment(key_table)
+    local user_segment      = render_user_segment()
+    local workspace_segment = render_workspace_segment(window)
 
     for _, row in pairs(status_segment) do
       table.insert(right_status, row)
     end
     for _, row in pairs(user_segment) do
+      table.insert(right_status, row)
+    end
+    for _, row in pairs(workspace_segment) do
       table.insert(right_status, row)
     end
 

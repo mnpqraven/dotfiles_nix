@@ -8,9 +8,15 @@ Config.__index = Config
 
 ---Initialize Config
 ---@return Config
-function Config:init()
+function Config:new()
   local config = setmetatable({ options = {} }, self)
   return config
+end
+
+---Retrieve Config
+---@return Config
+function Config:get()
+  return self.options
 end
 
 ---Append to `Config.options`
