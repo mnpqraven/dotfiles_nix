@@ -14,6 +14,10 @@ prepend_keymap = [
     "r",
   ], run = 'shell -- ya emit cd "$(git rev-parse --show-toplevel)"', desc = "Back to git root" },
   { on = "!", run = 'shell "$SHELL" --block', desc = "Open shell here" },
+  # drag-n-drop support
+  { on = "<C-n>", run = '''
+      shell 'ripdrag "$@" -x 2>/dev/null &' --confirm
+  ''' },
 ]
 
 [tasks]

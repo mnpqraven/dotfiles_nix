@@ -48,6 +48,7 @@ in
     teams-for-linux
     wl-clipboard
     tofi
+    ripdrag
     zellij
   ];
   xdg.configFile = {
