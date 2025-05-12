@@ -56,6 +56,7 @@ in
       zm = "zellij";
       v = "nvim";
       cr = "cargo run --";
+      gpl = "git pull --recurse-submodules";
       gt = "git tree";
       gg = "lazygit";
       gac = "git allcommit";
