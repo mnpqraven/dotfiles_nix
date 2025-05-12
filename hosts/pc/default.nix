@@ -13,7 +13,7 @@
   features = {
     x11.enable = true;
     kde.enable = false;
-    terminal.default = "alacritty";
+    terminal.default = "ghostty";
     hyprland.enable = true;
     gaming.enable = true;
     webBrowser.browsers = [
