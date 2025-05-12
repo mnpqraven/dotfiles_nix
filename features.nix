@@ -6,6 +6,15 @@ with lib;
     x11.enable = mkEnableOption "X11 server";
     kde.enable = mkEnableOption "KDE Plasma";
     gaming.enable = mkEnableOption "Gaming related configurations";
+    terminal.default = mkOption {
+      type = types.enum [
+        "alacritty"
+        "wezterm"
+        "ghostty"
+      ];
+      default = "wezterm";
+      description = "default terminal emulator";
+    };
     webBrowser = {
       enable = mkOption {
         type = types.bool;

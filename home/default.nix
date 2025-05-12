@@ -5,6 +5,7 @@ _: {
     ./shell
     ./programs
     ./de
+    ./terminal
     ./xdgMime.nix
     ./webBrowser
   ];
