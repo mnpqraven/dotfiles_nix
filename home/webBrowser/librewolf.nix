@@ -1,11 +1,16 @@
+{ osConfig, ... }:
+let
+  enable = builtins.elem "librewolf" osConfig.features.webBrowser.browsers;
+in
 {
-  lib,
-  osConfig,
-  pkgs,
-  ...
-}:
-lib.mkIf (builtins.elem "librewolf" osConfig.features.webBrowser.browsers) {
-  home.packages = with pkgs; [
-    librewolf
-  ];
+  programs.librewolf = {
+    inherit enable;
+    # relax some default settings
+    settings = {
+      "privacy.resistFingerprinting" = false;
+      "webgl.disabled" = false;
+      "privacy.clearOnShutdown.history" = false;
+      "security.OCSP.require" = false;
+    };
+  };
 }
