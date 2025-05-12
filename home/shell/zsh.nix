@@ -53,7 +53,7 @@ in
       trybuild = "sudo nixos-rebuild test --flake .#${device} --show-trace -L -v";
       upgrade = "sudo nixos-rebuild switch --flake .#${device} --show-trace -L -v --recreate-lock-file";
       nix-gc = "nix-collect-garbage -d";
-      zm = "zellij";
+      zm = "zellij -l welcome";
       v = "nvim";
       cr = "cargo run --";
       gpl = "git pull --recurse-submodules";

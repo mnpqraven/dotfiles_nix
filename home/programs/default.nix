@@ -7,5 +7,6 @@ _: {
     ./im.nix
     ./lazygit.nix
     ./swww.nix
+    ./zellij.nix
   ];
 }

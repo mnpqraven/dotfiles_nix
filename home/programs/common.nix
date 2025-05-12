@@ -49,7 +49,6 @@ in
     wl-clipboard
     tofi
     ripdrag
-    zellij
   ];
   xdg.configFile = {
     macchina.source = symlink "${cfg}/macchina";
