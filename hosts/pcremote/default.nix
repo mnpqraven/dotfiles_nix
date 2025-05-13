@@ -10,7 +10,7 @@
   features = {
     x11.enable = true;
     kde.enable = true;
-    terminal.default = "ghostty";
+    terminal.default = "wezterm";
     syncthing = {
       enable = true;
       user = "othi";

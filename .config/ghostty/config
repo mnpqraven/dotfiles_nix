@@ -5,10 +5,11 @@ resize-overlay = never
 
 # improve perf. by paying a one-time cost to run a gtk single instance
 gtk-single-instance = true
-linux-cgroup = single-instance
+# linux-cgroup = single-instance
 
 # keybinds
 keybind = clear
+keybind = ctrl+shift+v=paste_from_clipboard
 keybind = ctrl+shift+alt+,=reload_config
 keybind = ctrl+shift+alt+h=goto_split:left
 keybind = ctrl+shift+alt+left=goto_split:left
@@ -37,3 +38,5 @@ keybind = ctrl+shift+alt+t>x=close_tab
 keybind = ctrl+shift+alt+p>x=close_surface
 keybind = ctrl+shift+alt+p>s=new_split:down
 keybind = ctrl+shift+alt+p>v=new_split:right
+
+# TODO: modes

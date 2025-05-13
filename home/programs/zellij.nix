@@ -1,11 +1,13 @@
 { lib, config, ... }:
-with lib;
 let
+  symlink = config.lib.file.mkOutOfStoreSymlink;
+  dot = "${config.home.homeDirectory}/dotfiles_nix/.config";
   cfg = config.programs.zellij;
-  zellijCmd = getExe cfg.package;
+  zellijCmd = lib.getExe cfg.package;
 in
 {
   programs.zellij.enable = true;
+  xdg.configFile.zellij.source = symlink "${dot}/zellij";
   # @see https://github.com/zellij-org/zellij/issues/2316#issuecomment-2318919533
   # @ref https://github.com/nix-community/home-manager/blob/master/modules/programs/zellij.nix
   programs.zsh.initContent = lib.mkIf cfg.enable (

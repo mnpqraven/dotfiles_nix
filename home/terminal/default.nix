@@ -2,8 +2,9 @@
 {
   imports = [
     ./alacritty.nix
-    ./wezterm.nix
+    ./rio.nix
     ./ghostty.nix
+    ./wezterm.nix
   ];
   # WARN: needs reboot or relogin to take effects
   home.sessionVariables = {

@@ -10,6 +10,7 @@
   features = {
     x11.enable = true;
     kde.enable = true;
+    terminal.default = "wezterm";
     hyprland.enable = true;
     syncthing = {
       enable = true;
