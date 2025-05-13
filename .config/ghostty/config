@@ -9,3 +9,31 @@ linux-cgroup = single-instance
 
 # keybinds
 keybind = clear
+keybind = ctrl+shift+alt+,=reload_config
+keybind = ctrl+shift+alt+h=goto_split:left
+keybind = ctrl+shift+alt+left=goto_split:left
+keybind = ctrl+shift+alt+e=goto_split:right
+keybind = ctrl+shift+alt+right=goto_split:right
+keybind = ctrl+shift+alt+l=goto_split:up
+keybind = ctrl+shift+alt+up=goto_split:up
+keybind = ctrl+shift+alt+n=goto_split:down
+keybind = ctrl+shift+alt+down=goto_split:down
+
+keybind = ctrl+shift+alt+1=goto_tab:1
+keybind = ctrl+shift+alt+2=goto_tab:2
+keybind = ctrl+shift+alt+3=goto_tab:3
+keybind = ctrl+shift+alt+4=goto_tab:4
+keybind = ctrl+shift+alt+5=goto_tab:5
+keybind = ctrl+shift+alt+6=goto_tab:6
+keybind = ctrl+shift+alt+7=goto_tab:7
+keybind = ctrl+shift+alt+8=goto_tab:8
+keybind = ctrl+shift+alt+9=goto_tab:9
+
+# shift+alt+t : tab
+keybind = ctrl+shift+alt+t>c=new_tab
+keybind = ctrl+shift+alt+t>x=close_tab
+
+# shift+alt+p : pane_do
+keybind = ctrl+shift+alt+p>x=close_surface
+keybind = ctrl+shift+alt+p>s=new_split:down
+keybind = ctrl+shift+alt+p>v=new_split:right
