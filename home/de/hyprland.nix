@@ -19,6 +19,13 @@ lib.mkIf osConfig.features.hyprland.enable {
   # dynamically creates hyprland config
   # FIXME: new installation needs to run 2 different builds, each build with
   # one file section commented out to correctly populate the symlinks
+  home.file.".config/hypr/hyprland/startup.conf".text = ''
+    exec-once = fcitx5
+    exec-once = hypridle
+    exec-once = ${osConfig.features.hyprland.bar}
+    exec-once = systemctl --user start hyprpolkitagent
+  '';
+
   home.file.".config/hypr/hyprland.conf" = {
     force = true;
     text = ''
