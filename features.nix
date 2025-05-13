@@ -12,7 +12,7 @@ with lib;
         "wezterm"
         "ghostty"
       ];
-      default = "wezterm";
+      default = "alacritty";
       description = "default terminal emulator";
     };
     webBrowser = {
