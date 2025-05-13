@@ -11,6 +11,7 @@ with lib;
         "alacritty"
         "wezterm"
         "ghostty"
+        # "rio"
       ];
       default = "alacritty";
       description = "default terminal emulator";

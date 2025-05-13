@@ -1,59 +1,8 @@
 confirm-before-quit = false
-
 hide-cursor-when-typing = false
 
-# Ignore theme selection foreground color
-#
-# Default is false
-#
-# Example:
-# ignore-selection-foreground-color = false
-
-# Theme
-#
-# It makes Rio look for the specified theme in the themes folder
-# (macos and linux: ~/.config/rio/themes/dracula.toml)
-# (windows: C:\Users\USER\AppData\Local\rio\themes\dracula.toml)
-#
-# Example:
-# theme = "dracula"
-
-# [top, bottom]
 padding-y = [-6, 0]
 line-height = 1.0
-
-# Environment variables
-#
-# Example:
-# env-vars = []
-
-# Use fork
-#
-# Defaults for POSIX-based systems (Windows is not configurable):
-# MacOS: spawn processes
-# Linux/BSD: fork processes
-#
-# Example:
-# use-fork = false
-
-# Confirm before exiting Rio
-# Default is `true`
-#
-# confirm-before-quit = false
-
-# Cursor
-#
-# shape - Default cursor shape is 'block'
-# Other available options are: 'underline', 'beam' or 'hidden'
-#
-# blinking - Whether the cursor blinks. The default is false
-#
-# blinking-interval - Cursor update on milliseconds interval
-#
-# [cursor]
-# shape = 'block'
-# blinking = false
-# blinking-interval = 800
 
 # Editor
 #
@@ -89,7 +38,7 @@ opacity = 0.8
 [renderer]
 # performance = "high"
 backend = "automatic"
-filters = ["NewPexieCrt"]
+# filters = ["NewPixieCrt"]
 
 # Keyboard
 #
@@ -104,54 +53,9 @@ filters = ["NewPexieCrt"]
 # disable-ctlseqs-alt = false
 
 [fonts]
-size = 16
+size = 17
 family = "JetBrainsMono NFM"
 extras = [{ family = 'Source Han Code JP' }, { family = 'Noto Color Emoji' }]
-#
-# You can also specify extra fonts to load
-# [fonts]
-# extras = [{ family = "Microsoft JhengHei" }]
-#
-# In case you want to specify any font feature:
-# [fonts]
-# features = ["ss02", "ss03", "ss05", "ss19"]
-#
-# Note: Font features do not have support to live reload on configuration,
-# so to reflect your changes, you will need to close and reopen Rio.
-#
-# You can also disable font hinting. Font hinting is enabled by default.
-# [fonts]
-# hinting = false
-#
-# You can also map the specified Unicode codepoints to a particular font.
-# [fonts]
-# symbol-map = [
-#   { start = "2297", end = "2299", font-family = "Cascadia Code NF" }
-# ]
-#
-# Simple example:
-# [fonts]
-# size = 18
-#
-# [fonts.regular]
-# family = "cascadiamono"
-# style = "Normal"
-# weight = 400
-#
-# [fonts.bold]
-# family = "cascadiamono"
-# style = "Normal"
-# weight = 800
-#
-# [fonts.italic]
-# family = "cascadiamono"
-# style = "Italic"
-# weight = 400
-#
-# [fonts.bold-italic]
-# family = "cascadiamono"
-# style = "Italic"
-# weight = 800
 
 # Scroll
 #
@@ -191,40 +95,6 @@ extras = [{ family = 'Source Han Code JP' }, { family = 'Noto Color Emoji' }]
 # use-current-path = false
 # color-automation = []
 
-# Shell
-#
-# You can set `shell.program` to the path of your favorite shell, e.g. `/bin/fish`.
-# Entries in `shell.args` are passed unmodified as arguments to the shell.
-#
-# Default:
-#   - (macOS) user login shell
-#   - (Linux/BSD) user login shell
-#   - (Windows) powershell
-#
-# Example 1 using fish shell from bin path:
-#
-# [shell]
-# program = "/bin/fish"
-# args = ["--login"]
-#
-# Example 2 for Windows using powershell
-#
-# [shell]
-# program = "pwsh"
-# args = []
-#
-# Example 3 for Windows using powershell with login
-#
-# [shell]
-# program = "pwsh"
-# args = ["-l"]
-#
-# Example 4 for MacOS with tmux installed by homebrew
-#
-# [shell]
-# program = "/opt/homebrew/bin/tmux"
-# args = ["new-session", "-c", "/var/www"]
-
 # Colors
 #
 # Colors definition will overwrite any property in theme
@@ -254,33 +124,3 @@ extras = [{ family = 'Source Han Code JP' }, { family = 'Noto Color Emoji' }]
 #   # Bytes[27, 91, 53, 126] is equivalent to "\x1b[5~"
 #   { key = "home", with = "super | shift", bytes = [27, 91, 53, 126] }
 # ]
-
-# Platform
-#
-# Rio now allows you to have different configurations per OS
-# You can write ovewrite properties like `Shell`, `Navigation`
-# and `Window`.
-#
-# Example:
-# [shell]
-# # default (in this case will be used only on MacOS)
-# program = "/bin/fish"
-# args = ["--login"]
-#
-# [platform]
-# # Microsoft Windows overwrite
-# windows.shell.program = "pwsh"
-# windows.shell.args = ["-l"]
-#
-# # Linux overwrite
-# linux.shell.program = "tmux"
-# linux.shell.args = ["new-session", "-c", "/var/www"]
-
-# Log level
-#
-# This property enables log level filter and file. The default level is "OFF" and the logs are not logged to a file as default.
-#
-# Example:
-# [developer]
-# log-level = "OFF"
-# enable-log-file = false

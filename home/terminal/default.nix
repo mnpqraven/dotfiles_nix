@@ -2,7 +2,8 @@
 {
   imports = [
     ./alacritty.nix
-    ./rio.nix
+    # not used rn
+    # ./rio.nix
     ./ghostty.nix
     ./wezterm.nix
   ];

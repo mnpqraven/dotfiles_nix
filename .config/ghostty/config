@@ -9,6 +9,7 @@ gtk-single-instance = true
 
 # keybinds
 keybind = clear
+keybind = ctrl+shift+c=copy_to_clipboard
 keybind = ctrl+shift+v=paste_from_clipboard
 keybind = ctrl+shift+alt+,=reload_config
 keybind = ctrl+shift+alt+h=goto_split:left
