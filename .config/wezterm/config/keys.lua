@@ -42,43 +42,39 @@ local function extended_copy_mode()
   return default_copy_mode
 end
 
+local MEH = 'SHIFT|ALT|CTRL'
+
 ---@class Config
 return {
+  -- disable all defaults to have max. compability with zellig
+  disable_default_key_bindings = true,
   keys = {
-    -- pane navigation
-    -- NOTE: this takes priority over zellij's navigation rn so you won't be able
-    -- to navigate between zellij panes
-    { key = 'h',          mods = 'ALT',       action = act.ActivatePaneDirection('Left') },
-    { key = 'LeftArrow',  mods = 'ALT',       action = act.ActivatePaneDirection('Left') },
-    { key = 'e',          mods = 'ALT',       action = act.ActivatePaneDirection('Right') },
-    { key = 'RightArrow', mods = 'ALT',       action = act.ActivatePaneDirection('Right') },
-    { key = 'l',          mods = 'ALT',       action = act.ActivatePaneDirection('Up') },
-    { key = 'UpArrow',    mods = 'ALT',       action = act.ActivatePaneDirection('Up') },
-    { key = 'n',          mods = 'ALT',       action = act.ActivatePaneDirection('Down') },
-    { key = 'DownArrow',  mods = 'ALT',       action = act.ActivatePaneDirection('Down') },
-    { key = '1',          mods = 'ALT',       action = act.ActivateTab(0) },
-    { key = '2',          mods = 'ALT',       action = act.ActivateTab(1) },
-    { key = '3',          mods = 'ALT',       action = act.ActivateTab(2) },
-    { key = '4',          mods = 'ALT',       action = act.ActivateTab(3) },
-    { key = '5',          mods = 'ALT',       action = act.ActivateTab(4) },
-    { key = '6',          mods = 'ALT',       action = act.ActivateTab(5) },
-    { key = '7',          mods = 'ALT',       action = act.ActivateTab(6) },
-    { key = '8',          mods = 'ALT',       action = act.ActivateTab(7) },
-    { key = '9',          mods = 'ALT',       action = act.ActivateTab(-1) },
-    { key = 'h',          mods = 'ALT|SHIFT', action = act.ActivateTabRelative(-1) },
-    { key = 'e',          mods = 'ALT|SHIFT', action = act.ActivateTabRelative(1) },
-    -- actual wezterm control layer
-    { key = 't',          mods = 'CTRL',      action = act.ActivateKeyTable({ name = 'pane_do' }) },
-    {
-      key = 'T',
-      mods = 'CTRL|SHIFT',
-      action = act.ActivateKeyTable({ name = 'pane_do', one_shot = false })
-    },
-    {
-      key = 'x',
-      mods = 'ALT',
-      action = act.ActivateKeyTable({ name = 'pane_resize', one_shot = false })
-    }
+    { key = 'c',          mods = 'CTRL|SHIFT', action = act.CopyTo 'Clipboard' },
+    { key = 'v',          mods = 'CTRL|SHIFT', action = act.PasteFrom 'Clipboard' },
+    { key = 'h',          mods = MEH,          action = act.ActivatePaneDirection('Left') },
+    { key = 'LeftArrow',  mods = MEH,          action = act.ActivatePaneDirection('Left') },
+    { key = 'e',          mods = MEH,          action = act.ActivatePaneDirection('Right') },
+    { key = 'RightArrow', mods = MEH,          action = act.ActivatePaneDirection('Right') },
+    { key = 'l',          mods = MEH,          action = act.ActivatePaneDirection('Up') },
+    { key = 'UpArrow',    mods = MEH,          action = act.ActivatePaneDirection('Up') },
+    { key = 'n',          mods = MEH,          action = act.ActivatePaneDirection('Down') },
+    { key = 'DownArrow',  mods = MEH,          action = act.ActivatePaneDirection('Down') },
+    { key = '1',          mods = MEH,          action = act.ActivateTab(0) },
+    { key = '2',          mods = MEH,          action = act.ActivateTab(1) },
+    { key = '3',          mods = MEH,          action = act.ActivateTab(2) },
+    { key = '4',          mods = MEH,          action = act.ActivateTab(3) },
+    { key = '5',          mods = MEH,          action = act.ActivateTab(4) },
+    { key = '6',          mods = MEH,          action = act.ActivateTab(5) },
+    { key = '7',          mods = MEH,          action = act.ActivateTab(6) },
+    { key = '8',          mods = MEH,          action = act.ActivateTab(7) },
+    { key = '9',          mods = MEH,          action = act.ActivateTab(-1) },
+    { key = 'h',          mods = MEH,          action = act.ActivateTabRelative(-1) },
+    { key = 'e',          mods = MEH,          action = act.ActivateTabRelative(1) },
+    -- modes
+    { key = 'x',          mods = MEH,          action = act.ActivateKeyTable({ name = 'pane_resize', one_shot = false }) },
+    { key = 't',          mods = MEH,          action = act.ActivateKeyTable({ name = 'pane_do' }) },
+    { key = 'p',          mods = MEH,          action = act.ActivateCommandPalette },
+    { key = 'x',          mods = MEH,          action = act.ActivateCopyMode }
   },
   key_tables = {
     pane_do = {

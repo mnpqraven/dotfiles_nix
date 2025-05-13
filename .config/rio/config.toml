@@ -1,0 +1,126 @@
+confirm-before-quit = false
+hide-cursor-when-typing = false
+
+padding-y = [-6, 0]
+line-height = 1.0
+
+# Editor
+#
+# Default editor on Linux and MacOS is "vi",
+# on Windows it is "notepad".
+#
+# Whenever the key binding `OpenConfigEditor` is triggered it will
+# use the value of the editor along with the rio configuration path.
+# [editor]
+# program = "vi"
+# args = []
+
+# Window configuration
+#
+# • mode - define how the window will be created
+#     - "Windowed" (default) is based on width and height
+#     - "Maximized" window is created with maximized
+#     - "Fullscreen" window is created with fullscreen
+#
+# • opacity - Set window opacity
+#
+# • blur - Set blur on the window background. Changing this config requires restarting Rio to take effect.
+#
+# • decorations - Set window decorations, options: "Enabled", "Disabled", "Transparent", "Buttonless"
+#
+# Example:
+[window]
+# mode = "windowed"
+opacity = 0.8
+# blur = false
+# decorations = "enabled"
+
+[renderer]
+# performance = "high"
+backend = "automatic"
+# filters = ["NewPixieCrt"]
+
+# Keyboard
+#
+# use-kitty-keyboard-protocol - Enable Kitty Keyboard protocol
+#
+# disable-ctlseqs-alt - Disable ctlseqs with ALT keys
+#   - For example: Terminal.app does not deal with ctlseqs with ALT keys
+#
+# Example:
+# [keyboard]
+# use-kitty-keyboard-protocol = false
+# disable-ctlseqs-alt = false
+
+[fonts]
+size = 17
+family = "JetBrainsMono NFM"
+extras = [{ family = 'Source Han Code JP' }, { family = 'Noto Color Emoji' }]
+
+# Scroll
+#
+# You can change how many lines are scrolled each time by setting this option.
+#
+# Scroll calculation for canonical mode will be based on `lines = (accumulated scroll * multiplier / divider)`,
+# If you want a quicker scroll, keep increasing the multiplier.
+# If you want to reduce scroll speed you will need to increase the divider.
+# You can use both properties also to find the best scroll for you.
+#
+# Multiplier default is 3.0.
+# Divider default is 1.0.
+# Example:
+# [scroll]
+# multiplier = 3.0
+# divider = 1.0
+
+# Navigation
+#
+# "mode" - Define navigation mode
+#   • NativeTab (MacOS only)
+#   • Bookmark
+#   • BottomTab
+#   • TopTab
+#   • Plain
+#
+# "hide-if-single" - Hide navigation UI if is single.
+# "clickable" - Enable click on tabs to switch.
+# "use-current-path" - Use same path whenever a new tab is created (Note: requires `use-fork` to be set to false).
+# "color-automation" - Set a specific color for the tab whenever a specific program is running, or in a specific directory.
+#
+# Example:
+# [navigation]
+# mode = "bookmark"
+# clickable = false
+# hide-if-single = true
+# use-current-path = false
+# color-automation = []
+
+# Colors
+#
+# Colors definition will overwrite any property in theme
+# (considering if theme folder does exists and is being used)
+#
+# Example:
+# [colors]
+# background = '#0F0D0E'
+# foreground = '#F9F4DA'
+# cursor = '#F38BA3'
+# tabs = '#443d40'
+# tabs-active = '#F38BA3'
+# green = '#0BA95B'
+# red = '#ED203D'
+# blue = '#12B5E5'
+# yellow = '#FCBA28'
+
+# Bindings
+#
+# Create custom Key bindings for Rio terminal
+# More information in: https://raphamorim.io/rio/docs/key-bindings
+#
+# Example:
+# [bindings]
+# keys = [
+#   { key = "q", with = "super", action = "Quit" },
+#   # Bytes[27, 91, 53, 126] is equivalent to "\x1b[5~"
+#   { key = "home", with = "super | shift", bytes = [27, 91, 53, 126] }
+# ]

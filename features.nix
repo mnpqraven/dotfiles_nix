@@ -11,8 +11,9 @@ with lib;
         "alacritty"
         "wezterm"
         "ghostty"
+        # "rio"
       ];
-      default = "wezterm";
+      default = "alacritty";
       description = "default terminal emulator";
     };
     webBrowser = {
