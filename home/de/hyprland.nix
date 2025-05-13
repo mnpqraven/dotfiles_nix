@@ -23,10 +23,12 @@ lib.mkIf osConfig.features.hyprland.enable {
     force = true;
     text = ''
       source = ./hyprland/set.conf
-
-      source = ./hyprland/monitors_${device}.conf
       source = ./hyprland/startup.conf
-      source = ./hyprland/wallpaper_${device}.conf
+
+      source = ./hyprland/by_${device}/monitors.conf
+      source = ./hyprland/by_${device}/autostart.conf
+      source = ./hyprland/by_${device}/wallpaper.conf
+
       source = ./hyprland/animations.conf
       source = ./hyprland/rules.conf
       source = ./hyprland/bindings.conf
