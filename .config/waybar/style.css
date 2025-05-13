@@ -236,6 +236,16 @@ tooltip {
 	animation-direction: alternate;
 }
 
+#mpd.playing {
+	color: white;
+	animation: repeat;
+	animation-name: blink;
+	animation-duration: 3s;
+	animation-timing-function: linear;
+	animation-iteration-count: infinite;
+	animation-direction: alternate;
+}
+
 @keyframes blink {
 	to {
 		color: #4a4a4a;

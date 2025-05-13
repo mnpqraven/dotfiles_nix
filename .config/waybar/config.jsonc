@@ -17,7 +17,7 @@
     "custom/spacer",
     "hyprland/submap",
     "custom/spacer",
-    "mpris"
+    "mpd"
   ],
   "modules-center": [
     "custom/padd",
@@ -109,6 +109,31 @@
       "󰪤",
       "󰪥"
     ]
+  },
+  "mpd": {
+    // "format": "{stateIcon} {consumeIcon}{randomIcon}{repeatIcon}{singleIcon}{artist} - {album} - {title} ({elapsedTime:%M:%S}/{totalTime:%M:%S}) ",
+    "format": "{albumArtist} - {title} ({elapsedTime:%M:%S}/{totalTime:%M:%S})",
+    "format-disconnected": "Disconnected ",
+    "format-stopped": "{consumeIcon}{randomIcon}{repeatIcon}{singleIcon}Stopped ",
+    "interval": 10,
+    "consume-icons": {
+      "on": " " // Icon shows only when "consume" is on
+    },
+    "random-icons": {
+      "off": "", // Icon grayed out when "random" is off
+      "on": " "
+    },
+    "repeat-icons": {
+      "on": " "
+    },
+    "single-icons": {
+      "on": " 1 "
+    },
+    "state-icons": {
+      "paused": "",
+      "playing": ""
+    },
+    "tooltip": false
   },
   "mpris": {
     "format": "{player_icon} {dynamic}",
