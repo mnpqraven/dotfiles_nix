@@ -1,9 +1,11 @@
+theme = tokyonight
 gtk-wide-tabs  = false
 background-opacity = 0.8
 resize-overlay = never
+
+# improve perf. by paying a one-time cost to run a gtk single instance
 gtk-single-instance = true
 linux-cgroup = single-instance
-theme = tokyonight
 
 # keybinds
 keybind = clear
