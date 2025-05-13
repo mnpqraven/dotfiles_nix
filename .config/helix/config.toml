@@ -2,7 +2,7 @@ theme = "tokyonight_moon_mod"
 
 [editor]
 line-number = "relative"
-mouse = false
+mouse = true
 end-of-line-diagnostics = "hint"
 popup-border = "all"
 rulers = [80]

@@ -286,3 +286,4 @@ theme "tokyo-night"
 //
 // theme_dir "/path/to/my/theme_dir"
 show_startup_tips false
+pane_frames false
