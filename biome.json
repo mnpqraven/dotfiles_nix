@@ -23,7 +23,7 @@
         "useImportType": { "level": "warn", "fix": "safe" }
       },
       "a11y": {
-        "useGenericFontNames": "warn"
+        "useGenericFontNames": "off"
       }
     }
   }
