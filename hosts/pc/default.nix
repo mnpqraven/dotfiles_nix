@@ -11,7 +11,7 @@
   networking.hostName = "pc";
 
   features = {
-    x11.enable = true;
+    x11.enable = false;
     kde.enable = false;
     terminal.default = "ghostty";
     hyprland.enable = true;

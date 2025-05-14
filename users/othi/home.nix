@@ -1,4 +1,4 @@
-{ pkgs, ... }:
+{ pkgs, osConfig, ... }:
 let
   username = "othi";
 in
@@ -31,5 +31,6 @@ in
       fcitx5-unikey
     ];
   };
+
   nixpkgs.config.allowUnfree = true;
 }
