@@ -1,4 +1,4 @@
-#!/usr/bin/bash
+#!/usr/bin/env bash
 # @see https://github.com/mnpqraven/dotfiles/blob/development/Scripts/nas-setup.sh
 echo "Credentials gen script WeatherAPI"
 file=$HOME/.config/hyprpanel/weather.json
