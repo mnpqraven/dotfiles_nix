@@ -6,6 +6,7 @@ _: {
     enableTreesitter = true;
 
     nix = {
+      lsp.server = "nixd";
       enable = true;
       format.type = "nixfmt";
     };

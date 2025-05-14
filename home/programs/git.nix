@@ -24,6 +24,7 @@ in
         helper = "store";
         "https://github.com".username = "mnpqraven";
       };
+      rerere.enabled = true;
 
       # Sign all commits using ssh key
       commit.gpgsign = true;
