@@ -16,6 +16,7 @@
       user = "othi";
     };
     hyprland.enable = true;
+    hyprland.bar = "waybar";
     nas = {
       enable = true;
       address = "nas.othi.dev";
