@@ -1,3 +1,13 @@
+@define-color cl-fg #a1bdce;
+@define-color cl-black #15161e;
+@define-color cl-red #f7768e;
+@define-color cl-green #9ece6a;
+@define-color cl-yellow #e0af68;
+@define-color cl-blue #7aa2f7;
+@define-color cl-magenta #bb9af7;
+@define-color cl-cyan #7dcfff;
+@define-color cl-white #a9b1d6;
+
 * {
   font-family: "JetBrains Mono Nerd Font";
   font-weight: bold;
@@ -7,21 +17,21 @@
 #custom-notification {
   font-family: "JetBrains Mono Nerd Font";
   font-size: 17px;
-  color: #a1bdce;
+  color: @cl-fg;
   margin: 2px 0px 0px 0px;
 }
 
 window#waybar {
   background: #0f0f17;
   border: 2px solid #124323;
-  border: 0px solid #a1bdce;
+  border: 0px solid @cl-fg;
   border: 3px solid rgba(255, 255, 255, 0.1);
   border-radius: 12px;
 }
 
 tooltip {
   background: #171717;
-  color: #a1bdce;
+  color: @cl-fg;
   font-size: 13px;
   border-radius: 7px;
   border: 2px solid #101a24;
@@ -41,7 +51,7 @@ tooltip {
 
 #workspaces button {
   background: rgba(23, 23, 23, 0.0);
-  color: #a1bdce;
+  color: @cl-fg;
   box-shadow: none;
   text-shadow: none;
   border-radius: 9px;
@@ -52,7 +62,7 @@ tooltip {
 }
 
 #workspaces button.active {
-  color: #a1bdce;
+  color: @cl-fg;
   transition: all 0.3s ease;
   padding-left: 4px;
   padding-right: 4px;
@@ -61,7 +71,7 @@ tooltip {
 
 #workspaces button:hover {
   background: none;
-  color: #72d792;
+  color: @cl-green;
   animation: ws_hover 20s ease-in-out 1;
   transition: all 0.5s cubic-bezier(0.55, -0.68, 0.48, 1.682);
   border-color: transparent;
@@ -115,27 +125,24 @@ tooltip {
   min-height: 10px;
 }
 
-#custom-spacer {
-  opacity: 0.0;
+#submap {
+  color: @cl-yellow;
+  font-weight: 900;
 }
 
-#custom-smallspacer {
-  opacity: 0.0;
+#custom-cloudflare {
+  color: @cl-fg;
+  font-weight: 900;
+}
+
+#custom-cloudflare.connected {
+  color: @cl-green;
 }
 
 #custom-mouse {
   font-size: 14px;
   margin-bottom: 6px;
   background: #161320;
-}
-
-#custom-power {
-  font-size: 15px;
-  color: #ffffff;
-  background: rgba(22, 19, 32, 0.9);
-  margin: 6px 0px 6px 0px;
-  padding-left: 4px;
-  padding-right: 4px;
 }
 
 #backlight {
@@ -179,8 +186,7 @@ tooltip {
 }
 
 #clock {
-  color: #a1bdce;
-  font-size: 15px;
+  color: @cl-fg;
   font-weight: 900;
   font-family: "JetBrains Mono Nerd Font";
   background: rgba(23, 23, 23, 0.0);
@@ -203,7 +209,6 @@ tooltip {
 }
 #cpu {
   font-weight: 900;
-  font-size: 15px;
   color: #915caf;
 }
 
@@ -221,7 +226,6 @@ tooltip {
 #language,
 #memory {
   font-weight: 900;
-  font-size: 15px;
   color: #e4c9af;
 }
 #mpris {
@@ -251,7 +255,7 @@ tooltip {
 }
 
 #network {
-  color: #a1bdce;
+  color: @cl-fg;
   font-weight: normal;
   font-size: 19px;
   padding-right: 0px;
@@ -275,14 +279,10 @@ tooltip {
 #custom-wallchange,
 #custom-wbar,
 #window {
-  color: #a1bdce;
+  color: @cl-fg;
   font-family: "Martian Mono";
 }
-#custom-l_end,
-#custom-r_end,
-#custom-sl_end,
-#custom-sr_end,
-#custom-rl_end,
+
 #cava,
 #upower#headset,
 #upower {
@@ -290,23 +290,12 @@ tooltip {
 }
 
 #mpris {
-  font-size: 15px;
   font-weight: bold;
-}
-
-#custom-rr_end {
-  font-weight: normal;
-  color: #e8edf0;
-  background: rgba(23, 23, 23, 0.0);
-  opacity: 1;
-  margin: 0px 0px 0px 0px;
-  padding-left: 4px;
-  padding-right: 4px;
 }
 
 #backlight-slider slider,
 #pulseaudio-slider slider {
-  background: #a1bdce;
+  background: @cl-fg;
   background-color: transparent;
   box-shadow: none;
   margin-right: 7px;
@@ -341,51 +330,21 @@ tooltip {
   padding: 1px;
 }
 
-#custom-r_end {
-  border-radius: 0px 7px 7px 0px;
-  margin-right: 1px;
-  padding-right: 3px;
+#pulseaudio {
+ font-size: 15px;
 }
-
-#custom-l_end {
-  border-radius: 7px 0px 0px 7px;
-  margin-left: 1px;
-  padding-left: 3px;
-}
-
-#custom-sr_end {
-  border-radius: 0px;
-  margin-right: 1px;
-  padding-right: 3px;
-}
-
-#custom-sl_end {
-  border-radius: 0px;
-  margin-left: 1px;
-  padding-left: 3px;
-}
-
-#custom-rr_end {
-  border-radius: 0px 7px 7px 0px;
-  margin-right: 1px;
-  padding-right: 3px;
-}
-
-#custom-rl_end {
-  border-radius: 7px 0px 0px 7px;
-  margin-left: 1px;
-  padding-left: 3px;
-}
-
-/* Style for launchers */
 
 #custom-expand {
   min-width: 25px;
-  color: #a1bdce;
+  color: @cl-fg;
   font-size: 16px;
 }
 
 #group-minimized {
   border-left: solid;
   border-left-width: 0.5;
+}
+
+#group-power {
+  color: @cl-fg;
 }
