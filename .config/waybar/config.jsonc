@@ -70,10 +70,7 @@
       "transition-to-left": true,
       "click-to-reveal": true
     },
-    "modules": [
-      "upower",
-      "upower/headset"
-    ]
+    "modules": ["upower", "upower/headset"]
   },
   "custom/smallspacer": {
     "format": " "
@@ -81,34 +78,14 @@
   "memory": {
     "interval": 1,
     "format": "{icon} {percentage:2} %",
-    "format-icons": [
-      "󰝦",
-      "󰪞",
-      "󰪟",
-      "󰪠",
-      "󰪡",
-      "󰪢",
-      "󰪣",
-      "󰪤",
-      "󰪥"
-    ],
+    "format-icons": ["󰝦", "󰪞", "󰪟", "󰪠", "󰪡", "󰪢", "󰪣", "󰪤", "󰪥"],
     "max-length": 10
   },
   "cpu": {
     "interval": 1,
     "format": "{icon} {usage:2} %",
     "tooltip": false,
-    "format-icons": [
-      "󰝦",
-      "󰪞",
-      "󰪟",
-      "󰪠",
-      "󰪡",
-      "󰪢",
-      "󰪣",
-      "󰪤",
-      "󰪥"
-    ]
+    "format-icons": ["󰝦", "󰪞", "󰪟", "󰪠", "󰪡", "󰪢", "󰪣", "󰪤", "󰪥"]
   },
   "mpd": {
     // "format": "{stateIcon} {consumeIcon}{randomIcon}{repeatIcon}{singleIcon}{artist} - {album} - {title} ({elapsedTime:%M:%S}/{totalTime:%M:%S}) ",
@@ -148,10 +125,7 @@
     },
     "on-scroll-up": "wpctl set-volume @DEFAULT_AUDIO_SINK@ 5%+ --limit 1",
     "on-scroll-down": "wpctl set-volume @DEFAULT_AUDIO_SINK@ 5%- --limit 1",
-    "ignored-players": [
-      "firefox",
-      "librewolf"
-    ]
+    "ignored-players": ["firefox", "librewolf"]
   },
   "tray": {
     "icon-size": 16,
@@ -166,11 +140,7 @@
       "transition-to-left": true
       //  "click-to-reveal": true
     },
-    "modules": [
-      "custom/menu",
-      "custom/spacer",
-      "tray"
-    ]
+    "modules": ["custom/menu", "custom/spacer", "tray"]
   },
   "custom/menu": {
     "format": "󰅃",
@@ -197,7 +167,7 @@
     "escape": true
   },
   "hyprland/window": {
-    "format": "{}", // <--- these is the default value  
+    "format": "{}", // <--- these is the default value
     // "format": "<span  weight='bold' >{class}</span>",
     "max-length": 120,
     "icon": false,
@@ -240,16 +210,7 @@
     "waves": false,
     "noise_reduction": 0.77,
     "input_delay": 2,
-    "format-icons": [
-      "▁",
-      "▂",
-      "▃",
-      "▄",
-      "▅",
-      "▆",
-      "▇",
-      "█"
-    ],
+    "format-icons": ["▁", "▂", "▃", "▄", "▅", "▆", "▇", "█"],
     "actions": {
       "on-click-right": "mode"
     }
@@ -293,9 +254,7 @@
     "tooltip-format": "{title}",
     "on-click": "activate",
     "on-click-middle": "close",
-    "ignore-list": [
-      "Alacritty"
-    ],
+    "ignore-list": ["Alacritty"],
     "app_ids-mapping": {
       "firefoxdeveloperedition": "firefox-developer-edition"
     }
@@ -343,18 +302,8 @@
     "format-charging": "<span color='#a6d189'>󱐋</span>",
     "format-plugged": "󰂄",
     // "format-alt": "<<span weight='bold' color='#c2864a'>{time} <span weight='bold' color='white'>| <span weight='bold' color='#82d457'>{capacity}%</span></span></span>",
-    "format-icons": [
-      "󰝦",
-      "󰪞",
-      "󰪟",
-      "󰪠",
-      "󰪡",
-      "󰪢",
-      "󰪣",
-      "󰪤",
-      "󰪥"
-    ],
-    //  "format-icons": ["","","","","","","",""],  
+    "format-icons": ["󰝦", "󰪞", "󰪟", "󰪠", "󰪡", "󰪢", "󰪣", "󰪤", "󰪥"],
+    //  "format-icons": ["","","","","","","",""],
     //"format-icons": ["󰂎", "󰁺", "󰁻", "󰁼", "󰁽", "󰁾", "󰁿", "󰂀", "󰂁", "󰂂", "󰁹"],
     "on-click-right": "pkill waybar & hyprctl dispatch exec waybar"
     //  "format-icons": [<i class='fa-solid fa-wifi-slash'></i>],
@@ -363,12 +312,7 @@
     "device": "intel_backlight",
     "rotate": 0,
     "format": "{icon}",
-    "format-icons": [
-      "󰃞",
-      "󰃝",
-      "󰃟",
-      "󰃠"
-    ],
+    "format-icons": ["󰃞", "󰃝", "󰃟", "󰃠"],
     "scroll-step": 1,
     "min-length": 2
   },
@@ -395,19 +339,12 @@
       "transition-to-left": true,
       "click-to-reveal": true
     },
-    "modules": [
-      "pulseaudio",
-      "pulseaudio/slider"
-    ]
+    "modules": ["pulseaudio", "pulseaudio/slider"]
   },
   "network": {
     "tooltip": true,
     "format-wifi": "{icon} ",
-    "format-icons": [
-      "󰤟",
-      "󰤢",
-      "󰤥"
-    ],
+    "format-icons": ["󰤟", "󰤢", "󰤥"],
     "rotate": 0,
     "format-ethernet": "󰈀 ",
     "tooltip-format": "Up: {bandwidthTotalBits} \nDown: {bandwidthDownBits}",
@@ -430,11 +367,7 @@
       "phone": "",
       "portable": "",
       "car": "",
-      "default": [
-        "",
-        "",
-        ""
-      ]
+      "default": ["", "", ""]
     }
   },
   "pulseaudio#microphone": {

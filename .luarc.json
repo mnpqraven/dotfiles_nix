@@ -1,9 +1,9 @@
 {
-	"$schema": "https://raw.githubusercontent.com/LuaLS/vscode-lua/master/setting/schema.json",
-	"runtime.version": "Lua 5.3",
-	"hint.enable": true,
-	"workspace.library": ["./lib/wezterm-types/types", "./.config/wezterm"],
-	"format": {
-		"enable": true
-	}
+  "$schema": "https://raw.githubusercontent.com/LuaLS/vscode-lua/master/setting/schema.json",
+  "runtime.version": "Lua 5.3",
+  "hint.enable": true,
+  "workspace.library": ["./lib/wezterm-types/types", "./.config/wezterm"],
+  "format": {
+    "enable": true
+  }
 }
