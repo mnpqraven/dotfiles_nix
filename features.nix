@@ -48,6 +48,11 @@ in
     };
     autoUpgrade.enable = mkEnableOption "system auto upgrade";
 
+    notifications.enable = mkOption {
+      type = types.bool;
+      default = true;
+    };
+
     network = {
       cloudflare.enable = mkOption {
         type = types.bool;
