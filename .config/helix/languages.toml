@@ -16,6 +16,7 @@ args = ["--stdio"]
 [[language]]
 name = "css"
 language-servers = ["biome"]
+auto-format = true
 
 [[language]]
 name = "javascript"

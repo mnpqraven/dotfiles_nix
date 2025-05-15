@@ -8,14 +8,15 @@
   networking.hostName = "pcremote";
 
   features = {
-    x11.enable = true;
+    x11.enable = false;
     kde.enable = true;
-    terminal.default = "wezterm";
+    terminal.default = "ghostty";
     syncthing = {
       enable = true;
       user = "othi";
     };
     hyprland.enable = true;
+    hyprland.bar = "waybar";
     nas = {
       enable = true;
       address = "nas.othi.dev";

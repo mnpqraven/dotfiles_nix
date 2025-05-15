@@ -1,4 +1,5 @@
-_: {
+{ pkgs, config, ... }:
+{
   i18n.defaultLocale = "en_US.UTF-8";
   i18n.extraLocaleSettings = {
     LC_ADDRESS = "en_US.UTF-8";
@@ -13,4 +14,15 @@ _: {
   };
   # Set your time zone.
   time.timeZone = "Asia/Ho_Chi_Minh";
+
+  i18n.inputMethod = {
+    enable = true;
+    type = "fcitx5";
+    fcitx5.waylandFrontend = config.features.hyprland.enable;
+    fcitx5.addons = with pkgs; [
+      fcitx5-mozc
+      fcitx5-gtk
+      fcitx5-unikey
+    ];
+  };
 }

@@ -15,6 +15,7 @@ gui:
       - "⡿"
       - "⢿"
 git:
+  autoFetch: false
   branchLogCmd: git log --abbrev-commit --decorate --color=always --oneline --graph --
   log:
     showWholeGraph: true

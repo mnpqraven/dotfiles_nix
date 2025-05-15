@@ -11,6 +11,7 @@ in
       "webgl.disabled" = false;
       "privacy.clearOnShutdown.history" = false;
       "security.OCSP.require" = false;
+      "media.hardwaremediakeys.enabled" = false;
     };
   };
 }

@@ -36,10 +36,22 @@ in
         default = [ "librewolf" ];
       };
     };
-
-    hyprland.enable = mkEnableOption "Hyprland";
-
+    hyprland = {
+      enable = mkEnableOption "Hyprland";
+      bar = mkOption {
+        type = types.enum [
+          "waybar"
+          "hyprpanel"
+        ];
+        default = "waybar";
+      };
+    };
     autoUpgrade.enable = mkEnableOption "system auto upgrade";
+
+    notifications.enable = mkOption {
+      type = types.bool;
+      default = true;
+    };
 
     network = {
       cloudflare.enable = mkOption {
