@@ -8,9 +8,9 @@
   networking.hostName = "pcremote";
 
   features = {
-    x11.enable = true;
+    x11.enable = false;
     kde.enable = true;
-    terminal.default = "wezterm";
+    terminal.default = "ghostty";
     syncthing = {
       enable = true;
       user = "othi";
