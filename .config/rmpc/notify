@@ -20,4 +20,4 @@ if ! rmpc albumart --output "$ALBUM_ART_PATH"; then
 fi
 
 # Send the notification
-notify-send --hint=string:x-dunst-stack-tag:rmpc -i "${ALBUM_ART_PATH}" "Now Playing" "$ARTIST - $TITLE $ALBUM_ART_PATH" -u low -t 5000
+notify-send --hint=string:x-dunst-stack-tag:rmpc -i "${ALBUM_ART_PATH}" "Now Playing" "$ARTIST - $TITLE" -u low -t 5000
