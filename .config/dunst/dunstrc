@@ -24,7 +24,7 @@
     # dynamic width from 0 to 300
     # width = (0, 300)
     # constant width of 300
-    width = 300
+    width = (100, 600)
 
     # The height of a single notification, excluding the frame.
     # dynamic height from 0 to 300
@@ -35,12 +35,12 @@
     #       and the given value is treated as the maximum height
 
     # Position the notification in the top right corner
-    origin = top-right
+    origin = bottom-center
 
     # Offset from the origin
     # NOTE: Dunst from version 1.11 and older use this alternative notation
     # offset = 10x50
-    offset = (18, 12)
+    offset = (0, 24)
 
     # Scale factor. It is auto-detected if value is 0.
     scale = 0
@@ -107,7 +107,7 @@
 
     # Defines width in pixels of frame around the notification window.
     # Set to 0 to disable.
-    frame_width = 2
+    frame_width = 1
 
     # Defines color of the frame around the notification window.
     frame_color = "#aaaaaa"
@@ -296,15 +296,6 @@
     force_xwayland = false
 
     ### Legacy
-
-    # Use the Xinerama extension instead of RandR for multi-monitor support.
-    # This setting is provided for compatibility with older nVidia drivers that
-    # do not support RandR and using it on systems that support RandR is highly
-    # discouraged.
-    #
-    # By enabling this setting dunst will not be able to detect when a monitor
-    # is connected or disconnected which might break follow mode if the screen
-    # layout changes.
     force_xinerama = false
 
     ### mouse
@@ -322,7 +313,7 @@
     # * context_all: Open context menu for all notifications.
     # These values can be strung together for each mouse event, and
     # will be executed in sequence.
-    mouse_left_click = close_current
+    mouse_left_click = do_action, close_current
     mouse_middle_click = do_action, close_current
     mouse_right_click = close_all
 
@@ -340,30 +331,24 @@
 [urgency_low]
     # IMPORTANT: colors have to be defined in quotation marks.
     # Otherwise the "#" and following would be interpreted as a comment.
-    background = "#16161e"
+    background = "#1a1b26e6"
     foreground = "#c0caf5"
     frame_color = "#c0caf5"
     timeout = 10
-    # Icon for notifications with low urgency
-    default_icon = dialog-information
 
 [urgency_normal]
-    background = "#1a1b26"
+    background = "#1a1b26e6"
     foreground = "#c0caf5"
     frame_color = "#c0caf5"
     timeout = 10
     override_pause_level = 30
-    # Icon for notifications with normal urgency
-    default_icon = dialog-information
 
 [urgency_critical]
-    background = "#292e42"
+    background = "#292e42e6"
     foreground = "#db4b4b"
     frame_color = "#db4b4b"
     timeout = 0
     override_pause_level = 60
-    # Icon for notifications with critical urgency
-    default_icon = dialog-warning
 
 # Every section that isn't one of the above is interpreted as a rules to
 # override settings for certain messages.
