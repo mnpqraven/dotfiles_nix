@@ -45,6 +45,7 @@ in
       cl = "clear";
       rf = "clear && macchina";
       btw = "macchina";
+      calc = "kalker";
       fm = "yazi";
       mz = "rmpc";
       # FIXME: dyn

@@ -7,6 +7,7 @@
 }:
 let
   device = osConfig.networking.hostName;
+  dunst = if osConfig.features.hyprland.bar != "hyprpanel" then "exec-once = dunst" else null;
 in
 lib.mkIf osConfig.features.hyprland.enable {
   home.packages = with pkgs; [
@@ -24,6 +25,7 @@ lib.mkIf osConfig.features.hyprland.enable {
     exec-once = hypridle
     exec-once = ${osConfig.features.hyprland.bar}
     exec-once = systemctl --user start hyprpolkitagent
+    ${dunst}
   '';
 
   home.file.".config/hypr/hyprland.conf" = {
