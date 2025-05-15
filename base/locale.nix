@@ -15,10 +15,16 @@
   # Set your time zone.
   time.timeZone = "Asia/Ho_Chi_Minh";
 
+  # if any gtk applications (e.g ghostty, waybar) hangs or crashes at launch,
+  # it's likely fcitx5 being the culprit for calling the portal request too early
+  # find the first one calling in `journalctl --user -b | $EDITOR`
+  # @see https://github.com/NixOS/nixpkgs/issues/206630
+  # this is fixed by setting up fcitx5 in system modules instead of home-manager
+  # so far so good
   i18n.inputMethod = {
     enable = true;
     type = "fcitx5";
-    fcitx5.waylandFrontend = config.features.hyprland.enable;
+    fcitx5.waylandFrontend = config.features.wayland.enable;
     fcitx5.addons = with pkgs; [
       fcitx5-mozc
       fcitx5-gtk

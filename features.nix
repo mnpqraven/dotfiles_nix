@@ -16,6 +16,11 @@ in
   options.features = {
     # should we have wayland option ?
     x11.enable = mkEnableOption "X11 server";
+    wayland.enable = mkOption {
+      type = types.bool;
+      description = "Wayland protocol";
+      default = true;
+    };
     kde.enable = mkEnableOption "KDE Plasma";
 
     gaming.enable = mkEnableOption "Gaming related configurations";
