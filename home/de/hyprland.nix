@@ -42,12 +42,4 @@ lib.mkIf osConfig.features.hyprland.enable {
       source = ./hyprland/looks.conf
     '';
   };
-
-  xdg.portal = {
-    enable = true;
-    extraPortals = with pkgs; [
-      xdg-desktop-portal-gtk
-      xdg-desktop-portal-gnome
-    ];
-  };
 }
