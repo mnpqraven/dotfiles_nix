@@ -239,13 +239,13 @@ tooltip {
 }
 
 #mpd.playing {
-  color: white;
-  animation: repeat;
-  animation-name: blink;
-  animation-duration: 3s;
-  animation-timing-function: linear;
-  animation-iteration-count: infinite;
-  animation-direction: alternate;
+  color: @cl-fg;
+  /* animation: repeat; */
+  /* animation-name: blink; */
+  /* animation-duration: 3s; */
+  /* animation-timing-function: linear; */
+  /* animation-iteration-count: infinite; */
+  /* animation-direction: alternate; */
 }
 
 @keyframes blink {
