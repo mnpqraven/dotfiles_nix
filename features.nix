@@ -14,7 +14,6 @@ let
 in
 {
   options.features = {
-    # should we have wayland option ?
     x11.enable = mkEnableOption "X11 server";
     wayland.enable = mkOption {
       type = types.bool;
