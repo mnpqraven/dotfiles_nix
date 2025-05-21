@@ -65,6 +65,9 @@ in
       };
     };
 
+    database = {
+      enable = mkEnableOption "Postgres database";
+    };
     syncthing = {
       enable = mkEnableOption "Syncthing service";
       user = mkOption {

@@ -21,6 +21,7 @@
       "librewolf"
       "zen"
     ];
+    database.enable = true;
     syncthing = {
       enable = true;
       user = "othi";

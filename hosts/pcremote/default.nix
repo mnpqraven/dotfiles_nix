@@ -11,6 +11,7 @@
     x11.enable = false;
     kde.enable = true;
     terminal.default = "ghostty";
+    database.enable = true;
     syncthing = {
       enable = true;
       user = "othi";
