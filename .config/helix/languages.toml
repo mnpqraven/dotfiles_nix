@@ -8,8 +8,10 @@ args = ["lsp-proxy"]
 [language-server.tailwindcss]
 command = "tailwindcss-language-server"
 args = ["--stdio"]
+
 # @see https://github.com/tailwindlabs/tailwindcss-intellisense/issues/1366
-config = { tailwindCSS = { classFunctions = ["cva", "cx", "tw", "clsx"] } }
+[language-server.tailwindcss.config.tailwindCSS]
+classFunctions = ["cva", "cx", "tw", "clsx"]
 
 [language-server.emmet-lsp]
 command = "emmet-language-server"
