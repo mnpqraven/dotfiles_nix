@@ -9,7 +9,7 @@
 
   features = {
     x11.enable = false;
-    kde.enable = true;
+    kde.enable = false;
     terminal.default = "ghostty";
     database.enable = true;
     syncthing = {

@@ -15,7 +15,7 @@ let
             src = pkgs.fetchFromGitHub {
               owner = "mierak";
               repo = "rmpc";
-              rev = "8daf632587669aa60cc1d6071625aa47bd39ca63";
+              rev = "e6062d875ba43a52ed5408aca953f47feed32703";
               hash = "sha256-m0/4hwSIE0p35uhyeS6kUaLUwvR5S52mM3Zqzlbizm0=";
             };
             cargoHash = "sha256-RQ0ibBFkVq7KgYrbMeIgTBSDJbCLCea/ThhbJgOuKxk=";

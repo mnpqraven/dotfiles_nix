@@ -3,6 +3,7 @@
 { pkgs, ... }:
 {
   imports = [
+    ./caching.nix
     ./audio.nix
     ./boot.nix
     ./cicd.nix

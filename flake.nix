@@ -7,7 +7,6 @@
     home-manager.url = "github:nix-community/home-manager";
     home-manager.inputs.nixpkgs.follows = "nixpkgs";
 
-    # rio.url = "github:raphamorim/rio";
     helix.url = "github:helix-editor/helix/master";
     hyprland.url = "github:hyprwm/Hyprland";
     hyprpanel.url = "github:jas-singhfsu/hyprpanel";
