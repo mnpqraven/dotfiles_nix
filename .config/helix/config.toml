@@ -81,6 +81,7 @@ j = "extend_next_word_end"
 J = "extend_next_long_word_end"
 X = "select_line_above"
 k = "extend_search_next"
+G = "goto_last_line"
 "A-k" = "extend_search_prev"
 
 [keys.normal.g]
@@ -163,6 +164,9 @@ K = "no_op"
 
 [keys.normal."space".q]
 f = "code_action"
+
+[keys.normal."space".l]
+i = ":toggle lsp.display-inlay-hints"
 
 [keys.insert]
 "C-n" = "completion"

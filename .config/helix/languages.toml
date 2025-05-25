@@ -9,7 +9,6 @@ args = ["lsp-proxy"]
 command = "tailwindcss-language-server"
 args = ["--stdio"]
 
-# @see https://github.com/tailwindlabs/tailwindcss-intellisense/issues/1366
 [language-server.tailwindcss.config.tailwindCSS]
 classFunctions = ["cva", "cx", "tw", "clsx"]
 

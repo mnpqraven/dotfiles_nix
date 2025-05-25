@@ -15,4 +15,7 @@ lib.mkIf config.features.database.enable {
       host  all       all     ::1/128    trust
     '';
   };
+  environment.systemPackages = with pkgs; [
+    dbeaver-bin
+  ];
 }
