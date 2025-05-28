@@ -58,11 +58,7 @@ in
     };
 
     network = {
-      cloudflare.enable = mkOption {
-        type = types.bool;
-        default = true;
-        description = "Cloudflare Warp DNS";
-      };
+      cloudflare.enable = mkEnableOption "Cloudflare Warp DNS";
     };
 
     database = {

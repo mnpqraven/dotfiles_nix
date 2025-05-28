@@ -21,6 +21,7 @@
       "librewolf"
       "zen"
     ];
+    network.cloudflare.enable = true;
     database.enable = true;
     syncthing = {
       enable = true;
