@@ -15,13 +15,15 @@ _: {
         scrollDocsUp = "<C-u>";
       };
       setupOpts = {
-        # DEV:
+        # TODO: snippets
         # snippets.preset = "luasnip";
         # FIXME: dyn
-        # TODO:
         # sources.providers.snippets.opts.search_paths = [
         #   "/home/othi/dotfiles_nix/.config/nvim/snippets"
         # ];
+
+        cmdline.completion.menu.auto_show = true;
+        signature.enabled = true;
 
         completion.menu.draw.columns = [
           {
@@ -35,11 +37,6 @@ _: {
             "@2" = "kind";
             gap = 2;
           }
-          # or this syntax if gap is not needed
-          # [
-          #   "kind_icon"
-          #   "kind"
-          # ]
         ];
       };
     };

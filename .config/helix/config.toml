@@ -10,6 +10,9 @@ jump-label-alphabet = "arsdheiqwfpgjluyozxcvbkmtn"
 cursorline = true
 cursorcolumn = true
 
+[editor.lsp]
+display-progress-messages = true
+
 [editor.soft-wrap]
 enable = true
 
