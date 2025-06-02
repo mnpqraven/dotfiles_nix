@@ -1,5 +1,4 @@
-{ lib, ... }:
-{
+_: {
   programs.nvf.settings.vim.autocomplete = {
     blink-cmp = {
       enable = true;
@@ -7,8 +6,8 @@
 
       mappings = {
         # WARN: kinda buggy
-        close = null;
-        confirm = "<C-e>";
+        close = "<C-h>";
+        # confirm = "<C-e>";
 
         next = "<C-n>";
         previous = "<C-p>";
@@ -16,29 +15,16 @@
         scrollDocsUp = "<C-u>";
       };
       setupOpts = {
-        # DEV:
+        # TODO: snippets
         # snippets.preset = "luasnip";
         # FIXME: dyn
-        # TODO:
         # sources.providers.snippets.opts.search_paths = [
         #   "/home/othi/dotfiles_nix/.config/nvim/snippets"
         # ];
 
-        cmdline.sources = null;
-        cmdline.keymap.preset = "default";
         cmdline.completion.menu.auto_show = true;
         signature.enabled = true;
-        fuzzy.implementation = "prefer_rust_with_warning";
 
-        keymap = {
-          "<C-h>" = [ "cancel" ];
-          "<CR>" = [
-            "accept"
-            "fallback"
-          ];
-        };
-
-        # nvim-cmp-like menu drawing
         completion.menu.draw.columns = [
           {
             "@1" = "label";
@@ -51,11 +37,6 @@
             "@2" = "kind";
             gap = 2;
           }
-          # or this syntax if gap is not needed
-          # [
-          #   "kind_icon"
-          #   "kind"
-          # ]
         ];
       };
     };
