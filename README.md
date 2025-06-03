@@ -14,6 +14,9 @@
     </span>
 </div>
 
+# System
+![System diagram](./docs/imgs/diagram.png)
+
 # Installation
 
 There are 2 installation methods:
