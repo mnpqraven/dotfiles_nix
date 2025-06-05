@@ -1,4 +1,4 @@
 #!/usr/bin/env bash
-warp-cli status | grep -q "Disconnected" \
-&& echo '{"text":"Off","class":"disconnected","alt":"off"}' \
-|| echo '{"text":"On","class":"connected","alt":"on"}'
+warp-cli status | grep -q "Connected" \
+&& echo '{"text":"On","class":"connected","alt":"on"}' \
+|| echo '{"text":"Off","class":"disconnected","alt":"off"}'
