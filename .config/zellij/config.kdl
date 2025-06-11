@@ -148,10 +148,10 @@ keybinds clear-defaults=true {
     shared_except "locked" {
         bind "Alt g" { SwitchToMode "Locked"; }
         bind "Alt w" { ToggleFloatingPanes; }
-        bind "Alt h" "Alt Left" { MoveFocusOrTab "Left"; }
-        bind "Alt e" "Alt Right" { MoveFocusOrTab "Right"; }
-        bind "Alt n" "Alt Down" { MoveFocus "Down"; }
-        bind "Alt l" "Alt Up" { MoveFocus "Up"; }
+        bind "Alt Shift h" "Alt Left" { MoveFocusOrTab "Left"; }
+        bind "Alt Shift e" "Alt Right" { MoveFocusOrTab "Right"; }
+        bind "Alt Shift n" "Alt Down" { MoveFocus "Down"; }
+        bind "Alt Shift l" "Alt Up" { MoveFocus "Up"; }
         bind "Alt =" "Alt +" { Resize "Increase"; }
         bind "Alt -" "Alt Shift =" { Resize "Decrease"; }
         bind "Alt [" { PreviousSwapLayout; }
@@ -161,7 +161,7 @@ keybinds clear-defaults=true {
         bind "Enter" "Space" "Esc" { SwitchToMode "Normal"; }
     }
     shared_except "pane" "locked" {
-        bind "Alt p" { SwitchToMode "Pane"; }
+        bind "Alt y" { SwitchToMode "Pane"; }
     }
     shared_except "resize" "locked" {
         bind "Alt x" { SwitchToMode "Resize"; }

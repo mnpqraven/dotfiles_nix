@@ -20,7 +20,7 @@
     hyprland.bar = "waybar";
     nas = {
       enable = true;
-      address = "nas.othi.dev";
+      address = "othiremote.synology.me";
     };
   };
 
