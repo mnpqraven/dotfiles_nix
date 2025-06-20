@@ -1,10 +1,12 @@
 {
+  osConfig,
+  lib,
   config,
   pkgs,
   inputs,
   ...
 }:
-{
+lib.mkIf osConfig.features.editors.helix.enable {
   programs.helix.enable = true;
   programs.helix.package = inputs.helix.packages."${pkgs.system}".helix;
   # FIXME: dyn

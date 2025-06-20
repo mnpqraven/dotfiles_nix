@@ -1,6 +1,12 @@
-{ inputs, ... }:
+{
+  osConfig,
+  inputs,
+  lib,
+  ...
+}:
 let
   inherit (inputs) nvf;
+  enable = osConfig.features.editors.nvim.enable;
 in
 {
   imports = [
@@ -19,8 +25,8 @@ in
   ];
 
   programs = {
-    neovim.enable = true;
-    nvf.enable = true;
+    neovim.enable = enable;
+    nvf.enable = enable;
   };
 
   programs.nvf.settings.vim = {

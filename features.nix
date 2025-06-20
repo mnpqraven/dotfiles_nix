@@ -11,24 +11,30 @@ let
     "librewolf"
     "zen"
   ];
+
+  terminalEnum = mkOption {
+    type = types.enum terminals;
+    default = "alacritty";
+    description = "default terminal emulator";
+  };
+
 in
 {
   options.features = {
     x11.enable = mkEnableOption "X11 server";
-    wayland.enable = mkOption {
-      type = types.bool;
-      description = "Wayland protocol";
-      default = true;
-    };
+    wayland.enable = mkEnableOption "Wayland protocol";
     kde.enable = mkEnableOption "KDE Plasma";
+
+    editors = {
+      nvim.enable = mkEnableOption "Neovim";
+      nvim.defaultEditor = mkEnableOption "Neovim as default editor";
+      helix.enable = mkEnableOption "Helix";
+      helix.defaultEditor = mkEnableOption "Helix as default editor";
+    };
 
     gaming.enable = mkEnableOption "Gaming related configurations";
 
-    terminal.default = mkOption {
-      type = types.enum terminals;
-      default = "alacritty";
-      description = "default terminal emulator";
-    };
+    terminal.default = terminalEnum;
 
     webBrowser = {
       enable = mkOption {
@@ -40,6 +46,7 @@ in
         default = [ "librewolf" ];
       };
     };
+
     hyprland = {
       enable = mkEnableOption "Hyprland";
       bar = mkOption {
@@ -50,6 +57,7 @@ in
         default = "waybar";
       };
     };
+
     autoUpgrade.enable = mkEnableOption "system auto upgrade";
 
     notifications.enable = mkOption {

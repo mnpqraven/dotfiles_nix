@@ -9,7 +9,12 @@
 
   features = {
     x11.enable = false;
+    wayland.enable = true;
     kde.enable = false;
+
+    editors.helix.enable = true;
+    editors.helix.defaultEditor = true;
+
     terminal.default = "ghostty";
     database.enable = true;
     syncthing = {
@@ -19,7 +24,7 @@
     hyprland.enable = true;
     hyprland.bar = "waybar";
     nas = {
-      enable = true;
+      enable = false;
       address = "othiremote.synology.me";
     };
   };

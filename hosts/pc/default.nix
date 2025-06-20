@@ -12,7 +12,15 @@
 
   features = {
     x11.enable = false;
+    wayland.enable = true;
     kde.enable = false;
+
+    editors = {
+      nvim.enable = true;
+      helix.enable = true;
+      helix.defaultEditor = true;
+    };
+
     terminal.default = "ghostty";
     hyprland.enable = true;
     gaming.enable = true;
