@@ -16,7 +16,7 @@
     kde.enable = false;
 
     editors = {
-      nvim.enable = true;
+      nvim.enable = false;
       helix.enable = true;
       helix.defaultEditor = true;
     };
