@@ -47,6 +47,10 @@ in
       };
     };
 
+    desktops = {
+      niri.enable = mkEnableOption "Niri";
+    };
+    # TODO: move to desktops
     hyprland = {
       enable = mkEnableOption "Hyprland";
       bar = mkOption {
