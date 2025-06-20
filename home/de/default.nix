@@ -4,5 +4,6 @@ _: {
     ./hyprland.nix
     ./notifications.nix
     ./waybar
+    ./niri.nix
   ];
 }
