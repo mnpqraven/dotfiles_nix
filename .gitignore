@@ -1,3 +1,4 @@
 .stfolder
 .ssh
 lib/wezterm-types
+result*
