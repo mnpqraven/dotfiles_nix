@@ -1,4 +1,4 @@
-[manager]
+[mgr]
 prepend_keymap = [
   # Hopping
   { on = "l", run = "arrow prev", desc = "Previous file" },

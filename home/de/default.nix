@@ -3,6 +3,6 @@ _: {
     ./hyprpanel
     ./hyprland.nix
     ./notifications.nix
-    ./waybar.nix
+    ./waybar
   ];
 }
