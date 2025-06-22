@@ -25,6 +25,7 @@ in
   programs.waybar = {
     inherit enable;
 
+    style = ./style.css;
     settings = {
       mainBar = {
         layer = "top";
@@ -110,5 +111,8 @@ in
   };
 
   # FIXME: dyn
-  # xdg.configFile.waybar.source = config.lib.file.mkOutOfStoreSymlink "${config.home.homeDirectory}/dotfiles_nix/.config/waybar";
+  # xdg.configFile.waybar-css = {
+  #   target = "${config.home.homeDirectory}/.config/waybar/style.css";
+  #   source = config.lib.file.mkOutOfStoreSymlink "${config.home.homeDirectory}/dotfiles_nix/.config/waybar/style.css";
+  # };
 }
