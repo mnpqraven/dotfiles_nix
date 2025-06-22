@@ -1,9 +1,11 @@
 _: {
   imports = [
+    ./waybar
+    ./notifications.nix
+
     ./hyprpanel
     ./hyprland.nix
-    ./notifications.nix
-    ./waybar
+
     ./niri.nix
   ];
 }

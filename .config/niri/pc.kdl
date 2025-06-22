@@ -1,23 +1,23 @@
-// This config is in the KDL format: https://kdl.dev
 // You can configure outputs by their name, which you can find
 // by running `niri msg outputs` while inside a niri instance.
 // The built-in laptop monitor is usually called "eDP-1".
 // Find more information on the wiki:
 // https://github.com/YaLTeR/niri/wiki/Configuration:-Outputs
 // Remember to uncomment the node by removing "/-"!
-output "HDMI-A-1" {
+/-output "HDMI-A-1" {
     mode "1920x1080"
     scale 1
     transform "normal"
     position x=0 y=0
 }
-output "DP-1" {
+/-output "DP-1" {
     mode "1920x1080"
     scale 1
     transform "normal"
     position x=1920 y=0
 }
 
+// This config is in the KDL format: https://kdl.dev
 // "/-" comments out the following node.
 // Check the wiki for a full description of the configuration:
 // https://github.com/YaLTeR/niri/wiki/Configuration:-Introduction
