@@ -1,8 +1,6 @@
 {
   lib,
-  config,
   osConfig,
-  pkgs,
   ...
 }:
 let
@@ -17,9 +15,8 @@ let
   de = (import ./modules/de.nix) { };
   isHyprland = builtins.getEnv "XDG_CURRENT_DESKTOP" == "Hyprland";
 
-  # TODO: niri modules
-  workspaces = if isHyprland then "hyprland/workspaces" else "hyprland/workspaces";
-  window = if isHyprland then "hyprland/window" else "hyprland/window";
+  workspaces = if isHyprland then "hyprland/workspaces" else "niri/workspaces";
+  window = if isHyprland then "hyprland/window" else "niri/window";
 in
 {
   programs.waybar = {
@@ -80,9 +77,10 @@ in
           ];
 
         inherit (de)
-          "hyprland/window"
           "hyprland/workspaces"
+          "hyprland/window"
           "hyprland/submap"
+          "niri/workspaces"
           ;
 
         inherit (sharedBlocks)

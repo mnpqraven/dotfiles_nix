@@ -22,7 +22,10 @@
     };
 
     terminal.default = "ghostty";
+
+    desktops.niri.enable = true;
     hyprland.enable = true;
+
     gaming.enable = true;
     webBrowser.browsers = [
       "brave"

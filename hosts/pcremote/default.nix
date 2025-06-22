@@ -24,7 +24,6 @@
 
     desktops.niri.enable = true;
     hyprland.enable = true;
-    hyprland.bar = "waybar";
 
     nas = {
       enable = false;
