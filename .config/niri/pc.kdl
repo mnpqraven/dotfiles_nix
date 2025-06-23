@@ -5,6 +5,7 @@ output "DP-2" {
     position x=0 y=0
 }
 output "DP-1" {
+    focus-at-startup
     mode "2560x1440"
     scale 1
     transform "normal"
@@ -46,7 +47,7 @@ input {
 
     // Focus windows and outputs automatically when moving the mouse into them.
     // Setting max-scroll-amount="0%" makes it work only on windows already fully on screen.
-    focus-follows-mouse max-scroll-amount="95%"
+    focus-follows-mouse max-scroll-amount="0%"
 }
 
 // Settings that influence how windows are positioned and sized.
@@ -213,9 +214,9 @@ layout {
 
 spawn-at-startup "waybar"
 spawn-at-startup "swww-daemon"
-spawn-at-startup "sh" "~/.config/hypr/hyprland/scripts/swww_randomize_pc.sh" "~/wallpaper/horizontal" "60" "DP-1"
-spawn-at-startup "sh" "~/.config/hypr/hyprland/scripts/swww_randomize_pc.sh" "~/wallpaper/horizontal" "60" "DP-3"
-spawn-at-startup "sh" "~/.config/hypr/hyprland/scripts/swww_randomize_pc.sh" "~/wallpaper/vertical" "60" "DP-2"
+spawn-at-startup "sh" "-c" "~/.config/hypr/hyprland/scripts/swww_randomize_pc.sh ~/wallpaper/vertical 60 DP-2"
+spawn-at-startup "sh" "-c" "~/.config/hypr/hyprland/scripts/swww_randomize_pc.sh ~/wallpaper/horizontal 60 DP-1"
+spawn-at-startup "sh" "-c" "~/.config/hypr/hyprland/scripts/swww_randomize_pc.sh ~/wallpaper/horizontal 60 DP-3"
 
 // Uncomment this line to ask the clients to omit their client-side decorations if possible.
 // If the client will specifically ask for CSD, the request will be honored.
@@ -247,7 +248,8 @@ layer-rule {
     match namespace="waybar"
     match at-startup=true
 
-    opacity 0.99
+    // in case waybar has black fill when there's border radius
+    // opacity 0.99
 }
 
 // Window rules let you adjust behavior for individual windows.
@@ -306,7 +308,7 @@ binds {
 
     // Mod-Shift-/, which is usually the same as Mod-?,
     // shows a list of important hotkeys.
-    Mod+Shift+Slash { show-hotkey-overlay; }
+    Mod+Shift+Slash hotkey-overlay-title="Open this window" { show-hotkey-overlay; }
 
     // Suggested binds for running programs: terminal, app launcher, screen locker.
     Mod+Return hotkey-overlay-title="Open a Terminal" { spawn "bash" "-c" "$DEFAULT_TERMINAL"; }
@@ -336,22 +338,22 @@ binds {
     // Open/close the Overview: a zoomed-out view of workspaces and windows.
     // You can also move the mouse into the top-left hot corner,
     // or do a four-finger swipe up on a touchpad.
-    Mod+O repeat=false { toggle-overview; }
+    Mod+U hotkey-overlay-title="Open overview" repeat=false { toggle-overview; }
 
     Mod+Shift+Q repeat=false { close-window; }
 
-    Mod+Left  { focus-column-left; }
-    Mod+Down  { focus-window-down; }
-    Mod+Up    { focus-window-up; }
-    Mod+Right { focus-column-right; }
-    Mod+H     { focus-column-left; }
+    Mod+Left  { focus-column-or-monitor-left; }
+    Mod+Down  { focus-window-or-workspace-down; }
+    Mod+Up    { focus-window-or-workspace-up; }
+    Mod+Right { focus-column-or-monitor-right; }
+    Mod+H     { focus-column-or-monitor-left; }
     Mod+N     { focus-window-or-workspace-down; }
     Mod+L     { focus-window-or-workspace-up; }
-    Mod+E     { focus-column-right; }
+    Mod+E     { focus-column-or-monitor-right; }
 
     Mod+Shift+Left  { move-column-left; }
-    Mod+Shift+Down  { move-window-down; }
-    Mod+Shift+Up    { move-window-up; }
+    Mod+Shift+Down  { move-window-down-or-to-workspace-down; }
+    Mod+Shift+Up    { move-window-up-or-to-workspace-up; }
     Mod+Shift+Right { move-column-right; }
     Mod+Shift+H     { move-column-left; }
     Mod+Shift+N     { move-window-down-or-to-workspace-down; }
@@ -360,8 +362,8 @@ binds {
 
     Mod+Home { focus-column-first; }
     Mod+End  { focus-column-last; }
-    Mod+Ctrl+Home { move-column-to-first; }
-    Mod+Ctrl+End  { move-column-to-last; }
+    Mod+Shift+Home { move-column-to-first; }
+    Mod+Shift+End  { move-column-to-last; }
 
     Mod+Alt+Left  { focus-monitor-left; }
     Mod+Alt+Down  { focus-monitor-down; }
@@ -391,8 +393,8 @@ binds {
 
     Mod+Page_Down      { focus-workspace-down; }
     Mod+Page_Up        { focus-workspace-up; }
-    Mod+U              { focus-workspace-down; }
-    Mod+I              { focus-workspace-up; }
+    // Mod+U              { focus-workspace-down; }
+    // Mod+I              { focus-workspace-up; }
     Mod+Ctrl+Page_Down { move-column-to-workspace-down; }
     Mod+Ctrl+Page_Up   { move-column-to-workspace-up; }
     Mod+Ctrl+U         { move-column-to-workspace-down; }
@@ -456,21 +458,21 @@ binds {
     Mod+7 { focus-workspace 7; }
     Mod+8 { focus-workspace 8; }
     Mod+9 { focus-workspace 9; }
-    Mod+Ctrl+1 { move-column-to-workspace 1; }
-    Mod+Ctrl+2 { move-column-to-workspace 2; }
-    Mod+Ctrl+3 { move-column-to-workspace 3; }
-    Mod+Ctrl+4 { move-column-to-workspace 4; }
-    Mod+Ctrl+5 { move-column-to-workspace 5; }
-    Mod+Ctrl+6 { move-column-to-workspace 6; }
-    Mod+Ctrl+7 { move-column-to-workspace 7; }
-    Mod+Ctrl+8 { move-column-to-workspace 8; }
-    Mod+Ctrl+9 { move-column-to-workspace 9; }
+    Mod+Shift+1 { move-column-to-workspace 1; }
+    Mod+Shift+2 { move-column-to-workspace 2; }
+    Mod+Shift+3 { move-column-to-workspace 3; }
+    Mod+Shift+4 { move-column-to-workspace 4; }
+    Mod+Shift+5 { move-column-to-workspace 5; }
+    Mod+Shift+6 { move-column-to-workspace 6; }
+    Mod+Shift+7 { move-column-to-workspace 7; }
+    Mod+Shift+8 { move-column-to-workspace 8; }
+    Mod+Shift+9 { move-column-to-workspace 9; }
 
     // Alternatively, there are commands to move just a single window:
     // Mod+Ctrl+1 { move-window-to-workspace 1; }
 
     // Switches focus between the current and the previous workspace.
-    // Mod+Tab { focus-workspace-previous; }
+    Mod+Tab { focus-workspace-previous; }
 
     // The following binds move the focused window in and out of a column.
     // If the window is alone, they will consume it into the nearby column to the side.
