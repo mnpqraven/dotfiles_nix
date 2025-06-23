@@ -18,7 +18,7 @@ _: {
   };
 
   "niri/workspaces" = {
-    format = "{icon} {name}";
+    format = "{icon}";
     format-icons = {
       default = "";
       active = "";

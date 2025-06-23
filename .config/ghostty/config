@@ -7,6 +7,8 @@ resize-overlay = never
 gtk-single-instance = true
 # linux-cgroup = single-instance
 
+window-decoration = none
+
 # keybinds
 keybind = clear
 keybind = ctrl+shift+c=copy_to_clipboard
