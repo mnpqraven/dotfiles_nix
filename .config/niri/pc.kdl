@@ -112,7 +112,7 @@ layout {
         // - CSS-like notation: "rgb(255, 127, 0)", rgba(), hsl() and a few others.
 
         // Color of the ring on the active monitor.
-        active-color "#a9b1d6cc"
+        active-color "#7aa2f7"
 
         // Color of the ring on inactive monitors.
         //
@@ -127,7 +127,7 @@ layout {
         // You can use any CSS linear-gradient tool on the web to set these up.
         // Changing the color space is also supported, check the wiki for more info.
         //
-        // active-gradient from="#80c8ff" to="#c7ff7f" angle=45
+        active-gradient from="#7aa2f7" to="#bb9af7" angle=135
 
         // You can also color the gradient relative to the entire view
         // of the workspace, rather than relative to just the window itself.
@@ -142,7 +142,7 @@ layout {
         // If you enable the border, you probably want to disable the focus ring.
         off
 
-        width 4
+        width 3
         active-color "#ffc87f"
         inactive-color "#505050"
 
@@ -213,6 +213,7 @@ layout {
 // See the binds section below for more spawn examples.
 
 spawn-at-startup "waybar"
+spawn-at-startup "fcitx5"
 spawn-at-startup "swww-daemon"
 spawn-at-startup "sh" "-c" "~/.config/hypr/hyprland/scripts/swww_randomize_pc.sh ~/wallpaper/vertical 60 DP-2"
 spawn-at-startup "sh" "-c" "~/.config/hypr/hyprland/scripts/swww_randomize_pc.sh ~/wallpaper/horizontal 60 DP-1"
@@ -486,9 +487,10 @@ binds {
     Mod+Period { expel-window-from-column; }
 
     Mod+R { switch-preset-column-width; }
-    Mod+Shift+R { switch-preset-window-height; }
-    Mod+Ctrl+R { reset-window-height; }
-    Mod+F { maximize-column; }
+    // Mod+Shift+R { switch-preset-window-height; }
+    // Mod+Ctrl+R { reset-window-height; }
+    Mod+F { spawn "bash" "-c" "niri msg action toggle-column-tabbed-display && niri msg action maximize-column"; }
+    Mod+Alt+F { maximize-column; }
     Mod+Shift+F { fullscreen-window; }
 
     // Expand the focused column to space not taken up by other fully visible columns.
