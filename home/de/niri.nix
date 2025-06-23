@@ -19,4 +19,12 @@ lib.mkIf osConfig.features.desktops.niri.enable {
     target = "./niri/config.kdl";
     source = config.lib.file.mkOutOfStoreSymlink "${config.home.homeDirectory}/dotfiles_nix/.config/niri/${device}.kdl";
   };
+  # DEV: buggy as hell
+  home.pointerCursor = {
+    gtk.enable = true;
+    enable = true;
+    name = "Rose Pine Cursor";
+    package = pkgs.rose-pine-cursor;
+    size = 24;
+  };
 }
