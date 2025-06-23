@@ -50,9 +50,9 @@ in
       mz = "rmpc";
       # FIXME: dyn
       rc = "$EDITOR ${config.home.homeDirectory}/dotfiles_nix/flake.nix";
-      rebuild = "sudo nixos-rebuild switch --flake .#${device} --show-trace -L -v";
-      trybuild = "sudo nixos-rebuild test --flake .#${device} --show-trace -L -v";
-      upgrade = "sudo nixos-rebuild switch --flake .#${device} --show-trace -L -v --recreate-lock-file";
+      rebuild = "sudo nixos-rebuild switch --flake .#${device} --show-trace -L";
+      trybuild = "sudo nixos-rebuild test --flake .#${device} --show-trace -L";
+      upgrade = "sudo nixos-rebuild switch --flake .#${device} --show-trace -L --recreate-lock-file";
       nix-gc = "nix-collect-garbage -d";
       zm = "zellij -l compact";
       zms = "zellij -l welcome";
