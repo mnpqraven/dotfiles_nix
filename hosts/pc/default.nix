@@ -16,13 +16,16 @@
     kde.enable = false;
 
     editors = {
-      nvim.enable = true;
+      nvim.enable = false;
       helix.enable = true;
       helix.defaultEditor = true;
     };
 
     terminal.default = "ghostty";
+
+    desktops.niri.enable = true;
     hyprland.enable = true;
+
     gaming.enable = true;
     webBrowser.browsers = [
       "brave"

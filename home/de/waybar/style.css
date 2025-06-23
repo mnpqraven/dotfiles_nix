@@ -275,6 +275,8 @@ tooltip {
 }
 
 #tray,
+#custom-terminal,
+#custom-expand-left,
 #custom-updates,
 #custom-wallchange,
 #custom-wbar,
@@ -348,3 +350,4 @@ tooltip {
 #group-power {
   color: @cl-fg;
 }
+
