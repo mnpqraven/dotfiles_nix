@@ -21,8 +21,10 @@
       enable = true;
       user = "othi";
     };
+
+    desktops.niri.enable = true;
     hyprland.enable = true;
-    hyprland.bar = "waybar";
+
     nas = {
       enable = false;
       address = "othiremote.synology.me";

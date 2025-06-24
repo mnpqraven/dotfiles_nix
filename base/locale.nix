@@ -21,6 +21,9 @@
   # @see https://github.com/NixOS/nixpkgs/issues/206630
   # this is fixed by setting up fcitx5 in system modules instead of home-manager
   # so far so good
+  #
+  # also
+  # @see https://fcitx-im.org/wiki/Using_Fcitx_5_on_Wayland
   i18n.inputMethod = {
     enable = true;
     type = "fcitx5";

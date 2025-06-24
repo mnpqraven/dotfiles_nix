@@ -22,7 +22,7 @@
 }
 
 window#waybar {
-  background: #0f0f17;
+  background: rgba(15, 15, 23, 0.99);
   border: 2px solid #124323;
   border: 0px solid @cl-fg;
   border: 3px solid rgba(255, 255, 255, 0.1);

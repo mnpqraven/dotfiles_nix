@@ -17,4 +17,11 @@ _: {
     tooltip = false;
   };
 
+  "niri/workspaces" = {
+    format = "{icon}";
+    format-icons = {
+      default = "";
+      active = "";
+    };
+  };
 }
