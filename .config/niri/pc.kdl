@@ -26,9 +26,6 @@ spawn-at-startup "xwayland-satellite"
 
 environment {
     DISPLAY ":0"
-    // GTK_IM_MODULE "fcitx"
-    // QT4_IM_MODULE  "fcitx"
-    // QT_IM_MODULE  "fcitx"
 }
 
 // This config is in the KDL format: https://kdl.dev
