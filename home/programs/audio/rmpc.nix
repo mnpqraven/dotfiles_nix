@@ -15,10 +15,10 @@ let
             src = pkgs.fetchFromGitHub {
               owner = "mierak";
               repo = "rmpc";
-              rev = "c8cdc7b176ffa77e790bcbeaf459c8b68f57a7f8";
-              hash = "sha256-dMFqofhhRsibw3D09JLGWK4Zk8n353OCvTV3+G6hAes=";
+              rev = "4aac99f8f6788cfa9763462d53ff05e45cbd745a";
+              hash = "sha256-Ch4ujxciizEkt4pGBLm8quxEuGqVaKHKvMpi9UGmhsA=";
             };
-            cargoHash = "sha256-xXH/MRQgT/Je/aOCZ26vdC3PtlosXLIrjbOHtnvf9os=";
+            cargoHash = "sha256-7wd3cN1P0CXM8MGgvIZ4+WAC+0bOtY9asRf3WW8sxFc=";
           }
         );
     };
