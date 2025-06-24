@@ -212,7 +212,7 @@ layout {
 // See the binds section below for more spawn examples.
 
 spawn-at-startup "waybar"
-spawn-at-startup "fcitx5 -d -r"
+spawn-at-startup "fcitx5" "-dr"
 spawn-at-startup "swww-daemon"
 spawn-at-startup "sh" "-c" "~/.config/hypr/hyprland/scripts/swww_randomize_pc.sh ~/wallpaper/vertical 60 DP-2"
 spawn-at-startup "sh" "-c" "~/.config/hypr/hyprland/scripts/swww_randomize_pc.sh ~/wallpaper/horizontal 60 DP-1"
