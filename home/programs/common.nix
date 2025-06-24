@@ -16,9 +16,6 @@ let
         "wrapProgram $out/bin/"
         name
         " --add-flags \"--enable-wayland-ime\""
-        # NOTE: needed for niri
-        # probably need to deal with this sooner or later
-        " --add-flags \"--ozone-platform=x11\""
       ];
     };
 
