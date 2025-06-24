@@ -14,9 +14,6 @@ let
   sharedBlocks = (import ./modules/shared.nix) { };
   de = (import ./modules/de.nix) { };
   isHyprland = builtins.getEnv "XDG_CURRENT_DESKTOP" == "Hyprland";
-
-  workspaces = if isHyprland then "hyprland/workspaces" else "niri/workspaces";
-  window = if isHyprland then "hyprland/window" else "niri/window";
 in
 {
   programs.waybar = {
@@ -45,7 +42,8 @@ in
           [
             "custom/padd"
             "custom/terminal"
-            workspaces
+            "hyprland/workspaces"
+            "niri/workspaces"
             "custom/pad"
           ]
           ++ lib.optional isHyprland "hyprland/submap"
@@ -56,7 +54,8 @@ in
           ++ lib.optional osConfig.services.mpd.enable "mpd";
         modules-center = [
           "custom/padd"
-          window
+          "hyprland/window"
+          "niri/window"
           "custom/padd"
         ];
         modules-right =
