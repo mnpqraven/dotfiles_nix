@@ -27,7 +27,8 @@
   i18n.inputMethod = {
     enable = true;
     type = "fcitx5";
-    fcitx5.waylandFrontend = config.features.wayland.enable;
+    # TODO: WHY DOES THIS NEED TO BE FALSE WTF
+    # fcitx5.waylandFrontend = config.features.wayland.enable;
     fcitx5.addons = with pkgs; [
       fcitx5-mozc
       fcitx5-gtk
