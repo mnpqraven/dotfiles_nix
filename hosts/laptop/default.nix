@@ -1,6 +1,8 @@
 { pkgs, ... }:
 {
   imports = [
+    # TODO: dyn
+    ../../users/othi/nixos.nix
     # Include the results of the hardware scan.
     ./hardware-configuration.nix
   ];

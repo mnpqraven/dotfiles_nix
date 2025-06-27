@@ -1,6 +1,8 @@
 { pkgs, ... }:
 {
   imports = [
+    # TODO: dyn
+    ../../users/othi/nixos.nix
     # Include the results of the hardware scan.
     ./hardware-configuration.nix
     ./gaming.nix
@@ -22,9 +24,10 @@
     };
 
     terminal.default = "ghostty";
-
-    desktops.niri.enable = true;
-    hyprland.enable = true;
+    desktops = {
+      niri.enable = true;
+      hyprland.enable = true;
+    };
 
     gaming.enable = true;
     webBrowser.browsers = [

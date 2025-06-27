@@ -1,4 +1,4 @@
-{ pkgs, osConfig, ... }:
+_:
 let
   username = "othi";
 in

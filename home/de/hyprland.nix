@@ -6,10 +6,11 @@
   ...
 }:
 let
+  hyprlandCfg = osConfig.features.desktops.hyprland;
   device = osConfig.networking.hostName;
-  dunst = if osConfig.features.hyprland.bar != "hyprpanel" then "exec-once = dunst" else null;
+  dunstExec = if hyprlandCfg.bar != "hyprpanel" then "exec-once = dunst" else null;
 in
-lib.mkIf osConfig.features.hyprland.enable {
+lib.mkIf hyprlandCfg.enable {
   home.packages = with pkgs; [
     gojq
   ];
@@ -23,13 +24,14 @@ lib.mkIf osConfig.features.hyprland.enable {
   home.file.".config/hypr/hyprland/startup.conf".text = ''
     exec-once = fcitx5
     exec-once = hypridle
-    exec-once = ${osConfig.features.hyprland.bar}
+    exec-once = ${hyprlandCfg.bar}
     exec-once = systemctl --user start hyprpolkitagent
-    ${dunst}
+    ${dunstExec}
   '';
 
   home.file.".config/hypr/hyprland.conf" = {
     force = true;
+    # TODO: nixify the device confs
     text = ''
       source = ./hyprland/set.conf
       source = ./hyprland/startup.conf

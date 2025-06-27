@@ -1,6 +1,5 @@
 {
   inputs,
-  lib,
   config,
   osConfig,
   ...
@@ -71,7 +70,7 @@ in
   ];
 
   programs.hyprpanel = {
-    enable = osConfig.features.hyprland.bar == "hyprpanel";
+    enable = osConfig.features.desktops.hyprland.bar == "hyprpanel";
     overlay.enable = true;
     hyprland.enable = true;
     overwrite.enable = true;

@@ -4,9 +4,10 @@
   ...
 }:
 let
+  hyprlandCfg = osConfig.features.desktops.hyprland;
   enable =
-    if osConfig.features.hyprland.enable then
-      osConfig.features.hyprland.bar == "waybar"
+    if hyprlandCfg.enable then
+      hyprlandCfg.bar == "waybar"
     # niri uses waybar
     else
       true;

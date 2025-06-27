@@ -1,26 +1,21 @@
-{
-  nixpkgs,
-  home-manager,
-  ...
-}@inputs:
+{ inputs }:
 {
   mkSystem =
     {
-      platform ? "x86_64-linux",
+      system ? "x86_64-linux",
       extraModules ? [ ],
       hostName,
     }:
     {
-      ${hostName} = nixpkgs.lib.nixosSystem {
-        system = platform;
+      ${hostName} = inputs.nixpkgs.lib.nixosSystem {
+        inherit system;
         specialArgs = { inherit inputs; };
         modules = [
-          ./base
-          ./services
-          ./features.nix
-          ./hosts/${hostName}
-          ./users/othi/nixos.nix
-          home-manager.nixosModules.home-manager
+          ../features.nix
+          ../base
+          ../services
+          ../hosts/${hostName}
+          inputs.home-manager.nixosModules.home-manager
         ] ++ extraModules;
       };
     };

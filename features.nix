@@ -9,7 +9,6 @@ let
   browsers = [
     "brave"
     "librewolf"
-    "zen"
   ];
 
   terminalEnum = mkOption {
@@ -49,16 +48,15 @@ in
 
     desktops = {
       niri.enable = mkEnableOption "Niri";
-    };
-    # TODO: move to desktops
-    hyprland = {
-      enable = mkEnableOption "Hyprland";
-      bar = mkOption {
-        type = types.enum [
-          "waybar"
-          "hyprpanel"
-        ];
-        default = "waybar";
+      hyprland = {
+        enable = mkEnableOption "Hyprland";
+        bar = mkOption {
+          type = types.enum [
+            "waybar"
+            "hyprpanel"
+          ];
+          default = "waybar";
+        };
       };
     };
 
@@ -92,6 +90,11 @@ in
         example = "192.168.1.14";
         description = "address of the nas mount";
       };
+    };
+
+    users = mkOption {
+      type = types.listOf types.str;
+      default = [ "othi" ];
     };
   };
 }

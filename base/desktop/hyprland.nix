@@ -5,7 +5,7 @@
   pkgs,
   ...
 }:
-lib.mkIf config.features.hyprland.enable {
+lib.mkIf config.features.desktops.hyprland.enable {
   programs.hyprland = {
     enable = true;
     package = inputs.hyprland.packages."${pkgs.system}".hyprland;

@@ -1,9 +1,17 @@
-{ inputs, ... }:
+{ inputs, config, ... }:
+let
+  users = builtins.listToAttrs (
+    builtins.map (name: {
+      inherit name;
+      value = import ../users/${name}/hm-entrypoint.nix;
+    }) config.features.users
+  );
+in
 {
   home-manager = {
     useGlobalPkgs = false;
     useUserPackages = true;
-    users.othi = import ../users/othi/home.nix;
+    inherit users;
     extraSpecialArgs = { inherit inputs; };
   };
 }

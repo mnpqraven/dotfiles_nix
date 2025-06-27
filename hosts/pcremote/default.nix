@@ -1,6 +1,8 @@
 { pkgs, ... }:
 {
   imports = [
+    # TODO: dyn
+    ../../users/othi/nixos.nix
     # Include the results of the hardware scan.
     ./hardware-configuration.nix
   ];
@@ -21,9 +23,10 @@
       enable = true;
       user = "othi";
     };
-
-    desktops.niri.enable = true;
-    hyprland.enable = true;
+    desktops = {
+      niri.enable = true;
+      hyprland.enable = true;
+    };
 
     nas = {
       enable = false;
