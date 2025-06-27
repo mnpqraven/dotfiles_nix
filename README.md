@@ -26,14 +26,14 @@ There are 2 installation methods:
 
 # Packages
 
-- DE: kde plasma and `hyprland`
-- Audio: pipewire with equalizers configured via `easyeffects`
-- Browser: Librewolf, Zen and Brave
+- DE: `hyprland` and `niri`
+- Audio: `pipewire` with equalizers configured via `easyeffects`
+- Browser: Librewolf and Brave Browser
 - Editors: `helix` and `neovim`
 - Terminal: `alacritty`, `wezterm` and `ghostty`
 - Prompt: `zsh`
 
-Enabling/disabling suites of packages can be found at [`features.nix`](./features.nix)
+Enabling/disabling suites of packages can be done at [`features.nix`](./features.nix)
 
 # Gaming
 See [gaming.md](./docs/gaming.md)
