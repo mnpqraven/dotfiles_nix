@@ -67,9 +67,11 @@ in
             "memory"
             "custom/pad"
             "cpu"
-            "custom/pad"
           ]
-          ++ lib.optional osConfig.features.network.cloudflare.enable "custom/cloudflare"
+          ++ lib.optionals osConfig.features.network.cloudflare.enable [
+            "custom/pad"
+            "custom/cloudflare"
+          ]
           ++ [
             "clock"
             "group/group-power"
