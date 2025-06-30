@@ -38,6 +38,8 @@ environment {
 // https://github.com/YaLTeR/niri/wiki/Configuration:-Input
 input {
     keyboard {
+        repeat-rate 50
+        repeat-delay 400
         numlock
     }
     mouse {
