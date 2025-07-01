@@ -506,7 +506,7 @@ binds {
 
     Mod+R { switch-preset-column-width; }
     // Mod+Shift+R { switch-preset-window-height; }
-    // Mod+Ctrl+R { reset-window-height; }
+    Mod+Ctrl+R { reset-window-height; }
     Mod+F { spawn "bash" "-c" "niri msg action toggle-column-tabbed-display && niri msg action maximize-column"; }
     Mod+Alt+F { maximize-column; }
     Mod+Shift+F { fullscreen-window; }
