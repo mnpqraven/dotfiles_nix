@@ -11,6 +11,14 @@ output "DP-1" {
     position x=1920 y=0
 }
 
+// Make the wallpaper stationary, rather than moving with workspaces.
+layer-rule {
+    // This is for swaybg; change for other wallpaper tools.
+    // Find the right namespace by running niri msg layers.
+    match namespace="^swww-daemon$"
+    place-within-backdrop true
+}
+
 hotkey-overlay {
     skip-at-startup
 }
@@ -31,6 +39,8 @@ environment {
 // https://github.com/YaLTeR/niri/wiki/Configuration:-Input
 input {
     keyboard {
+        repeat-rate 50
+        repeat-delay 400
         numlock
     }
     mouse {
@@ -53,6 +63,8 @@ input {
 // Find more information on the wiki:
 // https://github.com/YaLTeR/niri/wiki/Configuration:-Layout
 layout {
+    background-color "transparent"
+
     // Set gaps around windows in logical pixels.
     gaps 16
 
