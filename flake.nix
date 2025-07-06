@@ -35,6 +35,7 @@
           ];
         }
         // mkSystem { hostName = "pcremote"; }
-        // mkSystem { hostName = "laptop"; };
+        // mkSystem { hostName = "laptop"; }
+        // mkSystem { hostName = "homelab"; };
     };
 }
