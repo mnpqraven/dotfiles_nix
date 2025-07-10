@@ -1,6 +1,5 @@
 {
   inputs,
-  pkgs,
   ...
 }:
 {
@@ -11,7 +10,8 @@
     enable = true;
     settings = {
       general = {
-        duration = 5;
+        # TODO: by hosts
+        duration = 60;
         path = [ "/home/othi/wallpaper/horizontal" ];
         path_vertical = [ "/home/othi/wallpaper/vertical" ];
       };
