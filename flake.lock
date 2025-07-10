@@ -1017,8 +1017,8 @@
         "nixpkgs-mozilla": "nixpkgs-mozilla"
       },
       "locked": {
-        "lastModified": 1752122599,
-        "narHash": "sha256-InRxf2ugkh2fb5AtekDMUfrCx/piSlPlaW0PDcrFWXk=",
+        "lastModified": 1752132571,
+        "narHash": "sha256-AHIkqLOMnxZagdkOTgkKlYxXfv5wr6790E/dR5Wjk3o=",
         "path": "/home/othi/Repos/private/wallthi",
         "type": "path"
       },
