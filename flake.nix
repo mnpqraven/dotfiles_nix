@@ -17,6 +17,9 @@
     nvf.url = "github:notashelf/nvf";
     swww.url = "github:LGFae/swww";
     yazi.url = "github:sxyazi/yazi";
+    # wallthi.url = "github:mnpqraven/wallthi";
+    # or local development
+    wallthi.url = "path:/home/othi/Repos/private/wallthi";
   };
 
   outputs =

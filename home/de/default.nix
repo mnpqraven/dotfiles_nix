@@ -5,5 +5,6 @@ _: {
     ./notifications.nix
     ./niri.nix
     ./waybar
+    ./wallthi.nix
   ];
 }
