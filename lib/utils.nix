@@ -11,7 +11,7 @@
         inherit system;
         specialArgs = { inherit inputs; };
         modules = [
-          ../features.nix
+          ./features.nix
           ../base
           ../services
           ../hosts/${hostName}
