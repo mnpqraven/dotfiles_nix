@@ -49,7 +49,8 @@ let
       "network"
       "notifications"
       "clock"
-    ] ++ deviceMap.${osConfig.networking.hostName}.battery;
+    ]
+    ++ deviceMap.${osConfig.networking.hostName}.battery;
   };
   verticalLayout = {
     left = [
@@ -62,7 +63,6 @@ let
 in
 {
   imports = [
-    inputs.hyprpanel.homeManagerModules.hyprpanel
     ./bar.nix
     ./theme.nix
     ./dashboard.nix
@@ -71,9 +71,6 @@ in
 
   programs.hyprpanel = {
     enable = osConfig.features.desktops.hyprland.bar == "hyprpanel";
-    overlay.enable = true;
-    hyprland.enable = true;
-    overwrite.enable = true;
 
     settings = {
       layout = deviceMap.${osConfig.networking.hostName}.layout;

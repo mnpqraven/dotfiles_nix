@@ -8,21 +8,17 @@
       url = "github:nix-community/home-manager";
       inputs.nixpkgs.follows = "nixpkgs";
     };
-    hyprpanel = {
-      url = "github:jas-singhfsu/hyprpanel";
-      inputs.nixpkgs.follows = "nixpkgs";
-    };
     helix.url = "github:helix-editor/helix/master";
     hyprland.url = "github:hyprwm/Hyprland";
     nvf.url = "github:notashelf/nvf";
     swww.url = "github:LGFae/swww";
     yazi.url = "github:sxyazi/yazi";
-    # wallthi = {
-    #   url = "github:mnpqraven/wallthi";
-    #   # or local development
-    #   # url = "path:/home/othi/Repos/private/wallthi";
-    #   inputs.nixpkgs.follows = "nixpkgs";
-    # };
+    wallthi = {
+      url = "github:mnpqraven/wallthi";
+      # or local development
+      # url = "path:/home/othi/Repos/private/wallthi";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
   };
 
   outputs =
