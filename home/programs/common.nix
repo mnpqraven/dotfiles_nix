@@ -48,6 +48,7 @@ in
     macchina
     obs-studio
     ripgrep
+    slack
     teams-for-linux
     wl-clipboard
     tofi

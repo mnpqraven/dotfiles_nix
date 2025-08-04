@@ -21,11 +21,30 @@ let
       "DP-1".resolution = "1920x1080";
     };
     laptop = {
+      "eDP-1".resolution = "1920x1200";
       "HDMI-A-1".resolution = "1920x1080";
     };
     homelab = { };
   };
+  generalMap = {
+    pc = {
+      duration = 60;
+      path = [ "${config.home.homeDirectory}/wallpaper/horizontal" ];
+      path_vertical = [ "${config.home.homeDirectory}/wallpaper/vertical" ];
+    };
+    pcremote = {
+      duration = 60;
+      path = [ "${config.home.homeDirectory}/wallpaper/horizontal" ];
+      path_vertical = [ "${config.home.homeDirectory}/wallpaper/vertical" ];
+    };
+    laptop = {
+      duration = 60;
+      path = [ "${config.home.homeDirectory}/wallpaper/laptop" ];
+    };
+  };
+
   monitor = monitorMap.${device};
+  general = generalMap.${device};
 
 in
 {
@@ -35,14 +54,7 @@ in
   programs.wallthi = {
     enable = true;
     settings = {
-      general = {
-        # TODO: by hosts
-        duration = 60;
-        path = [ "${config.home.homeDirectory}/wallpaper/horizontal" ];
-        path_vertical = [ "${config.home.homeDirectory}/wallpaper/vertical" ];
-      };
-
-      inherit monitor;
+      inherit monitor general;
     };
   };
 }
