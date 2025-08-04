@@ -10,17 +10,27 @@
   networking.hostName = "laptop";
 
   features = {
-    x11.enable = true;
-    kde.enable = true;
-    terminal.default = "wezterm";
-    hyprland.enable = true;
+    x11.enable = false;
+    wayland.enable = true;
+    kde.enable = false;
+
+    editors.helix.enable = true;
+    editors.helix.defaultEditor = true;
+
+    terminal.default = "ghostty";
+    database.enable = true;
     syncthing = {
       enable = true;
       user = "othi";
     };
+    desktops = {
+      niri.enable = true;
+      hyprland.enable = true;
+    };
+
     nas = {
-      enable = true;
-      address = "nas.othi.dev";
+      enable = false;
+      address = "othiremote.synology.me";
     };
   };
 
