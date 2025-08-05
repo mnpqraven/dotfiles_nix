@@ -58,9 +58,21 @@ _: {
       on = "󰒘";
     };
   };
+  battery = {
+    format = "{icon} {capacity}% ";
+    format-icons = [
+      ""
+      ""
+      ""
+      ""
+      ""
+    ];
+    full-at = 95;
+    max-length = 25;
+  };
   memory = {
     interval = 1;
-    format = "{icon} {percentage:2}%";
+    format = "{icon} M {percentage:2}%";
     format-icons = [
       "󰝦"
       "󰪞"
@@ -76,7 +88,7 @@ _: {
   };
   cpu = {
     interval = 1;
-    format = "{icon} {usage:2}%";
+    format = "{icon} C {usage:2}%";
     tooltip = false;
     format-icons = [
       "󰝦"

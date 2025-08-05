@@ -15,6 +15,7 @@ let
   sharedBlocks = (import ./modules/shared.nix) { };
   de = (import ./modules/de.nix) { };
   isHyprland = builtins.getEnv "XDG_CURRENT_DESKTOP" == "Hyprland";
+  isLaptop = osConfig.networking.hostName == "laptop";
 in
 {
   programs.waybar = {
@@ -72,6 +73,9 @@ in
         ]
         ++ [
           "clock"
+        ]
+        ++ lib.optional isLaptop "battery"
+        ++ [
           "group/group-power"
           "custom/padd"
         ];
@@ -96,6 +100,7 @@ in
           "custom/power"
           "custom/terminal"
           "custom/cloudflare"
+          "battery"
           "memory"
           "cpu"
           "mpd"
