@@ -39,44 +39,42 @@ in
         #   "eDP-1"
         #   "HDMI-A-1"
         # ];
-        modules-left =
-          [
-            "custom/padd"
-            "custom/terminal"
-            "hyprland/workspaces"
-            "niri/workspaces"
-            "custom/pad"
-          ]
-          ++ lib.optional isHyprland "hyprland/submap"
-          ++ [
-            "custom/pad"
-            "mpd"
-          ]
-          ++ lib.optional osConfig.services.mpd.enable "mpd";
+        modules-left = [
+          "custom/padd"
+          "custom/terminal"
+          "hyprland/workspaces"
+          "niri/workspaces"
+          "custom/pad"
+        ]
+        ++ lib.optional isHyprland "hyprland/submap"
+        ++ [
+          "custom/pad"
+          "mpd"
+        ]
+        ++ lib.optional osConfig.services.mpd.enable "mpd";
         modules-center = [
           "custom/padd"
           "hyprland/window"
           "niri/window"
           "custom/padd"
         ];
-        modules-right =
-          [
-            "group/expand-tray"
-            "network"
-            "group/expand-volume"
-            "memory"
-            "custom/pad"
-            "cpu"
-          ]
-          ++ lib.optionals osConfig.features.network.cloudflare.enable [
-            "custom/pad"
-            "custom/cloudflare"
-          ]
-          ++ [
-            "clock"
-            "group/group-power"
-            "custom/padd"
-          ];
+        modules-right = [
+          "group/expand-tray"
+          "network"
+          "group/expand-volume"
+          "memory"
+          "custom/pad"
+          "cpu"
+        ]
+        ++ lib.optionals osConfig.features.network.cloudflare.enable [
+          "custom/pad"
+          "custom/cloudflare"
+        ]
+        ++ [
+          "clock"
+          "group/group-power"
+          "custom/padd"
+        ];
 
         inherit (de)
           "hyprland/workspaces"

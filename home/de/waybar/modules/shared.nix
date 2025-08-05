@@ -138,7 +138,7 @@ _: {
   };
   network = {
     tooltip = true;
-    format-wifi = "{icon} ";
+    format-wifi = "{icon}  ";
     format-icons = [
       "󰤟"
       "󰤥"

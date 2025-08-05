@@ -8,10 +8,6 @@
       url = "github:nix-community/home-manager";
       inputs.nixpkgs.follows = "nixpkgs";
     };
-    hyprpanel = {
-      url = "github:jas-singhfsu/hyprpanel";
-      inputs.nixpkgs.follows = "nixpkgs";
-    };
     helix.url = "github:helix-editor/helix/master";
     hyprland.url = "github:hyprwm/Hyprland";
     nvf.url = "github:notashelf/nvf";
