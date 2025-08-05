@@ -165,15 +165,19 @@ tooltip {
 }
 
 #battery {
-  font-weight: normal;
-  font-size: 22px;
-  color: #a6d189;
-  background: rgba(23, 23, 23, 0.0);
-  opacity: 1;
-  margin: 0px 0px 0px 0px;
-  padding-left: 0px;
-  padding-right: 0px;
+  color: @cl-fg;
+  font-weight: 900;
 }
+
+#battery.charging,
+#battery.plugged {
+  color: #e8edf0;
+}
+
+#battery.critical:not(.charging) {
+  color: red;
+}
+
 
 #idle_inhibitor {
   color: #24966e;
@@ -317,15 +321,6 @@ tooltip {
 #pulseaudio-slider highlight {
   border-radius: 8px;
   background-color: #2096c0;
-}
-
-#battery.charging,
-#battery.plugged {
-  color: #e8edf0;
-}
-
-#battery.critical:not(.charging) {
-  color: red;
 }
 
 #taskbar {

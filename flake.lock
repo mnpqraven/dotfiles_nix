@@ -830,14 +830,17 @@
         "nixpkgs-mozilla": "nixpkgs-mozilla"
       },
       "locked": {
-        "lastModified": 1754301801,
-        "narHash": "sha256-Jchc4e+Ru4hQw8iwWur2iFQlHy3tV5B5EBa23JsUUUw=",
-        "path": "/home/othi/Repos/private/wallthi",
-        "type": "path"
+        "lastModified": 1754302350,
+        "narHash": "sha256-JPiHT3mRtXf9ZwQw2SlJoaPY1Srs9wVY9vsVZgmnpGg=",
+        "owner": "mnpqraven",
+        "repo": "wallthi",
+        "rev": "081f632f7f689001a7ad159e62779bff0cd43351",
+        "type": "github"
       },
       "original": {
-        "path": "/home/othi/Repos/private/wallthi",
-        "type": "path"
+        "owner": "mnpqraven",
+        "repo": "wallthi",
+        "type": "github"
       }
     },
     "xdph": {
