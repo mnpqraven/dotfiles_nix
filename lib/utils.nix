@@ -18,6 +18,7 @@
           ../base
           ../services
           ../hosts/${hostName}
+          inputs.sops-nix.nixosModules.sops
           inputs.home-manager.nixosModules.home-manager
         ]
         ++ extraModules;
