@@ -35,12 +35,6 @@
     };
   };
 
-  services.xserver.xkb = {
-    layout = "us,";
-    variant = "colemak,";
-    options = "grp:win_space_toggle";
-  };
-
   environment.systemPackages = with pkgs; [
     librewolf
   ];

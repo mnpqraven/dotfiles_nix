@@ -852,9 +852,8 @@
         "type": "github"
       },
       "original": {
-        "owner": "mnpqraven",
-        "repo": "wallthi",
-        "type": "github"
+        "path": "/home/othi/Repos/private/wallthi",
+        "type": "path"
       }
     },
     "xdph": {
