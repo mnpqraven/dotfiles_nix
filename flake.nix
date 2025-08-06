@@ -2,6 +2,8 @@
   description = "Othi's system";
 
   inputs = {
+    # for private submodules
+    self.submodules = true;
     nixpkgs.url = "github:NixOS/nixpkgs/nixos-unstable";
 
     home-manager = {

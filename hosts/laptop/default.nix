@@ -3,6 +3,8 @@
   imports = [
     # TODO: dyn
     ../../users/othi/nixos.nix
+    # uncomment this if you don't have a custom host and certificate ruleset
+    ./private/network.nix
     # Include the results of the hardware scan.
     ./hardware-configuration.nix
   ];
