@@ -6,6 +6,11 @@
 }:
 let
   device = osConfig.networking.hostName;
+  paths = {
+    horizontal = "${config.home.homeDirectory}/wallpaper/horizontal";
+    vertical = "${config.home.homeDirectory}/wallpaper/vertical";
+    laptop = "${config.home.homeDirectory}/wallpaper/laptop";
+  };
   monitorMap = {
     pc = {
       "DP-1".resolution = "2560x1440";
@@ -26,26 +31,22 @@ let
     };
     homelab = { };
   };
-  generalMap = {
+  generalMap = with paths; {
     pc = {
       duration = 60;
-      path = [ "${config.home.homeDirectory}/wallpaper/horizontal" ];
-      path_vertical = [ "${config.home.homeDirectory}/wallpaper/vertical" ];
+      path = [ horizontal ];
+      path_vertical = [ vertical ];
     };
     pcremote = {
       duration = 60;
-      path = [ "${config.home.homeDirectory}/wallpaper/horizontal" ];
-      path_vertical = [ "${config.home.homeDirectory}/wallpaper/vertical" ];
+      path = [ horizontal ];
+      path_vertical = [ vertical ];
     };
     laptop = {
       duration = 60;
-      path = [ "${config.home.homeDirectory}/wallpaper/laptop" ];
+      path = [ laptop ];
     };
   };
-
-  monitor = monitorMap.${device};
-  general = generalMap.${device};
-
 in
 {
   imports = [
@@ -54,7 +55,8 @@ in
   programs.wallthi = {
     enable = true;
     settings = {
-      inherit monitor general;
+      monitor = monitorMap.${device};
+      general = generalMap.${device};
     };
   };
 }
