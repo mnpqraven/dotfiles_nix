@@ -20,6 +20,7 @@
     swww.url = "github:LGFae/swww";
     yazi.url = "github:sxyazi/yazi";
     wallthi.url = "github:mnpqraven/wallthi";
+    nix-secrets.url = "git+ssh://git@github.com/mnpqraven/nix-secrets.git?ref=main&shallow=1";
   };
 
   outputs =

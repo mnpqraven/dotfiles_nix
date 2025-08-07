@@ -492,6 +492,23 @@
         "type": "github"
       }
     },
+    "nix-secrets": {
+      "locked": {
+        "lastModified": 1754566701,
+        "narHash": "sha256-vtYQpmibZN9kR8KX+S5jsaf7g/eQndNNBiMdhNE/sPY=",
+        "ref": "main",
+        "rev": "59057c72375d537d9836c36268f3a14b11586240",
+        "shallow": true,
+        "type": "git",
+        "url": "ssh://git@github.com/mnpqraven/nix-secrets.git"
+      },
+      "original": {
+        "ref": "main",
+        "shallow": true,
+        "type": "git",
+        "url": "ssh://git@github.com/mnpqraven/nix-secrets.git"
+      }
+    },
     "nixpkgs": {
       "locked": {
         "lastModified": 1740560979,
@@ -686,6 +703,7 @@
         "helix": "helix",
         "home-manager": "home-manager",
         "hyprland": "hyprland",
+        "nix-secrets": "nix-secrets",
         "nixpkgs": "nixpkgs_3",
         "nvf": "nvf",
         "sops-nix": "sops-nix",

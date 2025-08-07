@@ -10,6 +10,8 @@ NOTE: replaces `HOSTNAME` with specified hosts (`laptop | pc | pcremote`)
 nix-shell -p git
 ```
 
+Clones the repo
+
 ```bash
 export HOSTNAME=your_device
 
@@ -18,12 +20,9 @@ git clone --recurse-submodules https://github.com/mnpqraven/dotfiles_nix.git
 cp /etc/nixos/hardware-configuration.nix ~/dotfiles_nix/hosts/$HOSTNAME
 
 cd dotfiles_nix
-sudo nixos-rebuild switch --flake .#$HOSTNAME
 ```
 
-# post-install leftover setup
-
-## Git SSH key (+ signing)
+Setup Git SSH key (+ signing)
 
 ```bash
 git remote set-url origin git@github.com:mnpqraven/dotfiles_nix.git
@@ -33,7 +32,16 @@ echo "* $(cat ~/.ssh/id_ed25519.pub)" > ~/.ssh/allowed_signers
 cat ~/.ssh/id_ed25519.pub | wl-copy
 ```
 
-- go to [Git page](https://github.com/settings/ssh/new) and paste the key
+Go to [Git page](https://github.com/settings/ssh/new) and paste the key
+
+  
+Builds the system
+
+```bash
+nixos-rebuild switch --flake .#$HOSTNAME --sudo
+```
+
+# Post-install leftover setup
 
 ## IM
 
