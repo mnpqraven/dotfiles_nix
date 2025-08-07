@@ -10,8 +10,6 @@
     ./nvidia.nix
   ];
 
-  networking.hostName = "pc";
-
   features = {
     x11.enable = false;
     wayland.enable = true;

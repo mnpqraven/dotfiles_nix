@@ -11,12 +11,16 @@
         inherit system;
         specialArgs = { inherit inputs; };
         modules = [
+          (_: {
+            networking = { inherit hostName; };
+          })
           ./features.nix
           ../base
           ../services
           ../hosts/${hostName}
           inputs.home-manager.nixosModules.home-manager
-        ] ++ extraModules;
+        ]
+        ++ extraModules;
       };
     };
 

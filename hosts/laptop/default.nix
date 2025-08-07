@@ -9,8 +9,6 @@
     ./hardware-configuration.nix
   ];
 
-  networking.hostName = "laptop";
-
   features = {
     x11.enable = false;
     wayland.enable = true;

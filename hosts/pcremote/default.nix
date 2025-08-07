@@ -7,8 +7,6 @@
     ./hardware-configuration.nix
   ];
 
-  networking.hostName = "pcremote";
-
   features = {
     x11.enable = false;
     wayland.enable = true;
