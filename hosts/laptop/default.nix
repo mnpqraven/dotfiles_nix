@@ -5,6 +5,7 @@
     ../../users/othi/nixos.nix
     # uncomment this if you don't have a custom host and certificate ruleset
     ./private/network.nix
+    ./keyboard.nix
     # Include the results of the hardware scan.
     ./hardware-configuration.nix
   ];
@@ -33,12 +34,6 @@
       enable = false;
       address = "othiremote.synology.me";
     };
-  };
-
-  services.xserver.xkb = {
-    layout = "us,";
-    variant = "colemak,";
-    options = "grp:win_space_toggle";
   };
 
   environment.systemPackages = with pkgs; [
