@@ -19,6 +19,7 @@
     editors.helix.enable = true;
     editors.helix.defaultEditor = true;
 
+    network.cloudflare.enable = true;
     terminal.default = "ghostty";
     database.enable = true;
     syncthing = {
