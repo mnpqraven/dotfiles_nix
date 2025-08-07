@@ -1,6 +1,3 @@
 [submodule "lib/wezterm-types"]
 	path = lib/wezterm-types
 	url = https://github.com/gonstoll/wezterm-types.git
-[submodule "hosts/laptop/private"]
-	path = hosts/laptop/private
-	url = https://github.com/mnpqraven/laptop_private.git
