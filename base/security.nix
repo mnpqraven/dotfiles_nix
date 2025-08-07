@@ -1,5 +1,8 @@
-{ config, ... }:
+{ pkgs, ... }:
 {
+  environment.systemPackages = with pkgs; [
+    sops
+  ];
   security.rtkit.enable = true;
   sops = {
     defaultSopsFile = ../secrets/secrets.yaml;
@@ -14,7 +17,8 @@
 
     secrets = {
       # This is the actual specification of the secrets.
+      foo = { };
+      bar = { };
     };
-    templates = { };
   };
 }
