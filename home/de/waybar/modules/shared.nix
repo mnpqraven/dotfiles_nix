@@ -86,6 +86,9 @@ _: {
     ];
     max-length = 10;
   };
+  clock = {
+    format = "{:%I:%M %p}";
+  };
   cpu = {
     interval = 1;
     format = "{icon} C {usage:2}%";

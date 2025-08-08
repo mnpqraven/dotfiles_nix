@@ -101,6 +101,7 @@ in
           "custom/terminal"
           "custom/cloudflare"
           "battery"
+          "clock"
           "memory"
           "cpu"
           "mpd"
