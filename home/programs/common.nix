@@ -53,6 +53,8 @@ in
     wl-clipboard
     tofi
     ripdrag
+    unrar
+    unzip
   ];
   xdg.configFile = {
     macchina.source = symlink "${cfg}/macchina";
