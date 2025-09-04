@@ -37,6 +37,7 @@
   };
 
   environment.systemPackages = with pkgs; [
-    librewolf
+    libreoffice
+    pritunl-client
   ];
 }

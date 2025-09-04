@@ -2,13 +2,19 @@ output "HDMI-A-1" {
     mode "1920x1080"
     scale 1
     transform "normal"
-    position x=-1920 y=0
+    position x=0 y=0
 }
 output "eDP-1" {
     mode "1920x1200"
     scale 1
     transform "normal"
-    position x=0 y=0
+    position x=-1920 y=0
+}
+output "DP-1" {
+    mode "1920x1080"
+    scale 1
+    transform "normal"
+    position x=1920 y=0
 }
 
 // Make the wallpaper stationary, rather than moving with workspaces.
@@ -77,7 +83,7 @@ layout {
     // - "always", the focused column will always be centered.
     // - "on-overflow", focusing a column will center it if it doesn't fit
     //   together with the previously focused column.
-    center-focused-column "never"
+    center-focused-column "on-overflow"
 
     // You can customize the widths that "switch-preset-column-width" (Mod+R) toggles between.
     preset-column-widths {
@@ -561,6 +567,7 @@ binds {
     // which ensures niri always processes them, even when an inhibitor is active.
     Mod+Escape allow-inhibiting=false { toggle-keyboard-shortcuts-inhibit; }
 
+    Mod+X { spawn "hyprlock"; }
     // The quit action will show a confirmation dialog to avoid accidental exits.
     Mod+Shift+X { quit; }
     Ctrl+Alt+Delete { quit; }

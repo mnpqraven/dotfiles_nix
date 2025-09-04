@@ -24,7 +24,7 @@ left = [
   "read-only-indicator",
   "file-modification-indicator",
   "separator",
-  "file-name",
+  "file-base-name",
 ]
 right = ["diagnostics", "selections", "register", "position"]
 mode.normal = "NORMAL"
