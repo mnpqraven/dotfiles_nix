@@ -4,6 +4,7 @@
 {
   imports = [
     ./caching.nix
+    ./cli.nix
     ./audio.nix
     ./boot.nix
     ./cicd.nix
