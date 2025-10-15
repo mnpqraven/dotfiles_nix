@@ -6,6 +6,8 @@
 let
   device = osConfig.networking.hostName;
   sshKind = "id_ed25519";
+  # FIXME: dyn
+  flake = "${config.home.homeDirectory}/dotfiles_nix";
 in
 {
   programs.zsh = {
@@ -50,10 +52,16 @@ in
       mz = "rmpc";
       # FIXME: dyn
       rc = "$EDITOR ${config.home.homeDirectory}/dotfiles_nix/flake.nix";
-      rebuild = "nixos-rebuild switch --flake .#${device} --show-trace -L --sudo";
-      trybuild = "nixos-rebuild test --flake .#${device} --show-trace -L --sudo";
-      upgrade = "nixos-rebuild switch --flake .#${device} --show-trace -L --recreate-lock-file --sudo";
-      nix-gc = "nix-collect-garbage -d && sudo nix-collect-garbage -d";
+
+      # TODO: conditional check with osConfig.programs.nh.enable
+      # rebuild = "nixos-rebuild switch --flake .#${device} --show-trace -L --sudo";
+      # trybuild = "nixos-rebuild test --flake .#${device} --show-trace -L --sudo";
+      # nix-gc = "nix-collect-garbage -d && sudo nix-collect-garbage -d";
+
+      rebuild = "nh os test ${flake} -H ${device}";
+      trybuild = "nh os test ${flake} -H ${device}";
+      nix-gc = "nh clean all --nogcroots";
+
       zm = "zellij -l compact";
       zms = "zellij -l welcome";
       v = "nvim";
