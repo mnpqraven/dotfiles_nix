@@ -1,7 +1,7 @@
 _: {
   imports = [
     # ./hyprpanel
-    # ./hyprland.nix
+    ./hyprland.nix
     ./notifications.nix
     ./niri.nix
     ./waybar

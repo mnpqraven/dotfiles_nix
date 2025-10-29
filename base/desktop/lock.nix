@@ -16,6 +16,7 @@ let
       {
         # plain and simple tty, sddm without kde still breaks kb and mouse
         # see https://github.com/NixOS/nixpkgs/issues/302059
+        # WARN: MIGHT break niri, see https://github.com/sodiboo/niri-flake/issues/1239#issuecomment-3177912620
         ly.enable = true;
       };
 in

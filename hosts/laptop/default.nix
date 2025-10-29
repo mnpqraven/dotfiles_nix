@@ -13,7 +13,7 @@
   features = {
     x11.enable = true;
     wayland.enable = true;
-    kde.enable = false;
+    kde.enable = true;
 
     editors.helix.enable = true;
     editors.helix.defaultEditor = true;
