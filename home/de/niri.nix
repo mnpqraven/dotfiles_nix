@@ -14,13 +14,6 @@ lib.mkIf osConfig.features.desktops.niri.enable {
     source = config.lib.file.mkOutOfStoreSymlink "${config.home.homeDirectory}/dotfiles_nix/.config/niri/${device}.kdl";
     force = true;
   };
-  xdg.portal = {
-    enable = true;
-    extraPortals = with pkgs; [
-      xdg-desktop-portal-gnome
-    ];
-    config.common.default = "*";
-  };
   home.pointerCursor = {
     name = "graphite-dark";
     size = 32;
