@@ -14,7 +14,9 @@
       url = "github:Mic92/sops-nix";
       inputs.nixpkgs.follows = "nixpkgs";
     };
-    helix.url = "github:helix-editor/helix/master";
+    # helix.url = "github:helix-editor/helix/master"; # stable
+    # see helix-editor/helix#11889
+    helix.url = "github:helix-editor/helix/string-lsp-url";
     hyprland.url = "github:hyprwm/Hyprland";
     nvf.url = "github:notashelf/nvf";
     swww.url = "github:LGFae/swww";
