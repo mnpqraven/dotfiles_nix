@@ -7,7 +7,7 @@ command = "tailwindcss-language-server"
 args = ["--stdio"]
 
 [language-server.tailwindcss.config.tailwindCSS]
-classFunctions = ["cva", "cx", "tw", "clsx"]
+classFunctions = ["cva", "cx", "tw", "clsx", "tv", "cn"]
 
 [language-server.emmet-lsp]
 command = "emmet-language-server"
