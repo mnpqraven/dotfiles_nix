@@ -25,7 +25,7 @@ lib.mkIf config.features.gaming.enable {
       ];
     })
     mangohud
-    protonup
+    protonup-ng
 
     wineWowPackages.staging
     # winetricks (all versions)

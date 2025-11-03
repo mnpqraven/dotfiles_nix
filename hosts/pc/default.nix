@@ -11,9 +11,9 @@
   ];
 
   features = {
-    x11.enable = false;
+    x11.enable = true;
     wayland.enable = true;
-    kde.enable = false;
+    kde.enable = true;
 
     editors = {
       nvim.enable = false;
