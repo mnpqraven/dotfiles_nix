@@ -71,8 +71,8 @@ G = "goto_last_line"
 "C-l" = "jump_view_up"
 "A-{" = "copy_selection_on_prev_line"
 "A-}" = "copy_selection_on_next_line"
-"C-\\" = "file_explorer"
-"C-;" = "file_explorer_in_current_buffer_directory"
+"A-\\" = "file_explorer"
+"A-;" = "file_explorer_in_current_buffer_directory"
 "A-c" = "toggle_block_comments"
 
 [keys.select]

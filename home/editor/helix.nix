@@ -15,12 +15,12 @@ lib.mkIf osConfig.features.editors.helix.enable {
   nixpkgs.overlays = [
     (final: prev: {
       typescript-language-server = prev.typescript-language-server.overrideAttrs (old: {
-        src = prev.fetchFromGitHub {
-          owner = "typescript-language-server";
-          repo = "typescript-language-server";
-          rev = "3e9620951eb79f741e22131670192282baff240c";
-          hash = "sha256-wYpW/HHuMetxnwEgGeQ8ptT6Kd5wp2kqUXnjWSkoDQY=";
-        };
+        patches = (old.patches or [ ]) ++ [
+          (prev.fetchpatch {
+            url = "https://github.com/computerdane/typescript-language-server/commit/dddbd320977e9c26aa0d854e77f5a6cd1b20c5f1.patch";
+            hash = "sha256-skj+877Z01RSmapjbN7PUO+ONl6/yaBT/r4LnUznbJI=";
+          })
+        ];
       });
     })
   ];
