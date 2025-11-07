@@ -16,7 +16,7 @@
     ./locale.nix
     ./nas.nix
     ./network
-    ./security.nix
+    # ./security.nix
     ./upgrade.nix
   ];
 
