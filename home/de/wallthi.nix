@@ -19,7 +19,7 @@ let
         vertical = true;
         transform = 90; # note: hyprland is 1
       };
-      "DP-3".resolution = "1920x1080";
+      "HDMI-A-1".resolution = "1920x1080";
     };
     pcremote = {
       "HDMI-A-1".resolution = "1920x1080";
