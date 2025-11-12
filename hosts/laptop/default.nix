@@ -20,6 +20,10 @@
 
     network.cloudflare.enable = true;
     terminal.default = "ghostty";
+    webBrowser.browsers = [
+      "librewolf"
+      "brave"
+    ];
     database.enable = true;
     syncthing = {
       enable = true;
