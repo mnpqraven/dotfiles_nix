@@ -43,5 +43,6 @@
   environment.systemPackages = with pkgs; [
     libreoffice
     pritunl-client
+    vlc
   ];
 }
