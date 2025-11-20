@@ -12,15 +12,16 @@ lib.mkIf osConfig.features.editors.helix.enable {
   # FIXME: dyn
   xdg.configFile.helix.source = config.lib.file.mkOutOfStoreSymlink "${config.home.homeDirectory}/dotfiles_nix/.config/helix";
 
+  # @see helix-editor/helix#14738
   nixpkgs.overlays = [
     (final: prev: {
       typescript-language-server = prev.typescript-language-server.overrideAttrs (old: {
-        patches = (old.patches or [ ]) ++ [
-          (prev.fetchpatch {
-            url = "https://github.com/computerdane/typescript-language-server/commit/dddbd320977e9c26aa0d854e77f5a6cd1b20c5f1.patch";
-            hash = "sha256-skj+877Z01RSmapjbN7PUO+ONl6/yaBT/r4LnUznbJI=";
-          })
-        ];
+        src = prev.fetchFromGitHub {
+          owner = "typescript-language-server";
+          repo = "typescript-language-server";
+          rev = "b999e07c8e6bcca53bf1610d3722d2913f515a62";
+          hash = "sha256-qKw/AQ6SbodCDJsBJhlHc/w5qFtyhQQv7jFsJiuJtGE=";
+        };
       });
     })
   ];
