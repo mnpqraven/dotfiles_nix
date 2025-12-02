@@ -17,6 +17,7 @@
     ./nas.nix
     ./network
     # ./security.nix
+    ./qmk.nix
     ./upgrade.nix
   ];
 
