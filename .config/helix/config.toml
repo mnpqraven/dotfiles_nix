@@ -121,6 +121,8 @@ y = [
   ':insert-output yazi "%{buffer_name}" --chooser-file=/tmp/unique-file',
   ':insert-output echo "\x1b[?1049h\x1b[?2004h" > /dev/tty',
   ':open %sh{cat /tmp/unique-file}',
+  ':set mouse false',
+  ':set mouse true',
   ':redraw',
 ]
 Y = [
@@ -128,9 +130,9 @@ Y = [
   ':insert-output GO_ROOT=1 yazi "%{buffer_name}" --chooser-file=/tmp/unique-file',
   ':insert-output echo "\x1b[?1049h\x1b[?2004h" > /dev/tty',
   ':open %sh{cat /tmp/unique-file}',
-  ':redraw',
   ':set mouse false',
   ':set mouse true',
+  ':redraw',
 ]
 
 [keys.normal."space".g]
@@ -144,8 +146,9 @@ G = [
   ":new",
   ":insert-output lazygit",
   ":buffer-close!",
+  ":set mouse false",
+  ":set mouse true",
   ":redraw",
-  ":reload-all",
 ]
 
 [keys.normal."space".w]
