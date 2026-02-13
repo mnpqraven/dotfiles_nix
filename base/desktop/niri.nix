@@ -11,7 +11,9 @@ lib.mkIf config.features.desktops.niri.enable {
     xwayland-satellite
   ];
   # https://wiki.nixos.org/wiki/Niri
+  security.polkit.enable = true; # polkit
+  services.gnome.gnome-keyring.enable = true; # secret service
   xdg.portal.config.niri = {
-    "org.freedesktop.impl.portal.FileChooser" = [ "gtk" ]; # or "kde"
+    "org.freedesktop.impl.portal.FileChooser" = [ "kde" ]; # or "kde"
   };
 }
