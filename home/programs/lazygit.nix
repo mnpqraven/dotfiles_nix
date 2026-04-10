@@ -3,7 +3,6 @@
   config,
   ...
 }:
-
 let
   symlink = config.lib.file.mkOutOfStoreSymlink;
 in

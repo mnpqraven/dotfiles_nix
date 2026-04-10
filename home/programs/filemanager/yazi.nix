@@ -11,6 +11,7 @@ in
 {
   programs.yazi = {
     enable = true;
+    shellWrapperName = "y";
     package = yazi;
   };
   # FIXME: dyn
