@@ -15,22 +15,22 @@ lib.mkIf hyprlandCfg.enable {
     gojq
   ];
 
-  # FIXME: dyn
-  xdg.configFile.hypr.source = config.lib.file.mkOutOfStoreSymlink "${config.home.homeDirectory}/dotfiles_nix/.config/hypr";
-
   # dynamically creates hyprland config
   # FIXME: new installation needs to run 2 different builds, each build with
   # one file section commented out to correctly populate the symlinks
-  home.file.".config/hypr/hyprland/startup.conf".text = ''
-    exec-once = fcitx5
-    exec-once = hypridle
-    exec-once = ${hyprlandCfg.bar}
-    exec-once = systemctl --user start hyprpolkitagent
-    ${dunstExec}
-  '';
+  xdg.configFile.startup = {
+    target = ".config/hypr/hyprland/startup.conf";
+    text = ''
+      exec-once = fcitx5
+      exec-once = hypridle
+      exec-once = ${hyprlandCfg.bar}
+      exec-once = systemctl --user start hyprpolkitagent
+      ${dunstExec}
+    '';
+  };
 
-  home.file.".config/hypr/hyprland.conf" = {
-    force = true;
+  xdg.configFile.hyprlandconf = {
+    target = ".config/hypr/hyprland.conf";
     # TODO: nixify the device confs
     text = ''
       source = ./hyprland/set.conf
@@ -45,5 +45,6 @@ lib.mkIf hyprlandCfg.enable {
       source = ./hyprland/bindings.conf
       source = ./hyprland/looks.conf
     '';
+    force = true;
   };
 }

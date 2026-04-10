@@ -7,7 +7,7 @@
 {
   programs.rio = {
     enable = true;
-    package = inputs.rio.packages."${pkgs.system}".rio;
+    package = inputs.rio.packages.${pkgs.stdenv.hostPlatform.system}.rio;
   };
   # FIXME: dyn
   xdg.configFile.rio.source = config.lib.file.mkOutOfStoreSymlink "${config.home.homeDirectory}/dotfiles_nix/.config/rio";

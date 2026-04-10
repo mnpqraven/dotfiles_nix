@@ -9,6 +9,7 @@ in
 {
   home.packages = with pkgs; [ git-credential-manager ];
   programs.git.enable = true;
+  programs.git.signing.format = null;
   programs.git.settings = {
     user.name = "Othi";
     user.email = "mnpq.raven@gmail.com";
