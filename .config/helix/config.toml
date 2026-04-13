@@ -94,6 +94,7 @@ C = "toggle_block_comments"
 [keys.normal."space"]
 o = ":format"
 h = ["save_selection", "goto_word"]
+E = "file_explorer_in_current_buffer_directory"
 b = "no_op"
 F = "no_op"
 d = "no_op"
