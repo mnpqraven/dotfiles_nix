@@ -1,7 +1,6 @@
 -- @see https://github.com/wezterm/wezterm/discussions/628#discussioncomment-10675526
----@class Wezterm
 ---@diagnostic disable-next-line: assign-type-mismatch
-local wezterm = require("wezterm")
+local wezterm = require("wezterm") --@type Wezterm
 local action  = wezterm.action
 local F       = {}
 

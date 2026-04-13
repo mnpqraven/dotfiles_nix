@@ -3,10 +3,6 @@ gtk-wide-tabs  = false
 background-opacity = 0.9
 resize-overlay = never
 
-# improve perf. by paying a one-time cost to run a gtk single instance
-gtk-single-instance = true
-# linux-cgroup = single-instance
-
 window-decoration = none
 
 # keybinds

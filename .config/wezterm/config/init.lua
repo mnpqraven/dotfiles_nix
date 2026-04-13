@@ -1,5 +1,5 @@
 ---@see https://github.com/KevinSilvester/wezterm-config
-local wezterm  = require('wezterm') --[[@as Wezterm]]
+local wezterm  = require('wezterm') --@type Wezterm
 
 ---@class Config
 ---@field options table

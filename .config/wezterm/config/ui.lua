@@ -1,4 +1,4 @@
-local wezterm = require('wezterm') --[[@as Wezterm]]
+local wezterm = require('wezterm') --@type Wezterm
 
 ---@class Config
 return {

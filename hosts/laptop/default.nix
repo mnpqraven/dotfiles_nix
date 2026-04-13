@@ -19,7 +19,13 @@
     editors.helix.defaultEditor = true;
 
     network.cloudflare.enable = true;
-    terminal.default = "ghostty";
+    terminal = {
+      default = "ghostty";
+      packages = [
+        "alacritty"
+        "ghostty"
+      ];
+    };
     webBrowser.browsers = [
       "librewolf"
       "brave"

@@ -33,7 +33,13 @@ in
 
     gaming.enable = mkEnableOption "Gaming related configurations";
 
-    terminal.default = terminalEnum;
+    terminal = {
+      default = terminalEnum;
+      packages = mkOption {
+        type = types.listOf (types.enum terminals);
+        default = terminals;
+      };
+    };
 
     webBrowser = {
       enable = mkOption {
