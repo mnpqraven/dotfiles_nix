@@ -15,6 +15,7 @@
       inputs.nixpkgs.follows = "nixpkgs";
     };
     helix.url = "github:helix-editor/helix/master"; # stable
+    # broken rn
     # helix.url = "github:mnpqraven/helix/string-lsp-url"; # see helix-editor/helix#11889
     hyprland.url = "github:hyprwm/Hyprland";
     nvf.url = "github:notashelf/nvf";

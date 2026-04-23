@@ -5,7 +5,7 @@
 {
   imports = [
     ./helix.nix
-    ./nvim
+    # ./nvim
   ];
   programs.neovim.defaultEditor = osConfig.features.editors.nvim.defaultEditor;
   programs.helix.defaultEditor = osConfig.features.editors.helix.defaultEditor;
