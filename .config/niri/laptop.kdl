@@ -265,6 +265,7 @@ animations {
     // slowdown 3.0
 }
 
+// TODO: layer-rule for quickshell
 layer-rule {
     match namespace="waybar"
     match at-startup=true

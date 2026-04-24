@@ -1,43 +1,20 @@
 import Quickshell
-import Quickshell.Wayland
-import Quickshell.Niri
-import Quickshell.Hyprland
 import QtQuick
-import QtQuick.Layouts
+import "./modules/topbar/"
 
-PanelWindow {
-    anchors.top: true
-    anchors.left: true
-    anchors.right: true
-    implicitHeight: 30
-    color: "#1a1b26"
+// FIXME: layer-rule in niri
+// @see laptop.kdl@268
 
-    RowLayout {
-        anchors.fill: parent
-        anchors.margins: 8
-
-        Repeater {
-            model: 9
-
-            Text {
-                property var ws: Hyprland.workspaces.values.find(w => w.id === index + 1)
-                property bool isActive: Hyprland.focusedWorkspace?.id === (index + 1)
-                text: index + 1
-                color: isActive ? "#0db9d7" : (ws ? "#7aa2f7" : "#444b6a")
-                font {
-                    pixelSize: 14
-                    bold: true
-                }
-
-                MouseArea {
-                    anchors.fill: parent
-                    onClicked: Hyprland.dispatch("workspace " + (index + 1))
-                }
-            }
-        }
-
-        Item {
-            Layout.fillWidth: true
-        }
+/**
+* ref docs
+* https://quickshell.org/docs/v0.2.1/types/Quickshell.Io/Process/?highlight=process
+* https://quickshell.org/docs/v0.2.1/guide/introduction/#reusable-components
+* https://github.com/quickshell-mirror/quickshell/issues/47
+* https://www.tonybtw.com/tutorial/quickshell/#03-workspaces
+*/
+ShellRoot {
+    LazyLoader {
+        active: true
+        component: Bar {}
     }
 }
