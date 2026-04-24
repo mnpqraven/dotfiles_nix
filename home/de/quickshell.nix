@@ -1,6 +1,12 @@
-{ pkgs, config, ... }:
+{
+  pkgs,
+  config,
+  inputs,
+  ...
+}:
 let
   symlink = config.lib.file.mkOutOfStoreSymlink;
+  quickshell = inputs.qml-niri.packages.${pkgs.stdenv.hostPlatform.system}.quickshell;
 in
 {
   home.packages = with pkgs; [
