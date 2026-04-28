@@ -98,6 +98,8 @@ in
       };
     };
 
+    slop.enable = mkEnableOption "AI features";
+
     users = mkOption {
       type = types.listOf types.str;
       default = [ "othi" ];
