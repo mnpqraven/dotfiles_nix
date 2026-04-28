@@ -13,8 +13,9 @@ import "./modules/topbar/"
 * https://www.tonybtw.com/tutorial/quickshell/#03-workspaces
 */
 ShellRoot {
-    LazyLoader {
-        active: true
-        component: Bar {}
+    Variants {
+        model: Quickshell.screens
+        // TODO: lift timer and processes
+        delegate: Bar {}
     }
 }

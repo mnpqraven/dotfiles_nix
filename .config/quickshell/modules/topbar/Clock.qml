@@ -14,6 +14,6 @@ Singleton {
     }
 
     function getDate() {
-        return Qt.formatDateTime(new Date(), "dd/MM/yyyy - HH:mm");
+        return Qt.formatDateTime(new Date(), "dd/MM/yyyy - hh:mm a");
     }
 }

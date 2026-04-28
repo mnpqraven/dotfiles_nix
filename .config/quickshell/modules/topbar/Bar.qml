@@ -7,39 +7,67 @@ import qs.common
 PanelWindow {
     id: root
 
+    required property var modelData
+    screen: modelData
+
     anchors.top: true
     anchors.left: true
     anchors.right: true
 
-    margins.top: 6
-    margins.left: 12
-    margins.right: 12
+    margins.top: Config.spacing.marginGutterY
+    margins.left: Config.spacing.marginGutterX
+    margins.right: Config.spacing.marginGutterX
 
-    implicitHeight: 30
-    color: "transparent"
+    implicitHeight: Config.spacing.barHeight
 
     // rounded edges
+    color: "transparent"
     Rectangle {
         anchors.fill: parent
-        radius: 12
-        color: "#0f0f17"
+        radius: Config.spacing.barRadius
+        color: Config.colBg
     }
 
+    // left side
     RowLayout {
-        anchors.fill: parent
+        anchors {
+            left: parent.left
+            leftMargin: Config.spacing.marginInnerBarX
+            verticalCenter: parent.verticalCenter
+        }
+        Text {
+            text: ''
+            font {
+                pixelSize: Config.fontSize
+            }
+            color: Config.colFg
 
-        // FIXME: margin instead of block
-        Rectangle {
-            width: 4
-            color: "transparent"
+            MouseArea {
+                anchors.fill: parent
+                onClicked: mouse => Quickshell.execDetached(["sh", "-c", "$DEFAULT_TERMINAL"])
+            }
         }
 
         Workspace {}
 
         WindowTitle {}
+    }
 
-        Item {
-            Layout.fillWidth: true
+    // center side
+    // nothing yet
+    RowLayout {
+        anchors {
+            horizontalCenter: parent.horizontalCenter
+            verticalCenter: parent.verticalCenter
+        }
+    }
+
+    // right side
+    RowLayout {
+        anchors {
+            right: parent.right
+            rightMargin: Config.spacing.marginInnerBarX
+            verticalCenter: parent.verticalCenter
         }
 
         Text {
@@ -52,11 +80,17 @@ PanelWindow {
             }
         }
 
-        Rectangle {
-            width: 2
-            height: 16
-            color: Config.colMuted
+        Text {
+            text: `MEM: ${Memory.usage}%`
+            color: Config.colFg
+            font {
+                family: Config.fontFamily
+                pixelSize: Config.fontSize
+                bold: true
+            }
         }
+
+        Separator {}
 
         Text {
             text: Clock.time
@@ -66,12 +100,6 @@ PanelWindow {
                 pixelSize: Config.fontSize
                 bold: true
             }
-        }
-
-        // FIXME: margin instead of block
-        Rectangle {
-            width: 4
-            color: "transparent"
         }
     }
 }

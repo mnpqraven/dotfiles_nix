@@ -9,10 +9,10 @@ Repeater {
     model: Niri.workspaces
 
     Rectangle {
-        visible: index < 11 && model.output === screenName
-        width: 15
-        height: 15
-        radius: 15
+        visible: model.output === screenName
+        width: Config.spacing.barHeight / 2
+        height: Config.spacing.barHeight / 2
+        radius: Config.spacing.barRadius
         color: model.isActive ? Config.colCyan : Config.colMuted
 
         MouseArea {
