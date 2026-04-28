@@ -1,10 +1,10 @@
+pragma Singleton
 import Quickshell
 import Quickshell.Io
 import QtQuick
-import QtQuick.Layouts
 
-Item {
-    id: cpu
+Singleton {
+    id: root
     property int lastCpuTotal: 0
     property int lastCpuIdle: 0
     property int usage: 0
@@ -19,29 +19,19 @@ Item {
                 var p = data.trim().split(/\s+/);
                 var idle = parseInt(p[4]) + parseInt(p[5]);
                 var total = p.slice(1, 8).reduce((a, b) => a + parseInt(b), 0);
-                if (cpu.lastCpuTotal > 0) {
-                    usage = Math.round(100 * (1 - (idle - cpu.lastCpuIdle) / (total - cpu.lastCpuTotal)));
+                if (root.lastCpuTotal > 0) {
+                    root.usage = Math.round(100 * (1 - (idle - root.lastCpuIdle) / (total - root.lastCpuTotal)));
                 }
-                cpu.lastCpuTotal = total;
-                cpu.lastCpuIdle = idle;
+                root.lastCpuTotal = total;
+                root.lastCpuIdle = idle;
             }
         }
-        Component.onCompleted: running = true
     }
 
     Timer {
         interval: 2000
         running: true
         repeat: true
-        // TODO: lift up
-        onTriggered: {
-            cpuProc.running = true;
-            // memProc.running = true;
-        }
-    }
-
-    Text {
-        text: `CPU: ${cpu.usage} %`
-        color: "yellow"
+        onTriggered: cpuProc.running = true
     }
 }
