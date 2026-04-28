@@ -44,6 +44,8 @@
       enable = false;
       address = "othiremote.synology.me";
     };
+
+    slop.enable = true;
   };
 
   environment.systemPackages = with pkgs; [

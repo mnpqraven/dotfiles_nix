@@ -52,6 +52,7 @@ in
       mz = "rmpc";
       # FIXME: dyn
       rc = "$EDITOR ${config.home.homeDirectory}/dotfiles_nix/flake.nix";
+      slop = "claude";
 
       # TODO: conditional check with osConfig.programs.nh.enable
       # rebuild = "nixos-rebuild switch --flake .#${device} --show-trace -L --sudo";

@@ -6,7 +6,8 @@ _: {
     ./git.nix
     ./im.nix
     ./lazygit.nix
-    ./zellij.nix
+    ./slop.nix
     ./swww.nix
+    ./zellij.nix
   ];
 }
