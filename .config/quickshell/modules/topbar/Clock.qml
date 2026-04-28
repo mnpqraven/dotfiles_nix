@@ -4,7 +4,7 @@ import QtQuick
 
 Singleton {
     id: root
-    property string time
+    property string time: getDate()
 
     Timer {
         interval: 2000

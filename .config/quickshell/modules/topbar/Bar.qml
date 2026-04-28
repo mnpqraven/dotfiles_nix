@@ -1,7 +1,6 @@
 import Quickshell
 import QtQuick
 import QtQuick.Layouts
-import qs.services
 import qs.modules.topbar
 import qs.common
 
@@ -11,48 +10,68 @@ PanelWindow {
     anchors.top: true
     anchors.left: true
     anchors.right: true
+
+    margins.top: 6
+    margins.left: 12
+    margins.right: 12
+
     implicitHeight: 30
     color: "transparent"
 
     // rounded edges
     Rectangle {
         anchors.fill: parent
-        radius: 32
-        color: "black"
+        radius: 12
+        color: "#0f0f17"
     }
 
     RowLayout {
         anchors.fill: parent
-        anchors.margins: 8
 
-        Repeater {
-            model: Niri.workspaces
+        // FIXME: margin instead of block
+        Rectangle {
+            width: 4
+            color: "transparent"
+        }
 
-            Rectangle {
-                visible: index < 11
-                width: 15
-                height: 15
-                radius: 15
-                color: model.isActive ? Config.colCyan : Config.colMuted
+        Workspace {}
 
-                Text {
-                    text: model.index
-                }
+        WindowTitle {}
 
-                MouseArea {
-                    anchors.fill: parent
-                    onClicked: Niri.focusWorkspaceById(model.id)
-                }
+        Item {
+            Layout.fillWidth: true
+        }
+
+        Text {
+            text: `CPU: ${CPU.usage}%`
+            color: Config.colFg
+            font {
+                family: Config.fontFamily
+                pixelSize: Config.fontSize
+                bold: true
             }
         }
 
-        CPU {}
+        Rectangle {
+            width: 2
+            height: 16
+            color: Config.colMuted
+        }
+
         Text {
             text: Clock.time
-            color: "white"
+            color: Config.colFg
+            font {
+                family: Config.fontFamily
+                pixelSize: Config.fontSize
+                bold: true
+            }
         }
-        Item {
-            Layout.fillWidth: true
+
+        // FIXME: margin instead of block
+        Rectangle {
+            width: 4
+            color: "transparent"
         }
     }
 }
