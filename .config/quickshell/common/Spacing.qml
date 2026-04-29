@@ -10,4 +10,7 @@ QtObject {
     property int marginGutterY: 6
 
     property int marginInnerBarX: 16
+
+    property int gapContainer: 4
+    property int gapItem: 8
 }

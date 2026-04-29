@@ -1,6 +1,7 @@
 import Quickshell
 import QtQuick
-import "./modules/topbar/"
+import "./modules/topbar"
+import "./modules/osd"
 
 // FIXME: layer-rule in niri
 // @see laptop.kdl@268
@@ -13,9 +14,13 @@ import "./modules/topbar/"
 * https://www.tonybtw.com/tutorial/quickshell/#03-workspaces
 */
 ShellRoot {
+    // top bars
     Variants {
         model: Quickshell.screens
         // TODO: lift timer and processes
         delegate: Bar {}
     }
+
+    // other singletons like OSDs, listeners
+    PipewireOsd {}
 }

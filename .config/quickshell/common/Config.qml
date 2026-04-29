@@ -14,4 +14,5 @@ Singleton {
     property int fontSize: 16
 
     property Spacing spacing: Spacing {}
+    property Color color: Color {}
 }

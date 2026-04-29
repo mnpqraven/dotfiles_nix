@@ -4,16 +4,10 @@ import QtQuick
 
 Singleton {
     id: root
-    property string time: getDate()
+    readonly property string time: Qt.formatDateTime(clock.date, "dd/MM/yyyy - hh:mm A")
 
-    Timer {
-        interval: 2000
-        running: true
-        repeat: true
-        onTriggered: root.time = root.getDate()
-    }
-
-    function getDate() {
-        return Qt.formatDateTime(new Date(), "dd/MM/yyyy - hh:mm a");
+    SystemClock {
+        id: clock
+        precision: SystemClock.Minutes
     }
 }

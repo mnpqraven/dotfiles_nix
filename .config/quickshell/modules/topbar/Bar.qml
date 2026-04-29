@@ -30,18 +30,14 @@ PanelWindow {
 
     // left side
     RowLayout {
+        spacing: Config.spacing.gapItem
         anchors {
             left: parent.left
             leftMargin: Config.spacing.marginInnerBarX
             verticalCenter: parent.verticalCenter
         }
-        Text {
+        StyledText {
             text: ''
-            font {
-                pixelSize: Config.fontSize
-            }
-            color: Config.colFg
-
             MouseArea {
                 anchors.fill: parent
                 onClicked: mouse => Quickshell.execDetached(["sh", "-c", "$DEFAULT_TERMINAL"])
@@ -56,6 +52,7 @@ PanelWindow {
     // center side
     // nothing yet
     RowLayout {
+        spacing: Config.spacing.gapItem
         anchors {
             horizontalCenter: parent.horizontalCenter
             verticalCenter: parent.verticalCenter
@@ -64,42 +61,27 @@ PanelWindow {
 
     // right side
     RowLayout {
+        spacing: Config.spacing.gapItem
         anchors {
             right: parent.right
             rightMargin: Config.spacing.marginInnerBarX
             verticalCenter: parent.verticalCenter
         }
 
-        Text {
+        Volume {}
+
+        StyledText {
             text: `CPU: ${CPU.usage}%`
-            color: Config.colFg
-            font {
-                family: Config.fontFamily
-                pixelSize: Config.fontSize
-                bold: true
-            }
         }
 
-        Text {
+        StyledText {
             text: `MEM: ${Memory.usage}%`
-            color: Config.colFg
-            font {
-                family: Config.fontFamily
-                pixelSize: Config.fontSize
-                bold: true
-            }
         }
 
         Separator {}
 
-        Text {
+        StyledText {
             text: Clock.time
-            color: Config.colFg
-            font {
-                family: Config.fontFamily
-                pixelSize: Config.fontSize
-                bold: true
-            }
         }
     }
 }
