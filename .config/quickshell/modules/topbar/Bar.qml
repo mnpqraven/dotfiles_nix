@@ -87,7 +87,9 @@ PanelWindow {
 
         Loader {
             active: UPower.displayDevice.isLaptopBattery
-            sourceComponent: Power {}
+            sourceComponent: Battery {}
         }
+
+        Power {}
     }
 }
