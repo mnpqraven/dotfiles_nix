@@ -1,3 +1,4 @@
+import Quickshell.Services.UPower
 import Quickshell
 import QtQuick
 import QtQuick.Layouts
@@ -82,6 +83,11 @@ PanelWindow {
 
         StyledText {
             text: Clock.time
+        }
+
+        Loader {
+            active: UPower.displayDevice.isLaptopBattery
+            sourceComponent: Power {}
         }
     }
 }
