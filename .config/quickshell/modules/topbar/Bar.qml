@@ -4,11 +4,19 @@ import QtQuick
 import QtQuick.Layouts
 import qs.modules.topbar
 import qs.common
+import qs.services
 
 PanelWindow {
     id: root
 
     required property var modelData
+
+    Component.onCompleted: () => {
+        const name = modelData.name;
+        if (name.length)
+            Panel.setBar(name, root);
+    }
+
     screen: modelData
 
     anchors.top: true
@@ -31,6 +39,7 @@ PanelWindow {
 
     // left side
     RowLayout {
+        id: leftSection
         spacing: Config.spacing.gapItem
         anchors {
             left: parent.left
@@ -46,22 +55,28 @@ PanelWindow {
         }
 
         Workspace {}
-
-        WindowTitle {}
     }
 
     // center side
     // nothing yet
     RowLayout {
+        id: centerSection
         spacing: Config.spacing.gapItem
         anchors {
-            horizontalCenter: parent.horizontalCenter
+            left: leftSection.right
+            right: rightSection.left
             verticalCenter: parent.verticalCenter
+            leftMargin: Config.spacing.gapItem
+        }
+
+        WindowTitle {
+            Layout.fillWidth: true
         }
     }
 
     // right side
     RowLayout {
+        id: rightSection
         spacing: Config.spacing.gapItem
         anchors {
             right: parent.right
@@ -84,6 +99,8 @@ PanelWindow {
         StyledText {
             text: Clock.time
         }
+
+        Cloudflare {}
 
         Loader {
             active: UPower.displayDevice.isLaptopBattery

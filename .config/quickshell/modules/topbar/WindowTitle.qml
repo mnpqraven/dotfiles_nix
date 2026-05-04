@@ -5,6 +5,7 @@ import qs.common
 StyledText {
     id: root
     property var currentWindow: Niri.focusedWindow
+    elide: Text.ElideRight
     text: currentWindow?.title ?? ''
 
     MouseArea {
