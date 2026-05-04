@@ -4,12 +4,23 @@ import qs.services
 import qs.common
 
 Repeater {
+    id: ws
     readonly property string screenName: QsWindow.window?.screen?.name ?? ''
 
-    model: Niri.workspaces
+    // @see https://github.com/imiric/qml-niri/issues/14
+    model: SortFilterProxyModel {
+        id: filteredWorkspaces
+        model: Niri.workspaces
+        filters: [
+            ValueFilter {
+                roleName: "output"
+                value: ws.screenName
+                enabled: ws.screenName !== "" // show all when empty
+            }
+        ]
+    }
 
     Rectangle {
-        visible: model.output === screenName
         width: Config.spacing.barHeight / 2
         height: Config.spacing.barHeight / 2
         radius: Config.spacing.barRadius
