@@ -9,12 +9,12 @@ import qs.services
 PanelWindow {
     id: root
 
-    required property var modelData
+    required property ShellScreen modelData
 
     Component.onCompleted: () => {
         const name = modelData.name;
         if (name.length)
-            Panel.setBar(name, root);
+            PanelService.setBar(name, root);
     }
 
     screen: modelData

@@ -1,3 +1,4 @@
+import Quickshell
 import QtQuick
 import qs.services
 import qs.common
@@ -14,6 +15,8 @@ StyledText {
         onClicked: function (mouseEvent) {
             if (mouseEvent.button === Qt.RightButton) {
                 Niri.closeWindow(root.currentWindow.id);
+            } else {
+                Quickshell.execDetached(["niri", "msg", "action", "toggle-overview"]);
             }
         }
     }

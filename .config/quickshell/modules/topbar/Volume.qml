@@ -11,10 +11,6 @@ StyledText {
     }
     Connections {
         target: Pipewire.defaultAudioSink?.audio
-
-        function onVolumeChanged() {
-        // console.log('onVolumeChanged', Pipewire.defaultAudioSink?.audio.volume);
-        }
     }
 
     text: "VOL: " + Math.round(Pipewire.defaultAudioSink?.audio.volume * 100) + "%"
@@ -29,9 +25,20 @@ StyledText {
             else
                 Pipewire.defaultAudioSink.audio.volume -= 0.05;
         }
-        onClicked: ev => {
-            const audio = Pipewire.defaultAudioSink.audio;
-            audio.muted = !audio.muted;
+        acceptedButtons: Qt.LeftButton | Qt.RightButton
+        onClicked: function (ev) {
+            // TODO: mixer dialog on left click
+            if (ev.button === Qt.RightButton) {
+                const audio = Pipewire.defaultAudioSink.audio;
+                audio.muted = !audio.muted;
+            } else {
+                mixerPopover.toggle();
+            }
         }
+    }
+
+    UnmaskedPopover {
+        id: mixerPopover
+        anchorItem: root
     }
 }
