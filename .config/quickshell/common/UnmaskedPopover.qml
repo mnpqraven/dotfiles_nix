@@ -11,8 +11,8 @@ PopupWindow {
     color: "transparent"
 
     // dynamically from children
-    implicitWidth: contentItem.childrenRect.width + contentItem.childrenRect.x
-    implicitHeight: contentItem.childrenRect.height + contentItem.childrenRect.y
+    implicitWidth: (contentItem.childrenRect.width + contentItem.childrenRect.x) || 100
+    implicitHeight: (contentItem.childrenRect.height + contentItem.childrenRect.y) || 100
 
     anchor.item: anchorItem
     anchor.rect.x: 0

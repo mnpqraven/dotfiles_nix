@@ -1,4 +1,5 @@
 import QtQuick
+import QtQuick.Layouts
 import Quickshell.Services.Pipewire
 import qs.common
 
@@ -37,8 +38,36 @@ StyledText {
         }
     }
 
+    // get a list of nodes that output to the default sink
+    PwNodeLinkTracker {
+        id: linkTracker
+        node: Pipewire.defaultAudioSink
+    }
+
     UnmaskedPopover {
         id: mixerPopover
         anchorItem: root
+
+        CardContainer {
+            ColumnLayout {
+                x: Config.spacing.marginGutterX
+                y: Config.spacing.marginGutterY
+
+                VolumeMixer {
+                    node: Pipewire.defaultAudioSink
+                }
+
+                Repeater {
+                    model: linkTracker.linkGroups
+
+                    VolumeMixer {
+                        required property PwLinkGroup modelData
+                        // Each link group contains a source and a target.
+                        // Since the target is the default sink, we want the source.
+                        node: modelData.source
+                    }
+                }
+            }
+        }
     }
 }

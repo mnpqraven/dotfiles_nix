@@ -63,7 +63,7 @@ Scope {
                     }
 
                     StyledText {
-                        text: ""
+                        text: " "
                     }
 
                     Rectangle {
