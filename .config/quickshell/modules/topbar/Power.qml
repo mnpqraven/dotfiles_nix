@@ -10,13 +10,15 @@ RowLayout {
         text: '󰍁 '
         MouseArea {
             anchors.fill: parent
-            onClicked: mouse => Quickshell.execDetached(["sh", "-c", "hyprlock"])
+            cursorShape: Qt.PointingHandCursor
+            onClicked: mouse => Quickshell.execDetached(["hyprlock"])
         }
     }
     StyledText {
         text: '󰜉 '
         MouseArea {
             anchors.fill: parent
+            cursorShape: Qt.PointingHandCursor
             onClicked: mouse => Quickshell.execDetached(["sh", "-c", "reboot"])
         }
     }
@@ -24,6 +26,7 @@ RowLayout {
         text: ' '
         MouseArea {
             anchors.fill: parent
+            cursorShape: Qt.PointingHandCursor
             onClicked: mouse => Quickshell.execDetached(["shutdown", "now"])
         }
     }

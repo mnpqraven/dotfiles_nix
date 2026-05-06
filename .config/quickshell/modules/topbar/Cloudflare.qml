@@ -7,6 +7,7 @@ StyledText {
 
     MouseArea {
         anchors.fill: parent
+        cursorShape: Qt.PointingHandCursor
         onClicked: ev => popover.toggle()
     }
 
@@ -16,6 +17,7 @@ StyledText {
 
         CardContainer {
             id: card
+            opacity: popover.opacity
 
             StyledText {
                 id: text

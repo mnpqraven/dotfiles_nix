@@ -13,6 +13,7 @@ Singleton {
     property string fontFamily: "JetBrainsMono Nerd Font"
     property int fontSize: 16
 
-    property Spacing spacing: Spacing {}
+    property AnimationConfig animation: AnimationConfig {}
     property Color color: Color {}
+    property Spacing spacing: Spacing {}
 }

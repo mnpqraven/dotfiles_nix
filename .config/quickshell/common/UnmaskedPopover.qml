@@ -8,6 +8,20 @@ PopupWindow {
     id: root
     required property Item anchorItem
 
+    property bool internalVisible
+    property real opacity: internalVisible ? 1 : 0
+
+    visible: Qt.binding(() => internalVisible || mountAnimation.running)
+
+    // this should be the same as visible but changes 1s after visible becomes false
+    // same behaviour when visible becomes true
+    Timer {
+        id: mountAnimation
+        interval: Config.animation.opacityDuration
+        running: false
+        repeat: false
+    }
+
     color: "transparent"
 
     // dynamically from children
@@ -22,10 +36,18 @@ PopupWindow {
         if (!visible)
             PopoverService.close(root);
         else
-            PopoverService.open(root, () => root.visible = false);
+            PopoverService.open(root, () => root.internalVisible = false);
     }
 
     function toggle() {
-        root.visible = !root.visible;
+        root.internalVisible = !root.internalVisible;
+        mountAnimation.restart();
+    }
+
+    Behavior on opacity {
+        NumberAnimation {
+            duration: Config.animation.opacityDuration
+            easing.type: Easing.OutCubic
+        }
     }
 }
