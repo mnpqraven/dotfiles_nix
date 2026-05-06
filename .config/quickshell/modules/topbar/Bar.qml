@@ -85,6 +85,8 @@ PanelWindow {
             verticalCenter: parent.verticalCenter
         }
 
+        Net {}
+
         Volume {}
 
         StyledText {
