@@ -24,7 +24,7 @@ RowLayout {
         text: ' '
         MouseArea {
             anchors.fill: parent
-            onClicked: mouse => Quickshell.execDetached(["sh", "-c", "shutdown", "now"])
+            onClicked: mouse => Quickshell.execDetached(["shutdown", "now"])
         }
     }
 }

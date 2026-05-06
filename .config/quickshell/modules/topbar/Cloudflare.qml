@@ -14,8 +14,15 @@ StyledText {
         id: popover
         anchorItem: cf
 
-        Text {
-            text: 'ahihi'
+        CardContainer {
+            id: card
+
+            StyledText {
+                id: text
+                x: Config.spacing.marginGutterX
+                y: Config.spacing.marginGutterY
+                text: 'Cloudflare'
+            }
         }
     }
 }

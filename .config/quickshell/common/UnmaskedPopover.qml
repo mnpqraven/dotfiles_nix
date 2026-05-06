@@ -9,15 +9,14 @@ PopupWindow {
     required property Item anchorItem
 
     color: "transparent"
-    Rectangle {
-        anchors.fill: parent
-        radius: Config.spacing.barRadius
-        color: Config.colBg
-    }
+
+    // dynamically from children
+    implicitWidth: contentItem.childrenRect.width + contentItem.childrenRect.x
+    implicitHeight: contentItem.childrenRect.height + contentItem.childrenRect.y
 
     anchor.item: anchorItem
     anchor.rect.x: 0
-    anchor.rect.y: anchorItem ? anchorItem.height + Config.spacing.gapItem : 0
+    anchor.rect.y: anchorItem ? anchorItem.height + Config.spacing.marginGutterY : 0
 
     onVisibleChanged: {
         if (!visible)

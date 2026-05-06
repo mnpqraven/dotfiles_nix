@@ -29,12 +29,14 @@ StyledText {
         id: popover
         anchorItem: root
 
-        ColumnLayout {
-            StyledText {
-                text: 'Time to full: ' + prettifyDuration(UPower.displayDevice.timeToFull)
-            }
-            StyledText {
-                text: 'Time to empty: ' + prettifyDuration(UPower.displayDevice.timeToEmpty)
+        CardContainer {
+            ColumnLayout {
+                x: Config.spacing.marginGutterX
+                y: Config.spacing.marginGutterY
+
+                StyledText {
+                    text: root.isCharging ? `Time to full: ${root.prettifyDuration(UPower.displayDevice.timeToFull)}` : `Time to empty: ${root.prettifyDuration(UPower.displayDevice.timeToEmpty)}`
+                }
             }
         }
     }
