@@ -14,6 +14,12 @@ lib.mkIf osConfig.features.desktops.niri.enable {
     source = config.lib.file.mkOutOfStoreSymlink "${config.home.homeDirectory}/dotfiles_nix/.config/niri/${device}.kdl";
     force = true;
   };
+  # TODO: folder
+  xdg.configFile.common = {
+    target = "./niri/common.kdl";
+    source = config.lib.file.mkOutOfStoreSymlink "${config.home.homeDirectory}/dotfiles_nix/.config/niri/common.kdl";
+    force = true;
+  };
   home.pointerCursor = {
     name = "graphite-dark";
     size = 32;
