@@ -201,10 +201,10 @@ layout {
     // Top and bottom struts will simply add outer gaps in addition to the area occupied by
     // layer-shell panels and regular gaps.
     struts {
-        // left 64
-        // right 64
-        top -8
-        // bottom 64
+        left 30
+        right 8
+        top 30
+        bottom 8
     }
 }
 
@@ -297,6 +297,13 @@ window-rule {
     geometry-corner-radius 12
     clip-to-geometry true
 }
+
+overview {
+    workspace-shadow {
+        off
+    }
+}
+
 
 binds {
     // Keys consist of modifiers separated by + signs, followed by an XKB key name

@@ -1,7 +1,9 @@
+//@ pragma DefaultEnv QS_NO_RELOAD_POPUP=1
+
 import Quickshell
 import QtQuick
-import "./modules/topbar"
-import "./modules/osd"
+import "modules/topbar"
+import "modules/osd"
 
 // FIXME: layer-rule in niri
 // @see laptop.kdl@268
@@ -15,10 +17,17 @@ import "./modules/osd"
 */
 ShellRoot {
     // top bars
+    // Variants {
+    //     model: Quickshell.screens
+    //     // TODO: lift timer and processes
+    //     delegate: Bar {}
+    // }
+
+    // expr
     Variants {
         model: Quickshell.screens
         // TODO: lift timer and processes
-        delegate: Bar {}
+        delegate: EdgeContainer {}
     }
 
     // other singletons like OSDs, listeners
