@@ -1,11 +1,12 @@
 import Quickshell
 import Quickshell.Networking
 import QtQuick
+import QtQuick.Layouts
 import qs.common
 
 StyledText {
     id: root
-    text: "󰤨 "
+    text: Networking.wifiEnabled ? "󰤨 " : "󰈀 "
 
     MouseArea {
         anchors.fill: parent
@@ -20,10 +21,34 @@ StyledText {
         CardContainer {
             opacity: popover.opacity
 
-            StyledText {
+            ColumnLayout {
                 x: Config.spacing.marginGutterX
                 y: Config.spacing.marginGutterY
-                text: formattedConnectionStatus(Networking.connectivity)
+
+                StyledText {
+                    text: root.formattedConnectionStatus(Networking.connectivity)
+                }
+
+                Repeater {
+                    id: outer
+                    model: Networking.devices
+
+                    Repeater {
+                        id: inner
+                        // Neworking.devices -> NetworkDevice
+                        required property NetworkDevice modelData
+                        readonly property NetworkDevice networkDevice: modelData
+                        model: modelData.networks
+
+                        StyledText {
+                            // NetworkDevice.networks -> Network
+                            required property Network modelData
+                            readonly property Network device: modelData
+
+                            text: (inner.networkDevice.type === DeviceType.Wifi ? "󰤨 " : "󰈀 ") + device.name
+                        }
+                    }
+                }
             }
         }
     }
@@ -31,7 +56,7 @@ StyledText {
     function formattedConnectionStatus(conn): string {
         switch (conn) {
         case NetworkConnectivity.Full:
-            return 'Full';
+            return 'Connected';
         case NetworkConnectivity.Portal:
             return 'Sign in needed';
         case NetworkConnectivity.Limited:
