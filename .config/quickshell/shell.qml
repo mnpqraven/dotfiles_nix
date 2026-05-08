@@ -2,7 +2,6 @@
 
 import Quickshell
 import QtQuick
-import qs.common
 import "modules/container"
 import "modules/osd"
 
@@ -18,13 +17,6 @@ import "modules/osd"
 */
 ShellRoot {
     // top bars
-    // Variants {
-    //     model: Quickshell.screens
-    //     // TODO: lift timer and processes
-    //     delegate: Bar {}
-    // }
-
-    // expr
     Variants {
         model: Quickshell.screens
         // TODO: lift timer and processes
