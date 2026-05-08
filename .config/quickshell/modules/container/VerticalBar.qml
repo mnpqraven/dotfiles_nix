@@ -20,5 +20,7 @@ ColumnLayout {
         Layout.fillHeight: true
     }
 
+    Net {}
+
     Power {}
 }

@@ -23,7 +23,7 @@ ColumnLayout {
         }
     }
     StyledText {
-        text: ''
+        text: '󰤆'
         MouseArea {
             anchors.fill: parent
             cursorShape: Qt.PointingHandCursor

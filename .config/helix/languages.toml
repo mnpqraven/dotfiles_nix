@@ -100,5 +100,4 @@ formatter = { command = "taplo format" }
 auto-format = true
 
 [language-server.qmlls]
-args = ["-E"]
 command = "qmlls"

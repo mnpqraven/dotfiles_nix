@@ -10,6 +10,7 @@ import qs.common
 // - drawing outer borders
 // - inset border radius
 // - inset drop shadow
+// qmllint disable uncreatable-type
 PanelWindow {
     id: container
 

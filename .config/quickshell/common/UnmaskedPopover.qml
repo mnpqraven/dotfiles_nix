@@ -8,6 +8,7 @@ PopupWindow {
     id: root
     required property Item anchorItem
 
+    property string side: 'bottom' // top | bottom | left | right
     property bool internalVisible
     property real opacity: internalVisible ? 1 : 0
 
@@ -28,8 +29,9 @@ PopupWindow {
     implicitHeight: (contentItem.childrenRect.height + contentItem.childrenRect.y) || 100
 
     anchor.item: anchorItem
-    anchor.rect.x: 0
-    anchor.rect.y: anchorItem ? anchorItem.height + Config.spacing.marginGutterY : 0
+
+    anchor.rect.x: rectFromSide(side, anchorItem).x
+    anchor.rect.y: rectFromSide(side, anchorItem).y
 
     onInternalVisibleChanged: mountAnimation.restart()
 
@@ -48,6 +50,31 @@ PopupWindow {
         NumberAnimation {
             duration: Config.animation.opacityDuration
             easing.type: Easing.OutCubic
+        }
+    }
+
+    function rectFromSide(side: string, anchor: Item): var {
+        switch (side) {
+        case 'top':
+            return {
+                x: 0,
+                y: anchorItem ? 0 - Config.spacing.marginGutterY : 0
+            };
+        case 'bottom':
+            return {
+                x: 0,
+                y: anchorItem ? anchorItem.height + Config.spacing.marginGutterY : 0
+            };
+        case 'left':
+            return {
+                x: anchorItem ? 0 - Config.spacing.marginGutterX : 0,
+                y: 0
+            };
+        case 'right':
+            return {
+                x: anchorItem ? anchorItem.width + Config.spacing.marginGutterX : 0,
+                y: 0
+            };
         }
     }
 }

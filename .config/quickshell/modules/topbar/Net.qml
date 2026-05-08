@@ -1,4 +1,5 @@
-import Quickshell
+pragma ComponentBehavior: Bound
+
 import Quickshell.Networking
 import QtQuick
 import QtQuick.Layouts
@@ -6,7 +7,25 @@ import qs.common
 
 StyledText {
     id: root
-    text: Networking.wifiEnabled ? "󰤨 " : "󰈀 "
+    text: Networking.wifiEnabled ? wifiStrengthIcon(wifiDevice.signalStrength) : "󰈀"
+
+    property WifiNetwork wifiDevice: {
+        // Neworking.devices -> NetworkDevice -> Network[]
+        const nesteds = Networking.devices.values
+        //
+        .map(e => (e as NetworkDevice).networks)
+        //
+        .map(f => f.values).filter(f => f.length);
+
+        for (let i = 0; i < nesteds.length; i++)
+            for (let j = 0; j < nesteds[i].length; j++) {
+                const nw = nesteds[i][j]; // WifiNetwork | Network
+                // assign on first connected with signals
+                if (nw.connected && nw.signalStrength !== null && nw.signalStrength > 0)
+                    return nw;
+            }
+        return null;
+    }
 
     MouseArea {
         anchors.fill: parent
@@ -17,6 +36,7 @@ StyledText {
     UnmaskedPopover {
         id: popover
         anchorItem: root
+        side: 'right'
 
         CardContainer {
             opacity: popover.opacity
@@ -45,7 +65,9 @@ StyledText {
                             required property Network modelData
                             readonly property Network device: modelData
 
-                            text: (inner.networkDevice.type === DeviceType.Wifi ? "󰤨 " : "󰈀 ") + device.name
+                            // qmllint disable unresolved-type
+                            // qmllint disable missing-property
+                            text: (inner.networkDevice.type === DeviceType.Wifi ? root.wifiStrengthIcon(device.signalStrength) : "󰈀") + " " + device.name
                         }
                     }
                 }
@@ -68,5 +90,16 @@ StyledText {
         default:
             return 'hello';
         }
+    }
+
+    function wifiStrengthIcon(value: real): string {
+        if (value >= 0.75)
+            return '󰣺';
+        if (value >= 0.5)
+            return '󰣸';
+        if (value >= 0.25)
+            return '󰣶';
+        if (value >= 0)
+            return '󰣴';
     }
 }

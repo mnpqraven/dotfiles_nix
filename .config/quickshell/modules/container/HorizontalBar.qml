@@ -19,7 +19,6 @@ RowLayout {
         Layout.fillWidth: true
     }
 
-    Net {}
 
     Volume {}
 
