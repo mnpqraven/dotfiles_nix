@@ -27,9 +27,10 @@ There are 2 installation methods:
 # Packages
 
 - DE: `hyprland` and `niri`
+- Ricing: `quickshell`
 - Audio: `pipewire` with equalizers configured via `easyeffects`
 - Browser: Librewolf and Brave Browser
-- Editors: `helix` and `neovim`
+- Editors: `helix`
 - Terminal: `alacritty`, `wezterm` and `ghostty`
 - Prompt: `zsh`
 
