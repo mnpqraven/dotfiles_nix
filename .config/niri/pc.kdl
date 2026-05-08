@@ -3,6 +3,14 @@ output "DP-2" {
     scale 1
     transform "90"
     position x=0 y=0
+    layout {
+        struts {
+            left 8
+            right 8
+            top 30
+            bottom 8
+        }
+    }
 }
 output "DP-1" {
     focus-at-startup

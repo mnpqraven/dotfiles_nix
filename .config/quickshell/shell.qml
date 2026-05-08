@@ -2,7 +2,8 @@
 
 import Quickshell
 import QtQuick
-import "modules/topbar"
+import qs.common
+import "modules/container"
 import "modules/osd"
 
 // FIXME: layer-rule in niri
