@@ -1,13 +1,30 @@
-pragma Singleton
-import Quickshell
 import QtQuick
+import qs.common
+import qs.services
 
-Singleton {
+StyledText {
     id: root
-    readonly property string time: Qt.formatDateTime(clock.date, "dd/MM/yyyy - hh:mm A")
+    text: ClockService.time
 
-    SystemClock {
-        id: clock
-        precision: SystemClock.Minutes
+    MouseArea {
+        anchors.fill: parent
+        cursorShape: Qt.PointingHandCursor
+        onClicked: popover.toggle()
+    }
+
+    UnmaskedPopover {
+        id: popover
+        anchorItem: root
+
+        CardContainer {
+            // can this be parent.opacity ?
+            opacity: popover.opacity
+
+            StyledText {
+                x: Config.spacing.marginGutterX
+                y: Config.spacing.marginGutterY
+                text: ClockService.dateTime
+            }
+        }
     }
 }

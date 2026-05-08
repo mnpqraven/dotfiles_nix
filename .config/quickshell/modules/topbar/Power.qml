@@ -4,10 +4,10 @@ import QtQuick
 import qs.common
 
 // TODO: popover instead of repeater on bar
-RowLayout {
+ColumnLayout {
     spacing: Config.spacing.widthUnit
     StyledText {
-        text: '󰍁 '
+        text: '󰍁'
         MouseArea {
             anchors.fill: parent
             cursorShape: Qt.PointingHandCursor
@@ -15,7 +15,7 @@ RowLayout {
         }
     }
     StyledText {
-        text: '󰜉 '
+        text: '󰜉'
         MouseArea {
             anchors.fill: parent
             cursorShape: Qt.PointingHandCursor
@@ -23,7 +23,7 @@ RowLayout {
         }
     }
     StyledText {
-        text: ' '
+        text: ''
         MouseArea {
             anchors.fill: parent
             cursorShape: Qt.PointingHandCursor
