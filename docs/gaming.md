@@ -2,7 +2,7 @@
 
 **NOTE**: remember my milage on gaming will be way less than other users considering
 I'm still using Windows dualboot to game and have not done much on configuring on linux.
-Do your on research
+Do your own research
 
 So far gaming has been actually pretty smooth, I have not encountered a many hurdles
 to get gaming up and running (granted I've only tried a very few amount of games).
