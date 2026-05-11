@@ -18,6 +18,7 @@
           ../base
           ../services
           ../hosts/${hostName}
+          ../users/othi/nixos.nix
           inputs.sops-nix.nixosModules.sops
           inputs.home-manager.nixosModules.home-manager
         ]
