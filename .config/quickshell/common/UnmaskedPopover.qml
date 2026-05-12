@@ -9,17 +9,12 @@ PopupWindow {
     required property Item anchorItem
 
     property string side: 'bottom' // top | bottom | left | right
-    property bool internalVisible
-    property real opacity: internalVisible ? 1 : 0
+    property real opacity: exit.opacity
 
-    visible: internalVisible || mountAnimation.running
+    visible: exit.shouldShow
 
-    // this should be the same as visible but changes {duration} after `visible` becomes false
-    // same behaviour when `visible` becomes true
-    Timer {
-        id: mountAnimation
-        interval: Config.animation.opacityDuration
-        repeat: false
+    ExitAnimation {
+        id: exit
     }
 
     color: "transparent"
@@ -33,24 +28,15 @@ PopupWindow {
     anchor.rect.x: rectFromSide(side, anchorItem).x
     anchor.rect.y: rectFromSide(side, anchorItem).y
 
-    onInternalVisibleChanged: mountAnimation.restart()
-
     onVisibleChanged: {
         if (!visible)
             PopoverService.close(root);
         else
-            PopoverService.open(root, () => root.internalVisible = false);
+            PopoverService.open(root, () => exit.setVisible(false));
     }
 
     function toggle() {
-        root.internalVisible = !root.internalVisible;
-    }
-
-    Behavior on opacity {
-        NumberAnimation {
-            duration: Config.animation.opacityDuration
-            easing.type: Easing.OutCubic
-        }
+        exit.setVisible(!exit.internalVisible);
     }
 
     function rectFromSide(side: string, anchor: Item): var {

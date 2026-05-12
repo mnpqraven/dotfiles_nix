@@ -1,7 +1,10 @@
 import QtQuick
 import QtQuick.Layouts
+import QtQuick.Controls
+import Quickshell
 import Quickshell.Services.Pipewire
 import qs.common
+import qs.services
 
 StyledText {
     id: root
@@ -40,6 +43,14 @@ StyledText {
             ColumnLayout {
                 x: Config.spacing.marginGutterX
                 y: Config.spacing.marginGutterY
+
+                Button {
+                    text: 'Settings'
+                    onClicked: () => {
+                        Quickshell.execDetached(["sh", "-c", "easyeffects"]);
+                        PopoverService.closeAll();
+                    }
+                }
 
                 VolumeMixer {
                     node: Pipewire.defaultAudioSink

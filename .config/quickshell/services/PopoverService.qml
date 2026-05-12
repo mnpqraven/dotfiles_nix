@@ -30,4 +30,12 @@ Singleton {
             currentCloseCallback = null;
         }
     }
+
+    function closeAll() {
+        const closeOnScreen = service.currentCloseCallback;
+        if (closeOnScreen)
+            Qt.callLater(closeOnScreen);
+        currentPopover = null;
+        currentCloseCallback = null;
+    }
 }
