@@ -12,6 +12,7 @@ StyledText {
     MouseArea {
         anchors.fill: parent
         acceptedButtons: Qt.LeftButton | Qt.RightButton
+        cursorShape: Qt.PointingHandCursor
         onClicked: function (mouseEvent) {
             if (mouseEvent.button === Qt.RightButton) {
                 Niri.closeWindow(root.currentWindow.id);
