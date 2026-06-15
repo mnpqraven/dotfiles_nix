@@ -84,7 +84,7 @@ language-servers = [
 
 [[language]]
 name = "nix"
-formatter = { command = "nixfmt" }
+formatter = { command = "nixfmt -" }
 auto-format = true
 
 [[language]]

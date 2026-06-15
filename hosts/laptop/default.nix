@@ -1,4 +1,4 @@
-{ pkgs, ... }:
+{ pkgs, inputs, ... }:
 {
   imports = [
     # uncomment this if you don't have a custom host and certificate ruleset
@@ -27,6 +27,7 @@
     webBrowser.browsers = [
       "librewolf"
       "brave"
+      "zen"
     ];
     database.enable = true;
     syncthing = {

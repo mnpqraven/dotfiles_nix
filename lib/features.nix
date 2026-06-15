@@ -9,6 +9,7 @@ let
   browsers = [
     "brave"
     "librewolf"
+    "zen"
   ];
 
   terminalEnum = mkOption {
@@ -48,7 +49,7 @@ in
       };
       browsers = mkOption {
         type = types.listOf (types.enum browsers);
-        default = [ "librewolf" ];
+        default = [ "zen" ];
       };
     };
 

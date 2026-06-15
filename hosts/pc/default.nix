@@ -28,7 +28,6 @@
     gaming.enable = true;
     webBrowser.browsers = [
       "brave"
-      "librewolf"
       "zen"
     ];
     network.cloudflare.enable = true;
