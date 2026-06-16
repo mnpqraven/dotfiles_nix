@@ -2,10 +2,11 @@
   lib,
   osConfig,
   pkgs,
+  inputs,
   ...
 }:
-lib.optionalAttrs builtins.elem "librewolf" osConfig.features.webBrowser.browsers {
-  environment.systemPackages = with pkgs; [
+lib.mkIf (builtins.elem "zen" osConfig.features.webBrowser.browsers) {
+  home.packages = [
     inputs.zen-browser.packages.${pkgs.stdenv.hostPlatform.system}.default
   ];
 }

@@ -6,9 +6,21 @@ _: {
     "image/png" = [ "feh.desktop" ];
     "image/jpeg" = [ "feh.desktop" ];
     "text/html" = [ "librewolf.desktop" ];
-    "x-scheme-handler/http" = [ "librewolf.desktop" ];
-    "x-scheme-handler/https" = [ "librewolf.desktop" ];
-    "x-scheme-handler/about" = [ "librewolf.desktop" ];
-    "x-scheme-handler/unknown" = [ "librewolf.desktop" ];
+    "x-scheme-handler/http" = [
+      "zen.desktop"
+      "librewolf.desktop"
+    ];
+    "x-scheme-handler/https" = [
+      "zen.desktop"
+      "librewolf.desktop"
+    ];
+    "x-scheme-handler/about" = [
+      "zen.desktop"
+      "librewolf.desktop"
+    ];
+    "x-scheme-handler/unknown" = [
+      "zen.desktop"
+      "librewolf.desktop"
+    ];
   };
 }
