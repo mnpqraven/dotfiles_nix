@@ -44,7 +44,6 @@ in
     imagemagick
     kalker
     keychain
-    librewolf
     macchina
     obs-studio
     ripgrep

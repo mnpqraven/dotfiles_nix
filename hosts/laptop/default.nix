@@ -25,7 +25,6 @@
       ];
     };
     webBrowser.browsers = [
-      "librewolf"
       "brave"
       "zen"
     ];
@@ -49,7 +48,6 @@
 
   environment.systemPackages = with pkgs; [
     libreoffice
-    pritunl-client
     vlc
   ];
 }
