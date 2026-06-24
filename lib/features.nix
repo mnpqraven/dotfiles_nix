@@ -10,6 +10,7 @@ let
     "brave"
     "librewolf"
     "zen"
+    "helium"
   ];
 
   terminalEnum = mkOption {
