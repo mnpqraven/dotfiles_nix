@@ -10,7 +10,7 @@
     [
       # japanese support
       source-han-code-jp
-      notonoto
+      explex
     ]
     ++ builtins.filter lib.attrsets.isDerivation (builtins.attrValues pkgs.nerd-fonts);
 
@@ -19,19 +19,19 @@
       serif = [
         "Noto Serif Display"
         "Source Han Code JP"
-        "NOTONOTO"
+        "Explex"
       ];
       sansSerif = [
         "Liberation Sans"
         "NotoSans Nerd Font"
         "Source Han Code JP"
-        "NOTONOTO"
+        "Explex"
       ];
       monospace = [
         "GeistMono NFM"
         "JetBrainsMono NFM"
         "Source Han Code JP"
-        "NOTONOTO"
+        "Explex"
         "Noto Color Emoji"
       ];
     };

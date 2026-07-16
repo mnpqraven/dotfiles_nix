@@ -21,6 +21,7 @@ lib.mkIf osConfig.features.desktops.niri.enable {
     force = true;
   };
   home.pointerCursor = {
+    enable = true;
     name = "graphite-dark";
     size = 32;
     package = pkgs.graphite-cursors;
