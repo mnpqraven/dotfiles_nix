@@ -10,6 +10,7 @@ Item {
     implicitHeight: childrenRect.height
 
     ColumnLayout {
+        // TODO: fancy box
         StyledText {
             text: ClockService.dateTime
         }
@@ -62,7 +63,7 @@ Item {
                     radius: Config.spacing.barRadius
 
                     // TODO: hover state
-                    color: root.isToday(modelData) ? Config.colBlue : Config.colMuted
+                    color: !root.isSameMonth(modelData) ? Config.colBg : root.isToday(modelData) ? Config.colBlue : Config.colMuted
 
                     StyledText {
                         // TODO: date display
@@ -122,6 +123,13 @@ Item {
         const then = getIndexedDate(index);
         return now.getFullYear() === then.getFullYear() && now.getMonth() === then.getMonth() && now.getDate() === then.getDate();
     }
+
+    function isSameMonth(index: real): bool {
+        const now = ClockService.clock.date;
+        const then = getIndexedDate(index);
+        return now.getFullYear() === then.getFullYear() && now.getMonth() === then.getMonth();
+    }
+
     function weekDayFromIndex(index: real): string {
         // sunday = 0, monday = 1
         switch (index) {

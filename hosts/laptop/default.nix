@@ -25,8 +25,8 @@
       ];
     };
     webBrowser.browsers = [
-      "brave"
       "zen"
+      "helium"
     ];
     database.enable = true;
     syncthing = {
