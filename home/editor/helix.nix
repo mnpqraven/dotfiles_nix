@@ -17,6 +17,8 @@ lib.mkIf osConfig.features.editors.helix.enable {
     nil
     nixfmt
 
+    uwu-colors
+
     # javascript ecosystem
     typescript-language-server
     vscode-langservers-extracted

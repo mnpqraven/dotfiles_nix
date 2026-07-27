@@ -1,3 +1,6 @@
+[language-server.uwu_colors]
+command = "uwu_colors"
+
 [language-server.biome]
 command = "biome"
 args = ["lsp-proxy"]
@@ -15,7 +18,7 @@ args = ["--stdio"]
 
 [[language]]
 name = "css"
-language-servers = ["biome"]
+language-servers = ["biome", "uwu_colors"]
 auto-format = true
 
 [[language]]
@@ -26,6 +29,7 @@ language-servers = [
   ] },
   "biome",
   "tailwindcss",
+  "uwu_colors",
 ]
 auto-format = true
 
@@ -37,6 +41,7 @@ language-servers = [
   ] },
   "biome",
   "tailwindcss",
+  "uwu_colors",
 ]
 auto-format = true
 
@@ -50,6 +55,7 @@ language-servers = [
   "biome",
   "tailwindcss",
   "emmet-lsp",
+  "uwu_colors",
 ]
 
 [[language]]
@@ -62,6 +68,7 @@ language-servers = [
   "biome",
   "tailwindcss",
   "emmet-lsp",
+  "uwu_colors",
 ]
 
 [[language]]
