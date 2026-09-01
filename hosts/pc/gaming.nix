@@ -26,12 +26,19 @@ lib.mkIf config.features.gaming.enable {
     })
     mangohud
     protonup-ng
+    protonplus
 
-    wineWowPackages.staging
+    wineWow64Packages.staging
     # winetricks (all versions)
     winetricks
+    # for wine
+    cabextract
     # native wayland support (unstable)
     wineWowPackages.waylandFull
+
+    # lossless scaling
+    lsfg-vk
+    lsfg-vk-ui
   ];
 
   environment.sessionVariables = {
