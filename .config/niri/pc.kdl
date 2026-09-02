@@ -7,10 +7,10 @@ output "DP-2" {
     position x=0 y=0
     layout {
         struts {
-            left 8
-            right 8
-            top 30
-            bottom 8
+            left 0
+            right 0
+            top 20
+            bottom 0
         }
     }
 }
