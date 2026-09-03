@@ -34,4 +34,5 @@
       qt6Packages.fcitx5-unikey
     ];
   };
+  services.xserver.desktopManager.runXdgAutostartIfNone = true;
 }

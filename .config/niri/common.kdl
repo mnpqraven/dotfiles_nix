@@ -214,9 +214,7 @@ layout {
 // See the binds section below for more spawn examples.
 
 spawn-at-startup "qs"
-spawn-at-startup "fcitx5" "-dr"
 spawn-at-startup "swww-daemon"
-// FIXME:
 spawn-at-startup "wallthi" "start" "--daemon"
 
 // Uncomment this line to ask the clients to omit their client-side decorations if possible.
