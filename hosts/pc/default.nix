@@ -4,8 +4,6 @@
     # Include the results of the hardware scan.
     ./hardware-configuration.nix
     ./gaming.nix
-    # PC needs NVIDIA configs as well
-    ./nvidia.nix
   ];
 
   features = {
