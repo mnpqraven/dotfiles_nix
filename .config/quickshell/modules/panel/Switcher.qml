@@ -30,6 +30,7 @@ GridLayout {
             },
         ]
 
+        // container
         GridClicker {
             Layout.fillWidth: true
             Layout.fillHeight: true

@@ -540,6 +540,7 @@ binds {
     // Mod+Space       { switch-layout "next"; }
     // Mod+Shift+Space { switch-layout "prev"; }
 
+    Mod+Z { spawn "bash" "-c" "qs ipc call control_panel toggle"; }
     Mod+C { screenshot; }
     Mod+Alt+C { screenshot-screen; }
     // Mod+Shift+C { screenshot-window; }

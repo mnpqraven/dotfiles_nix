@@ -1,8 +1,10 @@
+import Quickshell
 import QtQuick
 import QtQuick.Layouts
 import qs.modules.topbar
 import qs.modules.panel
 import qs.common
+import qs.ipc
 
 // vertical left bar
 ColumnLayout {
@@ -24,12 +26,21 @@ ColumnLayout {
     StyledText {
         id: root
         text: ''
+        readonly property string screenName: QsWindow.window?.screen?.name ?? ''
+
         MouseArea {
             anchors.fill: parent
             cursorShape: Qt.PointingHandCursor
             onClicked: ev => popover.toggle()
         }
 
+        // register id to dict so IPC can open the command center
+        onScreenNameChanged: {
+            if (screenName)
+                ControlCenterIpc.setId(screenName, popover);
+        }
+        // TODO: own component
+        // ControlPanel
         UnmaskedPopover {
             id: popover
             anchorItem: root
@@ -45,6 +56,7 @@ ColumnLayout {
                     Switcher {
                         opacity: popover.opacity
                     }
+                    IconTray {}
                     Calendar {
                         Layout.fillWidth: true
                     }

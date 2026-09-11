@@ -7,7 +7,7 @@ import qs.common
 
 StyledText {
     id: root
-    text: Networking.wifiEnabled ? wifiStrengthIcon(wifiDevice.signalStrength) : "󰈀"
+    text: Networking.wifiEnabled ? wifiStrengthIcon(wifiDevice?.signalStrength) : "󰈀"
 
     property WifiNetwork wifiDevice: {
         // Neworking.devices -> NetworkDevice -> Network[]
