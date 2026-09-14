@@ -2,7 +2,7 @@ import Quickshell
 import QtQuick
 import QtQuick.Layouts
 import qs.modules.topbar
-import qs.modules.panel
+import qs.modules.container
 import qs.common
 import qs.ipc
 
@@ -39,29 +39,9 @@ ColumnLayout {
             if (screenName)
                 ControlCenterIpc.setId(screenName, popover);
         }
-        // TODO: own component
-        // ControlPanel
-        UnmaskedPopover {
+        ControlPanelContainer {
             id: popover
             anchorItem: root
-            side: 'right'
-
-            CardContainer {
-                opacity: popover.opacity
-
-                ColumnLayout {
-                    x: Config.spacing.marginGutterX
-                    y: Config.spacing.marginGutterY
-
-                    Switcher {
-                        opacity: popover.opacity
-                    }
-                    IconTray {}
-                    Calendar {
-                        Layout.fillWidth: true
-                    }
-                }
-            }
         }
     }
 

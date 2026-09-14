@@ -19,29 +19,48 @@ GridLayout {
 
     Repeater {
         // TODO:
-        // get desktop id with
-        // ls -l /run/current-system/sw/share/applications
-        // ls -l /etc/profiles/per-user/othi/share/applications
+        // get desktop id by looping over DesktopEntries.applications.values
         // nix derivative generate json configs
         // -> read from that json file
         model: [
             {
+                name: 'Discord',
+                launchArg: 'vesktop',
+                desktopId: 'vesktop'
+            },
+            // TODO: feature gate
+            {
                 name: 'Steam',
                 launchArg: 'steam',
-                disabled: true
-            },
-            {
-                name: 'Easy Effects',
-                launchArg: 'easyeffects',
-                desktopId: 'com.github.wwmm.easyeffects'
+                desktopId: 'steam'
             },
             // TODO: web browser based on features.nix
             {
                 name: 'Zen',
-                launchArg: 'zen-twilight',
-                desktopId: 'zen-twilight.desktop'
+                launchArg: 'zen-beta',
+                desktopId: 'zen-beta'
+            },
+            {
+                name: 'Anki',
+                launchArg: 'anki',
+                desktopId: 'anki'
+            },
+            {
+                name: 'Syncthing',
+                launchArg: 'syncthing browser',
+                desktopId: 'syncthing-ui'
+            },
+            {
+                name: 'Deluge',
+                launchArg: 'deluge',
+                desktopId: 'deluge'
+            },
+            {
+                name: 'Dolphin',
+                launchArg: 'dolphin',
+                desktopId: 'org.kde.dolphin'
             }
-        ]
+        ].filter(app => !app.disabled)
         ClickableIcon {}
     }
 
@@ -55,7 +74,6 @@ GridLayout {
         radius: Config.spacing.barRadius
         // TODO: better color
         color: Config.colFg
-        opacity: modelData.disabled ? 0.4 : 1
 
         implicitWidth: size
         implicitHeight: size
@@ -65,6 +83,7 @@ GridLayout {
             const apps = DesktopEntries.applications.values;
             if (c.modelData.desktopId?.length) {
                 const entry = apps.length > 0 ? DesktopEntries.byId(c.modelData.desktopId) : null;
+
                 return entry ? Quickshell.iconPath(entry.icon) : '';
             }
             if (c.modelData.iconSource?.length) {

@@ -9,6 +9,7 @@ Singleton {
     property color colMuted: "#444b6a"
     property color colCyan: "#0db9d7"
     property color colBlue: "#7aa2f7"
+    property color colDarkBlue: "#4a80f4"
     property color colYellow: "#e0af68"
     property string fontFamily: "JetBrainsMono Nerd Font"
     property int fontSize: 16

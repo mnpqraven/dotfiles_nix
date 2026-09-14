@@ -37,6 +37,7 @@ Item {
 
                     StyledText {
                         text: root.weekDayFromIndex(headerCell.modelData)
+                        color: root.colorFgHeader(headerCell.modelData)
                         anchors.centerIn: parent
                     }
                 }
@@ -63,10 +64,9 @@ Item {
                     radius: Config.spacing.barRadius
 
                     // TODO: hover state
-                    color: !root.isSameMonth(modelData) ? Config.colBg : root.isToday(modelData) ? Config.colBlue : Config.colMuted
+                    color: root.colorBgCell(modelData)
 
                     StyledText {
-                        // TODO: date display
                         text: root.getIndexedDate(cell.modelData).getDate()
                         anchors.centerIn: parent
                     }
@@ -98,18 +98,10 @@ Item {
     function firstCellDate(): date {
         const now = ClockService.clock.date;
         const firstInMonth = new Date(now.getFullYear(), now.getMonth(), 1);
-        // sunday = 0, monday = 1
-        const firstInMonthWeekday = firstInMonth.getDay();
+        // monday = 0, sunday = 6
+        const firstInMonthWeekday = (firstInMonth.getDay() + 6) % 7;
 
-        if (firstInMonthWeekday === 1)
-            return firstInMonth;
-
-        if (firstInMonthWeekday === 0)
-            return new Date(firstInMonth.getFullYear(), firstInMonth.getMonth(), -6);
-
-        // tuesday's value is 2 but we only subtract 1, etc...
-        const next = new Date(firstInMonth.getFullYear(), firstInMonth.getMonth(), -firstInMonthWeekday);
-        return next;
+        return new Date(firstInMonth.getFullYear(), firstInMonth.getMonth(), 1 - firstInMonthWeekday);
     }
 
     function getIndexedDate(index: real): date {
@@ -131,22 +123,40 @@ Item {
     }
 
     function weekDayFromIndex(index: real): string {
-        // sunday = 0, monday = 1
+        // monday = 0, sunday = 6
         switch (index) {
         case 0:
-            return 'Sun';
-        case 1:
             return 'Mon';
-        case 2:
+        case 1:
             return 'Tue';
-        case 3:
+        case 2:
             return 'Wed';
-        case 4:
+        case 3:
             return 'Thu';
-        case 5:
+        case 4:
             return 'Fri';
-        case 6:
+        case 5:
             return 'Sat';
+        case 6:
+            return 'Sun';
         }
+    }
+
+    function colorBgCell(modelData: real): color {
+        if (!root.isSameMonth(modelData))
+            return Config.colBg;
+        else if (root.isToday(modelData))
+            return Config.colDarkBlue;
+        else
+            return Config.colMuted;
+    }
+
+    function colorFgHeader(modelData: real): color {
+        if (modelData == 5 || modelData == 6)
+            return Config.colYellow;
+        return Config.colFg;
+    }
+
+    function colorFg() {
     }
 }
