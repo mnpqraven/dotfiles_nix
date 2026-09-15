@@ -25,7 +25,7 @@ GridLayout {
                 name: 'Discord',
                 launchArg: 'vesktop',
                 desktopId: 'vesktop',
-                enabled: true
+                enabled: ConfigReaderService.tools.discord.enable
             },
             {
                 name: 'Steam',
@@ -37,19 +37,19 @@ GridLayout {
                 name: 'Zen',
                 launchArg: 'zen-beta',
                 desktopId: 'zen-beta',
-                enabled: ConfigReaderService.browser.zen.enabled
+                enabled: ConfigReaderService.browser.zen.enable
             },
             {
                 name: 'Helium',
                 launchArg: 'helium',
                 desktopId: 'helium',
-                enabled: ConfigReaderService.browser.helium.enabled
+                enabled: ConfigReaderService.browser.helium.enable
             },
             {
                 name: 'Librewolf',
                 launchArg: 'librewolf',
                 desktopId: 'librewolf',
-                enabled: ConfigReaderService.browser.librewolf.enabled
+                enabled: ConfigReaderService.browser.librewolf.enable
             },
             {
                 name: 'Anki',
@@ -61,19 +61,19 @@ GridLayout {
                 name: 'Syncthing',
                 launchArg: 'syncthing browser',
                 desktopId: 'syncthing-ui',
-                enabled: ConfigReaderService.services.syncthing.enabled
+                enabled: ConfigReaderService.services.syncthing.enable
             },
             {
                 name: 'Deluge',
                 launchArg: 'deluge',
                 desktopId: 'deluge',
-                enabled: true
+                enabled: ConfigReaderService.tools.torrent.enable
             },
             {
                 name: 'Dolphin',
                 launchArg: 'dolphin',
                 desktopId: 'org.kde.dolphin',
-                enabled: true
+                enabled: ConfigReaderService.kde.enable
             }
         ].filter(app => app.enabled)
 

@@ -7,6 +7,7 @@ let
   flags = osConfig.features;
   text = builtins.toJSON {
     gaming.enable = flags.gaming.enable;
+    kde.enable = flags.kde.enable;
     browser =
       let
         installed = text: builtins.elem text flags.webBrowser.browsers;

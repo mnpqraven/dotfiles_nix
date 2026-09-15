@@ -1,5 +1,5 @@
 import QtQuick
 
 QtObject {
-    property real opacityDuration: 200
+    property real opacityDuration: 120
 }

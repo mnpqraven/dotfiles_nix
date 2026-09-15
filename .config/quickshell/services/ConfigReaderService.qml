@@ -3,12 +3,14 @@ pragma Singleton
 import Quickshell
 import QtQuick
 import Quickshell.Io
+import "./TConfigReaderService"
 
 Singleton {
     id: root
 
     readonly property alias browser: features.browser
     readonly property alias gaming: features.gaming
+    readonly property alias kde: features.kde
     readonly property alias services: features.services
     readonly property alias tools: features.tools
 
@@ -22,35 +24,11 @@ Singleton {
 
         JsonAdapter {
             id: features
-            property JsonObject browser: JsonObject {
-                property JsonObject helium: JsonObject {
-                    property bool enabled: false
-                }
-                property JsonObject zen: JsonObject {
-                    property bool enabled: false
-                }
-                property JsonObject librewolf: JsonObject {
-                    property bool enabled: false
-                }
-            }
-            property JsonObject gaming: JsonObject {
-                property bool enable: false
-            }
-            property JsonObject tools: JsonObject {
-                property JsonObject obs: JsonObject {
-                    property bool enable: false
-                }
-                property JsonObject discord: JsonObject {
-                    property bool enable: false
-                } property JsonObject torrent: JsonObject {
-                    property bool enable: false
-                }
-            }
-            property JsonObject services: JsonObject {
-                property JsonObject syncthing: JsonObject {
-                    property bool enable: false
-                }
-            }
+            property BrowserConfig browser: BrowserConfig {}
+            property ToggleConfig gaming: ToggleConfig {}
+            property KdeConfig kde: KdeConfig {}
+            property ToolsConfig tools: ToolsConfig {}
+            property ServicesConfig services: ServicesConfig {}
         }
     }
 }
