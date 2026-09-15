@@ -9,8 +9,7 @@
 lib.mkIf osConfig.features.editors.helix.enable {
   programs.helix.enable = true;
   programs.helix.package = inputs.helix.packages.${pkgs.stdenv.hostPlatform.system}.helix;
-  # FIXME: dyn
-  xdg.configFile.helix.source = config.lib.file.mkOutOfStoreSymlink "${config.home.homeDirectory}/dotfiles_nix/.config/helix";
+  xdg.configFile.helix.source = config.lib.file.mkOutOfStoreSymlink "${osConfig.flake.repoPath}/.config/helix";
 
   home.packages = with pkgs; [
     # nix

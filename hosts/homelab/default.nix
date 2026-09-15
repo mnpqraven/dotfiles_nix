@@ -26,6 +26,9 @@
       enable = false;
       address = "192.168.1.14";
     };
+    tools = {
+      torrent.enable = true;
+    };
     autoUpgrade.enable = false;
   };
 }

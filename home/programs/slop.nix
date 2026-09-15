@@ -4,6 +4,6 @@
   osConfig,
   ...
 }:
-lib.mkIf osConfig.features.slop.enable {
+lib.mkIf osConfig.features.tools.slop.enable {
   home.packages = with pkgs; [ claude-code ];
 }

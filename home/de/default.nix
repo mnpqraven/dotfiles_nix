@@ -7,7 +7,6 @@ _: {
     ./notifications.nix
     ./niri.nix
     ./quickshell.nix
-    ./waybar
     ./wallthi.nix
   ];
 }

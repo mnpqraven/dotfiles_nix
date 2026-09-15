@@ -11,13 +11,12 @@ in
 lib.mkIf osConfig.features.desktops.niri.enable {
   xdg.configFile.niri = {
     target = "./niri/config.kdl";
-    source = config.lib.file.mkOutOfStoreSymlink "${config.home.homeDirectory}/dotfiles_nix/.config/niri/${device}.kdl";
+    source = config.lib.file.mkOutOfStoreSymlink "${osConfig.flake.repoPath}/.config/niri/${device}.kdl";
     force = true;
   };
-  # TODO: folder
   xdg.configFile.common = {
     target = "./niri/common.kdl";
-    source = config.lib.file.mkOutOfStoreSymlink "${config.home.homeDirectory}/dotfiles_nix/.config/niri/common.kdl";
+    source = config.lib.file.mkOutOfStoreSymlink "${osConfig.flake.repoPath}/.config/niri/common.kdl";
     force = true;
   };
   home.pointerCursor = {

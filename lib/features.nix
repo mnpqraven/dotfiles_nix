@@ -21,6 +21,11 @@ let
 
 in
 {
+  options.flake.repoPath = mkOption {
+    type = types.str;
+    default = "/home/othi/dotfiles_nix";
+    description = "path to the flake repo (relative in home directory)";
+  };
   options.features = {
     x11.enable = mkEnableOption "X11 server";
     wayland.enable = mkEnableOption "Wayland protocol";
@@ -60,10 +65,9 @@ in
         enable = mkEnableOption "Hyprland";
         bar = mkOption {
           type = types.enum [
-            "waybar"
             "hyprpanel"
           ];
-          default = "waybar";
+          default = "hyprpanel";
         };
       };
     };
@@ -100,7 +104,12 @@ in
       };
     };
 
-    slop.enable = mkEnableOption "AI features";
+    tools = {
+      obs.enable = mkEnableOption "OBS studio";
+      discord.enable = mkEnableOption "discord";
+      torrent.enable = mkEnableOption "torrenting";
+      slop.enable = mkEnableOption "AI features";
+    };
 
     users = mkOption {
       type = types.listOf types.str;

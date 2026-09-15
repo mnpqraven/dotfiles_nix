@@ -243,14 +243,6 @@ animations {
     // slowdown 3.0
 }
 
-// TODO: layer-rule for quickshell
-layer-rule {
-    match namespace="waybar"
-    match at-startup=true
-
-    // in case waybar has black fill when there's border radius
-    // opacity 0.99
-}
 
 // Window rules let you adjust behavior for individual windows.
 // Find more information on the wiki:

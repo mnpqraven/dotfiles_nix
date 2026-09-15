@@ -1,4 +1,4 @@
-{ pkgs, inputs, ... }:
+{ pkgs, ... }:
 {
   imports = [
     # uncomment this if you don't have a custom host and certificate ruleset
@@ -43,7 +43,7 @@
       address = "othiremote.synology.me";
     };
 
-    slop.enable = true;
+    tools.slop.enable = true;
   };
 
   environment.systemPackages = with pkgs; [

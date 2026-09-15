@@ -15,7 +15,7 @@
   # Set your time zone.
   time.timeZone = "Asia/Ho_Chi_Minh";
 
-  # if any gtk applications (e.g ghostty, waybar) hangs or crashes at launch,
+  # if any gtk applications (e.g ghostty) hangs or crashes at launch,
   # it's likely fcitx5 being the culprit for calling the portal request too early
   # find the first one calling in `journalctl --user -b | $EDITOR`
   # @see https://github.com/NixOS/nixpkgs/issues/206630

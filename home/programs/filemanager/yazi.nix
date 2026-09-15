@@ -1,6 +1,7 @@
 {
   pkgs,
   config,
+  osConfig,
   inputs,
   ...
 }:
@@ -14,6 +15,5 @@ in
     shellWrapperName = "y";
     package = yazi;
   };
-  # FIXME: dyn
-  xdg.configFile.yazi.source = symlink "${config.home.homeDirectory}/dotfiles_nix/.config/yazi";
+  xdg.configFile.yazi.source = symlink "${osConfig.flake.repoPath}/.config/yazi";
 }

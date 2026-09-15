@@ -223,7 +223,6 @@ layout {
 // which may be more convenient to use.
 // See the binds section below for more spawn examples.
 
-spawn-at-startup "waybar"
 spawn-at-startup "fcitx5" "-dr"
 spawn-at-startup "swww-daemon"
 spawn-at-startup "wallthi" "start" "--daemon"
@@ -252,14 +251,6 @@ animations {
 
     // Slow down all animations by this factor. Values below 1 speed them up instead.
     // slowdown 3.0
-}
-
-layer-rule {
-    match namespace="waybar"
-    match at-startup=true
-
-    // in case waybar has black fill when there's border radius
-    // opacity 0.99
 }
 
 // Window rules let you adjust behavior for individual windows.

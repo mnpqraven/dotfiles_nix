@@ -1,8 +1,12 @@
-{ pkgs, config, ... }:
+{
+  pkgs,
+  config,
+  osConfig,
+  ...
+}:
 {
   home.packages = with pkgs; [
     clifm
   ];
-  # FIXME:
-  xdg.configFile.clifm.source = config.lib.file.mkOutOfStoreSymlink "${config.home.homeDirectory}/dotfiles_nix/.config/clifm";
+  xdg.configFile.clifm.source = config.lib.file.mkOutOfStoreSymlink "${osConfig.flake.repoPath}/.config/clifm";
 }

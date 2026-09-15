@@ -1,5 +1,6 @@
 {
   pkgs,
+  osConfig,
   config,
   ...
 }:
@@ -11,6 +12,5 @@ in
     lazygit
   ];
 
-  # FIXME: dyn
-  xdg.configFile.lazygit.source = symlink "${config.home.homeDirectory}/dotfiles_nix/.config/lazygit";
+  xdg.configFile.lazygit.source = symlink "${osConfig.flake.repoPath}/.config/lazygit";
 }

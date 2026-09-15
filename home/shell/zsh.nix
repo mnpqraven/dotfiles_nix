@@ -1,13 +1,10 @@
 {
-  config,
   osConfig,
   ...
 }:
 let
   device = osConfig.networking.hostName;
   sshKind = "id_ed25519";
-  # FIXME: dyn
-  flake = "${config.home.homeDirectory}/dotfiles_nix";
 in
 {
   programs.zsh = {
@@ -50,8 +47,7 @@ in
       calc = "kalker";
       fm = "yazi";
       mz = "rmpc";
-      # FIXME: dyn
-      rc = "$EDITOR ${config.home.homeDirectory}/dotfiles_nix/flake.nix";
+      rc = "$EDITOR ${osConfig.flake.repoPath}/flake.nix";
       slop = "claude";
 
       # TODO: conditional check with osConfig.programs.nh.enable
@@ -59,8 +55,8 @@ in
       # trybuild = "nixos-rebuild test --flake .#${device} --show-trace -L --sudo";
       # nix-gc = "nix-collect-garbage -d && sudo nix-collect-garbage -d";
 
-      rebuild = "nh os switch ${flake} -H ${device}";
-      trybuild = "nh os test ${flake} -H ${device}";
+      rebuild = "nh os switch ${osConfig.flake.repoPath} -H ${device}";
+      trybuild = "nh os test ${osConfig.flake.repoPath} -H ${device}";
       nix-gc = "nh clean all --nogcroots";
 
       zm = "zellij -l compact";

@@ -11,6 +11,5 @@ lib.mkIf (builtins.elem "ghostty" osConfig.features.terminal.packages) {
     systemd.enable = true;
   };
 
-  # FIXME: dyn
-  xdg.configFile.ghostty.source = config.lib.file.mkOutOfStoreSymlink "${config.home.homeDirectory}/dotfiles_nix/.config/ghostty";
+  xdg.configFile.ghostty.source = config.lib.file.mkOutOfStoreSymlink "${osConfig.flake.repoPath}/.config/ghostty";
 }

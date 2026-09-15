@@ -1,6 +1,7 @@
 {
   pkgs,
   config,
+  osConfig,
   inputs,
   ...
 }:
@@ -15,7 +16,7 @@ in
   ];
   xdg.configFile.quickshell = {
     target = "${config.home.homeDirectory}/.config/quickshell";
-    source = symlink "${config.home.homeDirectory}/dotfiles_nix/.config/quickshell";
+    source = symlink "${osConfig.flake.repoPath}/.config/quickshell";
     recursive = true;
   };
 }

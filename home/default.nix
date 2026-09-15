@@ -1,5 +1,6 @@
 _: {
   imports = [
+    ./features-conf.nix
     ./editor
     ./script.nix
     ./shell

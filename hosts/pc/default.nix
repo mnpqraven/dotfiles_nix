@@ -38,6 +38,11 @@
       enable = true;
       address = "192.168.1.14";
     };
+    tools = {
+      obs.enable = true;
+      discord.enable = true;
+      torrent.enable = true;
+    };
     autoUpgrade.enable = true;
   };
 

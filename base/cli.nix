@@ -1,15 +1,11 @@
-{ ... }:
-let
-  flake = "/home/othi/dotfiles_nix";
-in
+{ config, ... }:
 {
   programs.nh = {
     enable = true;
-    # TODO: dyn
-    inherit flake;
+    flake = config.flake.repoPath;
     clean = {
       enable = true;
-      extraArgs = "--keep 5 --keep-since 7d";
+      extraArgs = "--keep 3 --keep-since 7d";
     };
   };
 }

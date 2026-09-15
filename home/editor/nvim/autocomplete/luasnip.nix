@@ -1,4 +1,4 @@
-{ lib, pkgs, ... }:
+{ osConfig, ... }:
 {
 
   home.packages = [
@@ -10,16 +10,8 @@
   programs.nvf.settings.vim.snippets = {
     luasnip = {
       enable = false;
-      # loaders = ''
-      #   local ls = require("luasnip")
-      #   ls.filetype_extend("typescriptreact", { "typescript", "javascript" })
-      #   ls.filetype_extend("typescript", { "javascript" })
-      #   ls.filetype_extend("javascriptreact", { "javascript" })
-      #   require("luasnip.loaders.from_lua").load({ paths = "~/dotfiles_nix/.config/nvim/snippets/" })
-      # '';
-      # FIXME: dyn
       loaders = ''
-        require("luasnip.loaders.from_vscode").lazy_load({ paths = "~/dotfiles_nix/.config/nvim/snippets" })
+        require("luasnip.loaders.from_vscode").lazy_load({ paths = "${osConfig.flake.repoPath}/.config/nvim/snippets" })
       '';
     };
   };

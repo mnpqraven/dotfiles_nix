@@ -1,6 +1,7 @@
 {
   pkgs,
   config,
+  osConfig,
   inputs,
   ...
 }:
@@ -11,7 +12,6 @@ in
   home.packages = [
     rmpc
   ];
-  # FIXME: dyn
   xdg.configFile."rmpc".source =
-    config.lib.file.mkOutOfStoreSymlink "${config.home.homeDirectory}/dotfiles_nix/.config/rmpc";
+    config.lib.file.mkOutOfStoreSymlink "${osConfig.flake.repoPath}/.config/rmpc";
 }

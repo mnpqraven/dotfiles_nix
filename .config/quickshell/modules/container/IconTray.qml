@@ -5,6 +5,7 @@ import Quickshell.Widgets
 import QtQuick
 import QtQuick.Layouts
 import qs.common
+import qs.services
 
 GridLayout {
     id: root
@@ -18,49 +19,64 @@ GridLayout {
     }
 
     Repeater {
-        // TODO:
         // get desktop id by looping over DesktopEntries.applications.values
-        // nix derivative generate json configs
-        // -> read from that json file
         model: [
             {
                 name: 'Discord',
                 launchArg: 'vesktop',
-                desktopId: 'vesktop'
+                desktopId: 'vesktop',
+                enabled: true
             },
-            // TODO: feature gate
             {
                 name: 'Steam',
                 launchArg: 'steam',
-                desktopId: 'steam'
+                desktopId: 'steam',
+                enabled: ConfigReaderService.gaming.enable
             },
-            // TODO: web browser based on features.nix
             {
                 name: 'Zen',
                 launchArg: 'zen-beta',
-                desktopId: 'zen-beta'
+                desktopId: 'zen-beta',
+                enabled: ConfigReaderService.browser.zen.enabled
+            },
+            {
+                name: 'Helium',
+                launchArg: 'helium',
+                desktopId: 'helium',
+                enabled: ConfigReaderService.browser.helium.enabled
+            },
+            {
+                name: 'Librewolf',
+                launchArg: 'librewolf',
+                desktopId: 'librewolf',
+                enabled: ConfigReaderService.browser.librewolf.enabled
             },
             {
                 name: 'Anki',
                 launchArg: 'anki',
-                desktopId: 'anki'
+                desktopId: 'anki',
+                enabled: true
             },
             {
                 name: 'Syncthing',
                 launchArg: 'syncthing browser',
-                desktopId: 'syncthing-ui'
+                desktopId: 'syncthing-ui',
+                enabled: ConfigReaderService.services.syncthing.enabled
             },
             {
                 name: 'Deluge',
                 launchArg: 'deluge',
-                desktopId: 'deluge'
+                desktopId: 'deluge',
+                enabled: true
             },
             {
                 name: 'Dolphin',
                 launchArg: 'dolphin',
-                desktopId: 'org.kde.dolphin'
+                desktopId: 'org.kde.dolphin',
+                enabled: true
             }
-        ].filter(app => !app.disabled)
+        ].filter(app => app.enabled)
+
         ClickableIcon {}
     }
 
@@ -104,6 +120,7 @@ GridLayout {
             anchors.fill: parent
             cursorShape: c.modelData.disabled ? Qt.ArrowCursor : Qt.PointingHandCursor
             onClicked: function onClicked() {
+                console.log('onclick', JSON.stringify(ConfigReaderService));
                 const args = c.notShell ? c.modelData.launchArg : ["sh", "-c", c.modelData.launchArg];
                 Quickshell.execDetached(args);
             }
