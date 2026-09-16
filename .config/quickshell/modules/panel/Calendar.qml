@@ -8,8 +8,10 @@ Item {
     id: root
 
     implicitHeight: childrenRect.height
+    implicitWidth: colLayout.implicitWidth
 
     ColumnLayout {
+        id: colLayout
         // TODO: fancy box
         StyledText {
             text: ClockService.dateTime
@@ -60,6 +62,7 @@ Item {
                     required property real modelData
 
                     Layout.preferredHeight: 40
+                    Layout.minimumWidth: 40
                     Layout.fillWidth: true
                     radius: Config.spacing.barRadius
 
