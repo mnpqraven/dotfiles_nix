@@ -20,14 +20,14 @@ GridLayout {
                 tagName: 'wifi'
             },
             {
-                tagName: 'cf'
+                tagName: 'mv'
             },
-            {
-                tagName: 'noti'
-            },
-            {
-                tagName: 'gamemode'
-            },
+        // {
+        //     tagName: 'noti'
+        // },
+        // {
+        //     tagName: 'gamemode'
+        // },
         ]
 
         // container
@@ -41,14 +41,13 @@ GridLayout {
         id: c
         property string tagName
         // probably better to use tri-state
-        // see if we want support for more cases eg. error etc.
-        // TODO: dyn
-        property bool active: content.text === 'Connected'
+        // TODO: see if we want support for more cases eg. error etc.
+        property bool active: getIsActive()
         property bool loading
 
         radius: Config.spacing.barRadius
         // TODO: better color
-        color: c.active ? Config.colCyan : Config.colMuted
+        color: c.active ? Config.colDarkBlue : Config.colMuted
 
         implicitWidth: row.implicitWidth + Config.spacing.marginGutterX * 2
         implicitHeight: row.implicitHeight + Config.spacing.marginGutterY * 2
@@ -56,7 +55,8 @@ GridLayout {
         MouseArea {
             anchors.fill: parent
             cursorShape: Qt.PointingHandCursor
-            onClicked: c.tagOnclick(c.tagName)
+            acceptedButtons: Qt.LeftButton | Qt.RightButton
+            onClicked: mouse => c.tagOnclick(c.tagName, mouse)
         }
 
         RowLayout {
@@ -98,6 +98,13 @@ GridLayout {
                 return 'TODO';
             case "cf":
                 return CloudflareService.status;
+            case "mv":
+                {
+                    const raw = MullvadService.status.toLowerCase();
+                    if (raw === 'connected')
+                        return MullvadService.details.location.country;
+                    return 'Off';
+                }
             case "noti":
                 return 'TODO';
             case "gamemode":
@@ -111,10 +118,12 @@ GridLayout {
                 return 'Wifi';
             case "cf":
                 return 'WARP';
+            case "mv":
+                return 'VPN';
             case "noti":
                 return 'Notifications';
             case "gamemode":
-                return 'Game mode';
+                return 'Gaming';
             }
         }
 
@@ -124,14 +133,26 @@ GridLayout {
                 return '';
             case "cf":
                 return '';
+            case "mv":
+                return '󰖂';
             case "noti":
                 return '';
             case "gamemode":
                 return '';
             }
         }
+        function tagOnclick(tag: string, mouse: MouseEvent) {
+            if (mouse.button === Qt.LeftButton) {
+                handleLeftClick(tag);
+                return;
+            }
+            if (mouse.button === Qt.RightButton) {
+                handleRightClick(tag);
+                return;
+            }
+        }
 
-        function tagOnclick(tag: string) {
+        function handleLeftClick(tag: string) {
             switch (tag) {
             case "wifi":
                 {
@@ -146,7 +167,37 @@ GridLayout {
                         Quickshell.execDetached(["sh", "-c", "warp-cli connect"]);
 
                     CloudflareService.refetch();
+                    return;
                 }
+            case "mv":
+                {
+                    MullvadService.toggle();
+                    MullvadService.refetch();
+
+                    return;
+                }
+            }
+        }
+
+        function handleRightClick(tag: string) {
+            switch (tag) {
+            case "mv":
+                {
+                    console.log('on execute');
+                    Quickshell.execDetached(["sh", "-c", "mullvad-vpn"]);
+                    return;
+                }
+            default:
+                return;
+            }
+        }
+
+        function getIsActive() {
+            switch (c.tagName) {
+            case "cf":
+                return CloudflareService.status.toLowerCase() === 'connected';
+            case "mv":
+                return MullvadService.status.toLowerCase() === 'connected';
             }
         }
     }

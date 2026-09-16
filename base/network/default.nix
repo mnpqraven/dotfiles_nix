@@ -2,6 +2,7 @@
 {
   imports = [
     ./cloudflare.nix
+    ./mullvad.nix
   ];
   networking.networkmanager.enable = true;
   services.openssh = {
