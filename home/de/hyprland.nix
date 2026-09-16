@@ -8,7 +8,6 @@
 let
   hyprlandCfg = osConfig.features.desktops.hyprland;
   device = osConfig.networking.hostName;
-  dunstExec = if hyprlandCfg.bar != "hyprpanel" then "exec-once = dunst" else null;
 in
 lib.mkIf hyprlandCfg.enable {
   home.packages = with pkgs; [
@@ -27,7 +26,6 @@ lib.mkIf hyprlandCfg.enable {
       exec-once = hypridle
       exec-once = ${hyprlandCfg.bar}
       exec-once = systemctl --user start hyprpolkitagent
-      ${dunstExec}
     '';
   };
 
