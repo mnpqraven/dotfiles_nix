@@ -9,8 +9,10 @@
 # age-keygen -y ~/.config/sops/age/keys.txt
 keys:
   - &laptop_work age1lc25kk22tnmp927s6wqfc307vfkvg97zxtfwlh5laesnkja75u2qpa2et6
+  - &pc_main age1yjwnyw0adud0efyyne0mmhe3j5e60cewfc0rs7j8utnfzt7phdds2dfy4t
 creation_rules:
   - path_regex: secrets/[^/]+\.yaml$
     key_groups:
       - age:
           - *laptop_work
+          - *pc_main
