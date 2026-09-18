@@ -13,6 +13,12 @@ lib.mkIf (builtins.elem "zen" osConfig.features.webBrowser.browsers) {
       "browser.warnOnQuit" = false;
       "browser.warnOnQuitShortcut" = false;
     };
+    policies = {
+      DNSOverHTTPS = {
+        Enabled = false;
+        Locked = true;
+      };
+    };
     # @see https://github.com/nix-community/home-manager/blob/master/modules/programs/firefox/profiles/search.nix
     profiles.default.search = {
       force = true;
