@@ -30,11 +30,15 @@ lib.mkIf config.features.services.syncthing.enable {
   services.syncthing = {
     enable = true;
     inherit user;
+    guiPasswordFile = config.sops.secrets.syncthing_password.path;
     # NOTE: this needs to be a persistent dir, else this device's ID will
     # change after every rebuild
     configDir = "${homeDir}/.config/syncthing";
     dataDir = homeDir;
-    settings = { inherit devices; };
+    settings = {
+      inherit devices;
+      gui.user = user;
+    };
     settings.folders = {
       "${homeDir}/Sync" = {
         id = "default";
