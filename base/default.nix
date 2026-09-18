@@ -16,7 +16,7 @@
     ./locale.nix
     ./nas.nix
     ./network
-    # ./security.nix
+    ./secrets.nix
     ./qmk.nix
     ./upgrade.nix
   ];

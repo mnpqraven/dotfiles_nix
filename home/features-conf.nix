@@ -18,7 +18,7 @@ let
         librewolf.enable = installed "librewolf";
       };
     services = {
-      syncthing.enable = flags.syncthing.enable;
+      syncthing.enable = flags.services.syncthing.enable;
     };
     tools = {
       obs = flags.tools.obs;

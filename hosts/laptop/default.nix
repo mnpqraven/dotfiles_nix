@@ -29,17 +29,19 @@
       "helium"
     ];
     database.enable = true;
-    syncthing = {
-      enable = true;
-      user = "othi";
+    services = {
+      vpn.gui.enable = true;
+      syncthing = {
+        enable = true;
+        user = "othi";
+      };
     };
     desktops = {
       niri.enable = true;
-      hyprland.enable = true;
     };
 
     nas = {
-      enable = false;
+      enable = true;
       address = "othiremote.synology.me";
     };
 

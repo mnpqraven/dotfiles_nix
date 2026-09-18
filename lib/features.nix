@@ -86,12 +86,22 @@ in
     database = {
       enable = mkEnableOption "Postgres database";
     };
-    syncthing = {
-      enable = mkEnableOption "Syncthing service";
-      user = mkOption {
-        type = types.nonEmptyStr;
-        example = "othi";
-        description = "username of syncthing's target dir";
+
+    services = {
+      syncthing = {
+        enable = mkEnableOption "Syncthing service";
+        user = mkOption {
+          type = types.nonEmptyStr;
+          example = "othi";
+          description = "username of syncthing's target dir";
+        };
+      };
+      vpn = {
+        enable = mkOption {
+          type = types.bool;
+          default = true;
+        };
+        gui.enable = mkEnableOption "GUI application for VPN";
       };
     };
 

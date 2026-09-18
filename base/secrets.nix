@@ -1,9 +1,13 @@
 { pkgs, ... }:
 {
   environment.systemPackages = with pkgs; [
+    age
     sops
   ];
   security.rtkit.enable = true;
+
+  # https://zohaib.me/managing-secrets-in-nixos-home-manager-with-sops/
+  # https://michael.stapelberg.ch/posts/2025-08-24-secret-management-with-sops-nix/
   sops = {
     defaultSopsFile = ../secrets/secrets.yaml;
     age = {
@@ -17,8 +21,15 @@
 
     secrets = {
       # This is the actual specification of the secrets.
-      foo = { };
-      bar = { };
+      mullvad_account_number = {
+        restartUnits = [ "mullvad-autostart.service" ];
+      };
+      nas_user = {
+        restartUnits = [ "nas-credentials.service" ];
+      };
+      nas_password = {
+        restartUnits = [ "nas-credentials.service" ];
+      };
     };
   };
 }

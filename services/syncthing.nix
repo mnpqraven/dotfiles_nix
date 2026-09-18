@@ -1,7 +1,7 @@
 # @see https://wes.today/nixos-syncthing/
 { config, lib, ... }:
 let
-  user = config.features.syncthing.user;
+  user = config.features.services.syncthing.user;
   homeDir = "/home/${user}";
   devices = {
     "nas".id = "3ASBY6N-OS6RGSV-ZP64Z7U-MDYTZUA-74TWJT7-K5N2IG6-PE4NEFF-UOK7OA2";
@@ -15,7 +15,7 @@ let
 
   deviceKeys = builtins.attrNames devices;
 in
-lib.mkIf config.features.syncthing.enable {
+lib.mkIf config.features.services.syncthing.enable {
   # Syncthing ports: 8384 for remote access to GUI
   # 22000 TCP and/or UDP for sync traffic
   # 21027/UDP for discovery

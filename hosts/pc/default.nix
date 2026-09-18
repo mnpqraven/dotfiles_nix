@@ -20,7 +20,6 @@
     terminal.default = "ghostty";
     desktops = {
       niri.enable = true;
-      hyprland.enable = true;
     };
 
     gaming.enable = true;
@@ -30,9 +29,12 @@
     ];
     network.cloudflare.enable = true;
     database.enable = true;
-    syncthing = {
-      enable = true;
-      user = "othi";
+    services = {
+      vpn.gui.enable = true;
+      syncthing = {
+        enable = true;
+        user = "othi";
+      };
     };
     nas = {
       enable = true;
