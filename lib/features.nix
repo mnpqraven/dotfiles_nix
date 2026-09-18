@@ -101,6 +101,10 @@ in
           type = types.bool;
           default = true;
         };
+        autostart = mkOption {
+          type = types.bool;
+          default = true;
+        };
         gui.enable = mkEnableOption "GUI application for VPN";
       };
     };

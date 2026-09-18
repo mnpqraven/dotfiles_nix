@@ -41,7 +41,7 @@
     };
 
     nas = {
-      enable = true;
+      enable = false;
       address = "othiremote.synology.me";
     };
 
