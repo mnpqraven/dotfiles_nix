@@ -7,6 +7,8 @@ import QtQuick
 Singleton {
     id: service
 
+    // this can be an array holding list of ids
+    // TODO: impl. close all fn
     property QtObject currentPopover: null
     property var currentCloseCallback: null
 

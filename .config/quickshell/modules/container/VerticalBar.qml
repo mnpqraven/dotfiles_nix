@@ -37,7 +37,7 @@ ColumnLayout {
         // register id to dict so IPC can open the command center
         onScreenNameChanged: {
             if (screenName)
-                ControlCenterIpc.setId(screenName, popover);
+                ControlCenterIpc.setControlPanelId(screenName, popover);
         }
         ControlPanelContainer {
             id: popover

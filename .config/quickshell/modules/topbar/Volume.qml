@@ -5,12 +5,18 @@ import Quickshell
 import Quickshell.Services.Pipewire
 import qs.common
 import qs.services
+import qs.ipc
 
 StyledText {
     id: root
-
+    readonly property string screenName: QsWindow.window?.screen?.name ?? ''
     text: "  " + Math.round(Pipewire.defaultAudioSink?.audio.volume * 100) + "%"
     color: Pipewire.defaultAudioSink?.audio.muted ? Config.colMuted : Config.colFg
+
+    onScreenNameChanged: {
+        if (screenName)
+            ControlCenterIpc.setVolumeMixerId(screenName, mixerPopover);
+    }
 
     MouseArea {
         anchors.fill: parent
