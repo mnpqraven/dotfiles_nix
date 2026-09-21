@@ -14,13 +14,17 @@
       helix.defaultEditor = true;
     };
 
+    development.enable = false;
     terminal.default = "alacritty";
 
     network.cloudflare.enable = true;
     database.enable = true;
-    syncthing = {
-      enable = true;
-      user = "othi";
+    services = {
+      vpn.enable = true;
+      syncthing = {
+        enable = true;
+        user = "othi";
+      };
     };
     nas = {
       enable = false;

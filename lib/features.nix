@@ -38,6 +38,11 @@ in
       helix.defaultEditor = mkEnableOption "Helix as default editor";
     };
 
+    development.enable = mkOption {
+      type = types.bool;
+      default = true;
+    };
+
     gaming.enable = mkEnableOption "Gaming related configurations";
 
     terminal = {
