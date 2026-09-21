@@ -4,7 +4,7 @@ let
 in
 {
   xdg.configFile.hyprlock = {
-    target = ".config/hypr/hyprlock.conf";
+    target = "./hypr/hyprlock.conf";
     source = symlink "${osConfig.flake.repoPath}/.config/hypr/hyprlock.conf";
     force = true;
   };
