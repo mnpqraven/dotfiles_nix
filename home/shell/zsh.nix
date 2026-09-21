@@ -32,7 +32,7 @@ in
       bindkey '^w' forward-word
       bindkey -M vicmd '^[[3~' forward-char
 
-      eval $(keychain --eval --quiet --nogui ${sshKind})
+      eval $(keychain --eval --immediate --quiet --nogui ${sshKind})
       macchina
     '';
     shellAliases = {

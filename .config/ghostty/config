@@ -2,6 +2,7 @@ theme = TokyoNight
 gtk-wide-tabs  = false
 background-opacity = 0.9
 resize-overlay = never
+working-directory = home
 
 window-decoration = none
 
