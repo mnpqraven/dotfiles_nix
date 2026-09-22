@@ -16,7 +16,7 @@ lib.mkIf config.features.services.vpn.enable {
   };
 
   # @see https://discourse.nixos.org/t/connected-to-mullvadvpn-but-no-internet-connection/35803
-  services.resolved.enable = false;
+  services.resolved.enable = true;
 
   systemd.services."mullvad-autostart" = lib.mkIf config.features.services.vpn.autostart {
     description = "Mullvad autostart";

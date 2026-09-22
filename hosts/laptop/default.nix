@@ -4,6 +4,8 @@
     # uncomment this if you don't have a custom host and certificate ruleset
     ./network.nix
     ./keyboard.nix
+    # work related
+    ./work
     # Include the results of the hardware scan.
     ./hardware-configuration.nix
   ];
@@ -31,6 +33,7 @@
     database.enable = true;
     services = {
       vpn.gui.enable = true;
+      vpn.autostart = false;
       syncthing = {
         enable = true;
         user = "othi";
