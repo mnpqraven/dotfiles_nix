@@ -23,12 +23,14 @@
       url = "github:mierak/rmpc";
       inputs.nixpkgs.follows = "nixpkgs";
     };
-    swww.url = "github:LGFae/swww";
     yazi = {
       url = "github:sxyazi/yazi";
       inputs.nixpkgs.follows = "nixpkgs";
     };
-    wallthi.url = "github:mnpqraven/wallthi";
+    wallthi = {
+      url = "github:mnpqraven/wallthi";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
     nix-secrets.url = "git+ssh://git@github.com/mnpqraven/nix-secrets.git?ref=main&shallow=1";
 
     zen-browser = {

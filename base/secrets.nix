@@ -17,9 +17,7 @@
 
     secrets = {
       # This is the actual specification of the secrets.
-      mullvad_account_number = {
-        restartUnits = [ "mullvad-autostart.service" ];
-      };
+      mullvad_account_number = { };
       nas_user = {
         restartUnits = [ "nas-credentials.service" ];
       };

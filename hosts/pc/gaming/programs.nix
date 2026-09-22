@@ -5,24 +5,9 @@
   ...
 }:
 lib.mkIf config.features.gaming.enable {
-  # @see https://www.talesign.com/blog/nixology/sq-gaming-on-nixos
-  hardware = {
-    graphics.enable = true;
-    graphics.enable32Bit = true;
+  programs.gamemode.enable = true;
+  programs.gamescope.enable = true;
 
-    # NVIDIA config
-    nvidia = {
-      package = config.boot.kernelPackages.nvidiaPackages.stable;
-      open = false;
-      modesetting.enable = true;
-    };
-  };
-  services.xserver.videoDrivers = [ "nvidia" ];
-
-  programs = {
-    gamemode.enable = true;
-    gamescope.enable = true;
-  };
   programs.steam = {
     enable = true;
     remotePlay.openFirewall = true; # Open ports for Steam Remote Play
@@ -52,8 +37,4 @@ lib.mkIf config.features.gaming.enable {
     lsfg-vk
     lsfg-vk-ui
   ];
-
-  environment.sessionVariables = {
-    STEAM_EXTRA_COMPAT_TOOLS_PATHS = "\${HOME}/.steam/root/compatibilitytools.d";
-  };
 }

@@ -2,7 +2,7 @@
 layer-rule {
     // This is for swaybg; change for other wallpaper tools.
     // Find the right namespace by running niri msg layers.
-    match namespace="^swww-daemon$"
+    match namespace="^awww-daemon$"
     place-within-backdrop true
 }
 
@@ -214,7 +214,7 @@ layout {
 // See the binds section below for more spawn examples.
 
 spawn-at-startup "qs"
-spawn-at-startup "swww-daemon"
+spawn-at-startup "awww-daemon"
 spawn-at-startup "wallthi" "start" "--daemon"
 
 // Uncomment this line to ask the clients to omit their client-side decorations if possible.
