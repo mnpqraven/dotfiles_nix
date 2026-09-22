@@ -16,3 +16,7 @@ creation_rules:
       - age:
           - *laptop_work
           - *pc_main
+  - path_regex: secrets/laptop/[^/]+\.yaml$
+    key_groups:
+      - age:
+          - *laptop_work

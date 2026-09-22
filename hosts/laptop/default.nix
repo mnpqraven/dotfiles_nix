@@ -51,6 +51,9 @@
     tools.slop.enable = true;
   };
 
+  sops.secrets.certificate.sopsFile = ../../secrets/laptop/certs.yaml;
+  sops.secrets.hosts.sopsFile = ../../secrets/laptop/certs.yaml;
+
   environment.systemPackages = with pkgs; [
     anki
     libreoffice
