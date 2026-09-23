@@ -21,5 +21,9 @@
         }
       }
     '';
+
+    # tailscale might need this for mullvad
+    # https://codeberg.org/jackr/nixos/src/commit/4904ca631a082cb137f249d2fb0b129971a4c322/mods/tailscale.nix#L69
+    # https://discourse.nixos.org/t/anyone-running-both-mullvad-and-tailscale-both-wireguard/17136/6?u=shortcut
   };
 }
