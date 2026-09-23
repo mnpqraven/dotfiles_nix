@@ -3,6 +3,7 @@
   imports = [
     ./cloudflare.nix
     ./mullvad.nix
+    ./tailscale.nix
   ];
   networking.networkmanager.enable = true;
   services.openssh = {
