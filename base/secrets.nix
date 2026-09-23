@@ -28,6 +28,11 @@
         restartUnits = [ "syncthing.service" ];
         group = config.users.groups.syncthing.name; # so the service can read the password file
       };
+
+      # homelab configs
+      vps_cloudflare_record_id.owner = config.users.users.othi.name;
+      vps_cloudflare_zone_id.owner = config.users.users.othi.name;
+      vps_cloudflare_api_token.owner = config.users.users.othi.name;
     };
   };
 }
