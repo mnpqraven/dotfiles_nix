@@ -2,6 +2,7 @@
   inputs,
   osConfig,
   config,
+  lib,
   ...
 }:
 let
@@ -37,11 +38,7 @@ let
       path = [ horizontal ];
       path_vertical = [ vertical ];
     };
-    pcremote = {
-      duration = 60;
-      path = [ horizontal ];
-      path_vertical = [ vertical ];
-    };
+    homelab = { };
     laptop = {
       duration = 60;
       path = [ laptop ];
@@ -52,7 +49,7 @@ in
   imports = [
     inputs.wallthi.homeManagerModules.default
   ];
-  programs.wallthi = {
+  programs.wallthi = lib.mkIf osConfig.features.desktops.niri.enable {
     enable = true;
     settings = {
       monitor = monitorMap.${device};

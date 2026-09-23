@@ -16,8 +16,11 @@
 
     development.enable = false;
     terminal.default = "alacritty";
+    desktops = {
+      niri.enable = true;
+    };
 
-    network.cloudflare.enable = true;
+    network.cloudflare.enable = false;
     database.enable = true;
     services = {
       vpn.enable = true;
@@ -33,6 +36,7 @@
     tools = {
       torrent.enable = true;
     };
+
     autoUpgrade.enable = false;
   };
 }

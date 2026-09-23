@@ -8,6 +8,7 @@ let
   mullvad = config.services.mullvad-vpn.package;
   bin = "${mullvad}/bin/mullvad";
   account = config.sops.secrets.mullvad_account_number.path;
+
 in
 lib.mkIf config.features.services.vpn.enable {
   services.mullvad-vpn = {
@@ -20,15 +21,23 @@ lib.mkIf config.features.services.vpn.enable {
 
   systemd.services."mullvad-autostart" = lib.mkIf config.features.services.vpn.autostart {
     description = "Mullvad autostart";
-    after = [ "multi-user.target" ];
+    requires = [ "mullvad-daemon.service" ];
+    after = [ "mullvad-daemon.service" ];
     wantedBy = [ "graphical.target" ];
-    wants = [ "multi-user.target" ];
     serviceConfig = {
       Type = "simple";
       ExecStart = pkgs.writeShellScript "mullvad-autostart" ''
         "${bin}" account login "$(cat ${account})" > /dev/null
       '';
     };
-    postStart = "${bin} connect";
+    postStart = ''
+      ${bin} lan set allow
+      ${bin} lockdown-mode set on
+      ${bin} tunnel set quantum-resistant on
+      ${bin} tunnel set daita on
+      ${bin} tunnel set daita-direct-only on
+      ${bin} relay set location sg
+      ${bin} connect
+    '';
   };
 }
