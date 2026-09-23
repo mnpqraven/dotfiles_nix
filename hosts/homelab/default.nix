@@ -8,6 +8,8 @@
   networking.hostName = "homelab";
 
   features = {
+    x11.enable = true;
+
     editors = {
       nvim.enable = false;
       helix.enable = true;
@@ -16,9 +18,6 @@
 
     development.enable = false;
     terminal.default = "alacritty";
-    desktops = {
-      niri.enable = true;
-    };
 
     network.cloudflare.enable = false;
     database.enable = true;

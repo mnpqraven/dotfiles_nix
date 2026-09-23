@@ -26,6 +26,10 @@ lib.mkIf config.features.services.vpn.enable {
     wantedBy = [ "graphical.target" ];
     serviceConfig = {
       Type = "simple";
+      Restart = "on-failure";
+      RestartSec = 5;
+      StartLimitBurst = 5;
+      StartLimitIntervalSec = 60;
       ExecStart = pkgs.writeShellScript "mullvad-autostart" ''
         "${bin}" account login "$(cat ${account})" > /dev/null
       '';
