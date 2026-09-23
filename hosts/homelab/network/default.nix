@@ -3,7 +3,7 @@
     ./caddy.nix
   ];
 
-  nftables = {
+  networking.nftables = {
     enable = true;
     # ssh through vpn
     # connection tracking mark (0x00000f41) to get through the firewall
