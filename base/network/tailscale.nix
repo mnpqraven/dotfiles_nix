@@ -23,4 +23,25 @@
   # (Optional but recommended for faster boot with VPNs)
   systemd.network.wait-online.enable = false;
   boot.initrd.systemd.network.wait-online.enable = false;
+
+  # INFO: mullvad integration
+  # https://codeberg.org/jackr/nixos/src/commit/4904ca631a082cb137f249d2fb0b129971a4c322/mods/tailscale.nix#L69
+  # https://discourse.nixos.org/t/anyone-running-both-mullvad-and-tailscale-both-wireguard/17136/6?u=shortcut
+  #
+  # Allow tailscale to work around mullvad
+  # https://theorangeone.net/posts/tailscale-mullvad/
+  # prio needs to be -100
+  networking.nftables.tables.mullvad_tailscale = {
+    family = "inet";
+    content = ''
+      chain output {
+        type route hook output priority -100; policy accept;
+        ip daddr 100.64.0.0/10 ct mark set 0x00000f41 meta mark set 0x6d6f6c65;
+      }
+      chain input {
+        type filter hook input priority -100; policy accept;
+        ip saddr 100.64.0.0/10 ct mark set 0x00000f41 meta mark set 0x6d6f6c65;
+      }
+    '';
+  };
 }
