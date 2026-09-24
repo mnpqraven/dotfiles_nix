@@ -4,6 +4,7 @@
     # uncomment this if you don't have a custom host and certificate ruleset
     ./network.nix
     ./keyboard.nix
+    ../homelab/network
     # work related
     ./work
     # Include the results of the hardware scan.
