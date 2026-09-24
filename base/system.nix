@@ -1,4 +1,4 @@
-{ pkgs, ... }: {
+{ pkgs, config, ... }: {
   # Enable CUPS to print documents.
   services.printing.enable = true;
 
@@ -19,6 +19,15 @@
   nixpkgs.config.allowUnfree = true;
 
   programs.zsh.enable = true;
+  programs.nh = {
+    enable = true;
+    flake = config.flake.repoPath;
+    clean = {
+      enable = true;
+      extraArgs = "--keep 3 --keep-since 7d";
+    };
+  };
+
   users.defaultUserShell = pkgs.zsh;
 
   # This value determines the NixOS release from which the default
