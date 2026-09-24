@@ -4,7 +4,6 @@
     # uncomment this if you don't have a custom host and certificate ruleset
     ./network.nix
     ./keyboard.nix
-    ../homelab/network
     # work related
     ./work
     # Include the results of the hardware scan.
@@ -19,7 +18,6 @@
     editors.helix.enable = true;
     editors.helix.defaultEditor = true;
 
-    network.cloudflare.enable = true;
     terminal = {
       default = "ghostty";
       packages = [
@@ -52,8 +50,8 @@
     tools.slop.enable = true;
   };
 
-  sops.secrets.certificate.sopsFile = ../../secrets/laptop/certs.yaml;
-  sops.secrets.hosts.sopsFile = ../../secrets/laptop/certs.yaml;
+  # sops.secrets.certificate.sopsFile = ../../secrets/laptop/certs.yaml;
+  # sops.secrets.hosts.sopsFile = ../../secrets/laptop/certs.yaml;
 
   environment.systemPackages = with pkgs; [
     anki

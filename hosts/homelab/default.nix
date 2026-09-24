@@ -21,7 +21,6 @@
     development.enable = false;
     terminal.default = "alacritty";
 
-    network.cloudflare.enable = false;
     database.enable = true;
     services = {
       vpn.enable = true;

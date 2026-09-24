@@ -1,5 +1,4 @@
-{ config, ... }: {
-
+{ lib, config, ... }: {
   # TODO: differentiate between clients and servers
   # current pov: nixos wiki
   services.tailscale.enable = true;
@@ -31,7 +30,7 @@
   # Allow tailscale to work around mullvad
   # https://theorangeone.net/posts/tailscale-mullvad/
   # prio needs to be -100
-  networking.nftables.tables.mullvad_tailscale = {
+  networking.nftables.tables.mullvad_tailscale = lib.mkIf config.features.services.vpn.enable {
     family = "inet";
     content = ''
       chain output {

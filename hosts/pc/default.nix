@@ -27,7 +27,7 @@
       "brave"
       "zen"
     ];
-    network.cloudflare.enable = true;
+
     database.enable = true;
     services = {
       vpn.gui.enable = true;
