@@ -16,4 +16,12 @@ lib.mkIf config.features.autoUpgrade.enable {
     dates = "weekly";
     randomizedDelaySec = "45min";
   };
+  programs.nh = {
+    enable = true;
+    flake = config.flake.repoPath;
+    clean = {
+      enable = true;
+      extraArgs = "--keep 3 --keep-since 7d";
+    };
+  };
 }
