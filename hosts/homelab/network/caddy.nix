@@ -11,13 +11,14 @@
 
   # https://wiki.nixos.org/wiki/Caddy
   services.caddy = {
+    enable = true;
     package = pkgs.caddy.withPlugins {
       plugins = [ "github.com/caddy-dns/cloudflare@v0.2.4" ];
       hash = "sha256-dQvk6ezY6TQ1J7PjhCXnThF/SqVgPwBO8/RXzHCY+js=";
     };
-    environmentFile = config.sops.secrets.ENV_CADDY.path;
     openFirewall = true;
-    enable = true;
+
+    environmentFile = config.sops.secrets.ENV_CADDY.path;
     extraConfig = ''
       (cf) {
         tls {
@@ -25,6 +26,7 @@
         }
       }
     '';
+
     virtualHosts = {
       "health.hl.othi.dev".extraConfig = ''
         respond "OK!"
@@ -38,9 +40,9 @@
       '';
     };
   };
+
   networking.firewall.allowedTCPPorts = [
-    80 # http
-    443 # https
+    80
+    443
   ];
-  networking.firewall.logRefusedPackets = true; # debug
 }
