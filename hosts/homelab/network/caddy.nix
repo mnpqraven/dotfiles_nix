@@ -19,23 +19,22 @@
     openFirewall = true;
     enable = true;
     extraConfig = ''
-      (cloudflare) {
+      (cf) {
         tls {
           dns cloudflare {env.CF_API_TOKEN}
         }
       }
     '';
     virtualHosts = {
-      "othi.dev".extraConfig = ''
-        respond "hello world from https othi.dev"
+      "health.hl.othi.dev".extraConfig = ''
+        respond "OK!"
+        import cf
       '';
       "syncthing.hl.othi.dev".extraConfig = ''
-        reverse_proxy http://192.168.1.216:8384
-        import cloudflare
-      '';
-      "syncthing_nas.hl.othi.dev".extraConfig = ''
-        reverse_proxy http://192.168.1.14:8384
-        import cloudflare
+        reverse_proxy http://localhost:8384 {
+          header_up +Host localhost
+        }
+        import cf
       '';
     };
   };
