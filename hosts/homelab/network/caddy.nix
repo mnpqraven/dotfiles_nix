@@ -7,6 +7,9 @@
   services.caddy = {
     enable = true;
     virtualHosts = {
+      "othi.dev".extraConfig = ''
+        respond "Hello, world!"
+      '';
       "localhost".extraConfig = ''
         tls internal
         respond "Hello, world!"
@@ -21,4 +24,8 @@
       '';
     };
   };
+  networking.firewall.allowedTCPPorts = [
+    80 # http
+    443 # https
+  ];
 }
