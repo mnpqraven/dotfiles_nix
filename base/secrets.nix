@@ -33,6 +33,10 @@
       vps_cloudflare_record_id.owner = config.users.users.othi.name;
       vps_cloudflare_zone_id.owner = config.users.users.othi.name;
       vps_cloudflare_api_token.owner = config.users.users.othi.name;
+
+      # envs
+      # fornow only for caddy, renaming possible
+      ENV_CADDY.owner = config.users.users.othi.name;
     };
   };
 }

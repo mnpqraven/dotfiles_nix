@@ -1,36 +1,32 @@
 # reverse proxy
-{ lib, ... }: {
+{
+  lib,
+  pkgs,
+  config,
+  ...
+}:
+{
   # www -> othi.dev -> diff container
   #     A <- CF     B <- caddy
 
   # https://wiki.nixos.org/wiki/Caddy
   services.caddy = {
+    package = pkgs.caddy.withPlugins {
+      plugins = [ "github.com/caddy-dns/cloudflare@v0.2.4" ];
+      hash = "sha256-dQvk6ezY6TQ1J7PjhCXnThF/SqVgPwBO8/RXzHCY+js=";
+    };
+    environmentFile = config.sops.secrets.ENV_CADDY.path;
     openFirewall = true;
     enable = true;
     virtualHosts = {
       "othi.dev".extraConfig = ''
         respond "hello world from https othi.dev"
       '';
-      "othi.local".extraConfig = ''
-        respond "hello world from local othi.local"
-      '';
-      "localhost".extraConfig = ''
-        tls internal
-        root * /home/othi/dotfiles_nix/hosts/homelab/network/demosite
-        file_server {
-          hide .git LICENSE
+      "syncthing.hl.othi.dev".extraConfig = ''
+        reverse_proxy http://192.168.1.14:8384
+        tls {
+          dns cloudflare {env.CF_API_TOKEN}
         }
-      '';
-      "othitest.org".extraConfig = ''
-        respond "Hello, world!"
-      '';
-
-      # reverse proxy examples
-      "example.org".extraConfig = ''
-        respond "hello wor"
-      '';
-      "another.example.org".extraConfig = ''
-        reverse_proxy unix//run/gunicorn.sock
       '';
     };
   };
@@ -38,5 +34,5 @@
     80 # http
     443 # https
   ];
-  networking.firewall.logRefusedPackets = true;
+  networking.firewall.logRefusedPackets = true; # debug
 }
