@@ -18,15 +18,24 @@
     environmentFile = config.sops.secrets.ENV_CADDY.path;
     openFirewall = true;
     enable = true;
+    extraConfig = ''
+      (cloudflare) {
+        tls {
+          dns cloudflare {env.CF_API_TOKEN}
+        }
+      }
+    '';
     virtualHosts = {
       "othi.dev".extraConfig = ''
         respond "hello world from https othi.dev"
       '';
       "syncthing.hl.othi.dev".extraConfig = ''
+        reverse_proxy http://192.168.1.216:8384
+        import cloudflare
+      '';
+      "syncthing_nas.hl.othi.dev".extraConfig = ''
         reverse_proxy http://192.168.1.14:8384
-        tls {
-          dns cloudflare {env.CF_API_TOKEN}
-        }
+        import cloudflare
       '';
     };
   };
