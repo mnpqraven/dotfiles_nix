@@ -7,7 +7,6 @@
 let
   mullvad = config.services.mullvad-vpn.package;
   bin = "${mullvad}/bin/mullvad";
-  # TODO: login cond.
   account = config.sops.secrets.mullvad_account_number.path;
 
 in

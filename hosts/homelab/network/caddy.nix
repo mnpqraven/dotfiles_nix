@@ -34,6 +34,10 @@
         respond "OK!"
         import cf
       '';
+      "blog.hl.othi.dev".extraConfig = ''
+        reverse_proxy http://localhost:5010
+        import cf
+      '';
       "syncthing.hl.othi.dev".extraConfig = ''
         reverse_proxy http://localhost:8384 {
           header_up +Host localhost
@@ -47,4 +51,7 @@
     80
     443
   ];
+
+  # Allow the Caddy user(and service) to edit certs
+  services.tailscale.permitCertUid = "caddy";
 }
