@@ -49,8 +49,8 @@ in
   imports = [
     inputs.wallthi.homeManagerModules.default
   ];
-  programs.wallthi = lib.mkIf osConfig.features.desktops.niri.enable {
-    enable = true;
+  programs.wallthi = {
+    enable = osConfig.features.desktops.niri.enable;
     settings = {
       monitor = monitorMap.${device};
       general = generalMap.${device};

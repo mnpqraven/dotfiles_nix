@@ -33,7 +33,7 @@
     };
     vps = {
       # submodule memes, see https://github.com/NixOS/nix/issues/13571
-      url = "git+https://github.com/mnpqraven/vps?ref=homelab";
+      url = "git+https://github.com/mnpqraven/vps?ref=homelab&submodules=1";
       inputs.nixpkgs.follows = "nixpkgs";
     };
     nix-secrets.url = "git+ssh://git@github.com/mnpqraven/nix-secrets.git?ref=main&shallow=1";
