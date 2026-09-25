@@ -3,6 +3,8 @@
   # current pov: nixos wiki
   services.tailscale = {
     enable = true;
+    # required for *.ts.net MagicDNS names to resolve
+    extraSetFlags = [ "--accept-dns=true" ];
   };
 
   networking.firewall = {
