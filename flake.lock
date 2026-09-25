@@ -973,11 +973,11 @@
         "rust-overlay": "rust-overlay_2"
       },
       "locked": {
-        "lastModified": 1790331367,
-        "narHash": "sha256-r1FxmIPqkiCVoLNK/MObZbDc0IDXOMzxt2tXHPwk1mg=",
+        "lastModified": 1790347787,
+        "narHash": "sha256-h2u/D1ffv7n3icpzwFj4wQeZeQzTORW/iG/p/88uUcs=",
         "ref": "homelab",
-        "rev": "2ce27e85bcdf09b7222957475cf3345f7cf5362b",
-        "revCount": 118,
+        "rev": "d1a3008d51af97a57e43b1d1571abeef5efb5cbc",
+        "revCount": 119,
         "submodules": true,
         "type": "git",
         "url": "https://github.com/mnpqraven/vps"
