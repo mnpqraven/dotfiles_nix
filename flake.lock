@@ -33,6 +33,22 @@
         "type": "github"
       }
     },
+    "cargo-leptos": {
+      "flake": false,
+      "locked": {
+        "lastModified": 1699832556,
+        "narHash": "sha256-7o/yQanBBSA+MmMiGCYSjar4hZ8TRZoPiUniF5ELzXU=",
+        "owner": "benwis",
+        "repo": "cargo-leptos",
+        "rev": "e98b478b0c82af1469151eff30f4246b9af4a539",
+        "type": "github"
+      },
+      "original": {
+        "owner": "benwis",
+        "repo": "cargo-leptos",
+        "type": "github"
+      }
+    },
     "crane": {
       "locked": {
         "lastModified": 1773189535,
@@ -49,6 +65,21 @@
       }
     },
     "crane_2": {
+      "locked": {
+        "lastModified": 1789760033,
+        "narHash": "sha256-jtT4yxZpR8seYnlCMMWSSPlFN92zO6ICuZ8pJrmi86k=",
+        "owner": "ipetkov",
+        "repo": "crane",
+        "rev": "73b980519cefc727a5f6cc8e5c0947a2f9be6edd",
+        "type": "github"
+      },
+      "original": {
+        "owner": "ipetkov",
+        "repo": "crane",
+        "type": "github"
+      }
+    },
+    "crane_3": {
       "locked": {
         "lastModified": 1789760033,
         "narHash": "sha256-jtT4yxZpR8seYnlCMMWSSPlFN92zO6ICuZ8pJrmi86k=",
@@ -152,6 +183,24 @@
     "flake-utils_3": {
       "inputs": {
         "systems": "systems_4"
+      },
+      "locked": {
+        "lastModified": 1731533236,
+        "narHash": "sha256-l0KFg5HjrsfsO/JpG+r7fRrqm12kzFHyUHqHCVpMMbI=",
+        "owner": "numtide",
+        "repo": "flake-utils",
+        "rev": "11707dc2f618dd54ca8739b309ec4fc024de578b",
+        "type": "github"
+      },
+      "original": {
+        "owner": "numtide",
+        "repo": "flake-utils",
+        "type": "github"
+      }
+    },
+    "flake-utils_4": {
+      "inputs": {
+        "systems": "systems_5"
       },
       "locked": {
         "lastModified": 1731533236,
@@ -731,6 +780,7 @@
         "quickshell": "quickshell",
         "rmpc": "rmpc",
         "sops-nix": "sops-nix",
+        "vps": "vps",
         "wallthi": "wallthi",
         "yazi": "yazi",
         "zen-browser": "zen-browser"
@@ -758,6 +808,27 @@
       }
     },
     "rust-overlay_2": {
+      "inputs": {
+        "nixpkgs": [
+          "vps",
+          "nixpkgs"
+        ]
+      },
+      "locked": {
+        "lastModified": 1790234952,
+        "narHash": "sha256-tjQa1vDoHJir4lasZTakz/xgmsfB6SRjeQqaIbefFOk=",
+        "owner": "oxalica",
+        "repo": "rust-overlay",
+        "rev": "ed34466c59b766481248959a21a6e46cf0c60468",
+        "type": "github"
+      },
+      "original": {
+        "owner": "oxalica",
+        "repo": "rust-overlay",
+        "type": "github"
+      }
+    },
+    "rust-overlay_3": {
       "inputs": {
         "nixpkgs": [
           "yazi",
@@ -858,6 +929,21 @@
         "type": "github"
       }
     },
+    "systems_5": {
+      "locked": {
+        "lastModified": 1681028828,
+        "narHash": "sha256-Vy1rq5AaRuLzOxct8nz4T6wlgyUR7zLU309k9mBC768=",
+        "owner": "nix-systems",
+        "repo": "default",
+        "rev": "da67096a3b9bf56a91d16901293e51ba5b49a27e",
+        "type": "github"
+      },
+      "original": {
+        "owner": "nix-systems",
+        "repo": "default",
+        "type": "github"
+      }
+    },
     "treefmt-nix": {
       "inputs": {
         "nixpkgs": "nixpkgs_3"
@@ -876,10 +962,36 @@
         "type": "github"
       }
     },
-    "wallthi": {
+    "vps": {
       "inputs": {
+        "cargo-leptos": "cargo-leptos",
         "crane": "crane_2",
         "flake-utils": "flake-utils_2",
+        "nixpkgs": [
+          "nixpkgs"
+        ],
+        "rust-overlay": "rust-overlay_2"
+      },
+      "locked": {
+        "lastModified": 1790327469,
+        "narHash": "sha256-jmv8lw0/G0xKjw1oFXZxq0CQBkMLIrv/Wkn5HeP+IFw=",
+        "ref": "homelab",
+        "rev": "f89b30d3caa28c9b6e5cb99c2b77292d9ada9fc7",
+        "revCount": 117,
+        "submodules": true,
+        "type": "git",
+        "url": "https://github.com/mnpqraven/vps"
+      },
+      "original": {
+        "ref": "homelab",
+        "type": "git",
+        "url": "https://github.com/mnpqraven/vps"
+      }
+    },
+    "wallthi": {
+      "inputs": {
+        "crane": "crane_3",
+        "flake-utils": "flake-utils_3",
         "nixpkgs": [
           "nixpkgs"
         ]
@@ -941,11 +1053,11 @@
     },
     "yazi": {
       "inputs": {
-        "flake-utils": "flake-utils_3",
+        "flake-utils": "flake-utils_4",
         "nixpkgs": [
           "nixpkgs"
         ],
-        "rust-overlay": "rust-overlay_2"
+        "rust-overlay": "rust-overlay_3"
       },
       "locked": {
         "lastModified": 1789684812,

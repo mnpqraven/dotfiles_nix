@@ -6,6 +6,7 @@
     ./keyboard.nix
     # work related
     ./work
+    ../homelab/containers/othi-blog.nix
     # Include the results of the hardware scan.
     ./hardware-configuration.nix
   ];

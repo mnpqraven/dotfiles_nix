@@ -2,6 +2,7 @@
   # TODO: differentiate between clients and servers
   # current pov: nixos wiki
   services.tailscale.enable = true;
+  services.resolved.enable = true;
 
   networking.nftables.enable = true;
   networking.firewall = {
@@ -43,4 +44,7 @@
       }
     '';
   };
+
+  # Allow the Caddy user(and service) to edit certs
+  services.tailscale.permitCertUid = "caddy";
 }

@@ -27,6 +27,8 @@
       }
     '';
 
+    # still very iffy that everything CNAMEs to homelab tailnet so if that is
+    # unreachable then the whole network is down
     virtualHosts = {
       "health.hl.othi.dev".extraConfig = ''
         respond "OK!"
