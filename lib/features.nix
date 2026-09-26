@@ -84,10 +84,6 @@ in
       default = true;
     };
 
-    network = {
-      cloudflare.enable = mkEnableOption "Cloudflare Warp DNS";
-    };
-
     database = {
       enable = mkEnableOption "Postgres database";
     };

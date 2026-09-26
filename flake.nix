@@ -3,7 +3,7 @@
 
   inputs = {
     # for private submodules
-    self.submodules = true;
+    # self.submodules = true;
     nixpkgs.url = "github:NixOS/nixpkgs/nixos-unstable";
 
     home-manager = {
@@ -29,6 +29,11 @@
     };
     wallthi = {
       url = "github:mnpqraven/wallthi";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
+    vps = {
+      # submodule memes, see https://github.com/NixOS/nix/issues/13571
+      url = "git+https://github.com/mnpqraven/vps?ref=homelab&submodules=1";
       inputs.nixpkgs.follows = "nixpkgs";
     };
     nix-secrets.url = "git+ssh://git@github.com/mnpqraven/nix-secrets.git?ref=main&shallow=1";
@@ -72,6 +77,11 @@
         }
         // mkSystem { hostName = "pcremote"; }
         // mkSystem { hostName = "laptop"; }
-        // mkSystem { hostName = "homelab"; };
+        // mkBaseless {
+          hostName = "homelab";
+          extraModules = [
+            ./base
+          ];
+        };
     };
 }

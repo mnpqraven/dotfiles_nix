@@ -3,11 +3,15 @@
   imports = [
     # Include the results of the hardware scan.
     ./hardware-configuration.nix
+    ./network
+    ./containers
   ];
 
   networking.hostName = "homelab";
 
   features = {
+    x11.enable = true;
+
     editors = {
       nvim.enable = false;
       helix.enable = true;
@@ -17,7 +21,6 @@
     development.enable = false;
     terminal.default = "alacritty";
 
-    network.cloudflare.enable = true;
     database.enable = true;
     services = {
       vpn.enable = true;
@@ -33,6 +36,7 @@
     tools = {
       torrent.enable = true;
     };
+
     autoUpgrade.enable = false;
   };
 }

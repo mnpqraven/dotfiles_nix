@@ -1,12 +1,16 @@
-{ pkgs, ... }:
+{
+  pkgs,
+  config,
+  ...
+}:
 {
   services = {
     displayManager = {
       sddm = {
         enable = true;
-        wayland.enable = true;
+        wayland.enable = config.features.wayland.enable;
       };
-      defaultSession = "niri";
+      defaultSession = if config.features.desktops.niri.enable then "niri" else null;
     };
   };
 
