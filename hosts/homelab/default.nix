@@ -23,7 +23,7 @@
 
     database.enable = true;
     services = {
-      vpn.enable = false;
+      vpn.enable = true;
       syncthing = {
         enable = true;
         user = "othi";
