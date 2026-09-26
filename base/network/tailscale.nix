@@ -1,4 +1,8 @@
-{ lib, config, ... }: {
+{ lib, config, ... }:
+let
+  tailnet = "100.113.152.65/10";
+in
+{
   # TODO: differentiate between clients and servers
   # current pov: nixos wiki
   services.tailscale = {
@@ -36,11 +40,11 @@
     content = ''
       chain output {
         type route hook output priority -100; policy accept;
-        ip daddr 100.64.0.0/10 ct mark set 0x00000f41 meta mark set 0x6d6f6c65;
+        ip daddr ${tailnet} ct mark set 0x00000f41 meta mark set 0x6d6f6c65;
       }
       chain input {
         type filter hook input priority -100; policy accept;
-        ip saddr 100.64.0.0/10 ct mark set 0x00000f41 meta mark set 0x6d6f6c65;
+        ip saddr ${tailnet} ct mark set 0x00000f41 meta mark set 0x6d6f6c65;
       }
     '';
   };
