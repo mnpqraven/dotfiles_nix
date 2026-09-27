@@ -5,17 +5,24 @@
   config,
   ...
 }:
+let
+  acme_cert_loc = "/var/lib/acme/hl.othi.dev";
+  caddy = pkgs.caddy.withPlugins {
+    plugins = [ "github.com/caddy-dns/cloudflare@v0.2.4" ];
+    hash = "sha256-dQvk6ezY6TQ1J7PjhCXnThF/SqVgPwBO8/RXzHCY+js=";
+  };
+in
 {
   # www -> othi.dev -> diff container
   #     A <- CF     B <- caddy
 
+  # debug cli
+  environment.systemPackages = [ caddy ];
+
   # https://wiki.nixos.org/wiki/Caddy
   services.caddy = {
     enable = true;
-    package = pkgs.caddy.withPlugins {
-      plugins = [ "github.com/caddy-dns/cloudflare@v0.2.4" ];
-      hash = "sha256-dQvk6ezY6TQ1J7PjhCXnThF/SqVgPwBO8/RXzHCY+js=";
-    };
+    package = caddy;
     openFirewall = true;
 
     environmentFile = config.sops.secrets.ENV_CADDY.path;
@@ -44,10 +51,12 @@
         }
         import cf
       '';
-      "torrent.hl.othi.dev".extraConfig = ''
-        reverse_proxy http://localhost:8112
-        import cf
-      '';
+      # "torrent.hl.othi.dev".extraConfig = ''
+      #   reverse_proxy http://localhost:8112
+      #   tls ${acme_cert_loc}/cert.pem ${acme_cert_loc}/key.pem {
+      #     protocols tls1.3
+      #   }
+      # '';
     };
   };
 
