@@ -1,3 +1,4 @@
+# TODO: pangolin for self hosted tunnel
 { config, ... }:
 let
   tunnel = "a14caee3-a645-4753-b21a-d59fc9433f80";
