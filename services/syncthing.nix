@@ -1,4 +1,5 @@
-# @see https://wes.today/nixos-syncthing/
+# TODO: https://wiki.nixos.org/wiki/Syncthing#Declarative_node_IDs
+# bind certs to get static device IDs
 { config, lib, ... }:
 let
   user = config.features.services.syncthing.user;
