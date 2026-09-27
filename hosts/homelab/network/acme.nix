@@ -7,16 +7,22 @@
     acceptTerms = true;
     defaults.email = "mnpq.raven@gmail.com";
 
-    certs."hl.othi.dev" = {
+    certs."othi.dev" = {
       group = config.services.caddy.group;
-
-      domain = "hl.othi.dev";
-      extraDomainNames = [ "*.hl.othi.dev" ];
-      dnsProvider = "cloudflare";
-      dnsResolver = "1.1.1.1:53";
-      dnsPropagationCheck = true;
       # https://go-acme.github.io/lego/dns/cloudflare/
       environmentFile = config.sops.secrets.ENV_ACME.path;
+
+      domain = "othi.dev";
+      extraDomainNames = [
+        "*.hl.othi.dev"
+        "*.othi.dev"
+      ];
+      dnsProvider = "cloudflare";
+      dnsResolver = "127.0.0.53:53";
+
+      # hacks to make self-signed certs work with mullvad
+      dnsPropagationCheck = false; # mullvad vpn blocks
+      extraLegoFlags = [ "--dns.propagation.wait=20s" ]; # avoid race condition with cloudflare
     };
   };
 }

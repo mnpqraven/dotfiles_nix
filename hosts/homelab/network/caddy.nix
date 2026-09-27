@@ -6,7 +6,6 @@
   ...
 }:
 let
-  acme_cert_loc = "/var/lib/acme/hl.othi.dev";
   caddy = pkgs.caddy.withPlugins {
     plugins = [ "github.com/caddy-dns/cloudflare@v0.2.4" ];
     hash = "sha256-dQvk6ezY6TQ1J7PjhCXnThF/SqVgPwBO8/RXzHCY+js=";
@@ -29,7 +28,7 @@ in
     extraConfig = ''
       (cf) {
         tls {
-          dns cloudflare {env.CF_API_TOKEN}
+          dns cloudflare {$CF_API_TOKEN}
         }
       }
     '';
@@ -51,12 +50,12 @@ in
         }
         import cf
       '';
-      # "torrent.hl.othi.dev".extraConfig = ''
-      #   reverse_proxy http://localhost:8112
-      #   tls ${acme_cert_loc}/cert.pem ${acme_cert_loc}/key.pem {
-      #     protocols tls1.3
-      #   }
-      # '';
+      "torrent.hl.othi.dev" = {
+        extraConfig = ''
+          reverse_proxy http://localhost:8112
+        '';
+        useACMEHost = "othi.dev";
+      };
     };
   };
 
