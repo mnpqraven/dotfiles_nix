@@ -44,6 +44,10 @@
         }
         import cf
       '';
+      "torrent.hl.othi.dev".extraConfig = ''
+        reverse_proxy http://localhost:8112
+        import cf
+      '';
     };
   };
 
