@@ -77,11 +77,6 @@
         }
         // mkSystem { hostName = "pcremote"; }
         // mkSystem { hostName = "laptop"; }
-        // mkBaseless {
-          hostName = "homelab";
-          extraModules = [
-            ./base
-          ];
-        };
+        // mkSystem { hostName = "homelab"; };
     };
 }
