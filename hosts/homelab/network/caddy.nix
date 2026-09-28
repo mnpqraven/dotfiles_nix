@@ -34,10 +34,6 @@ in
         respond "OK!"
         import cf
       '';
-      "hl.othi.dev".extraConfig = ''
-        reverse_proxy http://localhost:5000
-        import cf
-      '';
       "blog.hl.othi.dev".extraConfig = ''
         reverse_proxy http://localhost:5010
         import cf

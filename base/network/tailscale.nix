@@ -26,7 +26,7 @@ in
   };
 
   systemd.services.tailscaled = {
-    after = lib.mkIf hasMullvad [ "mullvad.daemon.service" ];
+    after = lib.mkIf hasMullvad [ "mullvad-daemon.service" ];
     serviceConfig = {
       # 2. Force tailscaled to use nftables (Critical for clean nftables-only systems)
       # This avoids the "iptables-compat" translation layer issues.
@@ -39,6 +39,10 @@ in
         "/run/wrappers/bin/mullvad-exclude ${lib.getExe' pkgs.tailscale "tailscaled"} --state=/var/lib/tailscale/tailscaled.state --socket=/run/tailscale/tailscaled.sock --port=\${PORT} $FLAGS"
       ];
     };
+    startLimitBurst = 10;
+    startLimitIntervalSec = 0;
+  };
+  systemd.services.tailscaled-autoconnect = {
     startLimitBurst = 10;
     startLimitIntervalSec = 0;
   };
