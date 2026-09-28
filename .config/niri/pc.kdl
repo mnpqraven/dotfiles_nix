@@ -16,7 +16,7 @@ output "DP-2" {
 }
 output "DP-1" {
     focus-at-startup
-    mode "2560x1440"
+    mode "2560x1440@320.002"
     scale 1
     transform "normal"
     position x=1080 y=240

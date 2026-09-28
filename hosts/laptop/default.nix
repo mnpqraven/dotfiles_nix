@@ -6,6 +6,7 @@
     ./keyboard.nix
     # work related
     ./work
+    ../homelab/containers/othi-blog.nix
     # Include the results of the hardware scan.
     ./hardware-configuration.nix
   ];
@@ -18,7 +19,6 @@
     editors.helix.enable = true;
     editors.helix.defaultEditor = true;
 
-    network.cloudflare.enable = true;
     terminal = {
       default = "ghostty";
       packages = [
@@ -51,8 +51,8 @@
     tools.slop.enable = true;
   };
 
-  sops.secrets.certificate.sopsFile = ../../secrets/laptop/certs.yaml;
-  sops.secrets.hosts.sopsFile = ../../secrets/laptop/certs.yaml;
+  # sops.secrets.certificate.sopsFile = ../../secrets/laptop/certs.yaml;
+  # sops.secrets.hosts.sopsFile = ../../secrets/laptop/certs.yaml;
 
   environment.systemPackages = with pkgs; [
     anki
